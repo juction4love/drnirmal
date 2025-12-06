@@ -2,8 +2,7 @@
   "name": "drnirmal",
   "compatibility_date": "2025-12-06",
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS"
+    "directory": "."
   },
   "observability": {
     "enabled": true
