@@ -6,29 +6,22 @@
     
     <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon</title>
     <meta name="description" content="Official portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon (Onco-Urology) and former Chairman of BPKMCH, Chitwan.">
-    <link rel="canonical" href="https://www.drnirmal.com.np/">
     
-    <meta property="og:title" content="Dr. Nirmal Lamichhane | Senior Consultant Surgeon">
-    <meta property="og:description" content="Specialist in Surgical Oncology & Onco-Urology. Former Chairman, BPKMCH.">
-    <meta property="og:image" content="https://www.drnirmal.com.np/profile.png">
-    <meta property="og:url" content="https://www.drnirmal.com.np/">
-    <meta property="og:type" content="website">
-
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&family=Mukta:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             /* SKY BLUE PALETTE */
-            --primary: #0277bd; /* Medical Blue (Dark Sky) - Headers */
+            --primary: #0277bd; /* Medical Blue (Dark Sky) */
             --primary-dark: #014376; /* Darker Navy - Text */
-            --secondary: #29b6f6; /* Vivid Sky Blue - Accents/Buttons */
+            --secondary: #29b6f6; /* Vivid Sky Blue - Accents */
             
             /* Backgrounds */
             --bg-light: #e1f5fe; /* Very Light Sky Blue Page BG */
             --bg-white: #ffffff;
             --box-highlight: #b3e5fc; /* Soft Blue Box Background */
             
-            /* DYNAMIC FONTS */
+            /* FONTS */
             --font-en: 'Source Sans Pro', sans-serif;
             --font-ne: 'Mukta', sans-serif;
             --font-zh: 'Noto Sans SC', sans-serif;
@@ -74,7 +67,6 @@
 
         .header-left { display: flex; align-items: center; }
 
-        /* Small Round Photo in Header */
         .header-profile-img {
             width: 50px;
             height: 50px;
@@ -92,7 +84,6 @@
             line-height: 1.2;
         }
         
-        /* Language Switcher */
         .lang-switch {
             margin-left: 20px;
             display: flex;
@@ -114,7 +105,6 @@
             color: var(--primary-dark);
         }
 
-        /* Nav */
         .nav-links {
             list-style: none;
             display: flex;
@@ -136,9 +126,9 @@
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 2fr 1fr; /* Main Content vs Sidebar */
             gap: 50px;
-            flex: 1; /* Pushes footer down */
+            flex: 1; 
         }
 
         section {
@@ -148,7 +138,7 @@
             scroll-margin-top: 100px;
         }
 
-        /* --- BIG FRAME PHOTO STYLE --- */
+        /* --- COMPONENTS --- */
         .photo-frame-container {
             float: right;
             margin: 0 0 20px 30px;
@@ -165,7 +155,6 @@
         }
         .photo-frame:hover { transform: scale(1.02); }
 
-        /* Typography */
         h2 {
             font-family: 'Merriweather', serif;
             font-size: 2rem;
@@ -180,6 +169,7 @@
             font-family: 'Merriweather', serif;
             color: var(--primary);
             margin-bottom: 15px;
+            font-size: 1.3rem;
         }
 
         .card {
@@ -192,8 +182,8 @@
             box-shadow: 0 5px 15px rgba(2, 119, 189, 0.05);
         }
 
-        /* Expertise Grid */
-        .expert-grid {
+        /* Grids */
+        .expert-grid, .credentials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
@@ -221,7 +211,6 @@
             width: 100%; padding: 10px; margin-bottom: 15px;
             border: 1px solid #b3e5fc; border-radius: 5px;
         }
-        .form-input:focus { outline: none; border-color: var(--primary); }
         
         .submit-btn {
             background: linear-gradient(135deg, var(--secondary), var(--primary)); 
@@ -241,20 +230,8 @@
             margin-top: 50px;
             border-top: 5px solid var(--secondary);
         }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .footer-text {
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-        .footer-sub {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-sub { font-size: 0.85rem; opacity: 0.8; font-family: 'Source Sans Pro', sans-serif; }
 
         /* Mobile */
         @media (max-width: 800px) {
@@ -287,11 +264,10 @@
             
             <ul class="nav-links">
                 <li><a href="#about" data-key="nav_about">About</a></li>
+                <li><a href="#leadership" data-key="nav_lead">Leadership</a></li>
                 <li><a href="#expertise" data-key="nav_expert">Expertise</a></li>
                 <li><a href="#research" data-key="nav_research">Research</a></li>
-                <li><a href="#social" data-key="nav_social">Social</a></li>
                 <li><a href="#ask" data-key="nav_ask">Ask Dr.</a></li>
-                <li><a href="#contact" data-key="nav_contact">Clinic</a></li>
             </ul>
         </div>
     </header>
@@ -306,7 +282,42 @@
                 <h2 data-key="about_head">About Me</h2>
                 <p data-key="about_p1"><strong>I am Dr. Nirmal Lamichhane.</strong> I am a Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Onco-Urology). I currently serve at the B. P. Koirala Memorial Cancer Hospital (BPKMCH) in Chitwan, Nepal.</p>
                 <p data-key="about_p2"><strong>My Background:</strong> I previously had the honor of serving as the <strong>Chairman of the Board of Directors</strong> at BPKMCH, where I oversaw the hospital's executive governance and strategic direction.</p>
-                <p data-key="about_p3">With over two decades of surgical experience, I hold an M.Ch in Urology from Kathmandu University and a Master of Medicine in Clinical/Surgical Oncology from Fudan University, Shanghai. My international training includes prestigious fellowships at Memorial Sloan Kettering (USA), H. Lee Moffitt Cancer Center (USA), and the Royal College of Surgeons of Edinburgh (UK).</p>
+            </section>
+
+            <section id="leadership">
+                <h2 data-key="lead_head">Leadership & Administration</h2>
+                <div class="card">
+                    <h3 data-key="lead_chair_title">Chairman, Board of Directors</h3>
+                    <p data-key="lead_chair_desc">Served as the Chairman of B. P. Koirala Memorial Cancer Hospital (BPKMCH) since 2020, overseeing the hospital's strategic governance.</p>
+                </div>
+                <div class="expert-grid">
+                    <div class="expert-box">
+                        <strong data-key="lead_deputy_title">Deputy Director</strong>
+                        <p data-key="lead_deputy_desc">Former Deputy Director of BPKMCH (2018–2020).</p>
+                    </div>
+                    <div class="expert-box">
+                        <strong data-key="lead_sci_title">Scientific Committee</strong>
+                        <p data-key="lead_sci_desc">Chairman of the Scientific Committee for the First National Oncology Conference.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="training">
+                <h2 data-key="train_head">International Training</h2>
+                <div class="expert-grid">
+                    <div class="expert-box" style="border-top: 4px solid var(--primary);">
+                        <strong data-key="train_mskcc_title">Memorial Sloan Kettering (USA)</strong>
+                        <p data-key="train_mskcc_desc">Saudavar Fellowship in Surgical Oncology (New York, 2006).</p>
+                    </div>
+                    <div class="expert-box" style="border-top: 4px solid var(--primary);">
+                        <strong data-key="train_moffitt_title">H. Lee Moffitt Cancer Center (USA)</strong>
+                        <p data-key="train_moffitt_desc">UICC ICRETT Fellowship in Sentinel Lymph Node Biopsy (Florida).</p>
+                    </div>
+                    <div class="expert-box" style="border-top: 4px solid var(--primary);">
+                        <strong data-key="train_uk_title">Royal College of Surgeons (UK)</strong>
+                        <p data-key="train_uk_desc">Fellowship in Colorectal Surgery (Edinburgh, 2010–2011).</p>
+                    </div>
+                </div>
             </section>
 
             <section id="expertise">
@@ -337,7 +348,7 @@
                 
                 <div class="card">
                     <h3 data-key="res_stats_title">Research Impact</h3>
-                    <p data-key="res_stats_desc">I am a prolific researcher with over 30 peer-reviewed publications in national and international medical journals. My work focuses on improving surgical outcomes in resource-limited settings.</p>
+                    <p data-key="res_stats_desc">I am a prolific researcher with over 30 peer-reviewed publications in national and international medical journals.</p>
                     
                     <strong style="display:block; margin-top:15px; color:var(--secondary);" data-key="res_focus_title">Key Research Areas:</strong>
                     <ul style="padding-left:20px; margin-top:5px;">
@@ -352,24 +363,7 @@
                     <ul style="padding-left:20px;">
                         <li data-key="grant_1"><strong>Best Young Surgeon Award</strong> - Society of Surgeons of Nepal (2005)</li>
                         <li data-key="grant_2"><strong>ASCO Foundation Grant</strong> - International Development (2005)</li>
-                        <li data-key="grant_3"><strong>UICC ICRETT Grant</strong> - Tech Transfer (2003)</li>
                     </ul>
-                </div>
-            </section>
-
-            <section id="social">
-                <h2 data-key="soc_head">Social Initiatives</h2>
-                <div class="expert-grid">
-                    <div class="expert-box" style="border-color: var(--primary);">
-                        <span class="expert-icon">🚑</span>
-                        <strong data-key="soc_camp_title">Free Health Camps</strong>
-                        <p style="font-size:0.9rem; margin-top:10px;" data-key="soc_camp_desc">Conducting regular free surgical camps and cancer screening programs in remote rural districts.</p>
-                    </div>
-                    <div class="expert-box" style="border-color: var(--primary);">
-                        <span class="expert-icon">📢</span>
-                        <strong data-key="soc_aware_title">Cancer Awareness</strong>
-                        <p style="font-size:0.9rem; margin-top:10px;" data-key="soc_aware_desc">Leading public education programs on early detection, prevention, and lifestyle modifications.</p>
-                    </div>
                 </div>
             </section>
 
@@ -385,23 +379,12 @@
                     </form>
                 </div>
             </section>
-
-            <section id="contact">
-                <h2 data-key="contact_head">Clinic Locations</h2>
-                <div class="card" style="border-color:var(--secondary);">
-                    <h3 style="margin-top:0; color:var(--primary);" data-key="clinic_name">National City Hospital</h3>
-                    <p data-key="clinic_loc">Location: Hospital Road, Bharatpur-10, Chitwan</p>
-                    <div style="background:var(--box-highlight); padding:10px; border-radius:5px; display:inline-block; font-weight:bold;">
-                        📞 056-493511
-                    </div>
-                </div>
-            </section>
         </main>
 
         <aside>
             <div class="card">
                 <h3 style="margin-top:0;" data-key="edu_head">Education</h3>
-                <ul style="padding-left:20px;">
+                <ul style="padding-left:20px; line-height: 1.8;">
                     <li data-key="edu_1">M.Ch (Urology) - Kathmandu University.</li>
                     <li data-key="edu_2">M.Med (Oncology) - Fudan University.</li>
                     <li data-key="edu_3">MBBS - Shanghai Medical University.</li>
@@ -409,11 +392,13 @@
             </div>
             
             <div class="card">
-                <h3 style="margin-top:0;" data-key="nav_lead">Leadership</h3>
-                 <ul style="padding-left:20px;">
-                    <li data-key="role_chair">Former Chairman, BPKMCH</li>
-                    <li data-key="role_deputy">Former Deputy Director</li>
-                </ul>
+                <h3 style="margin-top:0;" data-key="contact_head">Clinic</h3>
+                 <p style="font-weight:bold; color:var(--primary);" data-key="clinic_name">National City Hospital</p>
+                 <p style="font-size:0.9rem;" data-key="clinic_loc">Hospital Road, Bharatpur-10, Chitwan</p>
+                 <br>
+                 <div style="background:var(--box-highlight); padding:5px 10px; border-radius:5px; display:inline-block; font-weight:bold;">
+                    📞 056-493511
+                </div>
             </div>
 
             <div class="card">
@@ -439,14 +424,28 @@
                 nav_lead: "Leadership",
                 nav_expert: "Expertise",
                 nav_research: "Research",
-                nav_social: "Social",
                 nav_ask: "Ask Dr.",
-                nav_contact: "Clinic",
+                
                 about_head: "About Me",
                 about_p1: "I am Dr. Nirmal Lamichhane, a Senior Consultant Surgeon specializing in Surgical Oncology and Onco-Urology at BPKMCH, Chitwan.",
                 about_p2: "I previously served as the Chairman of the Board of Directors at BPKMCH, overseeing strategic direction.",
-                about_p3: "I hold an M.Ch in Urology and M.Med from Fudan University, with fellowships in the USA and UK.",
                 
+                lead_head: "Leadership & Administration",
+                lead_chair_title: "Chairman, Board of Directors",
+                lead_chair_desc: "Served as the Chairman of B. P. Koirala Memorial Cancer Hospital (BPKMCH) since 2020.",
+                lead_deputy_title: "Deputy Director",
+                lead_deputy_desc: "Former Deputy Director of BPKMCH (2018–2020).",
+                lead_sci_title: "Scientific Committee",
+                lead_sci_desc: "Chairman of the Scientific Committee for the First National Oncology Conference.",
+
+                train_head: "International Training",
+                train_mskcc_title: "Memorial Sloan Kettering (USA)",
+                train_mskcc_desc: "Saudavar Fellowship in Surgical Oncology (New York).",
+                train_moffitt_title: "H. Lee Moffitt Cancer Center (USA)",
+                train_moffitt_desc: "UICC ICRETT Fellowship in Sentinel Lymph Node Biopsy.",
+                train_uk_title: "Royal College of Surgeons (UK)",
+                train_uk_desc: "Fellowship in Colorectal Surgery (Edinburgh).",
+
                 expert_head: "Clinical Expertise",
                 expert_sub: "Specialized care in complex oncological surgeries with a focus on urology.",
                 exp_uro_title: "Uro-Oncology",
@@ -458,30 +457,23 @@
 
                 res_head: "Research & Publications",
                 res_stats_title: "Research Impact",
-                res_stats_desc: "I am a prolific researcher with over 30 peer-reviewed publications. My work focuses on improving surgical outcomes in resource-limited settings.",
+                res_stats_desc: "I am a prolific researcher with over 30 peer-reviewed publications. My work focuses on improving surgical outcomes.",
                 res_focus_title: "Key Research Areas:",
                 res_area_1: "Penile Cancer: Groin Node Dissection Techniques",
                 res_area_2: "Bladder Cancer: Neobladder Reconstruction",
                 res_area_3: "Breast Cancer: Sentinel Lymph Node Biopsy in Nepal",
+                
                 grant_title: "Honors & Grants",
                 grant_1: "Best Young Surgeon Award - Society of Surgeons of Nepal (2005)",
                 grant_2: "ASCO Foundation Grant - International Development (2005)",
-                grant_3: "UICC ICRETT Grant - Tech Transfer (2003)",
 
-                soc_head: "Social Initiatives",
-                soc_camp_title: "Free Health Camps",
-                soc_camp_desc: "Conducting regular free surgical camps and cancer screening programs in remote rural districts.",
-                soc_aware_title: "Cancer Awareness",
-                soc_aware_desc: "Leading public education programs on early detection, prevention, and lifestyle modifications.",
-
-                role_chair: "Former Chairman",
-                role_deputy: "Former Deputy Director",
                 ask_head: "Ask Dr. Nirmal",
                 ask_sub: "Do you have a question about your diagnosis? Fill out the form below.",
                 btn_send: "Send Message",
-                contact_head: "Clinic Locations",
+                
+                contact_head: "Clinic",
                 clinic_name: "National City Hospital (Private)",
-                clinic_loc: "Location: Hospital Road, Bharatpur-10, Chitwan",
+                clinic_loc: "Hospital Road, Bharatpur-10, Chitwan",
                 
                 edu_head: "Education",
                 edu_1: "M.Ch (Urology) - Kathmandu University.",
@@ -498,13 +490,27 @@
                 nav_lead: "नेतृत्व",
                 nav_expert: "विशेषज्ञता",
                 nav_research: "अनुसन्धान",
-                nav_social: "सामाजिक",
                 nav_ask: "परामर्श",
-                nav_contact: "क्लिनिक",
+                
                 about_head: "मेरो बारेमा",
                 about_p1: "म डा. निर्मल लामिछाने, बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) चितवनमा सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा विशेषज्ञ वरिष्ठ सर्जन हुँ।",
                 about_p2: "मैले यसअघि बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको सञ्चालक समितिको अध्यक्ष (Chairman) को रूपमा सेवा गरिसकेको छु।",
-                about_p3: "मसँग दुई दशकभन्दा बढीको अनुभव छ। मैले काठमाडौं विश्वविद्यालयबाट M.Ch (युरोलोजी) र फुदान विश्वविद्यालय (सांघाई) बाट M.Med प्राप्त गरेको छु।",
+                
+                lead_head: "नेतृत्व र प्रशासन",
+                lead_chair_title: "अध्यक्ष, सञ्चालक समिति",
+                lead_chair_desc: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको अध्यक्षको रूपमा सेवा (२०७७ देखि)।",
+                lead_deputy_title: "उप-निर्देशक",
+                lead_deputy_desc: "BPKMCH को पूर्व उप-निर्देशक (२०७४–२०७७)।",
+                lead_sci_title: "वैज्ञानिक समिति",
+                lead_sci_desc: "प्रथम राष्ट्रिय अन्कोलोजी सम्मेलनको वैज्ञानिक समितिको अध्यक्ष।",
+
+                train_head: "अन्तर्राष्ट्रिय तालिम",
+                train_mskcc_title: "मेमोरियल स्लोन केटरिङ (USA)",
+                train_mskcc_desc: "सर्जिकल अन्कोलोजीमा फेलोसिप (न्यूयोर्क)।",
+                train_moffitt_title: "H. Lee Moffitt Cancer Center (USA)",
+                train_moffitt_desc: "सेन्टिनेल लिम्फ नोड बायोप्सी फेलोसिप।",
+                train_uk_title: "रोयल कलेज अफ सर्जन (UK)",
+                train_uk_desc: "कोलोरेक्टल सर्जरीमा फेलोसिप (एडिनबर्ग)।",
 
                 expert_head: "क्लिनिकल विशेषज्ञता",
                 expert_sub: "युरोलोजी र जटिल क्यान्सर शल्यक्रियामा विशेष सेवा।",
@@ -522,23 +528,16 @@
                 res_area_1: "लिंगको क्यान्सर: ग्रोइन नोड डिसेक्सन",
                 res_area_2: "मुत्राशय क्यान्सर: नियोब्लाडर पुनर्निर्माण",
                 res_area_3: "स्तन क्यान्सर: नेपालमा सेन्टिनेल लिम्फ नोड बायोप्सी",
+                
                 grant_title: "पुरस्कार र अनुदान",
                 grant_1: "उत्कृष्ट युवा सर्जन अवार्ड - नेपाल शल्य चिकित्सक समाज (२००५)",
                 grant_2: "ASCO फाउन्डेसन ग्रांट (२००५)",
-                grant_3: "UICC ICRETT ग्रांट (२००३)",
 
-                soc_head: "सामाजिक कार्यहरू",
-                soc_camp_title: "नि:शुल्क स्वास्थ्य शिविर",
-                soc_camp_desc: "ग्रामीण जिल्लाहरूमा नियमित रूपमा नि:शुल्क शल्यक्रिया र क्यान्सर परीक्षण शिविर सञ्चालन।",
-                soc_aware_title: "जनचेतना कार्यक्रम",
-                soc_aware_desc: "क्यान्सरको प्रारम्भिक पहिचान, रोकथाम र जीवनशैली परिवर्तन सम्बन्धी जनचेतना कार्यक्रमहरूको नेतृत्व।",
-
-                role_chair: "पूर्व अध्यक्ष (Chairman)",
-                role_deputy: "पूर्व उप-निर्देशक",
                 ask_head: "डाक्टरलाई सोध्नुहोस्",
                 ask_sub: "के तपाइँ आफ्नो निदानको बारेमा प्रश्न सोध्न चाहनुहुन्छ? तलको फारम भर्नुहोस्।",
                 btn_send: "सन्देश पठाउनुहोस्",
-                contact_head: "क्लिनिक स्थानहरू",
+                
+                contact_head: "क्लिनिक",
                 clinic_name: "नेशनल सिटी हस्पिटल (प्राइभेट)",
                 clinic_loc: "स्थान: हस्पिटल रोड, भरतपुर-१०, चितवन",
                 
@@ -557,13 +556,27 @@
                 nav_lead: "领导力",
                 nav_expert: "专业领域",
                 nav_research: "学术研究",
-                nav_social: "社会公益",
                 nav_ask: "咨询医生",
-                nav_contact: "诊所",
+                
                 about_head: "关于我",
                 about_p1: "我是 Nirmal Lamichhane 博士，是奇特旺 BPKMCH 医院肿瘤外科和肿瘤泌尿科的高级顾问外科医生。",
                 about_p2: "我曾担任 BPKMCH 董事会主席，负责医院的战略指导和管理。",
-                about_p3: "我拥有加德满都大学泌尿外科 M.Ch 学位和上海复旦大学临床肿瘤学医学硕士学位，并在美国和英国完成了进修。",
+                
+                lead_head: "领导与行政",
+                lead_chair_title: "董事会主席",
+                lead_chair_desc: "自2020年起担任 B. P. Koirala 纪念癌症医院 (BPKMCH) 主席。",
+                lead_deputy_title: "副局长",
+                lead_deputy_desc: "BPKMCH 前任副局长 (2018–2020)。",
+                lead_sci_title: "科学委员会",
+                lead_sci_desc: "首届全国肿瘤学会议科学委员会主席。",
+
+                train_head: "国际培训",
+                train_mskcc_title: "纪念斯隆-凯特琳 (美国)",
+                train_mskcc_desc: "肿瘤外科 Saudavar 奖学金 (纽约)。",
+                train_moffitt_title: "莫菲特癌症中心 (美国)",
+                train_moffitt_desc: "UICC ICRETT 前哨淋巴结活检奖学金。",
+                train_uk_title: "皇家外科医师学会 (英国)",
+                train_uk_desc: "结直肠外科奖学金 (爱丁堡)。",
 
                 expert_head: "临床专长",
                 expert_sub: "专注于泌尿系统及复杂肿瘤外科手术。",
@@ -581,23 +594,16 @@
                 res_area_1: "阴茎癌：腹股沟淋巴结清扫术",
                 res_area_2: "膀胱癌：新膀胱重建",
                 res_area_3: "乳腺癌：尼泊尔的前哨淋巴结活检",
+                
                 grant_title: "荣誉与资助",
                 grant_1: "最佳青年外科医生奖 - 尼泊尔外科医师协会 (2005)",
                 grant_2: "ASCO 基金会资助 (2005)",
-                grant_3: "UICC ICRETT 技术转让资助 (2003)",
 
-                soc_head: "社会公益",
-                soc_camp_title: "免费义诊",
-                soc_camp_desc: "在偏远地区定期开展免费手术和癌症筛查活动。",
-                soc_aware_title: "癌症宣传",
-                soc_aware_desc: "领导关于癌症早期发现、预防和生活方式改变的公共教育项目。",
-
-                role_chair: "前任主席 (Chairman)",
-                role_deputy: "前任副局长",
                 ask_head: "咨询 Nirmal 医生",
                 ask_sub: "您对诊断有疑问吗？请填写下面的表格。",
                 btn_send: "发送信息",
-                contact_head: "诊所位置",
+                
+                contact_head: "诊所",
                 clinic_name: "国家城市医院 (私立)",
                 clinic_loc: "地址: 巴拉特普尔-10, 奇特旺 (医院路)",
                 
@@ -616,7 +622,12 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
-                    el.innerText = translations[lang][key];
+                    // Check if it's an innerHTML update (for lists with bold tags) or plain text
+                    if (key.includes('grant_') || key.includes('edu_') || key.includes('res_area_')) {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.innerText = translations[lang][key];
+                    }
                 }
             });
             document.body.className = `lang-${lang}`;
