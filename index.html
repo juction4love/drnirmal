@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Nirmal Lamichhane | Senior Onco-Urology Surgeon</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #003366; /* Medical Blue */
+            --secondary: #005b96;
+            --accent: #b3cde0;
+            --text: #333;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); }
+        
+        /* Language Toggle Classes */
+        .lang-np { display: none; } /* Hide Nepali by default */
+        .lang-en { display: block; }
+
+        /* Navigation */
+        header { 
+            background: var(--primary); 
+            color: white; 
+            padding: 0.5rem 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            margin: auto; 
+        }
+        
+        /* Logo Area */
+        .logo { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+        }
+        .nav-avatar {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%; 
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid white;
+        }
+        
+        nav ul { list-style: none; display: flex; padding: 0; margin: 0; align-items: center; }
+        nav ul li { margin-left: 20px; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
+        nav a:hover { color: var(--accent); }
+
+        /* Language Button */
+        .lang-btn {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-left: 20px;
+        }
+        .lang-btn:hover { background: white; }
+
+        /* Sections */
+        section { padding: 80px 0; border-bottom: 1px solid #eee; }
+
+        /* Hero Section */
+        #home { 
+            background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('profile.png'); 
+            background-size: cover; 
+            background-position: center 20%; 
+            background-attachment: fixed; 
+            color: white; 
+            padding: 160px 20px; 
+            text-align: center; 
+            margin-top: -80px; 
+        }
+        #home h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        #home p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 25px auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        
+        .btn { 
+            display: inline-block; 
+            background: white; 
+            color: var(--primary); 
+            padding: 12px 35px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+            margin-top: 20px; 
+            border: 2px solid white;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--primary); transform: translateY(-2px); }
+
+        /* General Layout */
+        .container { width: 85%; margin: auto; }
+        h2 { color: var(--primary); border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 10px; margin-bottom: 40px; }
+        
+        /* Grid Layouts */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        
+        /* Bio Image */
+        .bio-image-container img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 5px solid white;
+        }
+
+        .card { 
+            background: var(--light); 
+            padding: 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: var(--secondary); margin-top: 0; }
+        .bg-light { background-color: #f9f9f9; }
+
+        footer { background: #222; color: white; text-align: center; padding: 40px 0; }
+        footer p { margin: 5px 0; font-size: 0.9rem; color: #bbb; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; }
+            nav ul { margin-top: 15px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            #home h1 { font-size: 2.2rem; }
+            .bio-image-container { text-align: center; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="profile.png" alt="Dr. Nirmal" class="nav-avatar">
+                <div>
+                    <span class="lang-en">Dr. Nirmal Lamichhane</span>
+                    <span class="lang-np">डा. निर्मल लामिछाने</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home"><span class="lang-en">Home</span><span class="lang-np">गृहपृष्ठ</span></a></li>
+                    <li><a href="#profile"><span class="lang-en">Profile</span><span class="lang-np">परिचय</span></a></li>
+                    <li><a href="#expertise"><span class="lang-en">Services</span><span class="lang-np">सेवाहरू</span></a></li>
+                    <li><a href="#research"><span class="lang-en">Research</span><span class="lang-np">अनुसन्धान</span></a></li>
+                    <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-np">सम्पर्क</span></a></li>
+                    <li><button onclick="toggleLanguage()" class="lang-btn">नेपाली / English</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="lang-en">
+            <h1>Dr. Nirmal Lamichhane</h1>
+            <p>Senior Consultant Surgeon & Former Chairman of the Board of Directors</p>
+            <p>B. P. Koirala Memorial Cancer Hospital (BPKMCH)</p>
+            <a href="#contact" class="btn">Book Appointment</a>
+        </div>
+
+        <div class="lang-np">
+            <h1>डा. निर्मल लामिछाने</h1>
+            <p>वरिष्ठ कन्सलटेन्ट सर्जन तथा पूर्व अध्यक्ष (सञ्चालक समिति)</p>
+            <p>बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH)</p>
+            <a href="#contact" class="btn">समय लिनुहोस्</a>
+        </div>
+    </section>
+
+    <section id="profile" class="container">
+        <h2 class="lang-en">Biography & Qualifications</h2>
+        <h2 class="lang-np">जीवनी तथा योग्यता</h2>
+        
+        <div class="grid-2">
+            <div>
+                <div class="lang-en">
+                    <p>Dr. Nirmal Lamichhane is a dedicated Senior Onco-Urology Surgeon with over two decades of experience. He completed his medical education in China and returned to Nepal to pioneer advancements in surgical oncology at the B. P. Koirala Memorial Cancer Hospital. <strong>He previously led the hospital governance as Chairman.</strong></p>
+                    <h3>Education</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>M.Ch (Magister Chirurgiae) Urology:</strong> Kathmandu University, Nepal (2016)</li>
+                        <li><strong>Master of Medicine (Clinical/Surgical Oncology):</strong> Fudan University Medical School, Shanghai, China (2001)</li>
+                        <li><strong>MBBS:</strong> Shanghai Medical University, China (1998)</li>
+                    </ul>
+                    <h3>International Fellowships</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Colorectal Surgery:</strong> Royal College of Surgeons of Edinburgh, UK (2010–2011)</li>
+                        <li><strong>Surgical Oncology:</strong> Memorial Sloan Kettering Cancer Center, USA (2006)</li>
+                    </ul>
+                </div>
+
+                <div class="lang-np">
+                    <p>डा. निर्मल लामिछाने दुई दशकभन्दा बढी अनुभव भएका एक समर्पित वरिष्ठ अन्को-युरोलोजी सर्जन हुनुहुन्छ। चीनमा आफ्नो चिकित्सा शिक्षा पूरा गरेपछि, उहाँले बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालमा सर्जिकल अन्कोलोजीको क्षेत्रमा महत्त्वपूर्ण योगदान पुर्याउन नेपाल फर्कनुभयो। <strong>उहाँले यसअघि अस्पतालको सञ्चालक समितिको अध्यक्षको रूपमा नेतृत्व गर्नुभएको थियो।</strong></p>
+                    <h3>शिक्षा</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>M.Ch (युरोलोजी):</strong> काठमाडौं विश्वविद्यालय, नेपाल (२०१६)</li>
+                        <li><strong>मास्टर अफ मेडिसिन (क्लिनिकल/सर्जिकल अन्कोलोजी):</strong> फुडान विश्वविद्यालय मेडिकल स्कूल, सांघाई, चीन (२००१)</li>
+                        <li><strong>MBBS:</strong> सांघाई मेडिकल युनिभर्सिटी, चीन (१९९८)</li>
+                    </ul>
+                    <h3>अन्तर्राष्ट्रिय फेलोशिपहरू</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Colorectal Surgery:</strong> रोयल कलेज अफ सर्जन अफ एडिनबर्ग, यूके (२०१०–२०११)</li>
+                        <li><strong>Surgical Oncology:</strong> मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर, अमेरिका (२००६)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bio-image-container">
+                <img src="profile.png" alt="Dr. Nirmal Lamichhane">
+                <div class="card" style="margin-top: 20px;">
+                    <p><strong class="lang-en">Professional Memberships:</strong><strong class="lang-np">व्यावसायिक सदस्यताहरू:</strong></p>
+                    <ul>
+                        <li>Nepal Medical Council (3261)</li>
+                        <li>General Medical Council UK (7059752)</li>
+                        <li>ASCO & UICC Member</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="bg-light">
+        <div class="container">
+            <h2 class="lang-en">Surgical Specialties</h2>
+            <h2 class="lang-np">विशेषज्ञ सेवाहरू</h2>
+            
+            <p class="lang-en" style="margin-bottom: 30px;">Dr. Lamichhane focuses on Genito-urinary tract tumors and has extensive experience in the surgical treatment of solid tumors.</p>
+            <p class="lang-np" style="margin-bottom: 30px;">डा. लामिछाने जेनिटो-युरिनरी ट्र्याक्ट (मूत्र प्रणाली) को ट्युमरमा केन्द्रित हुनुहुन्छ र ठोस ट्युमरहरूको शल्यक्रिया उपचारमा उहाँसँग व्यापक अनुभव छ।</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="lang-en">Urological Oncology</h3>
+                    <h3 class="lang-np">युरोलोजिकल क्यान्सर</h3>
+                    <ul class="lang-en">
+                        <li>Radical Prostatectomy</li>
+                        <li>Cystectomy (Bladder Removal)</li>
+                        <li>Transurethral Resection (TURP/TURBT)</li>
+                        <li>Kidney Cancer Surgery</li>
+                    </ul>
+                    <ul class="lang-np">
+                        <li>रेडिकल प्रोस्टेटेक्टोमी (प्रोस्टेट क्यान्सर)</li>
+                        <li>सिस्टेक्टोमी (मूत्राशयको शल्यक्रिया)</li>
+                        <li>TURP / TURBT (दूरबीन प्रविधि)</li>
+                        <li>मिर्गौला क्यान्सरको शल्यक्रिया</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="lang-en">Reconstructive Surgery</h3>
+                    <h3 class="lang-np">पुनर्निर्माण शल्यक्रिया</h3>
+                    <p class="lang-en">Special interest in <strong>Studer pouch neobladder reconstruction</strong> following cystectomy.</p>
+                    <p class="lang-np">सिस्टेक्टोमी पछि <strong>नियो-ब्ल्याडर (नयाँ मूत्राशय) निर्माण</strong> मा विशेष रुचि र अनुभव।</p>
+                </div>
+                <div class="card">
+                    <h3 class="lang-en">General Oncology</h3>
+                    <h3 class="lang-np">अन्य क्यान्सर शल्यक्रिया</h3>
+                    <ul class="lang-en">
+                        <li>Mastectomies (Breast Cancer)</li>
+                        <li>Colectomies (Colon Cancer)</li>
+                        <li>Penectomies</li>
+                        <li>Soft Tissue Tumor Removal</li>
+                    </ul>
+                    <ul class="lang-np">
+                        <li>मास्टेक्टोमी (स्तन क्यान्सर)</li>
+                        <li>कोलेक्टोमी (आन्द्राको क्यान्सर)</li>
+                        <li>पेनेक्टोमी (लिंगको क्यान्सर)</li>
+                        <li>सफ्ट टिस्यु ट्युमर हटाउने</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="container">
+        <h2 class="lang-en">Research & Honors</h2>
+        <h2 class="lang-np">अनुसन्धान तथा सम्मान</h2>
+        
+        <div class="grid-2">
+            <div>
+                <h3 class="lang-en">Honors & Awards</h3>
+                <h3 class="lang-np">पुरस्कार तथा सम्मान</h3>
+                <ul style="line-height: 2;">
+                    <li>
+                        <span class="lang-en"><strong>Best Young Surgeon Award:</strong> Society of Surgeons of Nepal (2005)</span>
+                        <span class="lang-np"><strong>उत्कृष्ट युवा सर्जन अवार्ड:</strong> नेपाल सर्जन समाज (२००५)</span>
+                    </li>
+                    <li><strong>ASCO Foundation Grant:</strong> International Development Educational Grant (2005)</li>
+                    <li><strong>UICC ICRETT Grant:</strong> International Technology Transfer (2003)</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="lang-en">Selected Publications</h3>
+                <h3 class="lang-np">प्रमुख प्रकाशनहरू</h3>
+                <div class="card">
+                    <ul style="font-size: 0.95rem; line-height: 1.6;">
+                        <li><em>Salvage robot-assisted radical prostatectomy (sRARP) for radiation resistant prostate cancer.</em> Nepalese Journal of Cancer (2016).</li>
+                        <li><em>Orthotropic neobladder urinary diversion for carcinoma of urinary bladder.</em> J Nepal Health Res Counc (2012).</li>
+                        <li><em>Sentinel node biopsy in breast cancer patients.</em> China Oncology (2000).</li>
+                        <li><em>Surgical management of Squamous cell carcinoma of penis.</em> Journal of Society of Surgeons of Nepal (2003).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <h2 class="lang-en">Contact Information</h2>
+            <h2 class="lang-np">सम्पर्क विवरण</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="lang-en">Location</h3>
+                    <h3 class="lang-np">ठेगाना</h3>
+                    <p class="lang-en"><strong>Department of Surgical Oncology</strong><br>B. P. Koirala Memorial Cancer Hospital<br>Chitwan, Nepal</p>
+                    <p class="lang-np"><strong>सर्जिकल अन्कोलोजी विभाग</strong><br>बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल<br>भरतपुर, चितवन, नेपाल</p>
+                </div>
+                <div class="card">
+                    <h3 class="lang-en">Get in Touch</h3>
+                    <h3 class="lang-np">सम्पर्क गर्नुहोस्</h3>
+                    <p><strong>Phone:</strong> 9855046811</p>
+                    <p><strong>Email:</strong> nirmal.lamichhane@gmail.com</p>
+                    <a href="mailto:nirmal.lamichhane@gmail.com" class="btn" style="background: var(--primary); color: white; margin-top: 10px;">Email Now</a>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <img src="profile.png" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+                    <p class="lang-en"><strong>Dr. Nirmal Lamichhane</strong><br>Senior Onco-Urology Surgeon</p>
+                    <p class="lang-np"><strong>डा. निर्मल लामिछाने</strong><br>वरिष्ठ अन्को-युरोलोजी सर्जन</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="lang-en">&copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.</p>
+        <p class="lang-np">&copy; २०२५ डा. निर्मल लामिछाने। सर्वाधिकार सुरक्षित।</p>
+        <p class="lang-en">Senior Onco-Urology Surgeon | Chitwan, Nepal</p>
+        <p class="lang-np">वरिष्ठ अन्को-युरोलोजी सर्जन | चितवन, नेपाल</p>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            const enElements = document.querySelectorAll('.lang-en');
+            const npElements = document.querySelectorAll('.lang-np');
+            
+            if (currentLang === 'en') {
+                // Switch to Nepali
+                enElements.forEach(el => el.style.display = 'none');
+                npElements.forEach(el => el.style.display = 'block');
+                currentLang = 'np';
+            } else {
+                // Switch to English
+                enElements.forEach(el => el.style.display = 'block');
+                npElements.forEach(el => el.style.display = 'none');
+                currentLang = 'en';
+            }
+        }
+    </script>
+
+</body>
+</html>
