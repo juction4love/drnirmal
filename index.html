@@ -10,7 +10,8 @@
     
     <meta property="og:title" content="Dr. Nirmal Lamichhane | Senior Consultant Surgeon">
     <meta property="og:description" content="Specialist in Surgical Oncology & Onco-Urology. Former Chairman, BPKMCH.">
-    <meta property="og:image" content="https://www.drnirmal.com.np/profile.png"> <meta property="og:url" content="https://www.drnirmal.com.np/">
+    <meta property="og:image" content="https://www.drnirmal.com.np/profile.png">
+    <meta property="og:url" content="https://www.drnirmal.com.np/">
     <meta property="og:type" content="website">
 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&family=Mukta:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
@@ -41,6 +42,9 @@
             color: var(--primary-dark); 
             line-height: 1.7;
             background-color: var(--bg-light); 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Language Specific Font Overrides */
@@ -134,6 +138,7 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 50px;
+            flex: 1; /* Pushes footer down */
         }
 
         section {
@@ -226,6 +231,30 @@
             box-shadow: 0 4px 10px rgba(41, 182, 246, 0.4);
         }
         .submit-btn:hover { transform: translateY(-2px); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 5px solid var(--secondary);
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-text {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        .footer-sub {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
 
         /* Mobile */
         @media (max-width: 800px) {
@@ -393,6 +422,13 @@
             </div>
         </aside>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.</p>
+            <p class="footer-sub" data-key="title">Senior Consultant Surgeon | BPKMCH, Nepal</p>
+        </div>
+    </footer>
 
     <script>
         const translations = {
