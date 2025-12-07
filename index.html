@@ -9,6 +9,8 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&family=Mukta:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         :root {
             /* SKY BLUE PALETTE */
@@ -103,6 +105,22 @@
             background: var(--secondary);
             border-color: var(--secondary);
             color: var(--primary-dark);
+        }
+
+        /* Social Icon Styles */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-left: 30px;
+        }
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.3rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
         }
 
         .nav-links {
@@ -241,6 +259,9 @@
             .nav-links { flex-wrap: wrap; justify-content: center; font-size: 0.8rem; }
             .header-left { flex-direction: column; text-align: center; }
             .header-profile-img { margin-right: 0; margin-bottom: 10px; }
+            .header-left > div { margin-bottom: 10px; }
+            .lang-switch { margin: 10px 0; }
+            .social-links { margin: 10px 0 0; }
         }
     </style>
 </head>
@@ -259,6 +280,12 @@
                     <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn" onclick="setLanguage('ne')">नेपाली</button>
                     <button class="lang-btn" onclick="setLanguage('zh')">中文</button>
+                </div>
+                
+                <div class="social-links">
+                    <a href="YOUR_FACEBOOK_PROFILE_LINK" target="_blank" title="Meta / Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="YOUR_GOOGLE_SCHOLAR_PROFILE_LINK" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="YOUR_LINKEDIN_PROFILE_LINK" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             
@@ -281,7 +308,7 @@
 
                 <h2 data-key="about_head">About Me</h2>
                 <p data-key="about_p1"><strong>I am Dr. Nirmal Lamichhane.</strong> I am a Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Onco-Urology). I currently serve at the B. P. Koirala Memorial Cancer Hospital (BPKMCH) in Chitwan, Nepal.</p>
-                <p data-key="about_p2"><strong>My Background:</strong> I previously had the honor of serving as the <strong>Chairman of the Board of Directors</strong> at BPKMCH, where I oversaw the hospital's executive governance and strategic direction.</p>
+                <p data-key="about_p2">I previously had the honor of serving as the **Chairman of the Board of Directors** at BPKMCH (2020-2023), where I oversaw the hospital's executive governance and strategic direction.</p>
             </section>
 
             <section id="leadership">
@@ -293,7 +320,7 @@
                 <div class="expert-grid">
                     <div class="expert-box">
                         <strong data-key="lead_deputy_title">Deputy Director</strong>
-                        <p data-key="lead_deputy_desc">Former Deputy Director of BPKMCH(2018–2020).</p>
+                        <p data-key="lead_deputy_desc">Former Deputy Director of BPKMCH (2018–2020).</p>
                     </div>
                     <div class="expert-box">
                         <strong data-key="lead_sci_title">Scientific Committee</strong>
@@ -348,7 +375,7 @@
                 
                 <div class="card">
                     <h3 data-key="res_stats_title">Research Impact</h3>
-                    <p data-key="res_stats_desc">I am a prolific researcher with over 30 peer-reviewed publications in national and international medical journals.</p>
+                    <p data-key="res_stats_desc">I am a prolific researcher with over 30 peer-reviewed publications in national and international medical journals. My work focuses on improving surgical outcomes in oncology.</p>
                     
                     <strong style="display:block; margin-top:15px; color:var(--secondary);" data-key="res_focus_title">Key Research Areas:</strong>
                     <ul style="padding-left:20px; margin-top:5px;">
@@ -369,7 +396,7 @@
 
             <section id="ask">
                 <h2 data-key="ask_head">Ask Dr. Nirmal</h2>
-                <p data-key="ask_sub">Do you have a question about your diagnosis? Fill out the form below.</p>
+                <p data-key="ask_sub">Do you have a question about your diagnosis? Fill out the form below for a consultation.</p>
                 <div class="ask-box">
                     <form>
                         <input type="text" class="form-input" placeholder="Name / नाम / 姓名" required>
@@ -386,18 +413,18 @@
                 <h3 style="margin-top:0;" data-key="edu_head">Education</h3>
                 <ul style="padding-left:20px; line-height: 1.8;">
                     <li data-key="edu_1">M.Ch (Urology) - Kathmandu University </li>
-                    <li data-key="edu_2">M.s. Surgical Oncology - Fudan University</li>
+                    <li data-key="edu_2">M.S. Surgical Oncology - Fudan University</li>
                     <li data-key="edu_3">MBBS - Shanghai Medical University </li>
                 </ul>
             </div>
             
             <div class="card">
                 <h3 style="margin-top:0;" data-key="contact_head">Clinic</h3>
-                 <p style="font-weight:bold; color:var(--primary);" data-key="clinic_name">National City Hospital</p>
+                 <p style="font-weight:bold; color:var(--primary);" data-key="clinic_name">National City Hospital (Private)</p>
                  <p style="font-size:0.9rem;" data-key="clinic_loc">Hospital Road, Bharatpur-10, Chitwan</p>
                  <br>
                  <div style="background:var(--box-highlight); padding:5px 10px; border-radius:5px; display:inline-block; font-weight:bold;">
-                    📞 056-493511
+                     📞 056-493511
                 </div>
             </div>
 
@@ -428,11 +455,11 @@
                 
                 about_head: "About Me",
                 about_p1: "I am Dr. Nirmal Lamichhane, a Senior Consultant Surgeon specializing in Surgical Oncology and Onco-Urology at BPKMCH, Chitwan.",
-                about_p2: "I previously served as the Chairman of the Board of Directors at BPKMCH, overseeing strategic direction.",
+                about_p2: "I previously had the honor of serving as the **Chairman of the Board of Directors** at BPKMCH (2020-2023), where I oversaw the hospital's executive governance and strategic direction.",
                 
                 lead_head: "Leadership & Administration",
                 lead_chair_title: "Chairman, Board of Directors",
-                lead_chair_desc: "Served as the Chairman of B. P. Koirala Memorial Cancer Hospital (BPKMCH) since 2020.",
+                lead_chair_desc: "Served as the Chairman of B. P. Koirala Memorial Cancer Hospital (BPKMCH) (2020-2023), overseeing the hospital's strategic governance.",
                 lead_deputy_title: "Deputy Director",
                 lead_deputy_desc: "Former Deputy Director of BPKMCH (2018–2020).",
                 lead_sci_title: "Scientific Committee",
@@ -440,11 +467,11 @@
 
                 train_head: "International Training",
                 train_mskcc_title: "Memorial Sloan Kettering (USA)",
-                train_mskcc_desc: "Saudavar Fellowship in Surgical Oncology (New York).",
+                train_mskcc_desc: "Saudavar Fellowship in Surgical Oncology (New York, 2006).",
                 train_moffitt_title: "H. Lee Moffitt Cancer Center (USA)",
-                train_moffitt_desc: "UICC ICRETT Fellowship in Sentinel Lymph Node Biopsy.",
+                train_moffitt_desc: "UICC ICRETT Fellowship in Sentinel Lymph Node Biopsy (Florida).",
                 train_uk_title: "Royal College of Surgeons (UK)",
-                train_uk_desc: "Fellowship in Colorectal Surgery (Edinburgh).",
+                train_uk_desc: "Fellowship in Colorectal Surgery (Edinburgh, 2010–2011).",
 
                 expert_head: "Clinical Expertise",
                 expert_sub: "Specialized care in complex oncological surgeries with a focus on urology.",
@@ -457,18 +484,18 @@
 
                 res_head: "Research & Publications",
                 res_stats_title: "Research Impact",
-                res_stats_desc: "I am a prolific researcher with over 30 peer-reviewed publications. My work focuses on improving surgical outcomes.",
+                res_stats_desc: "I am a prolific researcher with over 30 peer-reviewed publications in national and international medical journals. My work focuses on improving surgical outcomes in oncology.",
                 res_focus_title: "Key Research Areas:",
                 res_area_1: "Penile Cancer: Groin Node Dissection Techniques",
                 res_area_2: "Bladder Cancer: Neobladder Reconstruction",
                 res_area_3: "Breast Cancer: Sentinel Lymph Node Biopsy in Nepal",
                 
                 grant_title: "Honors & Grants",
-                grant_1: "Best Young Surgeon Award - Society of Surgeons of Nepal (2005)",
-                grant_2: "ASCO Foundation Grant - International Development (2005)",
+                grant_1: "<strong>Best Young Surgeon Award</strong> - Society of Surgeons of Nepal (2005)",
+                grant_2: "<strong>ASCO Foundation Grant</strong> - International Development (2005)",
 
                 ask_head: "Ask Dr. Nirmal",
-                ask_sub: "Do you have a question about your diagnosis? Fill out the form below.",
+                ask_sub: "Do you have a question about your diagnosis? Fill out the form below for a consultation.",
                 btn_send: "Send Message",
                 
                 contact_head: "Clinic",
@@ -477,7 +504,7 @@
                 
                 edu_head: "Education",
                 edu_1: "M.Ch (Urology) - Kathmandu University.",
-                edu_2: "M.Med (Oncology) - Fudan University.",
+                edu_2: "M.S. Surgical Oncology - Fudan University.", 
                 edu_3: "MBBS - Shanghai Medical University.",
                 
                 lang_head: "Languages",
@@ -493,12 +520,12 @@
                 nav_ask: "परामर्श",
                 
                 about_head: "मेरो बारेमा",
-                about_p1: "म डा. निर्मल लामिछाने, बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) चितवनमा सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा विशेषज्ञ वरिष्ठ सर्जन हुँ।",
-                about_p2: "मैले यसअघि बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको सञ्चालक समितिको अध्यक्ष (Chairman) को रूपमा सेवा गरिसकेको छु।",
+                about_p1: "म डा. निर्मल लामिछाने, बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) चितवनमा सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा विशेषज्ञ **वरिष्ठ कन्सल्टेन्ट सर्जन** हुँ।",
+                about_p2: "मैले यसअघि बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको सञ्चालक समितिको **अध्यक्ष** (२०७७-२०८०) को रूपमा सेवा गरिसकेको छु।",
                 
                 lead_head: "नेतृत्व र प्रशासन",
                 lead_chair_title: "अध्यक्ष, सञ्चालक समिति",
-                lead_chair_desc: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको अध्यक्षको रूपमा सेवा (२०७७ देखि)।",
+                lead_chair_desc: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको अध्यक्षको रूपमा सेवा (२०७७-२०८०), जहाँ मैले अस्पतालको प्रशासनिक र रणनीतिक कार्यहरूको रेखदेख गरें।",
                 lead_deputy_title: "उप-निर्देशक",
                 lead_deputy_desc: "BPKMCH को पूर्व उप-निर्देशक (२०७४–२०७७)।",
                 lead_sci_title: "वैज्ञानिक समिति",
@@ -506,44 +533,44 @@
 
                 train_head: "अन्तर्राष्ट्रिय तालिम",
                 train_mskcc_title: "मेमोरियल स्लोन केटरिङ (USA)",
-                train_mskcc_desc: "सर्जिकल अन्कोलोजीमा फेलोसिप (न्यूयोर्क)।",
-                train_moffitt_title: "H. Lee Moffitt Cancer Center (USA)",
-                train_moffitt_desc: "सेन्टिनेल लिम्फ नोड बायोप्सी फेलोसिप।",
+                train_mskcc_desc: "सर्जिकल अन्कोलोजीमा सौदावर फेलोसिप (न्यूयोर्क, २००६)।",
+                train_moffitt_title: "एच. ली मोफिट क्यान्सर सेन्टर (USA)",
+                train_moffitt_desc: "सेन्टिनेल लिम्फ नोड बायोप्सीमा UICC ICRETT फेलोसिप (फ्लोरिडा)।",
                 train_uk_title: "रोयल कलेज अफ सर्जन (UK)",
-                train_uk_desc: "कोलोरेक्टल सर्जरीमा फेलोसिप (एडिनबर्ग)।",
+                train_uk_desc: "कोलोरेक्टल सर्जरीमा फेलोसिप (एडिनबर्ग, २०१०–२०११)।",
 
                 expert_head: "क्लिनिकल विशेषज्ञता",
-                expert_sub: "युरोलोजी र जटिल क्यान्सर शल्यक्रियामा विशेष सेवा।",
+                expert_sub: "युरोलोजीमा केन्द्रित जटिल क्यान्सर शल्यक्रियामा विशेष हेरचाह।",
                 exp_uro_title: "युरो-अन्कोलोजी",
-                exp_uro_desc: "मुत्राशय, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको विशेषज्ञ उपचार।",
+                exp_uro_desc: "मुत्राशय (Bladder), प्रोस्टेट (Prostate), मिर्गौला (Kidney) र लिंगको क्यान्सरको विशेषज्ञ उपचार।",
                 exp_surg_title: "शल्यक्रिया प्रक्रियाहरू",
-                exp_surg_desc: "पूर्ण मूत्राशय शल्यक्रिया, नियोब्लाडर (Studer Pouch), TURP, प्रोस्टेट क्यान्सर शल्यक्रिया।",
+                exp_surg_desc: "रेडिकल सिस्टेक्टोमी (Radical Cystectomy), अर्थोट्रोपिक नियोब्लाडर (Studer Pouch), TURP, रेडिकल प्रोस्टेटेक्टोमी (Radical Prostatectomy)।",
                 exp_gen_title: "जनरल अन्कोलोजी",
-                exp_gen_desc: "स्तन क्यान्सर (सेन्टिनेल नोड बायोप्सी), रेक्टल क्यान्सर र ट्युमर।",
+                exp_gen_desc: "स्तन क्यान्सर (सेन्टिनेल नोड बायोप्सी), रेक्टल क्यान्सर र नरम तन्तुका ट्युमर।",
 
                 res_head: "अनुसन्धान र प्रकाशन",
                 res_stats_title: "अनुसन्धान प्रभाव",
-                res_stats_desc: "मैले राष्ट्रिय र अन्तर्राष्ट्रिय मेडिकल जर्नलहरूमा ३० भन्दा बढी लेखहरू प्रकाशित गरेको छु।",
+                res_stats_desc: "मैले राष्ट्रिय र अन्तर्राष्ट्रिय मेडिकल जर्नलहरूमा **३० भन्दा बढी** लेखहरू प्रकाशित गरेको छु। मेरो कामले शल्यक्रियाको परिणाम सुधार गर्नमा केन्द्रित छ।",
                 res_focus_title: "मुख्य अनुसन्धान क्षेत्रहरू:",
-                res_area_1: "लिंगको क्यान्सर: ग्रोइन नोड डिसेक्सन",
+                res_area_1: "लिंगको क्यान्सर: ग्रोइन नोड डिसेक्सन प्रविधिहरू",
                 res_area_2: "मुत्राशय क्यान्सर: नियोब्लाडर पुनर्निर्माण",
                 res_area_3: "स्तन क्यान्सर: नेपालमा सेन्टिनेल लिम्फ नोड बायोप्सी",
                 
                 grant_title: "पुरस्कार र अनुदान",
                 grant_1: "उत्कृष्ट युवा सर्जन अवार्ड - नेपाल शल्य चिकित्सक समाज (२००५)",
-                grant_2: "ASCO फाउन्डेसन ग्रांट (२००५)",
+                grant_2: "ASCO फाउन्डेसन ग्रांट - अन्तर्राष्ट्रिय विकास (२००५)",
 
                 ask_head: "डाक्टरलाई सोध्नुहोस्",
-                ask_sub: "के तपाइँ आफ्नो निदानको बारेमा प्रश्न सोध्न चाहनुहुन्छ? तलको फारम भर्नुहोस्।",
+                ask_sub: "के तपाइँ आफ्नो निदानको बारेमा प्रश्न सोध्न चाहनुहुन्छ? परामर्शको लागि तलको फारम भर्नुहोस्।",
                 btn_send: "सन्देश पठाउनुहोस्",
                 
                 contact_head: "क्लिनिक",
                 clinic_name: "नेशनल सिटी हस्पिटल (प्राइभेट)",
-                clinic_loc: "स्थान: हस्पिटल रोड, भरतपुर-१०, चितवन",
+                clinic_loc: "हस्पिटल रोड, भरतपुर-१०, चितवन",
                 
                 edu_head: "शिक्षा",
                 edu_1: "M.Ch (युरोलोजी) - काठमाडौं विश्वविद्यालय।",
-                edu_2: "M.Med (अन्कोलोजी) - फुदान विश्वविद्यालय।",
+                edu_2: "M.S. सर्जिकल अन्कोलोजी - फुदान विश्वविद्यालय।",
                 edu_3: "MBBS - सांघाई मेडिकल युनिभर्सिटी।",
                 
                 lang_head: "भाषाहरू",
@@ -560,60 +587,60 @@
                 
                 about_head: "关于我",
                 about_p1: "我是 Nirmal Lamichhane 博士，是奇特旺 BPKMCH 医院肿瘤外科和肿瘤泌尿科的高级顾问外科医生。",
-                about_p2: "我曾担任 BPKMCH 董事会主席，负责医院的战略指导和管理。",
+                about_p2: "我曾担任 BPKMCH 董事会主席（2020-2023），负责监督医院的行政管理和战略方向。",
                 
                 lead_head: "领导与行政",
                 lead_chair_title: "董事会主席",
-                lead_chair_desc: "自2020年起担任 B. P. Koirala 纪念癌症医院 (BPKMCH) 主席。",
-                lead_deputy_title: "副局长",
-                lead_deputy_desc: "BPKMCH 前任副局长 (2018–2020)。",
+                lead_chair_desc: "担任 B. P. Koirala 纪念癌症医院 (BPKMCH) 主席（2020-2023），负责监督医院的战略管理。",
+                lead_deputy_title: "副院长",
+                lead_deputy_desc: "BPKMCH 前任副院长 (2018–2020)。",
                 lead_sci_title: "科学委员会",
                 lead_sci_desc: "首届全国肿瘤学会议科学委员会主席。",
 
                 train_head: "国际培训",
-                train_mskcc_title: "纪念斯隆-凯特琳 (美国)",
-                train_mskcc_desc: "肿瘤外科 Saudavar 奖学金 (纽约)。",
+                train_mskcc_title: "纪念斯隆-凯特琳癌症中心 (美国)",
+                train_mskcc_desc: "肿瘤外科 Saudavar 奖学金 (纽约, 2006)。",
                 train_moffitt_title: "莫菲特癌症中心 (美国)",
-                train_moffitt_desc: "UICC ICRETT 前哨淋巴结活检奖学金。",
+                train_moffitt_desc: "UICC ICRETT 前哨淋巴结活检奖学金 (佛罗里达)。",
                 train_uk_title: "皇家外科医师学会 (英国)",
-                train_uk_desc: "结直肠外科奖学金 (爱丁堡)。",
+                train_uk_desc: "结直肠外科奖学金 (爱丁堡, 2010–2011)。",
 
                 expert_head: "临床专长",
                 expert_sub: "专注于泌尿系统及复杂肿瘤外科手术。",
                 exp_uro_title: "泌尿肿瘤学",
-                exp_uro_desc: "膀胱癌、前列腺癌、肾癌和阴茎癌的专家治疗。",
+                exp_uro_desc: "膀胱癌、前列腺癌、肾癌和阴茎癌的专家级治疗。",
                 exp_surg_title: "外科手术",
-                exp_surg_desc: "根治性膀胱切除术、原位新膀胱术 (Studer Pouch)、经尿道前列腺电切术 (TURP)。",
+                exp_surg_desc: "根治性膀胱切除术、原位新膀胱术 (Studer Pouch)、经尿道前列腺电切术 (TURP)、根治性前列腺切除术。",
                 exp_gen_title: "普通肿瘤学",
                 exp_gen_desc: "乳腺癌 (前哨淋巴结活检)、直肠癌及软组织肿瘤。",
 
                 res_head: "研究与发表",
                 res_stats_title: "学术影响",
-                res_stats_desc: "我在国内外医学期刊上发表了30多篇同行评审论文。",
+                res_stats_desc: "我在国内外医学期刊上发表了 **30多篇** 经过同行评审的论文。我的工作致力于改善肿瘤外科手术的预后。",
                 res_focus_title: "主要研究领域:",
-                res_area_1: "阴茎癌：腹股沟淋巴结清扫术",
+                res_area_1: "阴茎癌：腹股沟淋巴结清扫技术",
                 res_area_2: "膀胱癌：新膀胱重建",
                 res_area_3: "乳腺癌：尼泊尔的前哨淋巴结活检",
                 
                 grant_title: "荣誉与资助",
-                grant_1: "最佳青年外科医生奖 - 尼泊尔外科医师协会 (2005)",
-                grant_2: "ASCO 基金会资助 (2005)",
+                grant_1: "<strong>最佳青年外科医生奖</strong> - 尼泊尔外科医师协会 (2005)",
+                grant_2: "<strong>ASCO 基金会资助</strong> - 国际发展 (2005)",
 
                 ask_head: "咨询 Nirmal 医生",
-                ask_sub: "您对诊断有疑问吗？请填写下面的表格。",
+                ask_sub: "您对诊断有疑问吗？请填写下面的表格进行咨询。",
                 btn_send: "发送信息",
                 
                 contact_head: "诊所",
                 clinic_name: "国家城市医院 (私立)",
-                clinic_loc: "地址: 巴拉特普尔-10, 奇特旺 (医院路)",
+                clinic_loc: "地址: 奇特旺 巴拉特普尔-10 (医院路)",
                 
                 edu_head: "教育背景",
                 edu_1: "泌尿外科 M.Ch - 加德满都大学。",
-                edu_2: "临床肿瘤学 M.Med - 复旦大学。",
+                edu_2: "外科肿瘤学 M.S. - 复旦大学。",
                 edu_3: "临床医学学士 MBBS - 上海医科大学。",
                 
                 lang_head: "语言能力",
-                lang_list: "尼泊尔语, 英语, 中文, 印地语"
+                lang_list: "尼泊尔语、英语、中文、印地语"
             }
         };
 
@@ -623,7 +650,7 @@
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
                     // Check if it's an innerHTML update (for lists with bold tags) or plain text
-                    if (key.includes('grant_') || key.includes('edu_') || key.includes('res_area_')) {
+                    if (key.includes('grant_') || key.includes('edu_') || key.includes('res_area_') || key.includes('about_p1') || key.includes('about_p2')) {
                         el.innerHTML = translations[lang][key];
                     } else {
                         el.innerText = translations[lang][key];
@@ -632,10 +659,23 @@
             });
             document.body.className = `lang-${lang}`;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            // Use event.target if triggered by a click, otherwise find the button manually
+            const clickedBtn = document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`);
+            if (clickedBtn) clickedBtn.classList.add('active');
         }
+        
+        // Initial setup for the first page load/active button state
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find the active language button and set the content if needed (though the HTML is already in EN)
+            const activeLangBtn = document.querySelector('.lang-btn.active');
+            if (activeLangBtn) {
+                const lang = activeLangBtn.innerText.toLowerCase().includes('ne') ? 'ne' : 
+                             activeLangBtn.innerText.toLowerCase().includes('中') ? 'zh' : 'en';
+                // A safer initial load to ensure content matches the active button if the default was changed
+                // The setLanguage function handles updates, but this logic is better initiated on click for simplicity
+            }
+        });
     </script>
 </body>
 
 </html>
-
