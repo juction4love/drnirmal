@@ -128,7 +128,7 @@
             display: flex;
             align-items: center;
         }
-        .nav-links li { margin-left: 15px; }
+        .nav-links li { margin-left: 15px; } 
         .nav-links a {
             color: rgba(255,255,255,0.95);
             text-decoration: none;
@@ -198,6 +198,15 @@
             margin-bottom: 25px;
             border-left: 4px solid var(--primary);
             box-shadow: 0 5px 15px rgba(2, 119, 189, 0.05);
+        }
+        
+        /* Specific style for Biography headings */
+        .biography-sub-head {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         /* Grids */
@@ -291,6 +300,7 @@
             
             <ul class="nav-links">
                 <li><a href="#about" data-key="nav_about">About</a></li>
+                <li><a href="#biography" data-key="nav_bio">Biography</a></li> 
                 <li><a href="#leadership" data-key="nav_lead">Leadership</a></li>
                 <li><a href="#expertise" data-key="nav_expert">Expertise</a></li>
                 <li><a href="#research" data-key="nav_research">Research</a></li>
@@ -310,9 +320,30 @@
                 <p data-key="about_p1"><strong>I am Dr. Nirmal Lamichhane.</strong> I am a Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Onco-Urology). I currently serve at the B. P. Koirala Memorial Cancer Hospital (BPKMCH) in Chitwan, Nepal.</p>
                 <p data-key="about_p2">I previously had the honor of serving as the **Chairman of the Board of Directors** at BPKMCH (2020-2023), where I oversaw the hospital's executive governance and strategic direction.</p>
             </section>
+            
+            <section id="biography">
+                <h2 data-key="bio_head">Detailed Biography</h2>
+                <p data-key="bio_intro">I am Dr. Nirmal Lamichhane, a highly distinguished Senior Consultant Surgeon specializing in Surgical Oncology with deep expertise in Onco-Urology. I currently practice in Chitwan, Nepal, and am affiliated with the B. P. Koirala Memorial Cancer Hospital (BPKMCH).</p>
+                
+                <h3 class="biography-sub-head" data-key="bio_clinical_head">Clinical & Academic Focus 🩺</h3>
+                <p data-key="bio_clinical_p1">My clinical practice focuses on complex surgical management of various cancers, with a particular specialization drawn from my advanced sub-specialty training:</p>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li data-key="bio_clinical_li1">**Uro-Oncology:** I provide expert management and surgical treatment for Bladder, Prostate, Kidney, and Penile cancers.</li>
+                    <li data-key="bio_clinical_li2">**Advanced Procedures:** I regularly perform specialized surgeries, including Radical Cystectomy, Orthotropic Neobladder (Studer Pouch) for bladder reconstruction, Transurethral Resection of the Prostate (TURP), and Radical Prostatectomy.</li>
+                    <li data-key="bio_clinical_li3">**General Oncology:** I am also skilled in the surgical treatment of Breast Cancer (including Sentinel Lymph Node Biopsy) and malignancies of the Rectal Cancer and soft tissue tumors.</li>
+                </ul>
 
+                <h3 class="biography-sub-head" data-key="bio_lead_head">Leadership & Administration 💼</h3>
+                <p data-key="bio_lead_p1">Beyond my surgical duties, I have been honored to hold significant administrative and governance positions that contribute to the strategic direction of cancer care in Nepal:</p>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li data-key="bio_lead_li1">**Chairman, Board of Directors:** I served as the Chairman of BPKMCH (2020–2023), overseeing executive governance and strategic development.</li>
+                    <li data-key="bio_lead_li2">**Deputy Director:** I previously served as the Deputy Director of BPKMCH (2018–2020).</li>
+                    <li data-key="bio_lead_li3">**Scientific Committee:** I chaired the scientific committee for the First National Oncology Conference.</li>
+                </ul>
+            </section>
+            
             <section id="leadership">
-                <h2 data-key="lead_head">Leadership & Administration</h2>
+                <h2 data-key="lead_head">Leadership & Administration (Summary)</h2>
                 <div class="card">
                     <h3 data-key="lead_chair_title">Chairman, Board of Directors</h3>
                     <p data-key="lead_chair_desc">Served as the Chairman of B. P. Koirala Memorial Cancer Hospital (BPKMCH) (2020-2023), overseeing the hospital's strategic governance.</p>
@@ -448,6 +479,7 @@
                 name: "Dr. Nirmal Lamichhane",
                 title: "Senior Consultant Surgeon",
                 nav_about: "About",
+                nav_bio: "Biography", // NEW
                 nav_lead: "Leadership",
                 nav_expert: "Expertise",
                 nav_research: "Research",
@@ -457,7 +489,21 @@
                 about_p1: "I am Dr. Nirmal Lamichhane, a Senior Consultant Surgeon specializing in Surgical Oncology and Onco-Urology at BPKMCH, Chitwan.",
                 about_p2: "I previously had the honor of serving as the **Chairman of the Board of Directors** at BPKMCH (2020-2023), where I oversaw the hospital's executive governance and strategic direction.",
                 
-                lead_head: "Leadership & Administration",
+                // NEW BIOGRAPHY KEYS (First Person)
+                bio_head: "Detailed Biography",
+                bio_intro: "I am Dr. Nirmal Lamichhane, a highly distinguished Senior Consultant Surgeon specializing in Surgical Oncology with deep expertise in Onco-Urology. I currently practice in Chitwan, Nepal, and am affiliated with the B. P. Koirala Memorial Cancer Hospital (BPKMCH).",
+                bio_clinical_head: "Clinical & Academic Focus 🩺",
+                bio_clinical_p1: "My clinical practice focuses on complex surgical management of various cancers, with a particular specialization drawn from my advanced sub-specialty training:",
+                bio_clinical_li1: "**Uro-Oncology:** I provide expert management and surgical treatment for Bladder, Prostate, Kidney, and Penile cancers.",
+                bio_clinical_li2: "**Advanced Procedures:** I regularly perform specialized surgeries, including Radical Cystectomy, Orthotropic Neobladder (Studer Pouch) for bladder reconstruction, Transurethral Resection of the Prostate (TURP), and Radical Prostatectomy.",
+                bio_clinical_li3: "**General Oncology:** I am also skilled in the surgical treatment of Breast Cancer (including Sentinel Lymph Node Biopsy) and malignancies of the Rectal Cancer and soft tissue tumors.",
+                bio_lead_head: "Leadership & Administration 💼",
+                bio_lead_p1: "Beyond my surgical duties, I have been honored to hold significant administrative and governance positions that contribute to the strategic direction of cancer care in Nepal:",
+                bio_lead_li1: "**Chairman, Board of Directors:** I served as the Chairman of BPKMCH (2020–2023), overseeing executive governance and strategic development.",
+                bio_lead_li2: "**Deputy Director:** I previously served as the Deputy Director of BPKMCH (2018–2020).",
+                bio_lead_li3: "**Scientific Committee:** I chaired the scientific committee for the First National Oncology Conference.",
+                
+                lead_head: "Leadership & Administration (Summary)", 
                 lead_chair_title: "Chairman, Board of Directors",
                 lead_chair_desc: "Served as the Chairman of B. P. Koirala Memorial Cancer Hospital (BPKMCH) (2020-2023), overseeing the hospital's strategic governance.",
                 lead_deputy_title: "Deputy Director",
@@ -514,6 +560,7 @@
                 name: "डा. निर्मल लामिछाने",
                 title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
                 nav_about: "परिचय",
+                nav_bio: "विस्तृत जीवनी", 
                 nav_lead: "नेतृत्व",
                 nav_expert: "विशेषज्ञता",
                 nav_research: "अनुसन्धान",
@@ -523,7 +570,21 @@
                 about_p1: "म डा. निर्मल लामिछाने, बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) चितवनमा सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा विशेषज्ञ **वरिष्ठ कन्सल्टेन्ट सर्जन** हुँ।",
                 about_p2: "मैले यसअघि बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको सञ्चालक समितिको **अध्यक्ष** (२०७७-२०८०) को रूपमा सेवा गरिसकेको छु।",
                 
-                lead_head: "नेतृत्व र प्रशासन",
+                // NEW BIOGRAPHY KEYS (First Person)
+                bio_head: "विस्तृत जीवनी",
+                bio_intro: "म डा. निर्मल लामिछाने, सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा गहिरो विशेषज्ञता भएको एक उच्च प्रतिष्ठित वरिष्ठ कन्सल्टेन्ट सर्जन हुँ। म हाल चितवन, नेपालमा बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) सँग आबद्ध छु।",
+                bio_clinical_head: "क्लिनिकल र शैक्षिक ध्यान 🩺",
+                bio_clinical_p1: "मेरो क्लिनिकल अभ्यास विभिन्न क्यान्सरहरूको जटिल शल्यक्रिया व्यवस्थापनमा केन्द्रित छ, जसमा मेरो उन्नत उप-विशेषज्ञता तालिम समावेश छ:",
+                bio_clinical_li1: "**युरो-अन्कोलोजी:** म मुत्राशय, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको विशेषज्ञ व्यवस्थापन र शल्यक्रिया उपचार प्रदान गर्दछु।",
+                bio_clinical_li2: "**उन्नत प्रक्रियाहरू:** म नियमित रूपमा पूर्ण मूत्राशय शल्यक्रिया (Radical Cystectomy), मूत्राशय पुनर्निर्माणको लागि अर्थोट्रोपिक नियोब्लाडर (Studer Pouch), TURP, र रेडिकल प्रोस्टेटेक्टोमी सहित विशेष शल्यक्रियाहरू गर्दछु।",
+                bio_clinical_li3: "**जनरल अन्कोलोजी:** म स्तन क्यान्सर (सेन्टिनेल लिम्फ नोड बायोप्सी), रेक्टल क्यान्सर र नरम तन्तुका ट्युमरको शल्यक्रिया उपचारमा पनि कुशल छु।",
+                bio_lead_head: "नेतृत्व र प्रशासन 💼",
+                bio_lead_p1: "मेरो शल्यक्रिया कर्तव्यहरू बाहेक, मलाई नेपालमा क्यान्सर हेरचाहको रणनीतिक दिशामा योगदान पुर्‍याउने महत्त्वपूर्ण प्रशासनिक र शासकीय भूमिकाहरूमा सेवा गर्ने सम्मान मिलेको छ:",
+                bio_lead_li1: "**अध्यक्ष, सञ्चालक समिति:** मैले BPKMCH (२०७७–२०८०) को अध्यक्षको रूपमा सेवा गरें, कार्यकारी शासन र रणनीतिक विकासको रेखदेख गर्दै।",
+                bio_lead_li2: "**उप-निर्देशक:** मैले यसअघि BPKMCH (२०७४–२०७७) को उप-निर्देशकको रूपमा सेवा गरें।",
+                bio_lead_li3: "**वैज्ञानिक समिति:** मैले प्रथम राष्ट्रिय अन्कोलोजी सम्मेलनको वैज्ञानिक समितिको अध्यक्षता गरें।",
+
+                lead_head: "नेतृत्व र प्रशासन (संक्षिप्त)", 
                 lead_chair_title: "अध्यक्ष, सञ्चालक समिति",
                 lead_chair_desc: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको अध्यक्षको रूपमा सेवा (२०७७-२०८०), जहाँ मैले अस्पतालको प्रशासनिक र रणनीतिक कार्यहरूको रेखदेख गरें।",
                 lead_deputy_title: "उप-निर्देशक",
@@ -580,6 +641,7 @@
                 name: "尼尔马尔·拉米查内 医生",
                 title: "高级顾问外科医生",
                 nav_about: "关于",
+                nav_bio: "详细传记", 
                 nav_lead: "领导力",
                 nav_expert: "专业领域",
                 nav_research: "学术研究",
@@ -589,7 +651,21 @@
                 about_p1: "我是 Nirmal Lamichhane 博士，是奇特旺 BPKMCH 医院肿瘤外科和肿瘤泌尿科的高级顾问外科医生。",
                 about_p2: "我曾担任 BPKMCH 董事会主席（2020-2023），负责监督医院的行政管理和战略方向。",
                 
-                lead_head: "领导与行政",
+                // NEW BIOGRAPHY KEYS (First Person)
+                bio_head: "详细传记",
+                bio_intro: "我是尼尔马尔·拉米查内医生，一位杰出的高级顾问外科医生，在外科肿瘤学和肿瘤泌尿学方面拥有深厚的专业知识。我目前在尼泊尔奇特旺执业，隶属于 B. P. Koirala 纪念癌症医院 (BPKMCH)。",
+                bio_clinical_head: "临床和学术重点 🩺",
+                bio_clinical_p1: "我的临床实践侧重于各种癌症的复杂手术管理，特别是基于我所接受的高级专科培训：",
+                bio_clinical_li1: "**泌尿肿瘤学：** 我提供膀胱癌、前列腺癌、肾癌和阴茎癌的专家级管理和手术治疗。",
+                bio_clinical_li2: "**先进手术：** 我定期执行专业手术，包括根治性膀胱切除术、用于膀胱重建的原位新膀胱术 (Studer Pouch)、经尿道前列腺电切术 (TURP) 和根治性前列腺切除术。",
+                bio_clinical_li3: "**普通肿瘤学：** 我还熟练掌握乳腺癌 (包括前哨淋巴结活检)、直肠癌和软组织肿瘤的手术治疗。",
+                bio_lead_head: "领导与行政 💼",
+                bio_lead_p1: "除了手术职责外，我很荣幸担任了重要的行政和治理职务，为尼泊尔的癌症护理战略方向做出了贡献：",
+                bio_lead_li1: "**董事会主席：** 我曾担任 BPKMCH 主席（2020–2023），负责监督执行治理和战略发展。",
+                bio_lead_li2: "**副院长：** 我曾担任 BPKMCH 前任副院长 (2018–2020)。",
+                bio_lead_li3: "**科学委员会：** 我担任了首届全国肿瘤学会议科学委员会主席。",
+                
+                lead_head: "领导与行政 (摘要)", 
                 lead_chair_title: "董事会主席",
                 lead_chair_desc: "担任 B. P. Koirala 纪念癌症医院 (BPKMCH) 主席（2020-2023），负责监督医院的战略管理。",
                 lead_deputy_title: "副院长",
@@ -617,7 +693,7 @@
                 res_head: "研究与发表",
                 res_stats_title: "学术影响",
                 res_stats_desc: "我在国内外医学期刊上发表了 **30多篇** 经过同行评审的论文。我的工作致力于改善肿瘤外科手术的预后。",
-                res_focus_title: "主要研究领域:",
+                res_focus_title: "Key Research Areas:",
                 res_area_1: "阴茎癌：腹股沟淋巴结清扫技术",
                 res_area_2: "膀胱癌：新膀胱重建",
                 res_area_3: "乳腺癌：尼泊尔的前哨淋巴结活检",
@@ -649,8 +725,8 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
-                    // Check if it's an innerHTML update (for lists with bold tags) or plain text
-                    if (key.includes('grant_') || key.includes('edu_') || key.includes('res_area_') || key.includes('about_p1') || key.includes('about_p2')) {
+                    // Use innerHTML for biography and list items to preserve bold tags
+                    if (key.includes('grant_') || key.includes('edu_') || key.includes('res_area_') || key.includes('bio_')) {
                         el.innerHTML = translations[lang][key];
                     } else {
                         el.innerText = translations[lang][key];
@@ -659,20 +735,18 @@
             });
             document.body.className = `lang-${lang}`;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            // Use event.target if triggered by a click, otherwise find the button manually
+            // Find the button and set it active
             const clickedBtn = document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`);
             if (clickedBtn) clickedBtn.classList.add('active');
         }
         
         // Initial setup for the first page load/active button state
         document.addEventListener('DOMContentLoaded', () => {
-            // Find the active language button and set the content if needed (though the HTML is already in EN)
+            // Ensure the page starts in the language indicated by the active button (defaults to 'en' in the HTML body class)
             const activeLangBtn = document.querySelector('.lang-btn.active');
             if (activeLangBtn) {
                 const lang = activeLangBtn.innerText.toLowerCase().includes('ne') ? 'ne' : 
                              activeLangBtn.innerText.toLowerCase().includes('中') ? 'zh' : 'en';
-                // A safer initial load to ensure content matches the active button if the default was changed
-                // The setLanguage function handles updates, but this logic is better initiated on click for simplicity
             }
         });
     </script>
