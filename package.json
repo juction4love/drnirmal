@@ -1,3 +1,7 @@
-"scripts": {
-  "deploy": "wrangler deploy --assets=."
+{
+  "name": "drnirmal-worker",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "wrangler deploy --assets=."
+  }
 }
