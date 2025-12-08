@@ -18,6 +18,8 @@
             --card-bg: #ffffff;
             --text-dark: #333333;
             --whatsapp: #25D366;
+            --chat-bg: #ffffff;
+            --chat-header: #0056b3;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,10 +35,10 @@
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
-            position: relative; /* Needed for absolute positioning of back button */
+            position: relative;
         }
 
-        /* --- NEW BACK BUTTON STYLE --- */
+        /* --- BACK BUTTON --- */
         .back-home-btn {
             position: absolute;
             top: 20px;
@@ -61,12 +63,12 @@
             color: var(--primary);
             background: #fff;
         }
-        /* --------------------------- */
 
+        /* --- PROFILE --- */
         .profile-container {
             text-align: center;
             margin-bottom: 30px;
-            margin-top: 20px; /* Added spacing for back button */
+            margin-top: 20px;
             animation: fadeInDown 0.8s ease-out;
         }
 
@@ -98,6 +100,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
+        /* --- LINKS --- */
         .links-container {
             width: 100%;
             max-width: 480px;
@@ -122,6 +125,8 @@
             transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
             border: 2px solid transparent;
             position: relative;
+            width: 100%;
+            cursor: pointer;
         }
 
         .link-btn:hover {
@@ -130,19 +135,37 @@
             border-color: var(--primary);
         }
 
-        .link-btn i {
-            position: absolute;
-            left: 25px;
-            font-size: 1.3rem;
+        .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
+        
+        /* --- NEW ROW STYLE FOR WHATSAPP + AI BOT --- */
+        .btn-row {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+        }
+        /* Specific tweaks for side-by-side buttons */
+        .btn-row .link-btn {
+            flex: 1;
+            padding: 15px 10px;
+            font-size: 0.9rem;
+            justify-content: center;
+        }
+        .btn-row .link-btn i {
+            position: static; /* Remove absolute pos for side-by-side */
+            margin-right: 8px;
+            font-size: 1.2rem;
         }
 
-        /* Specific Button Styles */
+        /* Colors */
         .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
         .btn-website:hover { border-color: white; color: white; opacity: 0.95; }
         
         .btn-whatsapp { color: #075e54; border: 1px solid #e0e0e0; }
-        .btn-whatsapp i { color: var(--whatsapp); font-size: 1.5rem; }
-        
+        .btn-whatsapp i { color: var(--whatsapp); }
+
+        .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
+        .btn-ai:hover { color: white; opacity: 0.9; }
+
         .btn-clinic { border-left: 5px solid var(--accent); border-radius: 12px; justify-content: space-between; padding-left: 20px; }
         .btn-clinic i { position: static; color: var(--accent); }
         .btn-clinic span { text-align: center; flex: 1; }
@@ -153,7 +176,6 @@
             gap: 20px;
             margin-top: 30px;
         }
-        
         .social-icon {
             width: 45px;
             height: 45px;
@@ -177,15 +199,85 @@
             color: #777;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- AI CHATBOT WINDOW STYLES --- */
+        .chat-window {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; /* Default position */
+            width: 350px;
+            height: 480px;
+            background: var(--chat-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            display: none; 
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            border: 1px solid #ddd;
+            animation: fadeInUp 0.3s ease-out;
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        /* Centering Chat on Mobile */
+        @media (max-width: 500px) {
+            .chat-window {
+                right: 50%;
+                transform: translateX(50%); /* Center horizontally */
+                width: 90%;
+                bottom: 20px;
+            }
         }
+        
+        .chat-header {
+            background: var(--chat-header);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        .chat-close { cursor: pointer; font-size: 1.2rem; }
+        
+        /* AUTH SCREEN */
+        .chat-auth {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            background: #fff;
+        }
+        .auth-label { font-size: 0.9rem; font-weight: bold; color: #555; margin-bottom: -10px; }
+        .auth-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; }
+        .auth-input:focus { border-color: var(--primary); }
+        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 1rem; }
+        .auth-btn:hover { background: var(--primary-dark); }
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            display: none; 
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; }
+        .bot-msg { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-msg { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        
+        .quick-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .chip:hover { background: var(--primary); color: white; }
+        
+        .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: none; gap: 10px; background: white; }
+        .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -206,23 +298,25 @@
             <i class="fas fa-globe"></i> Visit Official Portfolio
         </a>
 
-        <a href="https://wa.me/9779855046811?text=Hello Dr. Nirmal, I have a medical inquiry." class="link-btn btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-        </a>
+        <div class="btn-row">
+            <a href="https://wa.me/9779855046811?text=Hello Dr. Nirmal, I have a medical inquiry." class="link-btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <button onclick="toggleChat()" class="link-btn btn-ai">
+                <i class="fas fa-robot"></i> AI Assistant
+            </button>
+        </div>
 
         <a href="tel:056493511" class="link-btn btn-clinic">
             <span>Call Clinic (National City Hospital)</span>
             <i class="fas fa-phone-alt"></i>
         </a>
-
         <a href="mailto:nirmal.lamichhane@gmail.com" class="link-btn">
             <i class="fas fa-envelope"></i> Send an Email
         </a>
-
         <a href="#" class="link-btn">
             <i class="fas fa-graduation-cap" style="color:#4285F4;"></i> Research & Publications
         </a>
-
         <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn">
             <i class="fas fa-map-marker-alt" style="color:#ea4335;"></i> Find Hospital Location
         </a>
@@ -236,9 +330,138 @@
 
     <footer>
         <p>© 2025 Dr. Nirmal Lamichhane.</p>
-        <p>Managed by BLy</p>
+        <p>Managed by Bimal Pharmacy</p>
     </footer>
+
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <span><i class="fas fa-user-md"></i> Dr. Nirmal Assistant</span>
+            <span class="chat-close" onclick="toggleChat()">×</span>
+        </div>
+        
+        <div class="chat-auth" id="chat-auth">
+            <div style="text-align:center; margin-bottom:10px;">
+                <p style="color:#666;">Please enter your details to start chatting.</p>
+            </div>
+            
+            <label class="auth-label">Your Name</label>
+            <input type="text" id="client-name" class="auth-input" placeholder="e.g. Ram Sharma">
+            
+            <label class="auth-label">Mobile Number</label>
+            <input type="tel" id="client-phone" class="auth-input" placeholder="e.g. 9841XXXXXX">
+            
+            <button class="auth-btn" onclick="startChat()">Start Chatting</button>
+        </div>
+
+        <div class="chat-body" id="chat-body">
+            </div>
+        
+        <div class="chat-input-area" id="chat-input-area">
+            <input type="text" id="user-input" class="chat-input" placeholder="Type a message..." onkeypress="handleEnter(event)">
+            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        let clientName = "";
+        let clientPhone = "";
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('chat-window');
+            if (chatWindow.style.display === 'flex') {
+                chatWindow.style.display = 'none';
+            } else {
+                chatWindow.style.display = 'flex';
+            }
+        }
+
+        function startChat() {
+            const nameInput = document.getElementById('client-name');
+            const phoneInput = document.getElementById('client-phone');
+            
+            if (nameInput.value.trim() === "" || phoneInput.value.trim() === "") {
+                alert("Please fill in both Name and Phone Number.");
+                return;
+            }
+
+            clientName = nameInput.value.trim();
+            clientPhone = phoneInput.value.trim();
+
+            // Hide Auth, Show Chat
+            document.getElementById('chat-auth').style.display = 'none';
+            document.getElementById('chat-body').style.display = 'flex';
+            document.getElementById('chat-input-area').style.display = 'flex';
+
+            // Initial Greeting
+            const chatBody = document.getElementById('chat-body');
+            const botDiv = document.createElement('div');
+            botDiv.className = 'msg bot-msg';
+            botDiv.innerHTML = `Namaste <strong>${clientName}</strong>! I am the virtual assistant. How can I help you today?
+                <div class="quick-options">
+                    <span class="chip" onclick="sendQuick('Where is the clinic?')">Location</span>
+                    <span class="chip" onclick="sendQuick('How to book appointment?')">Appointment</span>
+                    <span class="chip" onclick="sendQuick('Phone number?')">Contact</span>
+                    <span class="chip" onclick="sendQuick('OPD Time?')">Timings</span>
+                </div>`;
+            chatBody.appendChild(botDiv);
+        }
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function sendQuick(text) {
+            document.getElementById('user-input').value = text;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const inputField = document.getElementById('user-input');
+            const chatBody = document.getElementById('chat-body');
+            const userText = inputField.value.trim();
+
+            if (userText === "") return;
+
+            // Add User Message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'msg user-msg';
+            userDiv.textContent = userText;
+            chatBody.appendChild(userDiv);
+            
+            inputField.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Simulate AI Thinking (Delay)
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'msg bot-msg';
+                botDiv.innerHTML = getBotResponse(userText.toLowerCase());
+                chatBody.appendChild(botDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 600);
+        }
+
+        function getBotResponse(input) {
+            if (input.includes("appointment") || input.includes("book") || input.includes("visit")) {
+                return `Mr./Ms. ${clientName}, to book an appointment, please call the National City Hospital directly at <strong>056-493511</strong> or click the 'Call Clinic' button above.`;
+            } 
+            else if (input.includes("location") || input.includes("where") || input.includes("address") || input.includes("map")) {
+                return "Dr. Nirmal is available at <strong>National City Hospital</strong>, Hospital Road, Bharatpur-10, Chitwan. <br><a href='https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital' target='_blank' style='color:#0056b3'>Click here for Map</a>.";
+            }
+            else if (input.includes("phone") || input.includes("number") || input.includes("call") || input.includes("contact")) {
+                return "You can contact the clinic at <strong>056-493511</strong>. For personal urgent inquiries, you can use the WhatsApp button.";
+            }
+            else if (input.includes("time") || input.includes("schedule") || input.includes("open") || input.includes("when")) {
+                return "OPD timings may vary. It is best to call the hospital reception at 056-493511 to confirm availability for today.";
+            }
+            else if (input.includes("hello") || input.includes("hi") || input.includes("namaste")) {
+                return `Namaste ${clientName}! How can I assist you with Dr. Nirmal's services today?`;
+            }
+            else {
+                return "I am an automated assistant and might not understand that specific question. Please click the <strong>WhatsApp</strong> button to chat with Dr. Nirmal directly.";
+            }
+        }
+    </script>
 
 </body>
 </html>
-
