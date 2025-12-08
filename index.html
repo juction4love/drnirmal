@@ -59,12 +59,12 @@
 
         /* --- HEADER --- */
         header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-container { max-width: 1250px; margin: 0 auto; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; }
         .brand-text h1 { font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
         .brand-text span { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; }
 
-        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right { display: flex; align-items: center; gap: 15px; }
         .nav-menu { display: flex; gap: 20px; }
         .nav-menu a { color: var(--text-grey); font-weight: 600; font-size: 0.9rem; }
         .nav-menu a:hover { color: var(--primary); }
@@ -74,7 +74,27 @@
         .lang-btn:hover { background: #f0f0f0; }
         .lang-btn.active { background: var(--primary); color: white; }
 
-        .header-socials { display: flex; gap: 15px; border-left: 1px solid #ddd; padding-left: 20px; }
+        /* --- NEW LINKTREE BUTTON STYLE --- */
+        .btn-linktree {
+            background: var(--accent);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 5px rgba(23, 162, 184, 0.3);
+            border: 1px solid var(--accent);
+        }
+        .btn-linktree:hover {
+            background: white;
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .header-socials { display: flex; gap: 15px; border-left: 1px solid #ddd; padding-left: 15px; }
         .header-socials a { color: var(--text-grey); font-size: 1.1rem; }
         .header-socials a:hover { color: var(--primary); transform: scale(1.1); }
 
@@ -217,6 +237,11 @@
         .footer-socials a:hover { color: var(--white); transform: scale(1.2); }
         footer p { color: var(--high-red); opacity: 1; }
 
+        @media (max-width: 950px) {
+            .nav-container { flex-wrap: wrap; }
+            .nav-menu { display: none; } /* Simplified mobile menu for now */
+        }
+
         @media (max-width: 850px) {
             .container { grid-template-columns: 1fr; }
             .hero-inner { flex-direction: column; text-align: center; }
@@ -252,6 +277,10 @@
                     <button class="lang-btn" onclick="setLanguage('ne')">NP</button>
                     <button class="lang-btn" onclick="setLanguage('zh')">ZH</button>
                 </div>
+
+                <a href="links.html" class="btn-linktree">
+                    <i class="fas fa-share-nodes"></i> <span data-key="btn_connect">Quick Connect</span>
+                </a>
 
                 <div class="header-socials">
                     <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -544,6 +573,7 @@
                 name: "Dr. Nirmal Lamichhane",
                 title: "Senior Consultant Surgeon",
                 nav_bio: "Biography", nav_lead: "Leadership", nav_exp: "Expertise", nav_contact: "Contact",
+                btn_connect: "Quick Connect", // NEW BUTTON TRANSLATION
                 hero_title: "Professional Biographical Abstract",
                 hero_desc: "Dr. Nirmal Lamichhane is a distinguished Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Uro-Oncology).",
                 sec_exec: "Executive Summary",
@@ -619,6 +649,7 @@
                 name: "डा. निर्मल लामिछाने",
                 title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
                 nav_bio: "जीवनी", nav_lead: "नेतृत्व", nav_exp: "विशेषज्ञता", nav_contact: "सम्पर्क",
+                btn_connect: "सम्पर्क सञ्जाल", // NEW BUTTON TRANSLATION
                 hero_title: "व्यावसायिक जीवनी सारांश",
                 hero_desc: "डा. निर्मल लामिछाने सर्जिकल अन्कोलोजी र युरोलोजिकल क्यान्सर (Uro-oncology) मा विशेषज्ञता हासिल गरेका प्रतिष्ठित वरिष्ठ कन्सल्टेन्ट सर्जन हुनुहुन्छ।",
                 sec_exec: "कार्यकारी सारांश",
@@ -694,6 +725,7 @@
                 name: "尼尔马尔·拉米查内 医生",
                 title: "高级顾问外科医生",
                 nav_bio: "简介", nav_lead: "领导力", nav_exp: "专长", nav_contact: "联系",
+                btn_connect: "快速连接", // NEW BUTTON TRANSLATION
                 hero_title: "专业简历摘要",
                 hero_desc: "Nirmal Lamichhane 博士是一位杰出的高级顾问外科医生，专门从事肿瘤外科，并在泌尿系统癌症（肿瘤泌尿科）方面拥有亚专科特长。",
                 sec_exec: "执行摘要",
