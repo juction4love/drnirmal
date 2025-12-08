@@ -3,294 +3,598 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon</title>
+    <meta name="description" content="Portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon (Onco-Urology) and former Chairman of BPKMCH, Chitwan.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* General Styles */
         :root {
-            --primary-color: #0056b3; /* Medical Blue */
-            --secondary-color: #f4f4f4;
-            --text-color: #333;
-            --light-text: #666;
+            /* REFINED COLOR PALETTE */
+            --primary: #0277bd;       /* Corporate Blue */
+            --primary-dark: #004c8c;  /* Deep Navy */
+            --accent: #29b6f6;        /* Bright Sky Blue */
+            --light-bg: #f0f8ff;      /* Alice Blue */
             --white: #ffffff;
+            --text-grey: #37474f;
+            --border-light: #e1e8ed;
+            
+            /* Spacing & Shadows */
+            --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 8px;
         }
 
+        /* --- GLOBAL STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Lato', sans-serif;
+            color: var(--text-grey);
+            background-color: var(--light-bg);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--secondary-color);
         }
 
-        /* Header */
+        /* Language Specific Overrides */
+        body.lang-ne { font-family: 'Mukta', sans-serif; }
+        body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--primary-dark); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- HEADER & NAV --- */
         header {
             background: var(--white);
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .container {
-            width: 85%;
+        .nav-container {
             max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        nav {
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
+        .brand {
             display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        nav ul li {
+        .brand img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .brand-text h1 { font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
+        .brand-text span { font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { font-weight: 600; font-size: 0.95rem; color: var(--text-grey); }
+        .nav-menu a:hover { color: var(--primary); }
+
+        /* Language Toggle */
+        .lang-switch {
+            display: flex;
+            background: #eef2f6;
+            padding: 4px;
+            border-radius: 20px;
             margin-left: 20px;
         }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-grey);
+            transition: 0.3s;
         }
+        .lang-btn.active { background: var(--primary); color: var(--white); box-shadow: 0 2px 5px rgba(2,119,189,0.3); }
 
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: var(--white);
-            padding: 60px 0;
+            padding: 60px 20px;
             text-align: center;
         }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h2 { color: var(--white); font-size: 2.5rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+        
+        /* --- MAIN LAYOUT --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
         }
 
-        .hero h2 {
-            font-size: 1.2rem;
-            font-weight: normal;
-            opacity: 0.9;
-        }
-
-        /* Biography Section (Detailed Narrative) */
-        .biography {
-            background: var(--white);
-            padding: 50px 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .bio-content p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
+        section { margin-bottom: 60px; scroll-margin-top: 100px; }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
         }
 
-        /* Three Column Layout for Credentials & Social */
-        .info-grid {
-            padding: 50px 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .info-card {
+        /* --- CARDS & GRIDS --- */
+        .card {
             background: var(--white);
             padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .info-card h3 {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-light);
             margin-bottom: 20px;
-            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+        /* Feature Box */
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border-top: 4px solid var(--primary);
+            box-shadow: var(--shadow-card);
+        }
+        .feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; display: block; }
+        .feature-title { font-weight: 700; margin-bottom: 10px; display: block; }
+        
+        /* Sidebar Elements */
+        .sidebar-widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            margin-bottom: 20px;
+        }
+        .sidebar-widget h3 { font-size: 1.1rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 10px; margin-bottom: 15px; }
+        .sidebar-list li { margin-bottom: 12px; padding-left: 20px; position: relative; font-size: 0.95rem; }
+        .sidebar-list li::before {
+            content: '•'; color: var(--accent); font-weight: bold; position: absolute; left: 0;
         }
 
-        .info-card ul {
-            list-style: none;
-            padding: 0;
+        /* Form */
+        .form-group { margin-bottom: 15px; }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
         }
-
-        .info-card ul li {
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(2,119,189,0.1); }
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
-        .info-card ul li:last-child {
-            border-bottom: none;
-        }
-
-        .info-card strong {
-            display: block;
-            color: #000;
-        }
+        .btn-submit:hover { background: var(--primary-dark); }
 
         /* Footer */
         footer {
-            background: #333;
+            background: var(--text-grey);
             color: var(--white);
+            padding: 40px 0;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
+            margin-top: 50px;
         }
+        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 10px; opacity: 0.7; }
+        .social-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* Responsive Mobile */
+        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-            nav ul {
-                margin-top: 15px;
-            }
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-container { flex-direction: column; height: auto; padding: 15px; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; margin-top: 15px; gap: 15px; }
+            .main-container { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 1.8rem; }
+            .lang-switch { margin: 15px 0 0 0; }
         }
     </style>
 </head>
-<body>
+<body class="lang-en">
 
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Dr. Nirmal Lamichhane</div>
-                <ul>
-                    <li><a href="#biography">Biography</a></li>
-                    <li><a href="#credentials">Credentials</a></li>
-                    <li><a href="#social">Social Activity</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="nav-container">
+            <div class="brand">
+                <img src="profile.png" alt="Dr. Nirmal" onerror="this.src='https://via.placeholder.com/100?text=Dr.'">
+                <div class="brand-text">
+                    <h1 data-key="name">Dr. Nirmal Lamichhane</h1>
+                    <span data-key="title">Senior Consultant Surgeon</span>
+                </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <nav class="nav-menu">
+                    <a href="#about" data-key="nav_about">About</a>
+                    <a href="#expertise" data-key="nav_expert">Expertise</a>
+                    <a href="#resume" data-key="nav_resume">CV & Bio</a>
+                    <a href="#contact" data-key="nav_ask">Contact</a>
+                </nav>
+                
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('ne')">नेपा</button>
+                    <button class="lang-btn" onclick="setLanguage('zh')">中文</button>
+                    <button class="lang-btn" onclick="setLanguage('hi')">हिंदी</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>Dr. Nirmal Lamichhane</h1>
-            <h2>Senior Consultant Surgeon | Surgical Oncology (Onco-Urology)</h2>
-            <p>B. P. Koirala Memorial Cancer Hospital (BPKMCH)</p>
+        <div class="hero-content">
+            <h2 data-key="hero_head">Advanced Surgical Oncology & Urology</h2>
+            <p data-key="hero_sub">Providing world-class cancer care with compassion at B. P. Koirala Memorial Cancer Hospital.</p>
+            <a href="#contact" class="btn-submit" style="display:inline-block; width:auto; background: var(--accent); color: var(--primary-dark);" data-key="btn_consult">Book Consultation</a>
         </div>
     </section>
 
-    <section id="biography" class="biography">
-        <div class="container">
-            <h2 class="section-title">Biography</h2>
-            <div class="bio-content">
-                <p>
-                    Dr. Nirmal Lamichhane is a distinguished Senior Consultant Surgeon specializing in Surgical Oncology and Onco-Urology. With a career defined by clinical excellence and strategic leadership, he has made significant contributions to cancer care in Nepal.
-                </p>
-                <p>
-                    <strong>Leadership & Governance</strong><br>
-                    Demonstrating strong administrative capability, he served as the <strong>Chairman of the Board of Directors</strong> at B. P. Koirala Memorial Cancer Hospital (BPKMCH) from 2020 to 2023. During his tenure, he oversaw the hospital's strategic governance, driving initiatives to enhance patient care and institutional growth.
-                </p>
-                <p>
-                    <strong>Education & Academic Background</strong><br>
-                    His medical journey began with an MBBS from Shanghai Medical University, followed by a Master of Medicine in Clinical and Surgical Oncology from Fudan University. He further specialized with an M.Ch in Urology from Kathmandu University, solidifying his expertise in complex surgical procedures.
-                </p>
-                <p>
-                    <strong>International Exposure</strong><br>
-                    Dr. Lamichhane has enriched his practice through extensive global training. He completed prestigious <strong>International Fellowships</strong> at world-renowned institutions, including the Memorial Sloan Kettering Cancer Center (USA), H. Lee Moffitt Cancer Center (USA), and the Royal College of Surgeons of Edinburgh (UK). These experiences have equipped him with advanced surgical techniques and a global perspective on oncology.
-                </p>
-                <p>
-                    Fluent in Nepali, English, Chinese, and Hindi, he is dedicated to providing compassionate, evidence-based care to patients from diverse backgrounds.
-                </p>
+    <div class="main-container">
+        <main>
+            <section id="about">
+                <h2 class="section-title" data-key="about_head">About Me</h2>
+                <div class="card">
+                    <p data-key="about_p1" style="font-size: 1.1rem; margin-bottom: 15px;">I am Dr. Nirmal Lamichhane, a Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Onco-Urology.</p>
+                    <p data-key="about_p2">With over two decades of experience, I currently serve at the <strong>B. P. Koirala Memorial Cancer Hospital (BPKMCH)</strong> in Chitwan, Nepal. I am dedicated to introducing advanced surgical techniques to Nepal, having completed fellowships in the USA and UK.</p>
+                </div>
+            </section>
+
+            <section id="expertise">
+                <h2 class="section-title" data-key="expert_head">Clinical Expertise</h2>
+                
+
+[Image of Human Urinary System Anatomy]
+
+                <div class="grid-2">
+                    <div class="feature-box">
+                        <i class="fas fa-procedures feature-icon"></i>
+                        <span class="feature-title" data-key="exp_uro_title">Uro-Oncology</span>
+                        <p data-key="exp_uro_desc">Expert surgical management of Bladder, Prostate, Kidney, and Penile cancers.</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-user-md feature-icon"></i>
+                        <span class="feature-title" data-key="exp_surg_title">Advanced Surgery</span>
+                        <p data-key="exp_surg_desc">Radical Cystectomy, Orthotropic Neobladder (Studer Pouch), and Radical Prostatectomy.</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-ribbon feature-icon"></i>
+                        <span class="feature-title" data-key="exp_gen_title">General Oncology</span>
+                        <p data-key="exp_gen_desc">Breast Cancer (Sentinel Node Biopsy), Rectal Cancer, and soft tissue tumors.</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-hospital feature-icon"></i>
+                        <span class="feature-title" data-key="lead_chair_title">Leadership</span>
+                        <p data-key="lead_chair_desc">Former Chairman of the Board (BPKMCH), guiding national cancer strategy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resume">
+                <h2 class="section-title" data-key="nav_resume">Professional Journey</h2>
+                
+                <h3 data-key="edu_head" style="margin-top:20px; color:var(--primary);">Education</h3>
+                <div class="card">
+                    <ul class="sidebar-list">
+                        <li data-key="edu_1"><strong>M.Ch (Urology)</strong> - Kathmandu University</li>
+                        <li data-key="edu_2"><strong>Master of Medicine (Surgical Oncology)</strong> - Fudan University</li>
+                        <li data-key="edu_3"><strong>MBBS</strong> - Shanghai Medical University</li>
+                    </ul>
+                </div>
+
+                <h3 data-key="train_head" style="margin-top:20px; color:var(--primary);">International Fellowships</h3>
+                <div class="grid-3">
+                    <div class="card" style="border-left: 4px solid var(--accent);">
+                        <strong data-key="train_mskcc_title">Memorial Sloan Kettering (USA)</strong>
+                        <p style="font-size:0.9rem" data-key="train_mskcc_desc">Saudavar Fellowship (2006)</p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--accent);">
+                        <strong data-key="train_moffitt_title">Moffitt Cancer Center (USA)</strong>
+                        <p style="font-size:0.9rem" data-key="train_moffitt_desc">UICC ICRETT Fellowship</p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--accent);">
+                        <strong data-key="train_uk_title">Royal College of Surgeons (UK)</strong>
+                        <p style="font-size:0.9rem" data-key="train_uk_desc">Edinburgh Fellowship</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 class="section-title" data-key="ask_head">Ask Dr. Nirmal</h2>
+                <div class="card">
+                    <p data-key="ask_sub" style="margin-bottom: 20px;">Do you have questions about a diagnosis? Send a message directly.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Your Medical Query..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" data-key="btn_send">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <aside>
+            <div class="sidebar-widget">
+                <h3 data-key="contact_head">Clinic Details</h3>
+                <div style="text-align:center; margin-bottom:15px;">
+                    <i class="fas fa-map-marker-alt" style="color:var(--primary); font-size:1.5rem;"></i>
+                </div>
+                <strong data-key="clinic_name">National City Hospital</strong>
+                <p data-key="clinic_loc" style="font-size:0.9rem; margin-top:5px; color:#666;">Hospital Road, Bharatpur-10, Chitwan</p>
+                <div style="margin-top:15px; background:var(--light-bg); padding:10px; border-radius:4px; text-align:center;">
+                    <strong>📞 056-493511</strong>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="credentials" class="container info-grid">
-        
-        <div class="info-card">
-            <h3>Education</h3>
-            <ul>
-                <li>
-                    <strong>M.Ch (Urology)</strong>
-                    Kathmandu University
-                </li>
-                <li>
-                    <strong>Master of Medicine</strong>
-                    Clinical/Surgical Oncology<br>
-                    Fudan University
-                </li>
-                <li>
-                    <strong>MBBS</strong>
-                    Shanghai Medical University
-                </li>
-            </ul>
-        </div>
+            <div class="sidebar-widget">
+                <h3 data-key="lang_head">Languages Spoken</h3>
+                <ul class="sidebar-list">
+                    <li>Nepali (Native)</li>
+                    <li>English (Fluent)</li>
+                    <li>Chinese (Fluent)</li>
+                    <li>Hindi (Fluent)</li>
+                </ul>
+            </div>
 
-        <div class="info-card">
-            <h3>International Fellowships</h3>
-            <ul>
-                <li>
-                    <strong>Memorial Sloan Kettering Cancer Center</strong>
-                    USA
-                </li>
-                <li>
-                    <strong>H. Lee Moffitt Cancer Center</strong>
-                    USA
-                </li>
-                <li>
-                    <strong>Royal College of Surgeons of Edinburgh</strong>
-                    United Kingdom
-                </li>
-            </ul>
-        </div>
+            <div class="sidebar-widget">
+                <h3 data-key="res_head">Research</h3>
+                <p data-key="res_stats_desc">Over 30 peer-reviewed publications focusing on surgical outcomes in oncology.</p>
+                <div style="margin-top:15px;">
+                    <a href="#" style="color:var(--primary); font-size:0.9rem; font-weight:bold;">View Google Scholar &rarr;</a>
+                </div>
+            </div>
+        </aside>
+    </div>
 
-        <div id="social" class="info-card">
-            <h3>Social Activity</h3>
-            <ul>
-                <li>
-                    <strong>Community Health Camps</strong>
-                    Organized free surgical screening camps in rural districts to improve access to cancer care.
-                </li>
-                <li>
-                    <strong>Public Health Awareness</strong>
-                    Active speaker in community seminars focusing on cancer prevention, early detection, and lifestyle modifications.
-                </li>
-                <li>
-                    <strong>Social Welfare</strong>
-                    Engaged in various social welfare programs aimed at supporting underprivileged patients.
-                </li>
-            </ul>
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <p>Dr. Nirmal Lamichhane &copy; 2025</p>
-            <p>B. P. Koirala Memorial Cancer Hospital, Chitwan, Nepal</p>
-        </div>
+        <p style="margin-top:15px; font-size:0.9rem;">&copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        const translations = {
+            en: {
+                name: "Dr. Nirmal Lamichhane",
+                title: "Senior Consultant Surgeon",
+                nav_about: "About",
+                nav_expert: "Expertise",
+                nav_resume: "CV & Bio",
+                nav_ask: "Contact",
+                hero_head: "Advanced Surgical Oncology & Urology",
+                hero_sub: "Providing world-class cancer care with compassion at B. P. Koirala Memorial Cancer Hospital.",
+                btn_consult: "Book Consultation",
+                about_head: "About Me",
+                about_p1: "I am Dr. Nirmal Lamichhane, a Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Onco-Urology.",
+                about_p2: "With over two decades of experience, I currently serve at the <strong>B. P. Koirala Memorial Cancer Hospital (BPKMCH)</strong> in Chitwan, Nepal. I am dedicated to introducing advanced surgical techniques to Nepal, having completed fellowships in the USA and UK.",
+                expert_head: "Clinical Expertise",
+                exp_uro_title: "Uro-Oncology",
+                exp_uro_desc: "Expert surgical management of Bladder, Prostate, Kidney, and Penile cancers.",
+                exp_surg_title: "Advanced Surgery",
+                exp_surg_desc: "Radical Cystectomy, Orthotropic Neobladder (Studer Pouch), and Radical Prostatectomy.",
+                exp_gen_title: "General Oncology",
+                exp_gen_desc: "Breast Cancer (Sentinel Node Biopsy), Rectal Cancer, and soft tissue tumors.",
+                lead_chair_title: "Leadership",
+                lead_chair_desc: "Former Chairman of the Board (BPKMCH), guiding national cancer strategy.",
+                edu_head: "Education",
+                edu_1: "<strong>M.Ch (Urology)</strong> - Kathmandu University",
+                edu_2: "<strong>Master of Medicine (Surgical Oncology)</strong> - Fudan University",
+                edu_3: "<strong>MBBS</strong> - Shanghai Medical University",
+                train_head: "International Fellowships",
+                train_mskcc_title: "Memorial Sloan Kettering (USA)",
+                train_mskcc_desc: "Saudavar Fellowship (2006)",
+                train_moffitt_title: "Moffitt Cancer Center (USA)",
+                train_moffitt_desc: "UICC ICRETT Fellowship",
+                train_uk_title: "Royal College of Surgeons (UK)",
+                train_uk_desc: "Edinburgh Fellowship",
+                ask_head: "Ask Dr. Nirmal",
+                ask_sub: "Do you have questions about a diagnosis? Send a message directly.",
+                btn_send: "Send Message",
+                contact_head: "Clinic Details",
+                clinic_name: "National City Hospital",
+                clinic_loc: "Hospital Road, Bharatpur-10, Chitwan",
+                lang_head: "Languages Spoken",
+                res_head: "Research",
+                res_stats_desc: "Over 30 peer-reviewed publications focusing on surgical outcomes in oncology."
+            },
+            ne: {
+                name: "डा. निर्मल लामिछाने",
+                title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
+                nav_about: "परिचय",
+                nav_expert: "विशेषज्ञता",
+                nav_resume: "जीवनी",
+                nav_ask: "सम्पर्क",
+                hero_head: "उन्नत सर्जिकल अन्कोलोजी र युरोलोजी",
+                hero_sub: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालमा करुणाका साथ विश्वस्तरीय क्यान्सर उपचार।",
+                btn_consult: "परामर्श लिनुहोस्",
+                about_head: "मेरो बारेमा",
+                about_p1: "म डा. निर्मल लामिछाने, सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा विशेषज्ञ वरिष्ठ कन्सल्टेन्ट सर्जन हुँ।",
+                about_p2: "दुई दशकभन्दा बढी अनुभवका साथ, म हाल चितवनको <strong>बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH)</strong> मा सेवा गरिरहेको छु।",
+                expert_head: "क्लिनिकल विशेषज्ञता",
+                exp_uro_title: "युरो-अन्कोलोजी",
+                exp_uro_desc: "मुत्राशय, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको विशेषज्ञ शल्यक्रिया।",
+                exp_surg_title: "उन्नत शल्यक्रिया",
+                exp_surg_desc: "रेडिकल सिस्टेक्टोमी, नियोब्लाडर (Studer Pouch) र रेडिकल प्रोस्टेटेक्टोमी।",
+                exp_gen_title: "जनरल अन्कोलोजी",
+                exp_gen_desc: "स्तन क्यान्सर, रेक्टल क्यान्सर र नरम तन्तुका ट्युमर।",
+                lead_chair_title: "नेतृत्व",
+                lead_chair_desc: "BPKMCH सञ्चालक समितिका पूर्व अध्यक्ष (२०७७-२०८०)।",
+                edu_head: "शिक्षा",
+                edu_1: "<strong>M.Ch (युरोलोजी)</strong> - काठमाडौं विश्वविद्यालय",
+                edu_2: "<strong>Master of Medicine (अन्कोलोजी)</strong> - फुदान विश्वविद्यालय",
+                edu_3: "<strong>MBBS</strong> - सांघाई मेडिकल युनिभर्सिटी",
+                train_head: "अन्तर्राष्ट्रिय फेलोसिप",
+                train_mskcc_title: "मेमोरियल स्लोन केटरिङ (USA)",
+                train_mskcc_desc: "सौदावर फेलोसिप (२००६)",
+                train_moffitt_title: "मोफिट क्यान्सर सेन्टर (USA)",
+                train_moffitt_desc: "UICC ICRETT फेलोसिप",
+                train_uk_title: "रोयल कलेज अफ सर्जन (UK)",
+                train_uk_desc: "एडिनबर्ग फेलोसिप",
+                ask_head: "डाक्टरलाई सोध्नुहोस्",
+                ask_sub: "के तपाइँ आफ्नो निदानको बारेमा प्रश्न सोध्न चाहनुहुन्छ?",
+                btn_send: "सन्देश पठाउनुहोस्",
+                contact_head: "क्लिनिक विवरण",
+                clinic_name: "नेशनल सिटी हस्पिटल",
+                clinic_loc: "हस्पिटल रोड, भरतपुर-१०, चितवन",
+                lang_head: "भाषाहरू",
+                res_head: "अनुसन्धान",
+                res_stats_desc: "३० भन्दा बढी पियर-रिभ्युड प्रकाशनहरू।"
+            },
+            zh: {
+                name: "尼尔马尔·拉米查内 医生",
+                title: "高级顾问外科医生",
+                nav_about: "关于",
+                nav_expert: "专业领域",
+                nav_resume: "简历",
+                nav_ask: "联系",
+                hero_head: "先进的肿瘤外科与泌尿外科",
+                hero_sub: "在 BPKMCH 癌症医院提供世界级的医疗护理。",
+                btn_consult: "预约咨询",
+                about_head: "关于我",
+                about_p1: "我是 Nirmal Lamichhane 博士，肿瘤外科和肿瘤泌尿科的高级顾问外科医生。",
+                about_p2: "凭借二十多年的经验，我目前在尼泊尔奇特旺的 <strong>BPKMCH</strong> 癌症医院任职。我曾在中、美、英三国接受培训。",
+                expert_head: "临床专长",
+                exp_uro_title: "泌尿肿瘤学",
+                exp_uro_desc: "膀胱癌、前列腺癌、肾癌和阴茎癌的专家级治疗。",
+                exp_surg_title: "高难度手术",
+                exp_surg_desc: "根治性膀胱切除术、原位新膀胱术 (Studer Pouch) 和根治性前列腺切除术。",
+                exp_gen_title: "普通肿瘤学",
+                exp_gen_desc: "乳腺癌、直肠癌及软组织肿瘤。",
+                lead_chair_title: "领导力",
+                lead_chair_desc: "前任 BPKMCH 董事会主席。",
+                edu_head: "教育背景",
+                edu_1: "<strong>M.Ch (泌尿外科)</strong> - 加德满都大学",
+                edu_2: "<strong>医学硕士 (肿瘤外科)</strong> - 复旦大学",
+                edu_3: "<strong>临床医学学士</strong> - 上海医科大学",
+                train_head: "国际进修",
+                train_mskcc_title: "纪念斯隆-凯特琳 (美国)",
+                train_mskcc_desc: "Saudavar 奖学金 (2006)",
+                train_moffitt_title: "莫菲特癌症中心 (美国)",
+                train_moffitt_desc: "UICC ICRETT 奖学金",
+                train_uk_title: "皇家外科医师学会 (英国)",
+                train_uk_desc: "爱丁堡奖学金",
+                ask_head: "咨询医生",
+                ask_sub: "您对诊断有疑问吗？",
+                btn_send: "发送信息",
+                contact_head: "诊所详情",
+                clinic_name: "国家城市医院",
+                clinic_loc: "奇特旺 巴拉特普尔-10",
+                lang_head: "语言能力",
+                res_head: "学术研究",
+                res_stats_desc: "发表 30 多篇同行评审论文。"
+            },
+            hi: {
+                name: "डॉ. निर्मल लामिछाने",
+                title: "वरिष्ठ सलाहकार सर्जन",
+                nav_about: "परिचय",
+                nav_expert: "विशेषज्ञता",
+                nav_resume: "बायोडेटा",
+                nav_ask: "संपर्क",
+                hero_head: "उन्नत सर्जिकल ऑन्कोलॉजी और यूरोलॉजी",
+                hero_sub: "बी.पी. कोइराला मेमोरियल कैंसर अस्पताल में विश्व स्तरीय देखभाल।",
+                btn_consult: "परामर्श लें",
+                about_head: "मेरे बारे में",
+                about_p1: "मैं डॉ. निर्मल लामिछाने, सर्जिकल ऑन्कोलॉजी और ऑन्को-यूरोलॉजी में विशेषज्ञ वरिष्ठ सर्जन हूं।",
+                about_p2: "दो दशकों से अधिक के अनुभव के साथ, मैं वर्तमान में चितवन, नेपाल में <strong>BPKMCH</strong> में सेवा दे रहा हूं।",
+                expert_head: "नैदानिक विशेषज्ञता",
+                exp_uro_title: "यूरो-ऑन्कोलॉजी",
+                exp_uro_desc: "मूत्राशय, प्रोस्टेट और गुर्दे के कैंसर का विशेषज्ञ उपचार।",
+                exp_surg_title: "उन्नत सर्जरी",
+                exp_surg_desc: "रेडिकल सिस्टेक्टॉमी, नियोब्लैडर (Studer Pouch) और रेडिकल प्रोस्टेक्टॉमी।",
+                exp_gen_title: "जनरल ऑन्कोलॉजी",
+                exp_gen_desc: "स्तन कैंसर और रेक्टल कैंसर।",
+                lead_chair_title: "नेतृत्व",
+                lead_chair_desc: "BPKMCH के पूर्व बोर्ड अध्यक्ष।",
+                edu_head: "शिक्षा",
+                edu_1: "<strong>M.Ch (यूरोलॉजी)</strong> - काठमांडू विश्वविद्यालय",
+                edu_2: "<strong>मास्टर ऑफ मेडिसिन</strong> - फुदान विश्वविद्यालय",
+                edu_3: "<strong>MBBS</strong> - शंघाई मेडिकल यूनिवर्सिटी",
+                train_head: "अंतर्राष्ट्रीय फैलोशिप",
+                train_mskcc_title: "मेमोरियल स्लोन केटरिंग (USA)",
+                train_mskcc_desc: "सौदावर फैलोशिप (2006)",
+                train_moffitt_title: "मोफिट कैंसर सेंटर (USA)",
+                train_moffitt_desc: "UICC ICRETT फैलोशिप",
+                train_uk_title: "रॉयल कॉलेज ऑफ सर्जन्स (UK)",
+                train_uk_desc: "एडिनबर्ग फैलोशिप",
+                ask_head: "डॉक्टर से पूछें",
+                ask_sub: "क्या आपके पास निदान के बारे में प्रश्न हैं?",
+                btn_send: "संदेश भेजें",
+                contact_head: "क्लिनिक विवरण",
+                clinic_name: "नेशनल सिटी हॉस्पिटल",
+                clinic_loc: "हॉस्पिटल रोड, भरतपुर-१०, चितवन",
+                lang_head: "भाषाएं",
+                res_head: "अनुसंधान",
+                res_stats_desc: "३० से अधिक प्रकाशन।"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Update Body Class for Fonts
+            document.body.className = `lang-${lang}`;
+            
+            // Update Active Button
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`);
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
