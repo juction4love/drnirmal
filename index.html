@@ -21,6 +21,11 @@
             --text-grey: #555555;
             --shadow: 0 4px 6px rgba(0,0,0,0.1);
             
+            /* High Red Color Variable */
+            --high-red: #ff0000;
+            --black: #000000;
+            --footer-green: #2E7D32;
+
             /* Font Variables */
             --font-en: 'Lato', sans-serif;
             --font-ne: 'Mukta', sans-serif;
@@ -32,7 +37,7 @@
         body {
             font-family: var(--font-en);
             color: var(--text-dark);
-            background-color: var(--light-bg);
+            background-color: #e8f5e9; /* Light Green Background */
             line-height: 1.6;
         }
 
@@ -50,7 +55,7 @@
         .img-card { width: 100%; height: auto; border-radius: 8px; margin-bottom: 5px; border: 1px solid #ddd; }
         .img-sidebar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: block; border: 3px solid var(--accent); }
         .img-research { float: right; width: 120px; height: 120px; border-radius: 8px; margin: 0 0 15px 20px; border: 2px solid #eee; object-fit: cover; }
-        .img-footer { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 15px; opacity: 0.8; border: 2px solid rgba(255,255,255,0.2); }
+        .img-footer { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 15px; opacity: 1; border: 2px solid var(--high-red); }
 
         /* --- HEADER --- */
         header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
@@ -103,22 +108,62 @@
         .whatsapp-box { background: linear-gradient(to right, #e3fcef, #fff); border: 2px solid var(--whatsapp); }
         .wa-input-group { margin-bottom: 15px; }
         .wa-input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 1rem; }
-        .wa-btn { background-color: var(--whatsapp); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .wa-btn:hover { background-color: #1ebc57; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); }
+        
+        /* WHATSAPP BUTTON (Green Background) */
+        .wa-btn { 
+            background-color: var(--whatsapp); 
+            color: var(--white); 
+            border: none; 
+            padding: 12px 25px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            font-weight: bold; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px; 
+            transition: 0.3s; 
+        }
+        .wa-btn:hover { 
+            background-color: #1ebc57; 
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); 
+        }
 
         /* Sidebar & Footer */
         .sidebar-box { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 25px; }
         .sidebar-title { font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-weight: 700; }
         
-        /* Specific Clinic Box Style */
+        /* Specific Clinic Box Style with Black/Red Button */
         .clinic-box { border-top: 5px solid var(--accent); }
-        .call-btn { display: block; width: 100%; background: var(--primary); color: white; text-align: center; padding: 10px; border-radius: 5px; font-weight: bold; margin-top: 15px; }
-        .call-btn:hover { background: var(--primary-dark); color: white; }
+        .call-btn { 
+            display: block; 
+            width: 100%; 
+            background: var(--black); 
+            color: var(--high-red); 
+            text-align: center; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            margin-top: 15px; 
+            border: 1px solid var(--high-red);
+        }
+        .call-btn:hover { 
+            background: #333; 
+            color: var(--high-red); 
+        }
 
-        footer { background: var(--text-dark); color: var(--white); text-align: center; padding: 50px 0; margin-top: 50px; }
+        /* FOOTER GREEN BG AND RED TEXT */
+        footer { 
+            background: var(--footer-green); 
+            color: var(--high-red); 
+            text-align: center; 
+            padding: 50px 0; 
+            margin-top: 50px; 
+        }
         .footer-socials { display: flex; justify-content: center; gap: 25px; margin: 25px 0; }
-        .footer-socials a { color: var(--white); font-size: 1.5rem; transition: 0.3s; }
-        .footer-socials a:hover { color: var(--accent); transform: scale(1.2); }
+        .footer-socials a { color: var(--high-red); font-size: 1.5rem; transition: 0.3s; }
+        .footer-socials a:hover { color: var(--white); transform: scale(1.2); }
+        footer p { color: var(--high-red); opacity: 1; }
 
         @media (max-width: 850px) {
             .container { grid-template-columns: 1fr; }
@@ -355,7 +400,7 @@
             <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
         <p>&copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.</p>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;" data-key="footer_sub">Senior Consultant Surgeon | BPKMCH</p>
+        <p style="font-size: 0.9rem; margin-top: 5px;" data-key="footer_sub">Senior Consultant Surgeon | BPKMCH</p>
     </footer>
 
     <script>
@@ -413,60 +458,6 @@
                 clinic_name: "National City Hospital (Private)",
                 clinic_addr: "Hospital Road, Bharatpur-10, Chitwan",
                 clinic_call: "Call for Appointment"
-            },
-            ne: {
-                name: "डा. निर्मल लामिछाने",
-                title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
-                nav_bio: "जीवनी", nav_lead: "नेतृत्व", nav_exp: "विशेषज्ञता", nav_contact: "सम्पर्क",
-                hero_title: "व्यावसायिक जीवनी सारांश",
-                hero_desc: "डा. निर्मल लामिछाने सर्जिकल अन्कोलोजी र युरोलोजिकल क्यान्सर (Onco-Urology) मा विशेषज्ञता हासिल गरेका प्रतिष्ठित वरिष्ठ कन्सल्टेन्ट सर्जन हुनुहुन्छ।",
-                sec_exec: "कार्यकारी सारांश",
-                bio_p1: "डा. निर्मल लामिछाने सर्जिकल अन्कोलोजी र युरोलोजिकल क्यान्सर (Onco-Urology) मा विशेषज्ञता हासिल गरेका प्रतिष्ठित वरिष्ठ कन्सल्टेन्ट सर्जन हुनुहुन्छ।",
-                bio_p2: "दुई दशकभन्दा बढी शल्यक्रिया अनुभवका साथ, डा. लामिछानेले काठमाडौं विश्वविद्यालयबाट युरोलोजीमा M.Ch र सांघाईको फुदान विश्वविद्यालयबाट क्लिनिकल/सर्जिकल अन्कोलोजीमा स्नातकोत्तर गर्नुभएको छ।",
-                bio_p3: "उहाँको अन्तर्राष्ट्रिय तालिम विस्तृत छ, जसमा न्यूयोर्कको मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर (MSKCC), फ्लोरिडाको एच. ली मोफिट क्यान्सर सेन्टर, र रोयल कलेज अफ सर्जन अफ एडिनबर्ग (UK) को कोलोरेक्टल सर्जरी फेलोसिप समावेश छन्।",
-                bio_p4: "उहाँको क्लिनिकल विशेषज्ञता जटिल पेल्भिक शल्यक्रिया, रेडिकल प्रोस्टेटेक्टोमी, सिस्टेक्टोमी, र reconstructive urology मा केन्द्रित छ, विशेष गरी 'Studer pouch neobladder reconstruction' मा।",
-                sec_lead: "नेतृत्व र प्रशासन",
-                lead_intro: "डा. लामिछानेले BPKMCH मा महत्वपूर्ण शासकीय भूमिकाहरू निर्वाह गर्नुभएको छ:",
-                lead_1_role: "अध्यक्ष, सञ्चालक समिति", lead_1_date: "२०७७ – हाल", lead_1_loc: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH), चितवन",
-                lead_2_role: "उप-निर्देशक", lead_2_date: "२०७४ – २०७७", lead_2_loc: "बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH)",
-                lead_3_title: "समिति नेतृत्व", lead_3_li1: "<strong>वैज्ञानिक समिति अध्यक्ष:</strong> प्रथम राष्ट्रिय अन्कोलोजी सम्मेलन (२००४)।",
-                lead_3_li2: "<strong>संयोजक:</strong> वार्षिक प्रतिवेदन प्रकाशन समिति (२००५–२००८)।",
-                sec_exp: "क्लिनिकल विशेषज्ञता",
-                exp_li1: "<strong>जेनिटो-युरिनरी ट्र्याक्ट ट्युमर:</strong> मुत्राशय, प्रोस्टेट र मिर्गौलाको क्यान्सरमा विशेषज्ञ।",
-                exp_li2: "<strong>शल्यक्रिया प्रक्रियाहरू:</strong> TURP, TURBT, रेडिकल प्रोस्टेटेक्टोमी, सिस्टेक्टोमी।",
-                exp_li3: "<strong>पुनर्निर्माण:</strong> Studer pouch neobladder reconstruction मा विशेषज्ञ।",
-                exp_li4: "<strong>जनरल अन्कोलोजी सर्जरी:</strong> मास्टेक्टोमी, कोलेक्टोमी, पेनेक्टोमी, र ग्रोइन डिसेक्सन।",
-                sec_cred: "प्रमाणपत्र र तालिम",
-                edu_title: "शिक्षा",
-                edu_li1: "<strong>M.Ch (युरोलोजी):</strong> काठमाडौं विश्वविद्यालय, नेपाल (२०१६)।",
-                edu_li2: "<strong>Master of Medicine (अन्कोलोजी):</strong> फुदान विश्वविद्यालय, सांघाई, चीन (२००१)।",
-                edu_li3: "<strong>MBBS:</strong> सांघाई मेडिकल युनिभर्सिटी, चीन (१९९८)।",
-                fel_title: "अन्तर्राष्ट्रिय फेलोसिप",
-                fel_li1: "<strong>कोलोरेक्टल सर्जरीमा फेलोसिप:</strong> रोयल कलेज अफ सर्जन, एडिनबर्ग (UK) (२०१०–२०११)।",
-                fel_li2: "<strong>सर्जिकल अन्कोलोजीमा सौदावर फेलोसिप:</strong> MSKCC, न्यूयोर्क (२००६)।",
-                fel_li3: "<strong>UICC ICRETT फेलोसिप:</strong> सेन्टिनेल लिम्फ नोड बायोप्सी, फ्लोरिडा (२००३)।",
-                sec_res: "अनुसन्धान र प्रकाशन",
-                res_intro: "डा. लामिछाने ३० भन्दा बढी पियर-रिभ्युड प्रकाशनहरूका साथ एक सक्रिय अनुसन्धानकर्ता हुनुहुन्छ।",
-                res_li1: "<strong>लिंगको क्यान्सर:</strong> लिम्फ नोड डिसेक्सन र शल्यक्रिया व्यवस्थापन।",
-                res_li2: "<strong>प्रोस्टेट क्यान्सर:</strong> रोबोट-असिस्टेड रेडिकल प्रोस्टेटेक्टोमी र बायोप्सी।",
-                res_li3: "<strong>मुत्राशय क्यान्सर:</strong> नियोब्लाडर र युरेथ्रोप्लास्टी।",
-                res_li4: "<strong>स्तन क्यान्सर:</strong> नेपाल र चीनमा सेन्टिनेल लिम्फ नोड बायोप्सीको अनुसन्धान।",
-                res_link: "गुगल स्कलरमा पूर्ण सूची हेर्नुहोस्",
-                sec_ask: "परामर्श",
-                ask_title: "डा. निर्मलसँग सोध्नुहोस्",
-                ask_desc: "के तपाइँ युरोलोजिकल वा क्यान्सर सम्बन्धी समस्याबारे सोध्न चाहनुहुन्छ?",
-                ask_btn: "ह्वाट्सएप मार्फत पठाउनुहोस्",
-                ph_name: "तपाईंको नाम", ph_msg: "तपाईंको समस्या संक्षेपमा लेख्नुहोस्...",
-                sb_reg: "दर्ता प्रमाणपत्र",
-                reg_nmc: "<strong>नेपाल मेडिकल काउन्सिल (NMC):</strong> ३२६१",
-                reg_gmc: "<strong>जनरल मेडिकल काउन्सिल (GMC), UK:</strong> ७०५९७५२",
-                sb_aff: "सम्बद्धता", aff_int: "अन्तर्राष्ट्रिय:", aff_nat: "राष्ट्रिय:",
-                sb_lang: "भाषाहरू", lang_desc: "नेपाली, अंग्रेजी, चिनियाँ र हिन्दीमा धाराप्रवाह।",
-                footer_sub: "वरिष्ठ कन्सल्टेन्ट सर्जन | BPKMCH",
-                sb_clinic_title: "क्लिनिक अपोइन्टमेन्ट",
-                clinic_name: "नेशनल सिटी हस्पिटल (प्राइभेट)",
-                clinic_addr: "हस्पिटल रोड, भरतपुर-१०, चितवन",
-                clinic_call: "अपोइन्टमेन्टको लागि फोन गर्नुहोस्"
             },
             zh: {
                 name: "尼尔马尔·拉米查内 医生",
