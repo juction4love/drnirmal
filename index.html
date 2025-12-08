@@ -152,6 +152,28 @@
             color: var(--high-red); 
         }
 
+        /* --- SOCIAL ACTIVITY BOX STYLE --- */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+        .social-btn:hover { opacity: 0.9; transform: translateX(5px); }
+        .social-btn i { width: 25px; text-align: center; margin-right: 10px; font-size: 1.1rem; }
+        
+        /* Social Brand Colors */
+        .btn-fb { background-color: #3b5998; }
+        .btn-tw { background-color: #1da1f2; }
+        .btn-li { background-color: #0077b5; }
+        .btn-rg { background-color: #00ccbb; }
+
         /* FOOTER GREEN BG AND RED TEXT */
         footer { 
             background: var(--footer-green); 
@@ -274,6 +296,9 @@
             <section id="expertise">
                 <h2 class="section-head" data-key="sec_exp">Clinical Expertise</h2>
                 
+
+[Image of human urinary system diagram with kidneys bladder and ureters]
+
                 <img src="urinary.png" alt="Nephron Anatomy and Kidney Structure Diagram" style="width:100%; max-width:600px; height:auto; display:block; margin: 0 auto 20px auto; border: 1px solid #ddd; border-radius: 8px;">
                 
                 <div class="card">
@@ -371,6 +396,23 @@
             </div>
 
             <div class="sidebar-box">
+                <h3 class="sidebar-title" data-key="sb_social_title">Social Activity</h3>
+                <p style="margin-bottom:15px; font-size:0.9rem;" data-key="sb_social_desc">Follow for recent health updates and cancer awareness posts.</p>
+                
+                <a href="#" class="social-btn btn-fb">
+                    <i class="fab fa-facebook-f"></i> <span data-key="soc_fb">Facebook Page</span>
+                </a>
+                <a href="#" class="social-btn btn-li">
+                    <i class="fab fa-linkedin-in"></i> <span data-key="soc_in">LinkedIn Profile</span>
+                </a>
+                <a href="#" class="social-btn btn-tw">
+                    <i class="fab fa-twitter"></i> <span data-key="soc_tw">Twitter / X</span>
+                </a>
+                <a href="#" class="social-btn btn-rg">
+                    <i class="fab fa-researchgate"></i> <span data-key="soc_rg">ResearchGate</span>
+                </a>
+            </div>
+            <div class="sidebar-box">
                 <h3 class="sidebar-title" data-key="sb_reg">Professional Registrations</h3>
                 <ul class="data-list">
                     <li data-key="reg_nmc"><strong>Nepal Medical Council (NMC):</strong> 3261</li>
@@ -466,7 +508,15 @@
                 sb_clinic_title: "Clinic Appointment",
                 clinic_name: "National City Hospital (Private)",
                 clinic_addr: "Hospital Road, Bharatpur-10, Chitwan",
-                clinic_call: "Call for Appointment"
+                clinic_call: "Call for Appointment",
+                
+                // SOCIAL ACTIVITY TRANSLATIONS
+                sb_social_title: "Social Activity",
+                sb_social_desc: "Follow for recent health updates and cancer awareness posts.",
+                soc_fb: "Facebook Page",
+                soc_in: "LinkedIn Profile",
+                soc_tw: "Twitter / X",
+                soc_rg: "ResearchGate"
             },
             ne: {
                 name: "डा. निर्मल लामिछाने",
@@ -521,7 +571,15 @@
                 sb_clinic_title: "क्लिनिक अपोइन्टमेन्ट",
                 clinic_name: "नेशनल सिटी हस्पिटल (प्राइभेट)",
                 clinic_addr: "हस्पिटल रोड, भरतपुर-१०, चितवन",
-                clinic_call: "अपोइन्टमेन्टको लागि फोन गर्नुहोस्"
+                clinic_call: "अपोइन्टमेन्टको लागि फोन गर्नुहोस्",
+
+                // SOCIAL ACTIVITY TRANSLATIONS
+                sb_social_title: "सामाजिक गतिविधि",
+                sb_social_desc: "स्वास्थ्य जानकारी र क्यान्सर सचेतनाका लागि फ्लो गर्नुहोस्।",
+                soc_fb: "फेसबुक पेज",
+                soc_in: "लिंक्डइन प्रोफाइल",
+                soc_tw: "ट्विटर / X",
+                soc_rg: "रिसर्चगेट"
             },
             zh: {
                 name: "尼尔马尔·拉米查内 医生",
@@ -576,7 +634,15 @@
                 sb_clinic_title: "门诊预约",
                 clinic_name: "国家城市医院 (私立)",
                 clinic_addr: "奇特旺，巴拉特普尔-10，医院路",
-                clinic_call: "电话预约"
+                clinic_call: "电话预约",
+
+                // SOCIAL ACTIVITY TRANSLATIONS
+                sb_social_title: "社交活动",
+                sb_social_desc: "关注以获取最新健康动态和癌症意识信息。",
+                soc_fb: "Facebook 页面",
+                soc_in: "LinkedIn 个人资料",
+                soc_tw: "Twitter / X",
+                soc_rg: "ResearchGate"
             }
         };
 
@@ -618,12 +684,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
