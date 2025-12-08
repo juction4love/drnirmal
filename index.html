@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Nirmal Lamichhane | Chairman & Senior Consultant Surgeon</title>
-    <meta name="description" content="Professional Portfolio of Dr. Nirmal Lamichhane, Chairman of BPKMCH and Senior Consultant Surgeon specializing in Onco-Urology.">
+    <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon</title>
+    <meta name="description" content="Professional Portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon specializing in Onco-Urology.">
     
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +14,7 @@
             --primary: #0056b3;
             --primary-dark: #003d80;
             --accent: #17a2b8;
+            --whatsapp: #25D366; /* WhatsApp Green */
             --light-bg: #f8f9fa;
             --white: #ffffff;
             --text-dark: #333333;
@@ -35,25 +36,14 @@
         a { text-decoration: none; transition: 0.3s; }
         
         /* --- IMAGES STYLING (6 Locations) --- */
-        /* 1. Header Avatar */
         .img-header { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); margin-right: 10px; }
-        
-        /* 2. Hero Profile Image */
         .img-hero { width: 250px; height: 250px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.3); object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        
-        /* 3. Card/Bio Image */
         .img-card { width: 100%; height: auto; border-radius: 8px; margin-bottom: 5px; border: 1px solid #ddd; }
-        
-        /* 4. Sidebar Contact Image */
         .img-sidebar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: block; border: 3px solid var(--accent); }
-        
-        /* 5. Research Thumbnail */
         .img-research { float: right; width: 120px; height: 120px; border-radius: 8px; margin: 0 0 15px 20px; border: 2px solid #eee; object-fit: cover; }
-        
-        /* 6. Footer Watermark */
         .img-footer { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 15px; opacity: 0.8; border: 2px solid rgba(255,255,255,0.2); }
 
-        /* --- SOCIAL ICONS STYLING --- */
+        /* --- SOCIAL ICONS --- */
         .social-box { margin-top: 15px; display: flex; gap: 10px; }
         .social-icon {
             width: 35px; height: 35px;
@@ -63,12 +53,11 @@
         }
         .social-icon:hover { background: var(--primary); color: white; transform: translateY(-3px); border-color: var(--primary); }
         
-        /* Header Specific Socials */
         .header-socials { display: flex; gap: 15px; margin-left: 20px; border-left: 1px solid #ddd; padding-left: 20px; }
         .header-socials a { color: var(--text-grey); font-size: 1.1rem; }
         .header-socials a:hover { color: var(--primary); transform: scale(1.1); }
 
-        /* --- LAYOUT STRUCTURE --- */
+        /* --- LAYOUT --- */
         header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; }
@@ -80,14 +69,12 @@
         .nav-menu a { color: var(--text-grey); font-weight: 600; font-size: 0.9rem; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* Hero */
         .hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: var(--white); padding: 80px 20px; }
         .hero-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 50px; }
         .hero-text { flex: 1; }
         .hero h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--white); line-height: 1.2; }
         .hero p { font-size: 1.1rem; opacity: 0.95; line-height: 1.8; margin-bottom: 25px; }
         
-        /* Main Body */
         .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: 3fr 1fr; gap: 40px; }
         section { margin-bottom: 50px; scroll-margin-top: 100px; }
         .section-head { border-bottom: 3px solid var(--accent); display: inline-block; margin-bottom: 25px; padding-bottom: 5px; font-size: 1.8rem; }
@@ -103,11 +90,31 @@
         .timeline-title { font-weight: 700; font-size: 1.1rem; display: block; margin-top: 2px; }
         .timeline-loc { font-style: italic; color: #666; font-size: 0.95rem; }
 
-        /* Sidebar */
+        /* --- WHATSAPP BOX STYLES --- */
+        .whatsapp-box {
+            background: linear-gradient(to right, #e3fcef, #fff);
+            border: 2px solid var(--whatsapp);
+        }
+        .wa-input-group { margin-bottom: 15px; }
+        .wa-input {
+            width: 100%; padding: 12px;
+            border: 1px solid #ccc; border-radius: 5px;
+            font-family: inherit; font-size: 1rem;
+        }
+        .wa-btn {
+            background-color: var(--whatsapp); color: white;
+            border: none; padding: 12px 25px;
+            border-radius: 50px; cursor: pointer;
+            font-size: 1rem; font-weight: bold;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: 0.3s;
+        }
+        .wa-btn:hover { background-color: #1ebc57; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); }
+
+        /* Sidebar & Footer */
         .sidebar-box { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 25px; }
         .sidebar-title { font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-weight: 700; }
 
-        /* Footer */
         footer { background: var(--text-dark); color: var(--white); text-align: center; padding: 50px 0; margin-top: 50px; }
         .footer-socials { display: flex; justify-content: center; gap: 25px; margin: 25px 0; }
         .footer-socials a { color: var(--white); font-size: 1.5rem; transition: 0.3s; }
@@ -155,12 +162,12 @@
             <div class="hero-text">
                 <h2>Professional Biographical Abstract</h2>
                 <p>
-                    Dr. Nirmal Lamichhane is a distinguished Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Onco-Urology). He currently serves as the <strong>Chairman of the Board of Directors</strong> at BPKMCH.
+                    Dr. Nirmal Lamichhane is a distinguished Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Onco-Urology).
                 </p>
                 <div class="social-box" style="margin-top: 25px;">
                     <a href="#" class="social-icon" title="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-icon" title="ResearchGate Profile"><i class="fab fa-researchgate"></i></a>
-                    <a href="#" class="social-icon" title="Contact Me"><i class="fas fa-paper-plane"></i></a>
+                    <a href="#contact" class="social-icon" title="Ask Dr."><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="img-hero">
@@ -215,7 +222,7 @@
                 <h2 class="section-head">Clinical Expertise</h2>
                 
 
-[Image of the human urinary system]
+[Image of human urinary system]
 
                 <div class="card">
                     <ul class="data-list">
@@ -267,6 +274,25 @@
                     </div>
                 </div>
             </section>
+
+            <section id="ask-dr">
+                <h2 class="section-head">Consultation</h2>
+                <div class="card whatsapp-box">
+                    <h3 style="color:#075e54; margin-bottom:10px;"><i class="fab fa-whatsapp"></i> Ask with Dr. Nirmal</h3>
+                    <p style="margin-bottom:20px; font-size:0.95rem;">Have a question about a urological or oncological condition? Send a direct message.</p>
+                    
+                    <div class="wa-input-group">
+                        <input type="text" id="wa-name" class="wa-input" placeholder="Your Name">
+                    </div>
+                    <div class="wa-input-group">
+                        <textarea id="wa-msg" class="wa-input" rows="3" placeholder="Describe your concern briefly..."></textarea>
+                    </div>
+                    <button class="wa-btn" onclick="sendToWhatsapp()">
+                        Send to Dr. via WhatsApp <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </section>
+
         </main>
 
         <aside>
@@ -323,8 +349,29 @@
         </div>
         
         <p>&copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.</p>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Chairman & Senior Consultant Surgeon | BPKMCH</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Senior Consultant Surgeon | BPKMCH</p>
     </footer>
 
+    <script>
+        function sendToWhatsapp() {
+            var name = document.getElementById("wa-name").value;
+            var msg = document.getElementById("wa-msg").value;
+            
+            if(name === "" || msg === "") {
+                alert("Please enter your name and message.");
+                return;
+            }
+
+            // Using country code 977 for Nepal + the provided number 9855046811
+            var phonenumber = "9779855046811";
+            
+            var url = "https://wa.me/" + phonenumber + "?text=" 
+            + "*New Inquiry from Website*" + "%0a"
+            + "*Name:* " + name + "%0a"
+            + "*Message:* " + msg;
+            
+            window.open(url, '_blank').focus();
+        }
+    </script>
 </body>
 </html>
