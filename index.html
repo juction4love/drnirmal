@@ -52,7 +52,7 @@
         .img-research { float: right; width: 120px; height: 120px; border-radius: 8px; margin: 0 0 15px 20px; border: 2px solid #eee; object-fit: cover; }
         .img-footer { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 15px; opacity: 0.8; border: 2px solid rgba(255,255,255,0.2); }
 
-        /* --- HEADER & LANG SWITCHER --- */
+        /* --- HEADER --- */
         header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; }
@@ -64,11 +64,8 @@
         .nav-menu a { color: var(--text-grey); font-weight: 600; font-size: 0.9rem; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* Language Buttons */
         .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 20px; overflow: hidden; }
-        .lang-btn {
-            background: #fff; border: none; padding: 5px 10px; cursor: pointer; font-size: 0.8rem; font-weight: bold; color: var(--text-grey); transition: 0.2s;
-        }
+        .lang-btn { background: #fff; border: none; padding: 5px 10px; cursor: pointer; font-size: 0.8rem; font-weight: bold; color: var(--text-grey); transition: 0.2s; }
         .lang-btn:hover { background: #f0f0f0; }
         .lang-btn.active { background: var(--primary); color: white; }
 
@@ -84,21 +81,15 @@
         .hero p { font-size: 1.1rem; opacity: 0.95; line-height: 1.8; margin-bottom: 25px; }
 
         .social-box { margin-top: 15px; display: flex; gap: 10px; }
-        .social-icon {
-            width: 35px; height: 35px;
-            background: var(--light-bg); color: var(--primary);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            border: 1px solid #ddd;
-        }
+        .social-icon { width: 35px; height: 35px; background: var(--light-bg); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; }
         .social-icon:hover { background: var(--primary); color: white; transform: translateY(-3px); border-color: var(--primary); }
-        
+
         /* --- LAYOUT --- */
         .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: 3fr 1fr; gap: 40px; }
         section { margin-bottom: 50px; scroll-margin-top: 100px; }
         .section-head { border-bottom: 3px solid var(--accent); display: inline-block; margin-bottom: 25px; padding-bottom: 5px; font-size: 1.8rem; }
 
         .card { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 25px; border-left: 5px solid var(--primary); }
-        
         .data-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
         .data-list li::before { content: "•"; color: var(--accent); font-weight: bold; position: absolute; left: 0; }
         
@@ -108,18 +99,21 @@
         .timeline-title { font-weight: 700; font-size: 1.1rem; display: block; margin-top: 2px; }
         .timeline-loc { font-style: italic; color: #666; font-size: 0.95rem; }
 
-        /* --- WHATSAPP BOX --- */
+        /* --- APPOINTMENT & WHATSAPP BOXES --- */
         .whatsapp-box { background: linear-gradient(to right, #e3fcef, #fff); border: 2px solid var(--whatsapp); }
         .wa-input-group { margin-bottom: 15px; }
         .wa-input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 1rem; }
-        .wa-btn {
-            background-color: var(--whatsapp); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
-        }
+        .wa-btn { background-color: var(--whatsapp); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .wa-btn:hover { background-color: #1ebc57; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); }
 
         /* Sidebar & Footer */
         .sidebar-box { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 25px; }
         .sidebar-title { font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-weight: 700; }
+        
+        /* Specific Clinic Box Style */
+        .clinic-box { border-top: 5px solid var(--accent); }
+        .call-btn { display: block; width: 100%; background: var(--primary); color: white; text-align: center; padding: 10px; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        .call-btn:hover { background: var(--primary-dark); color: white; }
 
         footer { background: var(--text-dark); color: var(--white); text-align: center; padding: 50px 0; margin-top: 50px; }
         .footer-socials { display: flex; justify-content: center; gap: 25px; margin: 25px 0; }
@@ -235,7 +229,7 @@
                 <h2 class="section-head" data-key="sec_exp">Clinical Expertise</h2>
                 
 
-[Image of the male urinary system]
+[Image of the human urinary system]
 
                 <div class="card">
                     <ul class="data-list">
@@ -255,14 +249,6 @@
                         <li data-key="edu_li1"><strong>M.Ch (Magister Chirurgiae) in Urology:</strong> Kathmandu University, Nepal (2016).</li>
                         <li data-key="edu_li2"><strong>Master of Medicine (Clinical/Surgical Oncology):</strong> Fudan University, Shanghai, China (2001).</li>
                         <li data-key="edu_li3"><strong>MBBS:</strong> Shanghai Medical University, China (1998).</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 style="margin-bottom:15px; color:var(--primary);" data-key="fel_title">International Fellowships</h3>
-                    <ul class="data-list">
-                        <li data-key="fel_li1"><strong>Fellowship in Colorectal Surgery:</strong> Royal College of Surgeons of Edinburgh (UK) (2010–2011).</li>
-                        <li data-key="fel_li2"><strong>Saudavar Fellowship in Surgical Oncology:</strong> Memorial Sloan Kettering Cancer Center (MSKCC), New York (2006).</li>
-                        <li data-key="fel_li3"><strong>UICC ICRETT Fellowship:</strong> Sentinel Lymph Node Biopsy, H. Lee Moffitt Cancer Center, Florida (2003).</li>
                     </ul>
                 </div>
             </section>
@@ -317,6 +303,18 @@
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="sidebar-box clinic-box">
+                <h3 class="sidebar-title" data-key="sb_clinic_title">Clinic Appointment</h3>
+                <div style="font-size: 0.95rem;">
+                    <strong style="color:var(--primary); display:block; margin-bottom:5px;" data-key="clinic_name">National City Hospital (Private)</strong>
+                    <p data-key="clinic_addr">Hospital Road, Bharatpur-10, Chitwan</p>
+                    <a href="tel:056493511" class="call-btn">
+                        <i class="fas fa-phone-alt"></i> <span data-key="clinic_call">Call for Appointment</span>
+                        <br><span style="font-size:0.9em; font-weight:normal;">056-493511</span>
+                    </a>
                 </div>
             </div>
 
@@ -411,7 +409,11 @@
                 reg_gmc: "<strong>General Medical Council (GMC), UK:</strong> 7059752",
                 sb_aff: "Affiliations", aff_int: "International:", aff_nat: "National:",
                 sb_lang: "Languages", lang_desc: "Fluent in Nepali, English, Chinese, and Hindi.",
-                footer_sub: "Senior Consultant Surgeon | BPKMCH"
+                footer_sub: "Senior Consultant Surgeon | BPKMCH",
+                sb_clinic_title: "Clinic Appointment",
+                clinic_name: "National City Hospital (Private)",
+                clinic_addr: "Hospital Road, Bharatpur-10, Chitwan",
+                clinic_call: "Call for Appointment"
             },
             ne: {
                 name: "डा. निर्मल लामिछाने",
@@ -461,7 +463,11 @@
                 reg_gmc: "<strong>जनरल मेडिकल काउन्सिल (GMC), UK:</strong> ७०५९७५२",
                 sb_aff: "सम्बद्धता", aff_int: "अन्तर्राष्ट्रिय:", aff_nat: "राष्ट्रिय:",
                 sb_lang: "भाषाहरू", lang_desc: "नेपाली, अंग्रेजी, चिनियाँ र हिन्दीमा धाराप्रवाह।",
-                footer_sub: "वरिष्ठ कन्सल्टेन्ट सर्जन | BPKMCH"
+                footer_sub: "वरिष्ठ कन्सल्टेन्ट सर्जन | BPKMCH",
+                sb_clinic_title: "क्लिनिक अपोइन्टमेन्ट",
+                clinic_name: "नेशनल सिटी हस्पिटल (प्राइभेट)",
+                clinic_addr: "हस्पिटल रोड, भरतपुर-१०, चितवन",
+                clinic_call: "अपोइन्टमेन्टको लागि फोन गर्नुहोस्"
             },
             zh: {
                 name: "尼尔马尔·拉米查内 医生",
@@ -511,7 +517,11 @@
                 reg_gmc: "<strong>英国医学总会 (GMC):</strong> 7059752",
                 sb_aff: "附属机构", aff_int: "国际:", aff_nat: "国内:",
                 sb_lang: "语言能力", lang_desc: "流利使用尼泊尔语、英语、中文和印地语。",
-                footer_sub: "高级顾问外科医生 | BPKMCH"
+                footer_sub: "高级顾问外科医生 | BPKMCH",
+                sb_clinic_title: "门诊预约",
+                clinic_name: "国家城市医院 (私立)",
+                clinic_addr: "奇特旺，巴拉特普尔-10，医院路",
+                clinic_call: "电话预约"
             }
         };
 
@@ -520,12 +530,9 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
-                    // Use innerHTML to preserve bold tags in translations
                     el.innerHTML = translations[lang][key];
                 }
             });
-            
-            // Handle placeholders
             const inputs = document.querySelectorAll('[data-placeholder]');
             inputs.forEach(input => {
                 const key = input.getAttribute('data-placeholder');
@@ -533,11 +540,7 @@
                     input.placeholder = translations[lang][key];
                 }
             });
-
-            // Update Body Class
             document.body.className = `lang-${lang}`;
-            
-            // Update Active Button
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`);
             if(activeBtn) activeBtn.classList.add('active');
@@ -546,7 +549,6 @@
         function sendToWhatsapp() {
             var name = document.getElementById("wa-name").value;
             var msg = document.getElementById("wa-msg").value;
-            
             if(name === "" || msg === "") {
                 alert("Please enter your name and message.");
                 return;
