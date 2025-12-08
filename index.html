@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Nirmal Lamichhane | Executive Portfolio</title>
+    <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Mukta:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            /* PREMIUM PALETTE */
-            --navy: #0a192f;        /* Deep Navy Background */
-            --gold: #d4af37;        /* Metallic Gold Accent */
-            --slate: #8892b0;       /* Muted Text */
-            --white: #e6f1ff;       /* Off-white text */
-            --light-bg: #f8f9fa;    /* Section Background */
+            /* Theme Colors */
+            --sky-blue: #87CEEB;
+            --dark-blue: #2c3e50;
+            --text-color: #1a252f;
+            --white-bg: #ffffff;
+            --section-bg: #fdfdfd;
             
-            /* FONTS */
+            /* Fonts */
             --font-head: 'Playfair Display', serif;
             --font-body: 'Lato', sans-serif;
             --font-ne: 'Mukta', sans-serif;
@@ -29,23 +29,32 @@
 
         body {
             font-family: var(--font-body);
-            background-color: var(--white);
-            color: #333;
+            background-color: var(--sky-blue);
+            color: var(--text-color);
             line-height: 1.8;
+            font-size: 1.05rem;
         }
 
-        /* Language Overrides */
+        /* Language Font Overrides */
         body.lang-ne { font-family: var(--font-ne); }
         body.lang-zh { font-family: var(--font-zh); letter-spacing: 0.5px; }
 
+        /* --- IMAGES --- */
+        .img-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; margin-right: 10px; }
+        .img-hero { width: 100%; max-width: 320px; border-radius: 10px; border: 4px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto;}
+        .img-float-right { width: 250px; height: auto; border-radius: 5px; float: right; margin: 0 0 20px 30px; border: 3px solid var(--dark-blue); }
+        .img-card { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--sky-blue); }
+        .img-wide { width: 100%; height: 250px; object-fit: cover; object-position: top; border-radius: 8px; margin-bottom: 20px; border: 2px solid white; }
+        .img-footer { width: 100px; opacity: 0.8; margin-bottom: 15px; border-radius: 5px; }
+
         /* --- NAVIGATION --- */
         nav {
-            background-color: var(--navy);
-            padding: 20px 0;
+            background-color: var(--dark-blue);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .nav-wrapper {
             max-width: 1200px;
@@ -55,192 +64,81 @@
             justify-content: space-between;
             align-items: center;
         }
-        .nav-logo {
-            font-family: var(--font-head);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
+        .nav-brand { display: flex; align-items: center; text-decoration: none; color: white; }
+        .nav-logo-text { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; }
+        
         .nav-links a {
-            color: var(--white);
+            color: #ecf0f1;
             text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.85rem;
+            margin-left: 20px;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            font-weight: 700;
+            transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover { color: var(--sky-blue); }
         
         .lang-switch button {
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 5px 10px;
-            margin-left: 5px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: 0.3s;
+            background: transparent; border: 1px solid white; color: white;
+            padding: 4px 8px; margin-left: 5px; cursor: pointer; border-radius: 4px;
         }
-        .lang-switch button.active { background: var(--gold); color: var(--navy); }
+        .lang-switch button.active { background: white; color: var(--dark-blue); }
 
         /* --- HERO SECTION --- */
         .hero {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 80px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-        }
-        .hero-container {
-            max-width: 1100px;
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .hero-text h1 {
-            font-family: var(--font-head);
-            font-size: 3.5rem;
-            color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 10px;
-        }
-        .hero-text h2 {
-            font-size: 1.2rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--slate);
-            max-width: 500px;
-            margin-bottom: 30px;
-        }
-        .hero-image-box {
-            position: relative;
-        }
-        .hero-image-box img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 5px;
-            box-shadow: 20px 20px 0 var(--gold); /* Gold offset border */
-        }
-        
-        /* --- SECTION STYLES --- */
-        .section-padding { padding: 80px 20px; }
-        .bg-light { background-color: var(--light-bg); }
-        .bg-white { background-color: #fff; }
-
-        .container { max-width: 1000px; margin: 0 auto; }
-        
-        .section-title {
-            font-family: var(--font-head);
-            font-size: 2.5rem;
-            color: var(--navy);
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        .section-title::after {
-            content: ''; display: block; width: 60px; height: 3px;
-            background: var(--gold); margin: 15px auto 0;
-        }
-
-        /* --- CARDS (Expertise) --- */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background: #fff;
-            padding: 30px;
-            border-top: 3px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .service-card:hover { transform: translateY(-10px); }
-        .service-icon { font-size: 2.5rem; color: var(--navy); margin-bottom: 20px; }
-        .service-card h3 { font-family: var(--font-head); margin-bottom: 10px; color: var(--navy); }
-
-        /* --- TIMELINE (Biography/Leadership) --- */
-        .timeline-item {
-            border-left: 2px solid var(--gold);
-            padding-left: 25px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: ''; position: absolute; left: -6px; top: 0;
-            width: 10px; height: 10px; background: var(--navy);
-            border-radius: 50%;
-        }
-        .timeline-title { font-weight: 700; color: var(--navy); font-size: 1.1rem; }
-        .timeline-desc { font-size: 0.95rem; color: #666; }
-
-        /* --- STATS / CREDENTIALS BAR --- */
-        .credentials-bar {
-            background: var(--navy);
-            color: var(--white);
-            padding: 40px 0;
-        }
-        .credentials-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            text-align: center;
-            gap: 20px;
-        }
-        .credential-item i { color: var(--gold); font-size: 1.5rem; margin-bottom: 10px; }
-        .credential-text { font-size: 0.9rem; opacity: 0.9; }
-
-        /* --- FORM --- */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .input-field {
-            width: 100%; padding: 15px; margin-bottom: 20px;
-            border: 1px solid #ddd; background: #f9f9f9;
-            font-family: inherit;
-        }
-        .btn-gold {
-            background: var(--navy); color: var(--gold);
-            padding: 15px 40px; border: 1px solid var(--gold);
-            text-transform: uppercase; letter-spacing: 2px;
-            font-weight: 700; cursor: pointer; transition: 0.3s;
-        }
-        .btn-gold:hover { background: var(--gold); color: var(--navy); }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #050d1a;
-            color: #8892b0;
-            padding: 60px 20px;
-            font-size: 0.9rem;
-        }
-        .footer-grid {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1.2fr 0.8fr 1fr; /* Left, Center, Right */
             gap: 40px;
+            align-items: start;
         }
-        .footer-col h4 { color: var(--white); margin-bottom: 20px; font-family: var(--font-head); }
-        .footer-col ul li { margin-bottom: 10px; }
-        
-        @media (max-width: 800px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-image-box { display: none; } /* Hide image on mobile for cleaner look or move to top */
-            .nav-wrapper { flex-direction: column; gap: 15px; }
+
+        .hero-bio h1 { font-family: var(--font-head); font-size: 3rem; color: var(--dark-blue); line-height: 1.1; margin-bottom: 10px; }
+        .hero-bio h2 { font-size: 1.3rem; color: #333; text-transform: uppercase; margin-bottom: 25px; font-weight: bold; border-bottom: 2px solid var(--dark-blue); display: inline-block; padding-bottom: 5px; }
+        .hero-intro-text { font-size: 1.1rem; margin-bottom: 20px; text-align: justify; }
+
+        .hero-details {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 6px solid var(--dark-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .detail-box { margin-bottom: 30px; }
+        .detail-box:last-child { margin-bottom: 0; }
+        .detail-box h3 { font-size: 1.2rem; color: var(--dark-blue); border-bottom: 1px solid #ccc; margin-bottom: 12px; padding-bottom: 5px; font-family: var(--font-head); }
+        .detail-box p, .detail-box li { font-size: 0.95rem; color: #222; list-style: none; margin-bottom: 8px; font-weight: 500; }
+        .detail-box ul { padding: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .section-padding { padding: 80px 20px; background: var(--section-bg); margin-bottom: 0; border-bottom: 1px solid #ddd; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .section-title { text-align: center; font-family: var(--font-head); font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ""; display: block; width: 80px; height: 3px; background: var(--sky-blue); margin: 15px auto 0; }
+
+        /* Expertise Grid */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: #fff; padding: 35px 25px; border-radius: 8px; text-align: center; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { color: var(--dark-blue); margin-bottom: 15px; font-family: var(--font-head); font-size: 1.4rem; }
+        .service-card p { font-size: 0.95rem; color: #555; line-height: 1.7; }
+
+        /* Contact Form */
+        .contact-form-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .input-field { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ccc; background: #fafafa; font-family: inherit; font-size: 1rem; }
+        .btn-submit { background: var(--dark-blue); color: white; padding: 15px 40px; border: none; cursor: pointer; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; width: 100%; transition: background 0.3s; }
+        .btn-submit:hover { background: #34495e; }
+
+        /* Footer */
+        footer { background: var(--dark-blue); color: #ecf0f1; padding: 50px 20px; text-align: center; }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .img-float-right { float: none; display: block; margin: 20px auto; width: 100%; max-width: 400px; }
+            .hero-details { margin-top: 30px; }
         }
     </style>
 </head>
@@ -248,13 +146,16 @@
 
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="nav-logo">DR. NIRMAL LAMICHHANE</a>
-            <div style="display:flex; align-items:center;">
+            <a href="#" class="nav-brand">
+                <img src="profile.jpg" alt="Avatar" class="img-avatar"> 
+                <span class="nav-logo-text">DR. NIRMAL LAMICHHANE</span>
+            </a>
+            <div style="display:flex; align-items:center; flex-wrap: wrap;">
                 <div class="nav-links">
                     <a href="#about" data-key="nav_about">About</a>
                     <a href="#expertise" data-key="nav_expert">Expertise</a>
                     <a href="#bio" data-key="nav_bio">Biography</a>
-                    <a href="#social" data-key="nav_social">Social</a>
+                    <a href="#philosophy" data-key="nav_phil">Philosophy</a>
                     <a href="#contact" data-key="nav_ask">Contact</a>
                 </div>
                 <div class="lang-switch" style="margin-left: 20px;">
@@ -266,423 +167,340 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h2 data-key="title">Senior Consultant Surgeon</h2>
-                <h1 data-key="name">Dr. Nirmal Lamichhane</h1>
-                <p data-key="about_p1">I am Dr. Nirmal Lamichhane, a **Senior Consultant Surgeon** specializing in Surgical Oncology and Onco-Urology. I perform complex surgical procedures for cancers of the bladder, prostate, kidney, and penis, leveraging advanced training from institutions like **Memorial Sloan Kettering (USA)**.</p>
-                <a href="#contact" class="btn-gold" data-key="nav_ask">Consultation</a>
+    <div class="hero">
+        
+        <div class="hero-bio">
+            <h2 data-key="title">Senior Consultant Surgeon</h2>
+            <h1 data-key="name">Dr. Nirmal Lamichhane</h1>
+            <div class="hero-intro-text">
+                <p data-key="hero_p1">Welcome to my professional portfolio. I am Dr. Nirmal Lamichhane, a dedicated Senior Consultant Surgeon specializing in the complex and delicate fields of Surgical Oncology and Onco-Urology. With over two decades of experience in the medical field, my practice is grounded in a deep commitment to saving lives through precision surgery and compassionate care.</p>
+                <br>
+                <p data-key="hero_p2">Based in Chitwan, Nepal, I have dedicated my career to bringing world-class cancer treatment to our local community. Having trained at prestigious institutions globally, I strive to bridge the gap between international medical standards and the specific needs of patients in Nepal.</p>
             </div>
-            <div class="hero-image-box">
-                <img src="profile.png" alt="Dr. Nirmal Lamichhane">
-            </div>
+            <a href="#contact" class="btn-submit" data-key="nav_ask" style="text-decoration:none; display:inline-block; width:auto; padding: 12px 30px;">Request Consultation</a>
         </div>
-    </header>
 
-    <div class="credentials-bar">
-        <div class="credentials-grid">
-            <div class="credential-item">
-                <i class="fas fa-university"></i>
-                <div class="credential-text" data-key="edu_1">M.Ch (Urology) - Kathmandu University</div>
+        <div class="hero-photo">
+            <img src="profile.jpg" alt="Dr Nirmal Main" class="img-hero">
+        </div>
+
+        <div class="hero-details">
+            <div class="detail-box">
+                <h3 data-key="contact_head">Clinic Details</h3>
+                <p data-key="clinic_name" style="font-weight:bold; font-size:1.05rem;">National City Hospital (Private)</p>
+                <p data-key="clinic_loc">Hospital Road, Bharatpur-10, Chitwan, Nepal</p>
+                <p><i class="fas fa-phone-alt"></i> 056-493511</p>
+                <p><i class="fas fa-clock"></i> Sun-Fri: 9:00 AM - 5:00 PM</p>
             </div>
-            <div class="credential-item">
-                <i class="fas fa-user-md"></i>
-                <div class="credential-text" data-key="edu_2">M.S. Surgical Oncology - Fudan University</div>
+
+            <div class="detail-box">
+                <h3 data-key="edu_head">Education</h3>
+                <ul>
+                    <li data-key="edu_1">M.Ch (Urology) - Kathmandu University</li>
+                    <li data-key="edu_2">M.S. Surgical Oncology - Fudan University</li>
+                    <li data-key="edu_3">MBBS - Shanghai Medical University</li>
+                    <li data-key="edu_gmc">GMC Full Registration (UK)</li>
+                </ul>
             </div>
-            <div class="credential-item">
-                <i class="fas fa-id-card"></i>
-                <div class="credential-text" data-key="edu_gmc">GMC Full Registration (UK)</div>
+
+            <div class="detail-box">
+                <h3 data-key="grant_title">Awards & Honors</h3>
+                <ul>
+                    <li data-key="grant_1">Best Young Surgeon Award (2005)</li>
+                    <li data-key="grant_2">ASCO Foundation Grant (2005)</li>
+                    <li data-key="grant_3">UICC ICRETT Fellowship Award</li>
+                </ul>
+            </div>
+
+            <div class="detail-box">
+                <h3 data-key="lang_head">Languages Spoken</h3>
+                <p data-key="lang_list">Nepali (Native), English (Fluent), Chinese (Fluent), Hindi (Fluent)</p>
             </div>
         </div>
     </div>
 
-    <section id="about" class="section-padding bg-white">
+    <section id="about" class="section-padding" style="background: white;">
         <div class="container">
             <h2 class="section-title" data-key="about_head">About Me</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #555;">
-                <p data-key="about_p2">My surgical activities also encompass General Oncology (Breast and Rectal Cancers) and General Urology (Stone disease, BPH/LUTS). Outside of the operating theatre, I enjoy **trekking in the Himalayas** and playing **badminton**, and I prioritize spending quality time with my **friends and family**.</p>
+            <div>
+                <img src="profile.jpg" alt="Profile Context" class="img-float-right">
+                
+                <p data-key="about_long_1" style="margin-bottom: 20px; text-align: justify;">
+                    My journey into medicine was driven by a singular passion: to alleviate suffering through surgical intervention. As a Senior Consultant Surgeon at the B. P. Koirala Memorial Cancer Hospital (BPKMCH), I have witnessed firsthand the physical and emotional toll that a cancer diagnosis takes on patients and their families. This understanding shapes my approach to every case. I believe that a surgeon's role extends far beyond the operating theatre; it involves being a pillar of support, a source of clear information, and a partner in the patient's journey toward recovery.
+                </p>
+                <p data-key="about_long_2" style="margin-bottom: 20px; text-align: justify;">
+                    While my primary focus is on the surgical eradication of tumors, I am equally passionate about reconstructive techniques that preserve dignity and quality of life. Whether it is constructing a new bladder after a cystectomy or performing nerve-sparing procedures, my goal is to ensure that life after cancer is as full and normal as possible. My training in China and the United States has equipped me with diverse perspectives, allowing me to adapt best practices to our local context in Nepal.
+                </p>
+                <p data-key="about_long_3" style="text-align: justify;">
+                    Outside of my professional life, I find balance in the serenity of nature. Trekking in the Himalayas is not just a hobby but a spiritual reset that keeps me grounded. I am also an avid badminton player, which helps maintain the physical stamina required for long surgical procedures. Above all, I cherish the moments spent with my friends and family, who provide the unwavering support that allows me to serve my patients effectively.
+                </p>
             </div>
+            <div style="clear:both;"></div>
         </div>
     </section>
 
-    <section id="expertise" class="section-padding bg-light">
+    <section id="expertise" class="section-padding" style="background: #f4f8fb;">
         <div class="container">
             <h2 class="section-title" data-key="expert_head">Clinical Expertise</h2>
             <div class="expertise-grid">
+                
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <img src="profile.jpg" class="img-card">
                     <h3 data-key="exp_uro_title">Uro-Oncology</h3>
-                    <p data-key="exp_uro_desc">Expert management of Bladder, Prostate, Kidney, and Penile cancers.</p>
+                    <p data-key="exp_uro_long">
+                        Uro-oncology is a highly specialized field dealing with cancers of the urinary tract and male reproductive system. My expertise covers the comprehensive management of Bladder Cancer, Prostate Cancer, Kidney Cancer, and Penile Cancer. These conditions often require intricate surgical solutions. For instance, in muscle-invasive bladder cancer, simply removing the tumor is not enough; we must often perform a Radical Cystectomy. I specialize in creating Orthotropic Neobladders (studer pouches), where a new bladder is constructed from the patient's own intestine, allowing for natural voiding and significantly improved quality of life compared to external bags.
+                    </p>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-procedures"></i></div>
-                    <h3 data-key="exp_surg_title">Surgical Procedures</h3>
-                    <p data-key="exp_surg_desc">Radical Cystectomy, Orthotropic Neobladder, TURP, Radical Prostatectomy.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-hospital-alt"></i></div>
+                    <img src="profile.jpg" class="img-card">
                     <h3 data-key="exp_gen_title">General Oncology</h3>
-                    <p data-key="exp_gen_desc">Breast Cancer (Sentinel Node Biopsy), Rectal Cancer, and soft tissue tumors.</p>
+                    <p data-key="exp_gen_long">
+                        Beyond urology, my surgical practice encompasses a broad spectrum of General Surgical Oncology. I have significant experience in treating Breast Cancer, emphasizing breast-conserving surgery and Sentinel Lymph Node Biopsy to minimize complications like lymphedema. I also treat Rectal Cancer and soft tissue sarcomas. My approach involves a multidisciplinary team effort, working closely with medical oncologists, radiation oncologists, and pathologists to formulate a personalized treatment plan for every patient, ensuring that surgery is timed perfectly within the broader scope of therapy.
+                    </p>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-notes-medical"></i></div>
-                    <h3 data-key="exp_gen_uro_title">General Urology</h3>
-                    <p data-key="exp_gen_uro_desc">Management of Kidney stones, Urinary Tract Infections (UTI), BPH/LUTS, and Erectile Dysfunction.</p>
+                    <img src="profile.jpg" class="img-card">
+                    <h3 data-key="exp_surg_title">Advanced Procedures</h3>
+                    <p data-key="exp_surg_long">
+                        Surgery is an art that requires constant refinement. I perform a high volume of complex procedures including Radical Prostatectomy for prostate cancer, Nephrectomy (partial and radical) for kidney tumors, and surgeries for benign conditions like BPH (Benign Prostatic Hyperplasia) using TURP (Transurethral Resection of the Prostate). I am also adept at managing stone diseases and urinary tract infections that often complicate oncological cases. My training allows me to handle intra-operative complications with confidence, ensuring patient safety remains the paramount priority during these major interventions.
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="bio" class="section-padding bg-white">
+    <section id="bio" class="section-padding" style="background: white;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
-                <div>
-                    <h3 style="font-family: var(--font-head); color:var(--navy); margin-bottom:20px;" data-key="bio_head">Professional Journey</h3>
-                    <p style="margin-bottom:20px;" data-key="bio_intro">I am Dr. Nirmal Lamichhane, a highly distinguished Senior Consultant Surgeon specializing in Surgical Oncology with deep expertise in Onco-Urology.</p>
-                    
-                    <h4 style="color:var(--gold); text-transform:uppercase; margin-bottom:15px; font-size:0.9rem;" data-key="train_head">International Training</h4>
-                    <div class="timeline-item">
-                        <div class="timeline-title" data-key="train_mskcc_title">Memorial Sloan Kettering (USA)</div>
-                        <div class="timeline-desc" data-key="train_mskcc_desc">Saudavar Fellowship in Surgical Oncology.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title" data-key="train_moffitt_title">H. Lee Moffitt Cancer Center (USA)</div>
-                        <div class="timeline-desc" data-key="train_moffitt_desc">UICC ICRETT Fellowship in Sentinel Lymph Node Biopsy.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title" data-key="train_uk_title">Royal College of Surgeons (UK)</div>
-                        <div class="timeline-desc" data-key="train_uk_desc">Fellowship in Colorectal Surgery.</div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 style="font-family: var(--font-head); color:var(--navy); margin-bottom:20px;" data-key="bio_lead_head">Leadership & Administration</h3>
-                    <p style="margin-bottom:20px;" data-key="bio_lead_p1">Honored to hold significant administrative and governance positions:</p>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-title" data-key="bio_lead_li1">Chairman, Board of Directors</div>
-                        <div class="timeline-desc">BPKMCH (2020–2023)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title" data-key="bio_lead_li2">Deputy Director</div>
-                        <div class="timeline-desc">BPKMCH (2018–2020)</div>
-                    </div>
-
-                    <h4 style="color:var(--gold); text-transform:uppercase; margin-top:30px; margin-bottom:15px; font-size:0.9rem;" data-key="social_head">Social Activity</h4>
-                    <div class="timeline-item">
-                        <div class="timeline-title">Public Health & Advocacy</div>
-                        <div class="timeline-desc" data-key="social_li1">Regularly organize free medical/cancer screening camps.</div>
-                        <div class="timeline-desc" style="margin-top:5px;" data-key="social_li2">Advise on **government policy and operational levels** of the health system.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="research" class="section-padding bg-light" style="text-align:center;">
-        <div class="container">
-            <h2 class="section-title" data-key="res_head">Research & Publications</h2>
-            <p data-key="res_stats_desc">I am a prolific researcher with over 30 peer-reviewed publications.</p>
+            <h2 class="section-title" data-key="bio_head">Professional Biography</h2>
             
-            <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:30px;">
-                <div style="background:#fff; padding:15px 25px; border-radius:50px; border:1px solid var(--gold);">
-                    <i class="fas fa-microscope" style="color:var(--navy);"></i> <span data-key="res_area_1">Penile Cancer</span>
-                </div>
-                <div style="background:#fff; padding:15px 25px; border-radius:50px; border:1px solid var(--gold);">
-                    <i class="fas fa-dna" style="color:var(--navy);"></i> <span data-key="res_area_2">Bladder Cancer</span>
-                </div>
-                <div style="background:#fff; padding:15px 25px; border-radius:50px; border:1px solid var(--gold);">
-                    <i class="fas fa-ribbon" style="color:var(--navy);"></i> <span data-key="res_area_3">Breast Cancer</span>
-                </div>
+            <img src="profile.jpg" alt="Medical Team" class="img-wide">
+
+            <div style="column-count: 2; column-gap: 40px; text-align: justify;">
+                <p data-key="bio_long_1" style="margin-bottom: 20px;">
+                    My academic journey began with a Bachelor of Medicine and Bachelor of Surgery (MBBS) from Shanghai Medical University, where I laid the foundation of my medical knowledge. Recognizing the growing need for specialized cancer care, I pursued a Master of Surgery (M.S.) in Surgical Oncology from Fudan University, followed by an M.Ch in Urology from Kathmandu University. These degrees provided me with the rigorous academic background necessary to tackle complex oncological cases.
+                </p>
+                <p data-key="bio_long_2" style="margin-bottom: 20px;">
+                    However, medicine is a field of lifelong learning. I sought further specialization through international fellowships. I was awarded the Saudavar Fellowship in Surgical Oncology at the world-renowned Memorial Sloan Kettering Cancer Center (USA) and the UICC ICRETT Fellowship at H. Lee Moffitt Cancer Center (USA). These experiences exposed me to cutting-edge techniques and the highest standards of patient care, which I have since implemented in my practice in Nepal.
+                </p>
+                <p data-key="bio_long_3" style="margin-bottom: 20px;">
+                    Leadership has been a core component of my career. I have had the honor of serving as the Deputy Director (2018–2020) and subsequently the Chairman of the Board of Directors (2020–2023) at the B. P. Koirala Memorial Cancer Hospital. In these roles, I navigated the challenges of hospital administration, policy-making, and strategic planning, always with the goal of improving patient access and quality of care. I have also chaired scientific committees for national conferences, contributing to the academic growth of the oncology community in Nepal.
+                </p>
+                <p data-key="bio_long_4">
+                    My commitment to research remains strong. I have authored over 30 peer-reviewed publications in national and international journals, focusing on penile cancer, bladder cancer, and breast cancer epidemiology in Nepal. I believe that documenting our local data is crucial for understanding disease patterns and improving outcomes for our specific population.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section-padding bg-white">
-        <div class="container contact-form">
-            <h2 class="section-title" data-key="ask_head">Ask Dr. Nirmal</h2>
-            <p style="margin-bottom:40px;" data-key="ask_sub">Do you have a question about your diagnosis? Fill out the form below.</p>
+    <section id="philosophy" class="section-padding" style="background: #f4f8fb;">
+        <div class="container">
+            <h2 class="section-title" data-key="social_head">Social Responsibility & Philosophy</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p data-key="social_long_1" style="margin-bottom: 20px; font-size: 1.1rem;">
+                    I firmly believe that healthcare is a fundamental human right, not a privilege. In a developing nation like Nepal, geographic and economic barriers often prevent patients from seeking timely care. To combat this, I am actively involved in organizing free medical camps and cancer screening programs in remote and underserved areas. These camps are vital for the early detection of cancer, which significantly improves survival rates.
+                </p>
+                <p data-key="social_long_2" style="font-size: 1.1rem;">
+                    My advocacy extends to the policy level, where I advise on government health initiatives to strengthen the national cancer control strategy. Whether it is advocating for better tobacco control laws or securing funding for advanced hospital equipment, my mission is to elevate the standard of healthcare for all Nepalese citizens. I also take great pride in mentoring the next generation of surgeons, ensuring that the legacy of skilled, compassionate care continues long into the future.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding" style="background: white;">
+        <div class="contact-form-container">
+            <h2 class="section-title" data-key="ask_head" style="margin-bottom: 20px;">Ask Dr. Nirmal</h2>
+            <p style="text-align:center; margin-bottom: 30px; color: #666;" data-key="ask_sub">Do you have a question about a diagnosis or need a second opinion? Please describe your case in detail below.</p>
             <form>
-                <input type="text" class="input-field" placeholder="Name / नाम / 姓名" required>
-                <input type="tel" class="input-field" placeholder="Phone / फोन / 电话" required>
-                <textarea rows="5" class="input-field" placeholder="Message / सन्देश / 信息" required></textarea>
-                <button type="submit" class="btn-gold" data-key="btn_send">Send Message</button>
+                <input type="text" class="input-field" placeholder="Full Name" required>
+                <input type="tel" class="input-field" placeholder="Phone Number" required>
+                <input type="email" class="input-field" placeholder="Email Address" required>
+                <textarea rows="6" class="input-field" placeholder="Describe your symptoms or inquiry here..." required></textarea>
+                <button type="submit" class="btn-submit" data-key="btn_send">Send Message</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4 data-key="contact_head">Clinic</h4>
-                <p data-key="clinic_name" style="color:var(--gold); font-weight:bold;">National City Hospital (Private)</p>
-                <p data-key="clinic_loc">Hospital Road, Bharatpur-10, Chitwan</p>
-                <p><i class="fas fa-phone-alt"></i> 056-493511</p>
-            </div>
-            <div class="footer-col">
-                <h4 data-key="grant_title">Awards</h4>
-                <ul>
-                    <li data-key="grant_1">Best Young Surgeon Award (2005)</li>
-                    <li data-key="grant_2">ASCO Foundation Grant (2005)</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 data-key="lang_head">Languages</h4>
-                <p data-key="lang_list">Nepali, English, Chinese, Hindi</p>
-            </div>
+        <img src="profile.jpg" class="img-footer"> 
+        <div style="margin-bottom: 20px;">
+            <a href="#" style="color:white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color:white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color:white; margin: 0 10px; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
         </div>
-        <div style="text-align:center; margin-top:40px; border-top:1px solid #233554; padding-top:20px;">
-            &copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.
-        </div>
+        <p>&copy; 2025 Dr. Nirmal Lamichhane. All Rights Reserved.</p>
     </footer>
 
     <script>
         const translations = {
             en: {
-                name: "Dr. Nirmal Lamichhane",
-                title: "Senior Consultant Surgeon",
+                // Navigation
                 nav_about: "About",
-                nav_bio: "Biography", 
-                nav_social: "Social",
-                nav_lead: "Leadership",
                 nav_expert: "Expertise",
-                nav_research: "Research",
+                nav_bio: "Biography",
+                nav_phil: "Philosophy",
                 nav_ask: "Contact",
                 
-                about_head: "About Me",
-                about_p1: "I am Dr. Nirmal Lamichhane, a **Senior Consultant Surgeon** specializing in Surgical Oncology and Onco-Urology. I perform complex surgical procedures for cancers of the bladder, prostate, kidney, and penis, leveraging advanced training from institutions like **Memorial Sloan Kettering (USA)**.",
-                about_p2: "My surgical activities also encompass General Oncology (Breast and Rectal Cancers) and General Urology (Stone disease, BPH/LUTS). Outside of the operating theatre, I enjoy **trekking in the Himalayas** and playing **badminton**, and I prioritize spending quality time with my **friends and family**.",
+                // Hero
+                title: "Senior Consultant Surgeon",
+                name: "Dr. Nirmal Lamichhane",
+                hero_p1: "Welcome to my professional portfolio. I am Dr. Nirmal Lamichhane, a dedicated Senior Consultant Surgeon specializing in the complex and delicate fields of Surgical Oncology and Onco-Urology. With over two decades of experience in the medical field, my practice is grounded in a deep commitment to saving lives through precision surgery and compassionate care.",
+                hero_p2: "Based in Chitwan, Nepal, I have dedicated my career to bringing world-class cancer treatment to our local community. Having trained at prestigious institutions globally, I strive to bridge the gap between international medical standards and the specific needs of patients in Nepal.",
                 
-                bio_head: "Professional Journey",
-                bio_intro: "I am Dr. Nirmal Lamichhane, a highly distinguished Senior Consultant Surgeon specializing in Surgical Oncology with deep expertise in Onco-Urology. I currently practice in Chitwan, Nepal, and am affiliated with the B. P. Koirala Memorial Cancer Hospital (BPKMCH).",
-                bio_clinical_head: "Clinical & Academic Focus",
-                bio_clinical_p1: "My clinical practice focuses on complex surgical management of various cancers, with a particular specialization drawn from my advanced sub-specialty training:",
-                bio_clinical_li1: "**Uro-Oncology:** Expert management and surgical treatment for Bladder, Prostate, Kidney, and Penile cancers.",
-                bio_clinical_li2: "**Advanced Procedures:** Specialized surgeries including Radical Cystectomy, Orthotropic Neobladder (Studer Pouch), TURP, and Radical Prostatectomy.",
-                bio_clinical_li3: "**General Oncology:** Surgical treatment of Breast Cancer (including Sentinel Lymph Node Biopsy), Rectal Cancer, and soft tissue tumors.",
-                bio_clinical_li4: "**General Urology:** Management of Kidney stones, Urinary Tract Infections (UTI), BPH/LUTS, and Erectile Dysfunction.",
-                
-                bio_lead_head: "Leadership & Administration",
-                bio_lead_p1: "I have been honored to hold significant administrative and governance positions that contribute to the strategic direction of cancer care in Nepal:", 
-                bio_lead_li1: "**Chairman, Board of Directors:** Served as the Chairman of BPKMCH (2020–2023).",
-                bio_lead_li2: "**Deputy Director:** I previously served as the Deputy Director of BPKMCH (2018–2020).",
-                bio_lead_li3: "**Scientific Committee:** I chaired the scientific committee for the First National Oncology Conference.",
-
-                social_head: "Social Activity",
-                social_p1: "My commitment extends beyond the hospital, actively engaging in public health initiatives and community service.",
-                social_li1: "**Public Health Camps:** Regularly organize and lead free medical and cancer screening camps in remote areas of Nepal.",
-                social_li2: "**Policy & Advocacy:** Provide expert advice on improving **government policy and the operational level** of the national health system.",
-
-                train_head: "International Training",
-                train_mskcc_title: "Memorial Sloan Kettering (USA)",
-                train_mskcc_desc: "Saudavar Fellowship in Surgical Oncology.",
-                train_moffitt_title: "H. Lee Moffitt Cancer Center (USA)",
-                train_moffitt_desc: "UICC ICRETT Fellowship in Sentinel Lymph Node Biopsy.",
-                train_uk_title: "Royal College of Surgeons (UK)",
-                train_uk_desc: "Fellowship in Colorectal Surgery.",
-
-                expert_head: "Clinical Expertise",
-                exp_uro_title: "Uro-Oncology",
-                exp_uro_desc: "Expert management of Bladder, Prostate, Kidney, and Penile cancers.",
-                exp_surg_title: "Surgical Procedures",
-                exp_surg_desc: "Radical Cystectomy, Orthotropic Neobladder, TURP, Radical Prostatectomy.",
-                exp_gen_title: "General Oncology",
-                exp_gen_desc: "Breast Cancer (Sentinel Node Biopsy), Rectal Cancer, and soft tissue tumors.",
-                exp_gen_uro_title: "General Urology",
-                exp_gen_uro_desc: "Management of Kidney stones, UTI, BPH/LUTS, and Erectile Dysfunction.",
-
-                res_head: "Research & Publications",
-                res_stats_desc: "I am a prolific researcher with over 30 peer-reviewed publications in national and international medical journals.",
-                res_focus_title: "Key Research Areas:",
-                res_area_1: "Penile Cancer",
-                res_area_2: "Bladder Cancer",
-                res_area_3: "Breast Cancer",
-                
-                grant_title: "Awards & Honors",
-                grant_1: "Best Young Surgeon Award (2005)",
-                grant_2: "ASCO Foundation Grant (2005)",
-
-                ask_head: "Ask Dr. Nirmal",
-                ask_sub: "Do you have a question about your diagnosis? Fill out the form below.",
-                btn_send: "Send Message",
-                
-                contact_head: "Clinic",
+                // Sidebar Details
+                contact_head: "Clinic Details",
                 clinic_name: "National City Hospital (Private)",
-                clinic_loc: "Hospital Road, Bharatpur-10, Chitwan",
+                clinic_loc: "Hospital Road, Bharatpur-10, Chitwan, Nepal",
+                grant_title: "Awards & Honors",
+                lang_head: "Languages Spoken",
+                lang_list: "Nepali (Native), English (Fluent), Chinese (Fluent), Hindi (Fluent)",
                 
+                // Education Details
                 edu_head: "Education",
                 edu_1: "M.Ch (Urology) - Kathmandu University",
-                edu_2: "M.S. Surgical Oncology - Fudan University", 
+                edu_2: "M.S. Surgical Oncology - Fudan University",
                 edu_3: "MBBS - Shanghai Medical University",
                 edu_gmc: "GMC Full Registration (UK)",
 
-                lang_head: "Languages",
-                lang_list: "Nepali, English, Chinese, Hindi"
+                // About
+                about_head: "About Me",
+                about_long_1: "My journey into medicine was driven by a singular passion: to alleviate suffering through surgical intervention. As a Senior Consultant Surgeon at the B. P. Koirala Memorial Cancer Hospital (BPKMCH), I have witnessed firsthand the physical and emotional toll that a cancer diagnosis takes on patients and their families. This understanding shapes my approach to every case. I believe that a surgeon's role extends far beyond the operating theatre; it involves being a pillar of support, a source of clear information, and a partner in the patient's journey toward recovery.",
+                about_long_2: "While my primary focus is on the surgical eradication of tumors, I am equally passionate about reconstructive techniques that preserve dignity and quality of life. Whether it is constructing a new bladder after a cystectomy or performing nerve-sparing procedures, my goal is to ensure that life after cancer is as full and normal as possible. My training in China and the United States has equipped me with diverse perspectives, allowing me to adapt best practices to our local context in Nepal.",
+                about_long_3: "Outside of my professional life, I find balance in the serenity of nature. Trekking in the Himalayas is not just a hobby but a spiritual reset that keeps me grounded. I am also an avid badminton player, which helps maintain the physical stamina required for long surgical procedures. Above all, I cherish the moments spent with my friends and family, who provide the unwavering support that allows me to serve my patients effectively.",
+
+                // Expertise
+                expert_head: "Clinical Expertise",
+                exp_uro_title: "Uro-Oncology",
+                exp_uro_long: "Uro-oncology is a highly specialized field dealing with cancers of the urinary tract and male reproductive system. My expertise covers the comprehensive management of Bladder Cancer, Prostate Cancer, Kidney Cancer, and Penile Cancer. These conditions often require intricate surgical solutions. For instance, in muscle-invasive bladder cancer, simply removing the tumor is not enough; we must often perform a Radical Cystectomy. I specialize in creating Orthotropic Neobladders (studer pouches), where a new bladder is constructed from the patient's own intestine, allowing for natural voiding and significantly improved quality of life compared to external bags.",
+                
+                exp_gen_title: "General Oncology",
+                exp_gen_long: "Beyond urology, my surgical practice encompasses a broad spectrum of General Surgical Oncology. I have significant experience in treating Breast Cancer, emphasizing breast-conserving surgery and Sentinel Lymph Node Biopsy to minimize complications like lymphedema. I also treat Rectal Cancer and soft tissue sarcomas. My approach involves a multidisciplinary team effort, working closely with medical oncologists, radiation oncologists, and pathologists to formulate a personalized treatment plan for every patient, ensuring that surgery is timed perfectly within the broader scope of therapy.",
+
+                exp_surg_title: "Advanced Procedures",
+                exp_surg_long: "Surgery is an art that requires constant refinement. I perform a high volume of complex procedures including Radical Prostatectomy for prostate cancer, Nephrectomy (partial and radical) for kidney tumors, and surgeries for benign conditions like BPH (Benign Prostatic Hyperplasia) using TURP (Transurethral Resection of the Prostate). I am also adept at managing stone diseases and urinary tract infections that often complicate oncological cases. My training allows me to handle intra-operative complications with confidence, ensuring patient safety remains the paramount priority during these major interventions.",
+
+                // Bio
+                bio_head: "Professional Biography",
+                bio_long_1: "My academic journey began with a Bachelor of Medicine and Bachelor of Surgery (MBBS) from Shanghai Medical University, where I laid the foundation of my medical knowledge. Recognizing the growing need for specialized cancer care, I pursued a Master of Surgery (M.S.) in Surgical Oncology from Fudan University, followed by an M.Ch in Urology from Kathmandu University. These degrees provided me with the rigorous academic background necessary to tackle complex oncological cases.",
+                bio_long_2: "However, medicine is a field of lifelong learning. I sought further specialization through international fellowships. I was awarded the Saudavar Fellowship in Surgical Oncology at the world-renowned Memorial Sloan Kettering Cancer Center (USA) and the UICC ICRETT Fellowship at H. Lee Moffitt Cancer Center (USA). These experiences exposed me to cutting-edge techniques and the highest standards of patient care, which I have since implemented in my practice in Nepal.",
+                bio_long_3: "Leadership has been a core component of my career. I have had the honor of serving as the Deputy Director (2018–2020) and subsequently the Chairman of the Board of Directors (2020–2023) at the B. P. Koirala Memorial Cancer Hospital. In these roles, I navigated the challenges of hospital administration, policy-making, and strategic planning, always with the goal of improving patient access and quality of care. I have also chaired scientific committees for national conferences, contributing to the academic growth of the oncology community in Nepal.",
+                bio_long_4: "My commitment to research remains strong. I have authored over 30 peer-reviewed publications in national and international journals, focusing on penile cancer, bladder cancer, and breast cancer epidemiology in Nepal. I believe that documenting our local data is crucial for understanding disease patterns and improving outcomes for our specific population.",
+
+                // Social / Philosophy
+                social_head: "Social Responsibility & Philosophy",
+                social_long_1: "I firmly believe that healthcare is a fundamental human right, not a privilege. In a developing nation like Nepal, geographic and economic barriers often prevent patients from seeking timely care. To combat this, I am actively involved in organizing free medical camps and cancer screening programs in remote and underserved areas. These camps are vital for the early detection of cancer, which significantly improves survival rates.",
+                social_long_2: "My advocacy extends to the policy level, where I advise on government health initiatives to strengthen the national cancer control strategy. Whether it is advocating for better tobacco control laws or securing funding for advanced hospital equipment, my mission is to elevate the standard of healthcare for all Nepalese citizens. I also take great pride in mentoring the next generation of surgeons, ensuring that the legacy of skilled, compassionate care continues long into the future.",
+
+                // Contact
+                ask_head: "Ask Dr. Nirmal",
+                ask_sub: "Do you have a question about a diagnosis or need a second opinion? Please describe your case in detail below.",
+                btn_send: "Send Message"
             },
             ne: {
-                name: "डा. निर्मल लामिछाने",
-                title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
                 nav_about: "परिचय",
-                nav_bio: "विस्तृत जीवनी", 
-                nav_social: "सामाजिक",
-                nav_lead: "नेतृत्व",
                 nav_expert: "विशेषज्ञता",
-                nav_research: "अनुसन्धान",
+                nav_bio: "जीवनी",
+                nav_phil: "दर्शन",
                 nav_ask: "सम्पर्क",
                 
-                about_head: "मेरो बारेमा",
-                about_p1: "म डा. निर्मल लामिछाने, सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा विशेषज्ञ **वरिष्ठ कन्सल्टेन्ट सर्जन** हुँ। मैले **मेमोरियल स्लोन केटरिङ (USA)** जस्ता संस्थाहरूबाट उन्नत तालिम लिई मुत्राशय, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको जटिल शल्यक्रिया गर्दछु।",
-                about_p2: "मेरो शल्यक्रिया गतिविधिहरूमा जनरल अन्कोलोजी (स्तन र रेक्टल क्यान्सर) र जनरल युरोलोजी (पत्थरी, BPH/LUTS) पनि समावेश छन्। अपरेटिङ थिएटर बाहिर, म **हिमाल आरोहण** (Trekking) र **ब्याडमिन्टन** खेल्नमा रमाउँछु, साथै **साथीभाइ र परिवार** सँग गुणस्तरीय समय बिताउनलाई प्राथमिकता दिन्छु।",
-                
-                bio_head: "विस्तृत जीवनी",
-                bio_intro: "म डा. निर्मल लामिछाने, एक उच्च प्रतिष्ठित वरिष्ठ कन्सल्टेन्ट सर्जन हुँ, जो सर्जिकल अन्कोलोजी र अन्को-युरोलोजीमा गहिरो विशेषज्ञता राख्दछु। म हाल चितवन, नेपालमा बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) सँग आबद्ध छु।",
-                bio_clinical_head: "क्लिनिकल र शैक्षिक ध्यान",
-                bio_clinical_p1: "मेरो क्लिनिकल अभ्यास विभिन्न क्यान्सरहरूको जटिल शल्यक्रिया व्यवस्थापनमा केन्द्रित छ:",
-                bio_clinical_li1: "**युरो-अन्कोलोजी:** मुत्राशय, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको विशेषज्ञ उपचार।",
-                bio_clinical_li2: "**उन्नत प्रक्रियाहरू:** रेडिकल सिस्टेक्टोमी, अर्थोट्रोपिक नियोब्लाडर, TURP, र रेडिकल प्रोस्टेटेक्टोमी।",
-                bio_clinical_li3: "**जनरल अन्कोलोजी:** स्तन क्यान्सर (सेन्टिनेल लिम्फ नोड बायोप्सी), रेक्टल क्यान्सर र नरम तन्तुका ट्युमर।",
-                bio_clinical_li4: "**जनरल युरोलोजी:** मिर्गौलाको पत्थरी, पिसाबको संक्रमण (UTI), BPH/LUTS, र इरेक्टाइल डिसफंक्शन।",
+                title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
+                name: "डा. निर्मल लामिछाने",
+                hero_p1: "मेरो व्यावसायिक पोर्टफोलियोमा स्वागत छ। म डा. निर्मल लामिछाने, सर्जिकल अन्कोलोजी र अन्को-युरोलोजीको जटिल क्षेत्रमा विशेषज्ञता हासिल गरेको वरिष्ठ कन्सल्टेन्ट सर्जन हुँ। चिकित्सा क्षेत्रमा दुई दशकभन्दा बढी अनुभवका साथ, मेरो अभ्यास सटीक शल्यक्रिया र करुणापूर्ण हेरचाह मार्फत जीवन बचाउने गहिरो प्रतिबद्धतामा आधारित छ।",
+                hero_p2: "चितवन, नेपालमा आधारित भई, मैले हाम्रो स्थानीय समुदायमा विश्व-स्तरीय क्यान्सर उपचार ल्याउन आफ्नो करियर समर्पित गरेको छु। विश्वका प्रतिष्ठित संस्थाहरूमा तालिम लिएर, म अन्तर्राष्ट्रिय चिकित्सा मापदण्डहरू र नेपालका बिरामीहरूको विशिष्ट आवश्यकताहरू बीचको खाडललाई कम गर्ने प्रयास गर्छु।",
 
-                bio_lead_head: "नेतृत्व र प्रशासन",
-                bio_lead_p1: "मैले महत्त्वपूर्ण प्रशासनिक र शासकीय भूमिकाहरूमा सेवा गर्ने सम्मान पाएको छु:", 
-                bio_lead_li1: "**अध्यक्ष, सञ्चालक समिति:** BPKMCH (२०७७–२०८०)।",
-                bio_lead_li2: "**उप-निर्देशक:** BPKMCH (२०७४–२०७७)।",
-                bio_lead_li3: "**वैज्ञानिक समिति:** प्रथम राष्ट्रिय अन्कोलोजी सम्मेलन।",
-
-                social_head: "सामाजिक गतिविधि",
-                social_p1: "मेरो प्रतिबद्धता अस्पताल बाहिर पनि फैलिएको छ, जनस्वास्थ्य पहलहरू र सामुदायिक सेवाहरूमा सक्रिय।",
-                social_li1: "**जनस्वास्थ्य शिविरहरू:** नेपालका दुर्गम क्षेत्रहरूमा निःशुल्क चिकित्सा र क्यान्सर स्क्रिनिङ शिविरहरू आयोजना।",
-                social_li2: "**नीति र वकालत:** राष्ट्रिय स्वास्थ्य प्रणालीको **सरकारी नीति र परिचालन स्तर** सुधार गर्न विशेषज्ञ सल्लाह।",
-
-                train_head: "अन्तर्राष्ट्रिय तालिम",
-                train_mskcc_title: "मेमोरियल स्लोन केटरिङ (USA)",
-                train_mskcc_desc: "सर्जिकल अन्कोलोजीमा सौदावर फेलोसिप।",
-                train_moffitt_title: "एच. ली मोफिट क्यान्सर सेन्टर (USA)",
-                train_moffitt_desc: "सेन्टिनेल लिम्फ नोड बायोप्सीमा UICC ICRETT फेलोसिप।",
-                train_uk_title: "रोयल कलेज अफ सर्जन (UK)",
-                train_uk_desc: "कोलोरेक्टल सर्जरीमा फेलोसिप।",
-
-                expert_head: "क्लिनिकल विशेषज्ञता",
-                exp_uro_title: "युरो-अन्कोलोजी",
-                exp_uro_desc: "मुत्राशय, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको विशेषज्ञ उपचार।",
-                exp_surg_title: "शल्यक्रिया प्रक्रियाहरू",
-                exp_surg_desc: "रेडिकल सिस्टेक्टोमी, नियोब्लाडर, TURP, रेडिकल प्रोस्टेटेक्टोमी।",
-                exp_gen_title: "जनरल अन्कोलोजी",
-                exp_gen_desc: "स्तन क्यान्सर, रेक्टल क्यान्सर र नरम तन्तुका ट्युमर।",
-                exp_gen_uro_title: "जनरल युरोलोजी",
-                exp_gen_uro_desc: "मिर्गौलाको पत्थरी, UTI, BPH/LUTS, र इरेक्टाइल डिसफंक्शन।",
-
-                res_head: "अनुसन्धान र प्रकाशन",
-                res_stats_desc: "मैले राष्ट्रिय र अन्तर्राष्ट्रिय मेडिकल जर्नलहरूमा **३० भन्दा बढी** लेखहरू प्रकाशित गरेको छु।",
-                res_focus_title: "मुख्य अनुसन्धान क्षेत्रहरू:",
-                res_area_1: "लिंगको क्यान्सर",
-                res_area_2: "मुत्राशय क्यान्सर",
-                res_area_3: "स्तन क्यान्सर",
-                
-                grant_title: "पुरस्कार र अनुदान",
-                grant_1: "उत्कृष्ट युवा सर्जन अवार्ड (२००५)",
-                grant_2: "ASCO फाउन्डेसन ग्रांट (२००५)",
-
-                ask_head: "डाक्टरलाई सोध्नुहोस्",
-                ask_sub: "के तपाइँ आफ्नो निदानको बारेमा प्रश्न सोध्न चाहनुहुन्छ? परामर्शको लागि तलको फारम भर्नुहोस्।",
-                btn_send: "सन्देश पठाउनुहोस्",
-                
                 contact_head: "क्लिनिक विवरण",
                 clinic_name: "नेशनल सिटी हस्पिटल (प्राइभेट)",
                 clinic_loc: "हस्पिटल रोड, भरतपुर-१०, चितवन",
+                grant_title: "पुरस्कार र सम्मान",
+                lang_head: "भाषाहरू",
+                lang_list: "नेपाली, अंग्रेजी, चिनियाँ, हिन्दी",
                 
                 edu_head: "शिक्षा",
-                edu_1: "M.Ch (युरोलोजी) - काठमाडौं विश्वविद्यालय।",
-                edu_2: "M.S. सर्जिकल अन्कोलोजी - फुदान विश्वविद्यालय।",
-                edu_3: "MBBS - सांघाई मेडिकल युनिभर्सिटी।",
-                edu_gmc: "GMC पूर्ण दर्ता अभ्यास लाइसेन्स (UK)।",
+                edu_1: "M.Ch (युरोलोजी) - काठमाडौं विश्वविद्यालय",
+                edu_2: "M.S. सर्जिकल अन्कोलोजी - फुदान विश्वविद्यालय",
+                edu_3: "MBBS - सांघाई मेडिकल युनिभर्सिटी",
+                edu_gmc: "GMC पूर्ण दर्ता (UK)",
 
-                lang_head: "भाषाहरू",
-                lang_list: "नेपाली, अंग्रेजी, चिनियाँ, हिन्दी"
+                about_head: "मेरो बारेमा",
+                about_long_1: "चिकित्सा क्षेत्रमा मेरो यात्रा शल्यक्रिया मार्फत पीडा कम गर्ने एकमात्र उद्देश्यले निर्देशित थियो। बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) मा वरिष्ठ कन्सल्टेन्ट सर्जनको रूपमा, मैले क्यान्सरको निदानले बिरामी र तिनका परिवारहरूमा पार्ने शारीरिक र मानसिक प्रभावलाई नजिकबाट देखेको छु। यही बुझाइले हरेक केसमा मेरो दृष्टिकोणलाई आकार दिन्छ।",
+                about_long_2: "ट्युमर हटाउने शल्यक्रियामा मेरो मुख्य ध्यान भए तापनि, म बिरामीको जीवनको गुणस्तर जोगाउने पुनर्निर्माण प्रविधिहरूमा पनि उत्तिकै भावुक छु। सिस्टेक्टोमी पछि नयाँ मुत्राशय बनाउने होस् वा नसा जोगाउने प्रक्रियाहरू, मेरो लक्ष्य क्यान्सर पछिको जीवन सकेसम्म सामान्य बनाउनु हो। चीन र संयुक्त राज्य अमेरिकामा मेरो तालिमले मलाई विभिन्न दृष्टिकोणहरू प्रदान गरेको छ।",
+                about_long_3: "मेरो व्यावसायिक जीवन बाहिर, म प्रकृतिको शान्तिमा सन्तुलन खोज्छु। हिमालमा पदयात्रा गर्नु मेरो लागि केवल सोख मात्र होइन, मानसिक शान्ति दिने माध्यम पनि हो। म ब्याडमिन्टन पनि खेल्छु, जसले लामो शल्यक्रियाका लागि आवश्यक शारीरिक स्ट्यामिना कायम राख्न मद्दत गर्दछ।",
+
+                expert_head: "क्लिनिकल विशेषज्ञता",
+                exp_uro_title: "युरो-अन्कोलोजी",
+                exp_uro_long: "युरो-अन्कोलोजी एक उच्च विशिष्ट क्षेत्र हो जसले मूत्र पथ र पुरुष प्रजनन प्रणालीको क्यान्सरसँग सम्बन्ध राख्छ। मेरो विशेषज्ञताले मुत्राशय क्यान्सर, प्रोस्टेट क्यान्सर, मिर्गौला क्यान्सर र लिंगको क्यान्सरको विस्तृत व्यवस्थापनलाई समेट्छ। उदाहरणका लागि, म अर्थोट्रोपिक नियोब्लाडर (नयाँ मुत्राशय) निर्माणमा विशेषज्ञ छु, जहाँ बिरामीको आफ्नै आन्द्राबाट नयाँ मुत्राशय बनाइन्छ।",
+                exp_gen_title: "जनरल अन्कोलोजी",
+                exp_gen_long: "युरोलोजी बाहेक, मेरो शल्यक्रिया अभ्यासले जनरल सर्जिकल अन्कोलोजीको फराकिलो दायरा समेट्छ। मसँग स्तन क्यान्सरको उपचारमा महत्त्वपूर्ण अनुभव छ, जसमा स्तन बचाउने शल्यक्रिया र सेन्टिनेल लिम्फ नोड बायोप्सी समावेश छ। म रेक्टल क्यान्सर र नरम तन्तुका ट्युमरहरूको उपचार पनि गर्छु।",
+                exp_surg_title: "उन्नत प्रक्रियाहरू",
+                exp_surg_long: "शल्यक्रिया एक कला हो जसलाई निरन्तर परिष्कृत गर्न आवश्यक छ। म प्रोस्टेट क्यान्सरको लागि रेडिकल प्रोस्टेटेक्टोमी, मिर्गौला ट्युमरको लागि नेफ्रेक्टोमी, र BPH जस्ता अवस्थाका लागि TURP जस्ता जटिल प्रक्रियाहरू धेरै संख्यामा गर्छु।",
+
+                bio_head: "व्यावसायिक जीवनी",
+                bio_long_1: "मेरो शैक्षिक यात्रा सांघाई मेडिकल युनिभर्सिटीबाट MBBS बाट सुरु भयो। विशेष क्यान्सर हेरचाहको आवश्यकता महसुस गर्दै, मैले फुदान विश्वविद्यालयबाट सर्जिकल अन्कोलोजीमा M.S. र काठमाडौं विश्वविद्यालयबाट युरोलोजीमा M.Ch हासिल गरेँ।",
+                bio_long_2: "मैले संयुक्त राज्य अमेरिकाको मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टरमा सर्जिकल अन्कोलोजीमा सौदावर फेलोसिप र एच. ली मोफिट क्यान्सर सेन्टरमा UICC ICRETT फेलोसिप प्राप्त गरेँ। यी अनुभवहरूले मलाई बिरामीको हेरचाहको उच्च मापदण्डहरू सिकाएका छन्।",
+                bio_long_3: "नेतृत्व मेरो करियरको मुख्य अंग रहेको छ। मैले BPKMCH मा उप-निर्देशक (२०७४–२०७७) र सञ्चालक समितिको अध्यक्ष (२०७७–२०८०) को रूपमा सेवा गर्ने सम्मान पाएको छु। यी भूमिकाहरूमा, मैले अस्पताल प्रशासन र नीति निर्माणका चुनौतीहरू सामना गरेँ।",
+                bio_long_4: "अनुसन्धानमा मेरो प्रतिबद्धता बलियो छ। मैले राष्ट्रिय र अन्तर्राष्ट्रिय जर्नलहरूमा ३० भन्दा बढी लेखहरू प्रकाशित गरेको छु, जुन नेपालमा पेनाइल क्यान्सर, मुत्राशय क्यान्सर र स्तन क्यान्सरमा केन्द्रित छन्।",
+
+                social_head: "सामाजिक उत्तरदायित्व",
+                social_long_1: "म दृढतापूर्वक विश्वास गर्छु कि स्वास्थ्य सेवा आधारभूत मानव अधिकार हो। नेपाल जस्तो विकासशील राष्ट्रमा, म दुर्गम क्षेत्रमा निःशुल्क चिकित्सा शिविर र क्यान्सर स्क्रिनिङ कार्यक्रमहरू आयोजना गर्न सक्रिय छु।",
+                social_long_2: "मेरो वकालत नीति स्तरसम्म फैलिएको छ, जहाँ म राष्ट्रिय क्यान्सर नियन्त्रण रणनीतिलाई बलियो बनाउन सरकारी स्वास्थ्य पहलहरूमा सल्लाह दिन्छु। म भविष्यका सर्जनहरूलाई मार्गदर्शन गर्नमा पनि गर्व गर्छु।",
+
+                ask_head: "डाक्टरलाई सोध्नुहोस्",
+                ask_sub: "के तपाइँ निदानको बारेमा प्रश्न सोध्न चाहनुहुन्छ? कृपया आफ्नो विवरण तल लेख्नुहोस्।",
+                btn_send: "सन्देश पठाउनुहोस्"
             },
             zh: {
-                name: "尼尔马尔·拉米查内 医生",
-                title: "高级顾问外科医生",
                 nav_about: "关于",
-                nav_bio: "详细传记", 
-                nav_social: "社会活动", 
-                nav_lead: "领导力",
                 nav_expert: "专业领域",
-                nav_research: "学术研究",
+                nav_bio: "传记",
+                nav_phil: "理念",
                 nav_ask: "联系",
                 
-                about_head: "关于我",
-                about_p1: "我是 Nirmal Lamichhane 医生，一位专业从事外科肿瘤学和肿瘤泌尿学的**高级顾问外科医生**。我利用在**纪念斯隆凯特琳 (美国)** 等机构接受的先进培训，进行膀胱癌、前列腺癌、肾癌和阴茎癌的复杂手术。",
-                about_p2: "我的外科活动还包括普通肿瘤学（乳腺癌和直肠癌）和普通泌尿外科（结石病、BPH/LUTS）。在手术室之外，我喜欢**徒步喜马拉雅山**和打**羽毛球**，并优先考虑与**朋友和家人**共度美好时光。",
-                
-                bio_head: "详细传记",
-                bio_intro: "我是尼尔马尔·拉米查内医生，一位杰出的高级顾问外科医生，在外科肿瘤学和肿瘤泌尿学方面拥有深厚的专业知识。我目前在尼泊尔奇特旺执业，隶属于 B. P. Koirala 纪念癌症医院 (BPKMCH)。",
-                bio_clinical_head: "临床和学术重点",
-                bio_clinical_p1: "我的临床实践侧重于各种癌症的复杂手术管理：",
-                bio_clinical_li1: "**泌尿肿瘤学：** 膀胱癌、前列腺癌、肾癌和阴茎癌的专家级治疗。",
-                bio_clinical_li2: "**先进手术：** 根治性膀胱切除术、原位新膀胱术 (Studer Pouch)、TURP 和根治性前列腺切除术。",
-                bio_clinical_li3: "**普通肿瘤学：** 乳腺癌、直肠癌和软组织肿瘤。",
-                bio_clinical_li4: "**普通泌尿外科：** 肾结石、尿路感染 (UTI)、BPH/LUTS 和勃起功能障碍。",
+                title: "高级顾问外科医生",
+                name: "尼尔马尔·拉米查内 医生",
+                hero_p1: "欢迎来到我的专业作品集。我是 Nirmal Lamichhane 医生，一位致力于外科肿瘤学和肿瘤泌尿学这一复杂而微妙领域的高级顾问外科医生。凭借在医学领域二十多年的经验，我的执业建立在通过精准手术和富有同情心的护理来拯救生命的坚定承诺之上。",
+                hero_p2: "我常驻尼泊尔奇特旺，致力于将世界一流的癌症治疗带给我们的当地社区。在全球知名机构接受过培训后，我努力弥合国际医疗标准与尼泊尔患者具体需求之间的差距。",
 
-                bio_lead_head: "领导与行政",
-                bio_lead_p1: "我很荣幸担任了重要的行政和治理职务：", 
-                bio_lead_li1: "**董事会主席：** BPKMCH (2020–2023)。",
-                bio_lead_li2: "**副院长：** BPKMCH (2018–2020)。",
-                bio_lead_li3: "**科学委员会：** 首届全国肿瘤学会议。",
-                
-                social_head: "社会与社区活动",
-                social_p1: "我的承诺超越了医院工作，积极参与公共卫生倡议。",
-                social_li1: "公共卫生营地",
-                social_li1: "定期在偏远地区组织免费医疗和癌症筛查。",
-                social_li2: "政策与倡导",
-                social_li2: "为改善国家卫生系统的**政府政策和运营层面**提供专家建议。",
-
-                train_head: "国际培训",
-                train_mskcc_title: "纪念斯隆-凯特琳癌症中心 (美国)",
-                train_mskcc_desc: "肿瘤外科 Saudavar 奖学金。",
-                train_moffitt_title: "莫菲特癌症中心 (美国)",
-                train_moffitt_desc: "UICC ICRETT 前哨淋巴结活检奖学金。",
-                train_uk_title: "皇家外科医师学会 (英国)",
-                train_uk_desc: "结直肠外科奖学金。",
-
-                expert_head: "临床专长",
-                exp_uro_title: "泌尿肿瘤学",
-                exp_uro_desc: "膀胱癌、前列腺癌、肾癌和阴茎癌的专家级治疗。",
-                exp_surg_title: "外科手术",
-                exp_surg_desc: "根治性膀胱切除术、原位新膀胱术、TURP、根治性前列腺切除术。",
-                exp_gen_title: "普通肿瘤学",
-                exp_gen_desc: "乳腺癌 (前哨淋巴结活检)、直肠癌及软组织肿瘤。",
-                exp_gen_uro_title: "普通泌尿外科",
-                exp_gen_uro_desc: "肾结石、尿路感染 (UTI)、BPH/LUTS 和勃起功能障碍。",
-
-                res_head: "研究与发表",
-                res_stats_desc: "我在国内外医学期刊上发表了 **30多篇** 经过同行评审的论文。",
-                res_focus_title: "Key Research Areas:",
-                res_area_1: "阴茎癌",
-                res_area_2: "膀胱癌",
-                res_area_3: "乳腺癌",
-                
-                grant_title: "荣誉与资助",
-                grant_1: "<strong>最佳青年外科医生奖</strong> (2005)",
-                grant_2: "<strong>ASCO 基金会资助</strong> (2005)",
-
-                ask_head: "咨询 Nirmal 医生",
-                ask_sub: "您对诊断有疑问吗？请填写下面的表格进行咨询。",
-                btn_send: "发送信息",
-                
                 contact_head: "诊所详情",
                 clinic_name: "国家城市医院 (私立)",
                 clinic_loc: "地址: 奇特旺 巴拉特普尔-10 (医院路)",
+                grant_title: "荣誉与奖项",
+                lang_head: "语言能力",
+                lang_list: "尼泊尔语、英语、中文、印地语",
                 
                 edu_head: "教育背景",
-                edu_1: "泌尿外科 M.Ch - 加德满都大学。",
-                edu_2: "外科肿瘤学 M.S. - 复旦大学。",
-                edu_3: "临床医学学士 MBBS - 上海医科大学。",
-                edu_gmc: "GMC 完整注册执业许可 (英国)。",
+                edu_1: "泌尿外科 M.Ch - 加德满都大学",
+                edu_2: "外科肿瘤学 M.S. - 复旦大学",
+                edu_3: "临床医学学士 MBBS - 上海医科大学",
+                edu_gmc: "GMC 完整注册执业许可 (英国)",
 
-                lang_head: "语言能力",
-                lang_list: "尼泊尔语、英语、中文、印地语"
+                about_head: "关于我",
+                about_long_1: "我对医学的追求源于一个单一的热情：通过手术干预减轻痛苦。作为 B. P. Koirala 纪念癌症医院 (BPKMCH) 的高级顾问外科医生，我亲眼目睹了癌症诊断给患者及其家人带来的身心创伤。这种理解塑造了我处理每一个病例的方式。",
+                about_long_2: "虽然我的主要重点是手术根除肿瘤，但我同样热衷于保持尊严和生活质量的重建技术。无论是膀胱切除术后构建新膀胱，还是进行神经保留手术，我的目标是确保癌症后的生活尽可能充实和正常。我在中国和美国的培训为我提供了多样化的视角。",
+                about_long_3: "在职业生活之外，我在大自然的宁静中寻找平衡。在喜马拉雅山徒步不仅仅是一种爱好，更是一种让我保持脚踏实地的精神重置。我也是一名狂热的羽毛球运动员，这有助于保持长时间手术所需的体能。",
+
+                expert_head: "临床专长",
+                exp_uro_title: "泌尿肿瘤学",
+                exp_uro_long: "泌尿肿瘤学是一个高度专业化的领域，涉及泌尿道和男性生殖系统的癌症。我的专长涵盖膀胱癌、前列腺癌、肾癌和阴茎癌的综合管理。例如，我擅长创建原位新膀胱，即用患者自己的肠道构建一个新的膀胱。",
+                exp_gen_title: "普通肿瘤学",
+                exp_gen_long: "除泌尿外科外，我的手术实践还涵盖广泛的普通外科肿瘤学。我在治疗乳腺癌方面拥有丰富的经验，强调保乳手术和前哨淋巴结活检。我还治疗直肠癌和软组织肉瘤。",
+                exp_surg_title: "先进手术",
+                exp_surg_long: "手术是一门需要不断精进的艺术。我进行大量复杂的手术，包括前列腺癌的根治性前列腺切除术、肾肿瘤的肾切除术，以及使用 TURP 治疗 BPH 等良性疾病。",
+
+                bio_head: "职业传记",
+                bio_long_1: "我的学术旅程始于上海医科大学的临床医学学士学位 (MBBS)。认识到对专业癌症护理日益增长的需求，我在复旦大学攻读了外科肿瘤学硕士学位 (M.S.)，随后在加德满都大学获得了泌尿外科 M.Ch 学位。",
+                bio_long_2: "我在世界著名的美国纪念斯隆-凯特琳癌症中心获得了外科肿瘤学 Saudavar 奖学金，并在 H. Lee Moffitt 癌症中心获得了 UICC ICRETT 奖学金。这些经历让我接触到了最前沿的技术。",
+                bio_long_3: "领导力一直是我职业生涯的核心组成部分。我有幸担任 BPKMCH 的副院长（2018-2020）和随后的董事会主席（2020-2023）。在这些职位上，我应对了医院管理和政策制定的挑战。",
+                bio_long_4: "我对研究的承诺依然坚定。我在国内外期刊上发表了 30 多篇同行评审文章，重点关注尼泊尔的阴茎癌、膀胱癌和乳腺癌流行病学。",
+
+                social_head: "社会责任与理念",
+                social_long_1: "我坚信医疗保健是一项基本人权，而不是特权。在尼泊尔这样的发展中国家，我积极参与在偏远地区组织免费医疗营地和癌症筛查项目。",
+                social_long_2: "我的倡导延伸到政策层面，我就政府卫生倡议提供建议，以加强国家癌症控制战略。我也为指导下一代外科医生而感到自豪。",
+
+                ask_head: "咨询 Nirmal 医生",
+                ask_sub: "您对诊断有疑问吗？请在下面详细描述您的情况。",
+                btn_send: "发送信息"
             }
         };
 
@@ -691,16 +509,12 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (translations[lang][key]) {
-                    if (key.includes('grant_') || key.includes('edu_') || key.includes('res_area_') || key.includes('bio_') || key.includes('about_p') || key.includes('social_li')) {
-                        el.innerHTML = translations[lang][key];
-                    } else {
-                        el.innerText = translations[lang][key];
-                    }
+                    el.innerText = translations[lang][key];
                 }
             });
             document.body.className = `lang-${lang}`;
             document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
-            // Find button by text
+            
             const btns = document.querySelectorAll('.lang-switch button');
             btns.forEach(btn => {
                 if(btn.innerText.toLowerCase().includes(lang === 'zh' ? 'zh' : lang === 'ne' ? 'ne' : 'en')) {
@@ -710,15 +524,7 @@
         }
         
         document.addEventListener('DOMContentLoaded', () => {
-            const btns = document.querySelectorAll('.lang-switch button');
-            // Check active button
-            btns.forEach(btn => {
-                if(btn.classList.contains('active')) {
-                     const lang = btn.innerText.toLowerCase().includes('ne') ? 'ne' : 
-                                  btn.innerText.toLowerCase().includes('zh') ? 'zh' : 'en';
-                     setLanguage(lang);
-                }
-            });
+            // Default load (English)
         });
     </script>
 </body>
