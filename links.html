@@ -38,7 +38,7 @@
             position: relative;
         }
 
-        /* --- BACK BUTTON --- */
+        /* --- TOP BACK BUTTON (Absolute) --- */
         .back-home-btn {
             position: absolute;
             top: 20px;
@@ -62,6 +62,29 @@
             transform: translateX(-3px);
             color: var(--primary);
             background: #fff;
+        }
+
+        /* --- BOTTOM BACK BUTTON (Relative) --- */
+        .footer-back-btn {
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #555;
+            background: #fff;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .footer-back-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
         /* --- PROFILE --- */
@@ -137,13 +160,12 @@
 
         .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
         
-        /* --- NEW ROW STYLE FOR WHATSAPP + AI BOT --- */
+        /* --- ROW STYLE FOR WHATSAPP + AI BOT --- */
         .btn-row {
             display: flex;
             gap: 15px;
             width: 100%;
         }
-        /* Specific tweaks for side-by-side buttons */
         .btn-row .link-btn {
             flex: 1;
             padding: 15px 10px;
@@ -151,7 +173,7 @@
             justify-content: center;
         }
         .btn-row .link-btn i {
-            position: static; /* Remove absolute pos for side-by-side */
+            position: static;
             margin-right: 8px;
             font-size: 1.2rem;
         }
@@ -192,8 +214,8 @@
         .social-icon:hover { transform: scale(1.1); color: var(--primary); }
 
         footer {
-            margin-top: auto;
-            padding-top: 40px;
+            margin-top: 20px;
+            padding-top: 20px;
             text-align: center;
             font-size: 0.8rem;
             color: #777;
@@ -203,7 +225,7 @@
         .chat-window {
             position: fixed;
             bottom: 20px;
-            right: 20px; /* Default position */
+            right: 20px;
             width: 350px;
             height: 480px;
             background: var(--chat-bg);
@@ -217,11 +239,10 @@
             animation: fadeInUp 0.3s ease-out;
         }
         
-        /* Centering Chat on Mobile */
         @media (max-width: 500px) {
             .chat-window {
                 right: 50%;
-                transform: translateX(50%); /* Center horizontally */
+                transform: translateX(50%);
                 width: 90%;
                 bottom: 20px;
             }
@@ -328,9 +349,13 @@
         <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
 
+    <a href="index.html" class="footer-back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Main Website
+    </a>
+
     <footer>
         <p>© 2025 Dr. Nirmal Lamichhane.</p>
-        <p>Managed by BL </p>
+        <p>Design by BL </p>
     </footer>
 
     <div class="chat-window" id="chat-window">
@@ -465,4 +490,3 @@
 
 </body>
 </html>
-
