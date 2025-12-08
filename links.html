@@ -33,11 +33,40 @@
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
+            position: relative; /* Needed for absolute positioning of back button */
         }
+
+        /* --- NEW BACK BUTTON STYLE --- */
+        .back-home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, color 0.2s;
+            border: 1px solid #ddd;
+            z-index: 10;
+        }
+        .back-home-btn:hover {
+            transform: translateX(-3px);
+            color: var(--primary);
+            background: #fff;
+        }
+        /* --------------------------- */
 
         .profile-container {
             text-align: center;
             margin-bottom: 30px;
+            margin-top: 20px; /* Added spacing for back button */
             animation: fadeInDown 0.8s ease-out;
         }
 
@@ -161,6 +190,10 @@
 </head>
 <body>
 
+    <a href="index.html" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Home
+    </a>
+
     <div class="profile-container">
         <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="profile-img">
         <h1 class="name">Dr. Nirmal Lamichhane</h1>
@@ -202,7 +235,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Dr. Nirmal Lamichhane.</p>
+        <p>© 2025 Dr. Nirmal Lamichhane.</p>
         <p>Managed by Bimal Pharmacy</p>
     </footer>
 
