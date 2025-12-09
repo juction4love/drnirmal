@@ -94,7 +94,7 @@
         /* --- AI CHATBOT WINDOW STYLES --- */
         .chat-window {
             position: fixed; bottom: 20px; right: 20px;
-            width: 350px; height: 500px;
+            width: 350px; height: 520px;
             background: var(--chat-bg); border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
             display: none; flex-direction: column; overflow: hidden;
@@ -111,10 +111,17 @@
         
         /* AUTH SCREEN */
         .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 15px; background: #fff; }
+        .auth-step { display: flex; flex-direction: column; gap: 12px; }
+        .auth-step.hidden { display: none; }
+        
         .auth-label { font-size: 0.9rem; font-weight: bold; color: #555; margin-bottom: -10px; }
         .auth-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; }
         .auth-input:focus { border-color: var(--primary); }
-        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 1rem; }
+        .auth-input.otp { letter-spacing: 5px; text-align: center; font-size: 1.2rem; }
+        
+        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 5px; font-size: 1rem; transition: 0.2s;}
+        .auth-btn:hover { background: var(--primary-dark); }
+        .resend-link { text-align: center; color: var(--primary); font-size: 0.8rem; cursor: pointer; text-decoration: underline; margin-top: 10px; }
 
         .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 10px; }
         
@@ -193,14 +200,33 @@
         </div>
         
         <div class="chat-auth" id="chat-auth">
-            <div style="text-align:center; margin-bottom:10px;">
-                <p style="color:#666;">Please enter patient details to start.</p>
+            
+            <div id="auth-step-1" class="auth-step">
+                <div style="text-align:center; margin-bottom:5px;">
+                    <p style="color:#666;">Login to chat</p>
+                </div>
+                
+                <label class="auth-label">Full Name</label>
+                <input type="text" id="client-name" class="auth-input" placeholder="e.g. Ram Sharma">
+                
+                <label class="auth-label">Mobile Number (10 Digits)</label>
+                <input type="tel" id="client-phone" class="auth-input" placeholder="e.g. 98XXXXXXXX" maxlength="10">
+                
+                <button class="auth-btn" onclick="requestOTP()">Get OTP</button>
             </div>
-            <label class="auth-label">Patient Name</label>
-            <input type="text" id="client-name" class="auth-input" placeholder="e.g. Ram Sharma">
-            <label class="auth-label">Mobile Number</label>
-            <input type="tel" id="client-phone" class="auth-input" placeholder="e.g. 9841XXXXXX">
-            <button class="auth-btn" onclick="startChat()">Start Assessment</button>
+
+            <div id="auth-step-2" class="auth-step hidden">
+                <div style="text-align:center; margin-bottom:5px;">
+                    <i class="fas fa-sms" style="font-size: 2rem; color: var(--primary);"></i>
+                    <p style="color:#666; margin-top:10px;">Enter the 4-digit code sent to<br><b id="display-phone"></b></p>
+                </div>
+
+                <input type="tel" id="otp-input" class="auth-input otp" placeholder="XXXX" maxlength="4">
+                
+                <button class="auth-btn" onclick="verifyOTP()">Verify & Start</button>
+                <div class="resend-link" onclick="requestOTP()">Resend Code</div>
+            </div>
+
         </div>
 
         <div class="chat-body" id="chat-body"></div>
@@ -212,7 +238,7 @@
     </div>
 
     <script>
-        // --- VARIABLES TO STORE DATA ---
+        // --- VARIABLES ---
         let userData = {
             name: "",
             phone: "",
@@ -224,7 +250,8 @@
             history: ""
         };
 
-        let chatStep = 0; // 0=Main Menu, 1=Symptom, 2=Age, 3=Gender, 4=Duration, 5=Pain, 6=History
+        let generatedOTP = ""; // Stores the fake OTP
+        let chatStep = 0; 
         let isMedicalMode = false;
 
         function toggleChat() {
@@ -232,24 +259,57 @@
             chatWindow.style.display = (chatWindow.style.display === 'flex') ? 'none' : 'flex';
         }
 
-        function startChat() {
+        // --- AUTHENTICATION LOGIC ---
+        
+        function requestOTP() {
             const nameInput = document.getElementById('client-name');
             const phoneInput = document.getElementById('client-phone');
-            
-            if (nameInput.value.trim() === "" || phoneInput.value.trim() === "") {
-                alert("Please fill in both Name and Phone Number.");
+            const nameVal = nameInput.value.trim();
+            const phoneVal = phoneInput.value.trim();
+
+            // Validation: Name + 10 Digit Phone
+            if (nameVal === "" || phoneVal === "") {
+                alert("Please fill in both Name and Mobile Number.");
+                return;
+            }
+            if (phoneVal.length !== 10 || isNaN(phoneVal)) {
+                alert("Please enter a valid 10-digit mobile number.");
                 return;
             }
 
-            userData.name = nameInput.value.trim();
-            userData.phone = phoneInput.value.trim();
+            // Save Data
+            userData.name = nameVal;
+            userData.phone = phoneVal;
 
-            document.getElementById('chat-auth').style.display = 'none';
-            document.getElementById('chat-body').style.display = 'flex';
-            document.getElementById('chat-input-area').style.display = 'flex';
+            // Generate Fake OTP (Random 4 digits)
+            generatedOTP = Math.floor(1000 + Math.random() * 9000);
 
-            addBotMessage(`Namaste <strong>${userData.name}</strong>. I am Dr. Nirmal's virtual assistant. <br>I can help you with basic inquiries or take a quick health assessment for the doctor.`, true);
+            // SIMULATE SMS SENDING (Alert Box)
+            alert("SMS from Dr. Nirmal Clinic:\nYour Login OTP is: " + generatedOTP);
+
+            // Switch UI to Step 2
+            document.getElementById('display-phone').textContent = phoneVal;
+            document.getElementById('auth-step-1').classList.add('hidden');
+            document.getElementById('auth-step-2').classList.remove('hidden');
         }
+
+        function verifyOTP() {
+            const inputOTP = document.getElementById('otp-input').value;
+
+            if (inputOTP == generatedOTP) {
+                // SUCCESS: Start Chat
+                document.getElementById('chat-auth').style.display = 'none';
+                document.getElementById('chat-body').style.display = 'flex';
+                document.getElementById('chat-input-area').style.display = 'flex';
+
+                addBotMessage(`Namaste <strong>${userData.name}</strong>. Verification Successful! <br>I am Dr. Nirmal's virtual assistant. How can I help you?`, true);
+            } else {
+                // FAILURE
+                alert("Incorrect OTP. Please try again.");
+            }
+        }
+
+        // --- CHAT LOGIC ---
 
         function handleEnter(e) { if (e.key === 'Enter') sendMessage(); }
         function sendQuick(text) { 
@@ -265,7 +325,6 @@
             addUserMessage(userText);
             inputField.value = "";
             
-            // Simulate Thinking
             setTimeout(() => {
                 processResponse(userText);
             }, 600);
@@ -308,12 +367,12 @@
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        // --- CORE LOGIC ENGINE ---
+        // --- CORE AI ENGINE ---
         function startMedicalTriage() {
             isMedicalMode = true;
             chatStep = 1;
             addSystemMessage("Starting Medical Assessment...");
-            addBotMessage("Please briefly describe your main symptom or problem. (e.g., Stomach pain, Blood in urine, etc.)");
+            addBotMessage("Please briefly describe your main symptom. (e.g., Stomach pain, Blood in urine)");
         }
 
         function processResponse(input) {
@@ -321,7 +380,7 @@
 
             // 1. GLOBAL EMERGENCY CHECK
             if (lowerInput.includes("chest pain") || lowerInput.includes("heart attack") || lowerInput.includes("unconscious") || lowerInput.includes("breathing")) {
-                addSystemMessage("⚠️ CRITICAL ALERT: Based on your input, this sounds like a medical emergency. Please go to the nearest Emergency Room immediately. Do not wait for a chat response.", true);
+                addSystemMessage("⚠️ CRITICAL ALERT: Based on your input, this sounds like a medical emergency. Please go to the nearest Emergency Room immediately.", true);
                 return;
             }
 
@@ -349,18 +408,15 @@
             }
         }
 
-        // --- MEDICAL TRIAGE STATE MACHINE ---
+        // --- MEDICAL TRIAGE FLOW ---
         function handleMedicalFlow(input, lowerInput) {
             
-            // Step 1: SYMPTOM
-            if (chatStep === 1) {
+            if (chatStep === 1) { // SYMPTOM
                 userData.symptom = input;
                 chatStep = 2;
                 addBotMessage("I understand. To help the doctor, how old are you? (Please enter just the number)");
             }
-            
-            // Step 2: AGE
-            else if (chatStep === 2) {
+            else if (chatStep === 2) { // AGE
                 if (isNaN(input)) {
                     addBotMessage("Please enter a valid number for your age.");
                 } else {
@@ -374,28 +430,22 @@
                     </div>`);
                 }
             }
-            
-            // Step 3: GENDER
-            else if (chatStep === 3) {
+            else if (chatStep === 3) { // GENDER
                 userData.gender = input;
                 chatStep = 4;
                 addBotMessage(`How long have you had this problem? (e.g., 2 days, 1 week)`);
             }
-            
-            // Step 4: DURATION
-            else if (chatStep === 4) {
+            else if (chatStep === 4) { // DURATION
                 userData.duration = input;
                 chatStep = 5;
-                addBotMessage(`On a scale of 1 to 10, how severe is the pain/discomfort? (1 = Mild, 10 = Severe)
+                addBotMessage(`On a scale of 1 to 10, how severe is the pain? (1 = Mild, 10 = Severe)
                 <div class="quick-options">
                     <span class="chip" onclick="sendQuick('1-3 Mild')">1-3 Mild</span>
                     <span class="chip" onclick="sendQuick('4-6 Moderate')">4-6 Moderate</span>
                     <span class="chip" onclick="sendQuick('7-10 Severe')">7-10 Severe</span>
                 </div>`);
             }
-            
-            // Step 5: PAIN LEVEL
-            else if (chatStep === 5) {
+            else if (chatStep === 5) { // PAIN LEVEL
                 userData.painLevel = input;
                 chatStep = 6;
                 addBotMessage(`Do you have any existing medical conditions? (e.g., Diabetes, Hypertension, None)
@@ -405,14 +455,11 @@
                     <span class="chip" onclick="sendQuick('High BP')">High BP</span>
                 </div>`);
             }
-            
-            // Step 6: HISTORY & SUMMARY
-            else if (chatStep === 6) {
+            else if (chatStep === 6) { // HISTORY & SUMMARY
                 userData.history = input;
-                isMedicalMode = false; // End Triage
-                chatStep = 0; // Reset
+                isMedicalMode = false; 
+                chatStep = 0; 
                 
-                // GENERATE SUMMARY CARD
                 const summaryHTML = `
                 <div class="summary-card">
                     <div class="summary-header"><i class="fas fa-file-medical"></i> PRELIMINARY ASSESSMENT</div>
