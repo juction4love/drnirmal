@@ -94,7 +94,7 @@
         /* --- AI CHATBOT WINDOW STYLES --- */
         .chat-window {
             position: fixed; bottom: 20px; right: 20px;
-            width: 350px; height: 520px;
+            width: 350px; height: 550px; /* Increased height slightly */
             background: var(--chat-bg); border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
             display: none; flex-direction: column; overflow: hidden;
@@ -250,7 +250,7 @@
             history: ""
         };
 
-        let generatedOTP = ""; // Stores the fake OTP
+        let generatedOTP = ""; 
         let chatStep = 0; 
         let isMedicalMode = false;
 
@@ -267,7 +267,6 @@
             const nameVal = nameInput.value.trim();
             const phoneVal = phoneInput.value.trim();
 
-            // Validation: Name + 10 Digit Phone
             if (nameVal === "" || phoneVal === "") {
                 alert("Please fill in both Name and Mobile Number.");
                 return;
@@ -277,17 +276,11 @@
                 return;
             }
 
-            // Save Data
             userData.name = nameVal;
             userData.phone = phoneVal;
-
-            // Generate Fake OTP (Random 4 digits)
             generatedOTP = Math.floor(1000 + Math.random() * 9000);
-
-            // SIMULATE SMS SENDING (Alert Box)
             alert("SMS from Dr. Nirmal Clinic:\nYour Login OTP is: " + generatedOTP);
 
-            // Switch UI to Step 2
             document.getElementById('display-phone').textContent = phoneVal;
             document.getElementById('auth-step-1').classList.add('hidden');
             document.getElementById('auth-step-2').classList.remove('hidden');
@@ -297,14 +290,11 @@
             const inputOTP = document.getElementById('otp-input').value;
 
             if (inputOTP == generatedOTP) {
-                // SUCCESS: Start Chat
                 document.getElementById('chat-auth').style.display = 'none';
                 document.getElementById('chat-body').style.display = 'flex';
                 document.getElementById('chat-input-area').style.display = 'flex';
-
                 addBotMessage(`Namaste <strong>${userData.name}</strong>. Verification Successful! <br>I am Dr. Nirmal's virtual assistant. How can I help you?`, true);
             } else {
-                // FAILURE
                 alert("Incorrect OTP. Please try again.");
             }
         }
@@ -324,10 +314,7 @@
 
             addUserMessage(userText);
             inputField.value = "";
-            
-            setTimeout(() => {
-                processResponse(userText);
-            }, 600);
+            setTimeout(() => { processResponse(userText); }, 600);
         }
 
         function addUserMessage(text) {
@@ -400,8 +387,11 @@
             else if (lowerInput.includes("location") || lowerInput.includes("where")) {
                 addBotMessage("We are located at <strong>National City Hospital</strong>, Bharatpur-10, Chitwan.");
             }
-            else if (lowerInput.includes("time") || lowerInput.includes("schedule")) {
-                addBotMessage("OPD timings vary. Please contact the hospital reception for today's schedule.");
+            else if (lowerInput.includes("time") || lowerInput.includes("schedule") || lowerInput.includes("open")) {
+                addBotMessage(`Dr. Nirmal is available at these times:<br>
+                <i class="fas fa-sun" style="color:#ffc107;"></i> <strong>Morning:</strong> 7:00 AM - 9:00 AM<br>
+                <i class="fas fa-moon" style="color:#6f42c1;"></i> <strong>Evening:</strong> 5:00 PM - 9:00 PM<br>
+                Please visit National City Hospital during these hours.`);
             }
             else {
                 addBotMessage("I didn't quite catch that. You can ask about Location, Appointments, or click 'Describe a Health Problem'.", true);
@@ -457,9 +447,8 @@
             }
             else if (chatStep === 6) { // HISTORY & SUMMARY
                 userData.history = input;
-                isMedicalMode = false; 
-                chatStep = 0; 
                 
+                // Show Summary Card
                 const summaryHTML = `
                 <div class="summary-card">
                     <div class="summary-header"><i class="fas fa-file-medical"></i> PRELIMINARY ASSESSMENT</div>
@@ -469,12 +458,11 @@
                     <div class="summary-row"><span>Duration:</span> <strong>${userData.duration}</strong></div>
                     <div class="summary-row"><span>Pain Level:</span> <strong>${userData.painLevel}</strong></div>
                     <div class="summary-row"><span>History:</span> <strong>${userData.history}</strong></div>
-                    <hr style="margin:8px 0; border:0; border-top:1px dashed #ddd;">
-                    <div style="text-align:center; color:var(--primary); font-weight:bold;">Status: Ready for Doctor Review</div>
                 </div>
                 `;
                 
-                addBotMessage("Thank you. I have recorded your details. Here is a summary for Dr. Nirmal:");
+                addBotMessage("Thank you. I have recorded your details. Here is the summary.");
+                
                 setTimeout(() => {
                     const chatBody = document.getElementById('chat-body');
                     const div = document.createElement('div');
@@ -482,8 +470,34 @@
                     chatBody.appendChild(div);
                     chatBody.scrollTop = chatBody.scrollHeight;
                     
-                    addBotMessage("Please show this screen to the reception or save a screenshot. <br><strong>Would you like to restart?</strong>", true);
+                    // NEW: Ask about OPD Appointment
+                    chatStep = 7;
+                    addBotMessage(`<strong>Would you like to come to the OPD and book an appointment for this?</strong>
+                    <div class="quick-options">
+                        <span class="chip" onclick="sendQuick('Yes, book appointment')">Yes, Book Appointment</span>
+                        <span class="chip" onclick="sendQuick('No, just asking')">No, Just Asking</span>
+                    </div>`);
                 }, 800);
+            }
+            
+            else if (chatStep === 7) { // APPOINTMENT DECISION
+                if (lowerInput.includes("yes") || lowerInput.includes("book")) {
+                    addSystemMessage("✅ Appointment Request Noted");
+                    addBotMessage(`Great. Please come to <strong>National City Hospital</strong>.<br>
+                    <br><strong>Available OPD Timings:</strong>
+                    <br>☀️ Morning: 7:00 AM - 9:00 AM
+                    <br>🌙 Evening: 5:00 PM - 9:00 PM
+                    <br><br>Please show this chat summary at the reception counter.`);
+                } else {
+                    addBotMessage("Okay. Take care! If you change your mind, you can visit the hospital during OPD hours.");
+                }
+                
+                // End Medical Mode
+                isMedicalMode = false;
+                chatStep = 0;
+                setTimeout(() => {
+                    addBotMessage("Is there anything else I can help you with?", true);
+                }, 2000);
             }
         }
     </script>
