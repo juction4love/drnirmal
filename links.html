@@ -19,6 +19,8 @@
             --text-dark: #333333;
             --chat-bg: #ffffff;
             --chat-header: #0056b3;
+            --user-msg-bg: #0056b3;
+            --bot-msg-bg: #f1f3f5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -77,7 +79,19 @@
         .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
         
         .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
-        .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
+        
+        /* --- CHANGED TO GREEN BUTTON --- */
+        .btn-ai { 
+            background: linear-gradient(135deg, #28a745, #20c997); 
+            color: white; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        .btn-ai:hover { 
+            opacity: 0.9; 
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4); 
+        }
+
         .btn-clinic { border-left: 5px solid var(--accent); border-radius: 12px; justify-content: space-between; padding-left: 20px; }
         .btn-clinic i { position: static; color: var(--accent); }
         .btn-clinic span { text-align: center; flex: 1; }
@@ -94,7 +108,7 @@
         /* --- AI CHATBOT WINDOW STYLES --- */
         .chat-window {
             position: fixed; bottom: 20px; right: 20px;
-            width: 350px; height: 550px; /* Increased height slightly */
+            width: 360px; height: 580px;
             background: var(--chat-bg); border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
             display: none; flex-direction: column; overflow: hidden;
@@ -103,11 +117,12 @@
         }
         
         @media (max-width: 500px) {
-            .chat-window { right: 50%; transform: translateX(50%); width: 92%; bottom: 10px; }
+            .chat-window { right: 50%; transform: translateX(50%); width: 94%; bottom: 10px; height: 80vh;}
         }
         
-        .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
-        .chat-close { cursor: pointer; font-size: 1.2rem; }
+        .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.1rem; }
+        .chat-close { cursor: pointer; font-size: 1.4rem; transition: 0.2s; }
+        .chat-close:hover { color: #ffcccc; }
         
         /* AUTH SCREEN */
         .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 15px; background: #fff; }
@@ -123,31 +138,52 @@
         .auth-btn:hover { background: var(--primary-dark); }
         .resend-link { text-align: center; color: var(--primary); font-size: 0.8rem; cursor: pointer; text-decoration: underline; margin-top: 10px; }
 
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 10px; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 12px; }
         
-        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; word-wrap: break-word; }
-        .bot-msg { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
-        .user-msg { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-        .sys-msg { background: #fff3cd; color: #856404; align-self: center; text-align: center; border: 1px solid #ffeeba; width: 90%; }
-        .alert-msg { background: #f8d7da; color: #721c24; align-self: center; text-align: center; border: 1px solid #f5c6cb; width: 90%; font-weight: bold; }
+        .msg-container { display: flex; flex-direction: column; gap: 2px; max-width: 85%; }
+        .msg-container.bot { align-self: flex-start; }
+        .msg-container.user { align-self: flex-end; align-items: flex-end; }
+
+        .msg { padding: 10px 15px; border-radius: 18px; font-size: 0.9rem; line-height: 1.4; word-wrap: break-word; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        
+        .bot-msg { background: var(--bot-msg-bg); color: #333; border-bottom-left-radius: 4px; }
+        .user-msg { background: var(--user-msg-bg); color: white; border-bottom-right-radius: 4px; }
+        
+        .timestamp { font-size: 0.65rem; color: #999; margin: 0 5px; }
+        
+        .sys-msg { background: #fff3cd; color: #856404; align-self: center; text-align: center; border: 1px solid #ffeeba; width: 95%; padding: 8px; border-radius: 8px; font-size: 0.85rem;}
+        .alert-msg { background: #f8d7da; color: #721c24; align-self: center; text-align: center; border: 1px solid #f5c6cb; width: 95%; font-weight: bold; padding: 10px; border-radius: 8px;}
         
         /* Summary Card Style */
         .summary-card {
             background: #fff; border: 1px solid #ddd; padding: 15px;
             border-radius: 8px; font-size: 0.85rem; color: #333;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%;
+            border-top: 4px solid var(--primary);
         }
-        .summary-header { font-weight: bold; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 8px; }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
-        
-        .quick-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
-        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; margin-top: 5px; }
+        .summary-header { font-weight: bold; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 8px; font-size: 1rem; display: flex; justify-content: space-between;}
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .summary-row strong { color: #000; }
+        .download-btn { width: 100%; padding: 8px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 5px;}
+        .download-btn:hover { background: #218838; }
+
+        .quick-options { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; margin-top: 5px; font-weight: 600;}
         .chip:hover { background: var(--primary); color: white; }
         
-        .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: none; gap: 10px; background: white; }
-        .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
-        .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: none; gap: 10px; background: white; align-items: center;}
+        .chat-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 25px; outline: none; transition: border 0.2s;}
+        .chat-input:focus { border-color: var(--primary); }
+        .send-btn { background: var(--primary); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s;}
+        .send-btn:hover { background: var(--primary-dark); transform: scale(1.05);}
         
+        /* Typing Indicator */
+        .typing-indicator { display: flex; gap: 4px; padding: 10px 15px; background: #f1f3f5; border-radius: 18px; width: fit-content; margin-bottom: 10px; display: none; }
+        .dot { width: 8px; height: 8px; background: #999; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -203,7 +239,7 @@
             
             <div id="auth-step-1" class="auth-step">
                 <div style="text-align:center; margin-bottom:5px;">
-                    <p style="color:#666;">Login to chat</p>
+                    <p style="color:#666;">Login for Secure Chat</p>
                 </div>
                 
                 <label class="auth-label">Full Name</label>
@@ -231,6 +267,10 @@
 
         <div class="chat-body" id="chat-body"></div>
         
+        <div class="typing-indicator" id="typing-indicator">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
         <div class="chat-input-area" id="chat-input-area">
             <input type="text" id="user-input" class="chat-input" placeholder="Type here..." onkeypress="handleEnter(event)">
             <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
@@ -293,10 +333,33 @@
                 document.getElementById('chat-auth').style.display = 'none';
                 document.getElementById('chat-body').style.display = 'flex';
                 document.getElementById('chat-input-area').style.display = 'flex';
-                addBotMessage(`Namaste <strong>${userData.name}</strong>. Verification Successful! <br>I am Dr. Nirmal's virtual assistant. How can I help you?`, true);
+                showTyping();
+                setTimeout(() => {
+                    hideTyping();
+                    addBotMessage(`Namaste <strong>${userData.name}</strong>. Verification Successful! <br>I am Dr. Nirmal's virtual assistant. How can I help you today?`, true);
+                }, 1000);
             } else {
                 alert("Incorrect OTP. Please try again.");
             }
+        }
+
+        // --- UTILS ---
+        function getTime() {
+            return new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }
+
+        function showTyping() {
+            const typingInd = document.getElementById('typing-indicator');
+            const chatBody = document.getElementById('chat-body');
+            // Move typing indicator to inside chat body for correct scrolling, or keep absolute
+            // Here we just toggle visibility
+            typingInd.style.display = 'flex';
+            typingInd.parentNode.insertBefore(typingInd, document.getElementById('chat-input-area'));
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function hideTyping() {
+            document.getElementById('typing-indicator').style.display = 'none';
         }
 
         // --- CHAT LOGIC ---
@@ -314,41 +377,57 @@
 
             addUserMessage(userText);
             inputField.value = "";
-            setTimeout(() => { processResponse(userText); }, 600);
+            
+            showTyping();
+            // Simulate AI thinking time (1.2 seconds)
+            setTimeout(() => {
+                hideTyping();
+                processResponse(userText);
+            }, 1200);
         }
 
         function addUserMessage(text) {
             const chatBody = document.getElementById('chat-body');
-            const div = document.createElement('div');
-            div.className = 'msg user-msg';
-            div.textContent = text;
-            chatBody.appendChild(div);
+            const container = document.createElement('div');
+            container.className = 'msg-container user';
+            
+            container.innerHTML = `
+                <div class="msg user-msg">${text}</div>
+                <span class="timestamp">${getTime()}</span>
+            `;
+            chatBody.appendChild(container);
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
         function addBotMessage(html, showMainMenuOptions = false) {
             const chatBody = document.getElementById('chat-body');
-            const div = document.createElement('div');
-            div.className = 'msg bot-msg';
-            div.innerHTML = html;
+            const container = document.createElement('div');
+            container.className = 'msg-container bot';
             
+            let quickOptionsHTML = "";
             if (showMainMenuOptions) {
-                div.innerHTML += `
+                quickOptionsHTML = `
                 <div class="quick-options">
-                    <span class="chip" onclick="startMedicalTriage()">Describe a Health Problem</span>
+                    <span class="chip" onclick="startMedicalTriage()">Describe Health Issue</span>
                     <span class="chip" onclick="sendQuick('Where is the clinic?')">Location</span>
                     <span class="chip" onclick="sendQuick('OPD Time?')">Timings</span>
+                    <span class="chip" onclick="sendQuick('Surgery Cost?')">Surgery Fees</span>
                 </div>`;
             }
+
+            container.innerHTML = `
+                <div class="msg bot-msg">${html}${quickOptionsHTML}</div>
+                <span class="timestamp">${getTime()}</span>
+            `;
             
-            chatBody.appendChild(div);
+            chatBody.appendChild(container);
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
         function addSystemMessage(html, isAlert = false) {
             const chatBody = document.getElementById('chat-body');
             const div = document.createElement('div');
-            div.className = isAlert ? 'msg alert-msg' : 'msg sys-msg';
+            div.className = isAlert ? 'alert-msg' : 'sys-msg';
             div.innerHTML = html;
             chatBody.appendChild(div);
             chatBody.scrollTop = chatBody.scrollHeight;
@@ -359,14 +438,14 @@
             isMedicalMode = true;
             chatStep = 1;
             addSystemMessage("Starting Medical Assessment...");
-            addBotMessage("Please briefly describe your main symptom. (e.g., Stomach pain, Blood in urine)");
+            addBotMessage("Please briefly describe your main symptom. (e.g., Stomach pain, Blood in urine, Kidney stone)");
         }
 
         function processResponse(input) {
             let lowerInput = input.toLowerCase();
 
             // 1. GLOBAL EMERGENCY CHECK
-            if (lowerInput.includes("chest pain") || lowerInput.includes("heart attack") || lowerInput.includes("unconscious") || lowerInput.includes("breathing")) {
+            if (lowerInput.includes("chest pain") || lowerInput.includes("heart attack") || lowerInput.includes("unconscious") || lowerInput.includes("breathing") || lowerInput.includes("bleeding")) {
                 addSystemMessage("⚠️ CRITICAL ALERT: Based on your input, this sounds like a medical emergency. Please go to the nearest Emergency Room immediately.", true);
                 return;
             }
@@ -377,15 +456,15 @@
                 return;
             }
 
-            // 3. STANDARD FAQ MODE
+            // 3. ADVANCED FAQ ENGINE
             if (input.includes("health") || input.includes("problem") || input.includes("pain") || input.includes("checkup")) {
                 startMedicalTriage();
             }
             else if (lowerInput.includes("appointment") || lowerInput.includes("book")) {
                 addBotMessage("To book an appointment, please visit <strong>National City Hospital</strong> reception or call 056-493511.");
             }
-            else if (lowerInput.includes("location") || lowerInput.includes("where")) {
-                addBotMessage("We are located at <strong>National City Hospital</strong>, Bharatpur-10, Chitwan.");
+            else if (lowerInput.includes("location") || lowerInput.includes("where") || lowerInput.includes("address")) {
+                addBotMessage("We are located at <strong>National City Hospital</strong>, Bharatpur-10, Chitwan. (Near Chaubiskoti).");
             }
             else if (lowerInput.includes("time") || lowerInput.includes("schedule") || lowerInput.includes("open")) {
                 addBotMessage(`Dr. Nirmal is available at these times:<br>
@@ -393,8 +472,24 @@
                 <i class="fas fa-moon" style="color:#6f42c1;"></i> <strong>Evening:</strong> 5:00 PM - 9:00 PM<br>
                 Please visit National City Hospital during these hours.`);
             }
+            // NEW: Cost/Fees Logic
+            else if (lowerInput.includes("fee") || lowerInput.includes("cost") || lowerInput.includes("price") || lowerInput.includes("money")) {
+                addBotMessage("Consultation fees are determined by the hospital administration. Surgery costs depend on the diagnosis and type of procedure. Please visit the OPD for a proper estimate.");
+            }
+            // NEW: Medical Terms (Kidney/Urology)
+            else if (lowerInput.includes("kidney") || lowerInput.includes("stone") || lowerInput.includes("urine") || lowerInput.includes("prostate")) {
+                addBotMessage(`I see you are asking about urological issues. Dr. Nirmal is a Specialist in this field.<br>Would you like to <strong>Describe your symptoms</strong> for a preliminary check?`, true);
+            }
+            // NEW: Insurance
+            else if (lowerInput.includes("insurance") || lowerInput.includes("beema")) {
+                addBotMessage("National City Hospital accepts various Health Insurance policies. Please bring your insurance card and inquire at the reception desk.");
+            }
+            // NEW: Politeness
+            else if (lowerInput.includes("thank") || lowerInput.includes("bye")) {
+                addBotMessage("You're welcome! Take care and get well soon. 👋");
+            }
             else {
-                addBotMessage("I didn't quite catch that. You can ask about Location, Appointments, or click 'Describe a Health Problem'.", true);
+                addBotMessage("I didn't quite catch that. You can ask about Location, Appointments, Costs, or click 'Describe Health Issue'.", true);
             }
         }
 
@@ -450,14 +545,20 @@
                 
                 // Show Summary Card
                 const summaryHTML = `
-                <div class="summary-card">
-                    <div class="summary-header"><i class="fas fa-file-medical"></i> PRELIMINARY ASSESSMENT</div>
+                <div class="summary-card" id="print-area">
+                    <div class="summary-header">
+                        <span><i class="fas fa-file-medical"></i> ASSESSMENT</span>
+                        <span style="font-size:0.8rem; color:#777;">${new Date().toLocaleDateString()}</span>
+                    </div>
                     <div class="summary-row"><span>Patient:</span> <strong>${userData.name} (${userData.age}/${userData.gender})</strong></div>
                     <div class="summary-row"><span>Mobile:</span> <strong>${userData.phone}</strong></div>
+                    <hr style="border:0; border-top:1px dashed #eee; margin:5px 0;">
                     <div class="summary-row"><span>Complaint:</span> <strong>${userData.symptom}</strong></div>
                     <div class="summary-row"><span>Duration:</span> <strong>${userData.duration}</strong></div>
                     <div class="summary-row"><span>Pain Level:</span> <strong>${userData.painLevel}</strong></div>
                     <div class="summary-row"><span>History:</span> <strong>${userData.history}</strong></div>
+                    
+                    <button class="download-btn" onclick="alert('This feature would download the PDF in a real app. For now, take a screenshot!')"><i class="fas fa-download"></i> Save / Download</button>
                 </div>
                 `;
                 
@@ -466,6 +567,7 @@
                 setTimeout(() => {
                     const chatBody = document.getElementById('chat-body');
                     const div = document.createElement('div');
+                    div.style.width = "100%"; // Full width for card
                     div.innerHTML = summaryHTML;
                     chatBody.appendChild(div);
                     chatBody.scrollTop = chatBody.scrollHeight;
