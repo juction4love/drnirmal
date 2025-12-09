@@ -80,7 +80,7 @@
         
         .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
         
-        /* --- CHANGED TO GREEN BUTTON --- */
+        /* GREEN BUTTON */
         .btn-ai { 
             background: linear-gradient(135deg, #28a745, #20c997); 
             color: white; 
@@ -282,6 +282,8 @@
         let userData = {
             name: "",
             phone: "",
+            patientType: "", // New/Follow-up
+            patientID: "N/A", // Only for Follow-up
             age: "",
             gender: "",
             symptom: "",
@@ -351,8 +353,6 @@
         function showTyping() {
             const typingInd = document.getElementById('typing-indicator');
             const chatBody = document.getElementById('chat-body');
-            // Move typing indicator to inside chat body for correct scrolling, or keep absolute
-            // Here we just toggle visibility
             typingInd.style.display = 'flex';
             typingInd.parentNode.insertBefore(typingInd, document.getElementById('chat-input-area'));
             chatBody.scrollTop = chatBody.scrollHeight;
@@ -379,7 +379,6 @@
             inputField.value = "";
             
             showTyping();
-            // Simulate AI thinking time (1.2 seconds)
             setTimeout(() => {
                 hideTyping();
                 processResponse(userText);
@@ -436,9 +435,15 @@
         // --- CORE AI ENGINE ---
         function startMedicalTriage() {
             isMedicalMode = true;
-            chatStep = 1;
+            chatStep = 1; // Start at step 1
             addSystemMessage("Starting Medical Assessment...");
-            addBotMessage("Please briefly describe your main symptom. (e.g., Stomach pain, Blood in urine, Kidney stone)");
+            
+            // NEW STEP: Ask for New/Follow-up
+            addBotMessage(`<strong>Are you visiting Dr. Nirmal for the first time, or is this a follow-up visit?</strong>
+            <div class="quick-options">
+                <span class="chip" onclick="sendQuick('First Time')">First Time / New</span>
+                <span class="chip" onclick="sendQuick('Follow Up')">Follow Up</span>
+            </div>`);
         }
 
         function processResponse(input) {
@@ -472,41 +477,64 @@
                 <i class="fas fa-moon" style="color:#6f42c1;"></i> <strong>Evening:</strong> 5:00 PM - 9:00 PM<br>
                 Please visit National City Hospital during these hours.`);
             }
-            // NEW: Cost/Fees Logic
-            else if (lowerInput.includes("fee") || lowerInput.includes("cost") || lowerInput.includes("price") || lowerInput.includes("money")) {
-                addBotMessage("Consultation fees are determined by the hospital administration. Surgery costs depend on the diagnosis and type of procedure. Please visit the OPD for a proper estimate.");
+            else if (lowerInput.includes("fee") || lowerInput.includes("cost") || lowerInput.includes("price")) {
+                addBotMessage("Consultation fees are determined by the hospital administration. Please visit the OPD for a proper estimate.");
             }
-            // NEW: Medical Terms (Kidney/Urology)
-            else if (lowerInput.includes("kidney") || lowerInput.includes("stone") || lowerInput.includes("urine") || lowerInput.includes("prostate")) {
-                addBotMessage(`I see you are asking about urological issues. Dr. Nirmal is a Specialist in this field.<br>Would you like to <strong>Describe your symptoms</strong> for a preliminary check?`, true);
-            }
-            // NEW: Insurance
-            else if (lowerInput.includes("insurance") || lowerInput.includes("beema")) {
-                addBotMessage("National City Hospital accepts various Health Insurance policies. Please bring your insurance card and inquire at the reception desk.");
-            }
-            // NEW: Politeness
             else if (lowerInput.includes("thank") || lowerInput.includes("bye")) {
                 addBotMessage("You're welcome! Take care and get well soon. 👋");
             }
             else {
-                addBotMessage("I didn't quite catch that. You can ask about Location, Appointments, Costs, or click 'Describe Health Issue'.", true);
+                addBotMessage("I didn't quite catch that. You can ask about Location, Appointments, or click 'Describe Health Issue'.", true);
             }
         }
 
         // --- MEDICAL TRIAGE FLOW ---
         function handleMedicalFlow(input, lowerInput) {
             
-            if (chatStep === 1) { // SYMPTOM
-                userData.symptom = input;
-                chatStep = 2;
-                addBotMessage("I understand. To help the doctor, how old are you? (Please enter just the number)");
+            // STEP 1: PATIENT TYPE (New or Follow-up)
+            if (chatStep === 1) {
+                if (lowerInput.includes("new") || lowerInput.includes("first")) {
+                    userData.patientType = "New Patient";
+                    userData.patientID = "New Registration";
+                    chatStep = 3; // Skip asking for ID, go straight to symptom
+                    addBotMessage("Welcome. Please briefly describe your main symptom. (e.g., Stomach pain, Blood in urine)");
+                } 
+                else if (lowerInput.includes("follow") || lowerInput.includes("return")) {
+                    userData.patientType = "Follow-up";
+                    chatStep = 2; // Ask for ID
+                    addBotMessage("Welcome back. Do you have your <strong>OPD Card Number (Patient ID)</strong>? If yes, please type it. If no, type 'No'.");
+                } 
+                else {
+                    addBotMessage("Please select if you are a <strong>New Patient</strong> or coming for a <strong>Follow Up</strong>.");
+                }
             }
-            else if (chatStep === 2) { // AGE
+
+            // STEP 2: PATIENT ID (Only for Follow-ups)
+            else if (chatStep === 2) {
+                if (lowerInput === "no" || lowerInput.includes("don't")) {
+                    userData.patientID = "Unknown / Forgot";
+                    addBotMessage("No problem. We can find your file by your name. What is the main symptom for this visit?");
+                } else {
+                    userData.patientID = input;
+                    addBotMessage(`Thank you. ID ${input} noted. What is the main symptom for this visit?`);
+                }
+                chatStep = 3;
+            }
+
+            // STEP 3: SYMPTOM
+            else if (chatStep === 3) {
+                userData.symptom = input;
+                chatStep = 4;
+                addBotMessage("I understand. How old are you? (Please enter just the number)");
+            }
+
+            // STEP 4: AGE
+            else if (chatStep === 4) {
                 if (isNaN(input)) {
                     addBotMessage("Please enter a valid number for your age.");
                 } else {
                     userData.age = input;
-                    chatStep = 3;
+                    chatStep = 5;
                     addBotMessage(`Noted. What is your gender? 
                     <div class="quick-options">
                         <span class="chip" onclick="sendQuick('Male')">Male</span>
@@ -515,14 +543,18 @@
                     </div>`);
                 }
             }
-            else if (chatStep === 3) { // GENDER
+
+            // STEP 5: GENDER
+            else if (chatStep === 5) {
                 userData.gender = input;
-                chatStep = 4;
+                chatStep = 6;
                 addBotMessage(`How long have you had this problem? (e.g., 2 days, 1 week)`);
             }
-            else if (chatStep === 4) { // DURATION
+
+            // STEP 6: DURATION
+            else if (chatStep === 6) {
                 userData.duration = input;
-                chatStep = 5;
+                chatStep = 7;
                 addBotMessage(`On a scale of 1 to 10, how severe is the pain? (1 = Mild, 10 = Severe)
                 <div class="quick-options">
                     <span class="chip" onclick="sendQuick('1-3 Mild')">1-3 Mild</span>
@@ -530,9 +562,11 @@
                     <span class="chip" onclick="sendQuick('7-10 Severe')">7-10 Severe</span>
                 </div>`);
             }
-            else if (chatStep === 5) { // PAIN LEVEL
+
+            // STEP 7: PAIN LEVEL
+            else if (chatStep === 7) {
                 userData.painLevel = input;
-                chatStep = 6;
+                chatStep = 8;
                 addBotMessage(`Do you have any existing medical conditions? (e.g., Diabetes, Hypertension, None)
                 <div class="quick-options">
                     <span class="chip" onclick="sendQuick('None')">None</span>
@@ -540,7 +574,9 @@
                     <span class="chip" onclick="sendQuick('High BP')">High BP</span>
                 </div>`);
             }
-            else if (chatStep === 6) { // HISTORY & SUMMARY
+
+            // STEP 8: HISTORY & SUMMARY
+            else if (chatStep === 8) {
                 userData.history = input;
                 
                 // Show Summary Card
@@ -550,6 +586,8 @@
                         <span><i class="fas fa-file-medical"></i> ASSESSMENT</span>
                         <span style="font-size:0.8rem; color:#777;">${new Date().toLocaleDateString()}</span>
                     </div>
+                    <div class="summary-row"><span>Type:</span> <strong style="color:var(--primary);">${userData.patientType}</strong></div>
+                    ${userData.patientType === 'Follow-up' ? `<div class="summary-row"><span>ID:</span> <strong>${userData.patientID}</strong></div>` : ''}
                     <div class="summary-row"><span>Patient:</span> <strong>${userData.name} (${userData.age}/${userData.gender})</strong></div>
                     <div class="summary-row"><span>Mobile:</span> <strong>${userData.phone}</strong></div>
                     <hr style="border:0; border-top:1px dashed #eee; margin:5px 0;">
@@ -558,7 +596,7 @@
                     <div class="summary-row"><span>Pain Level:</span> <strong>${userData.painLevel}</strong></div>
                     <div class="summary-row"><span>History:</span> <strong>${userData.history}</strong></div>
                     
-                    <button class="download-btn" onclick="alert('This feature would download the PDF in a real app. For now, take a screenshot!')"><i class="fas fa-download"></i> Save / Download</button>
+                    <button class="download-btn" onclick="alert('Screenshot this summary for the receptionist!')"><i class="fas fa-camera"></i> Save Screenshot</button>
                 </div>
                 `;
                 
@@ -572,8 +610,8 @@
                     chatBody.appendChild(div);
                     chatBody.scrollTop = chatBody.scrollHeight;
                     
-                    // NEW: Ask about OPD Appointment
-                    chatStep = 7;
+                    // Ask about OPD Appointment
+                    chatStep = 9;
                     addBotMessage(`<strong>Would you like to come to the OPD and book an appointment for this?</strong>
                     <div class="quick-options">
                         <span class="chip" onclick="sendQuick('Yes, book appointment')">Yes, Book Appointment</span>
@@ -582,7 +620,8 @@
                 }, 800);
             }
             
-            else if (chatStep === 7) { // APPOINTMENT DECISION
+            // STEP 9: APPOINTMENT DECISION
+            else if (chatStep === 9) { 
                 if (lowerInput.includes("yes") || lowerInput.includes("book")) {
                     addSystemMessage("✅ Appointment Request Noted");
                     addBotMessage(`Great. Please come to <strong>National City Hospital</strong>.<br>
