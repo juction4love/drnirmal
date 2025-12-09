@@ -17,7 +17,6 @@
             --bg-color: #e8f5e9;
             --card-bg: #ffffff;
             --text-dark: #333333;
-            --whatsapp: #25D366;
             --chat-bg: #ffffff;
             --chat-header: #0056b3;
         }
@@ -160,31 +159,10 @@
 
         .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
         
-        /* --- ROW STYLE FOR WHATSAPP + AI BOT --- */
-        .btn-row {
-            display: flex;
-            gap: 15px;
-            width: 100%;
-        }
-        .btn-row .link-btn {
-            flex: 1;
-            padding: 15px 10px;
-            font-size: 0.9rem;
-            justify-content: center;
-        }
-        .btn-row .link-btn i {
-            position: static;
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-
         /* Colors */
         .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
         .btn-website:hover { border-color: white; color: white; opacity: 0.95; }
         
-        .btn-whatsapp { color: #075e54; border: 1px solid #e0e0e0; }
-        .btn-whatsapp i { color: var(--whatsapp); }
-
         .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
         .btn-ai:hover { color: white; opacity: 0.9; }
 
@@ -319,14 +297,9 @@
             <i class="fas fa-globe"></i> Visit Official Portfolio
         </a>
 
-        <div class="btn-row">
-            <a href="https://wa.me/9779855046811?text=Hello Dr. Nirmal, I have a medical inquiry." class="link-btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <button onclick="toggleChat()" class="link-btn btn-ai">
-                <i class="fas fa-robot"></i> AI Assistant
-            </button>
-        </div>
+        <button onclick="toggleChat()" class="link-btn btn-ai">
+            <i class="fas fa-robot"></i> AI Assistant
+        </button>
 
         <a href="tel:056493511" class="link-btn btn-clinic">
             <span>Call Clinic (National City Hospital)</span>
@@ -468,26 +441,25 @@
 
         function getBotResponse(input) {
             if (input.includes("appointment") || input.includes("book") || input.includes("visit")) {
-                return `Mr./Ms. ${clientName}, to book an appointment, please call the National City Hospital directly at <strong>056-493511</strong> or click the 'Call Clinic' button above.`;
+                return `Mr./Ms. ${clientName}, to book an appointment, please meet the receptionist at <strong>National City Hospital</strong> or call 056-493511.`;
             } 
             else if (input.includes("location") || input.includes("where") || input.includes("address") || input.includes("map")) {
                 return "Dr. Nirmal is available at <strong>National City Hospital</strong>, Hospital Road, Bharatpur-10, Chitwan. <br><a href='https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital' target='_blank' style='color:#0056b3'>Click here for Map</a>.";
             }
             else if (input.includes("phone") || input.includes("number") || input.includes("call") || input.includes("contact")) {
-                return "You can contact the clinic at <strong>056-493511</strong>. For personal urgent inquiries, you can use the WhatsApp button.";
+                return "You can contact the clinic at <strong>056-493511</strong> or visit the reception at National City Hospital.";
             }
             else if (input.includes("time") || input.includes("schedule") || input.includes("open") || input.includes("when")) {
-                return "OPD timings may vary. It is best to call the hospital reception at 056-493511 to confirm availability for today.";
+                return "OPD timings may vary. Please meet the receptionist at National City Hospital for the exact schedule today.";
             }
             else if (input.includes("hello") || input.includes("hi") || input.includes("namaste")) {
                 return `Namaste ${clientName}! How can I assist you with Dr. Nirmal's services today?`;
             }
             else {
-                return "I am an automated assistant and might not understand that specific question. Please click the <strong>WhatsApp</strong> button to chat with Dr. Nirmal directly.";
+                return "I am an automated assistant and might not understand that specific question. Please <strong>meet the receptionist at National City Hospital</strong> for detailed assistance.";
             }
         }
     </script>
 
 </body>
 </html>
-
