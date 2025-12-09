@@ -124,14 +124,12 @@
         .timeline-title { font-weight: 700; font-size: 1.1rem; display: block; margin-top: 2px; }
         .timeline-loc { font-style: italic; color: #666; font-size: 0.95rem; }
 
-        /* --- APPOINTMENT & WHATSAPP BOXES --- */
-        .whatsapp-box { background: linear-gradient(to right, #e3fcef, #fff); border: 2px solid var(--whatsapp); }
-        .wa-input-group { margin-bottom: 15px; }
-        .wa-input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 1rem; }
+        /* --- APPOINTMENT / HOSPITAL BOX (Replaces Whatsapp) --- */
+        .hospital-connect-box { background: linear-gradient(to right, #e3f2fd, #fff); border: 2px solid var(--primary); text-align: center; }
         
-        /* WHATSAPP BUTTON (Green Background) */
-        .wa-btn { 
-            background-color: var(--whatsapp); 
+        /* Hospital CALL BUTTON */
+        .hosp-btn { 
+            background-color: var(--primary); 
             color: var(--white); 
             border: none; 
             padding: 12px 25px; 
@@ -143,10 +141,11 @@
             align-items: center; 
             gap: 10px; 
             transition: 0.3s; 
+            margin-top: 15px;
         }
-        .wa-btn:hover { 
-            background-color: #1ebc57; 
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); 
+        .hosp-btn:hover { 
+            background-color: var(--primary-dark); 
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4); 
         }
 
         /* Sidebar & Footer */
@@ -269,7 +268,7 @@
                     <a href="#biography" data-key="nav_bio">Biography</a>
                     <a href="#leadership" data-key="nav_lead">Leadership</a>
                     <a href="#expertise" data-key="nav_exp">Expertise</a>
-                    <a href="#contact" data-key="nav_contact">Contact</a>
+                    <a href="#hospital-connect" data-key="nav_contact">Contact</a>
                 </nav>
                 
                 <div class="lang-switch">
@@ -300,7 +299,7 @@
                 <div class="social-box" style="margin-top: 25px;">
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-researchgate"></i></a>
-                    <a href="#ask-dr" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#hospital-connect" class="social-icon"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
             <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="img-hero">
@@ -406,21 +405,28 @@
                 </div>
             </section>
 
-            <section id="ask-dr">
+            <section id="hospital-connect">
                 <h2 class="section-head" data-key="sec_ask">Consultation</h2>
-                <div class="card whatsapp-box">
-                    <h3 style="color:#075e54; margin-bottom:10px;"><i class="fab fa-whatsapp"></i> <span data-key="ask_title">Ask with Dr. Nirmal</span></h3>
-                    <p style="margin-bottom:20px; font-size:0.95rem;" data-key="ask_desc">Have a question about a urological or oncological condition? Send a direct message.</p>
+                <div class="card hospital-connect-box">
+                    <h3 style="color:var(--primary-dark); margin-bottom:10px;">
+                        <i class="fas fa-hospital-alt"></i> <span data-key="ask_title">Visit National City Hospital</span>
+                    </h3>
+                    <p style="margin-bottom:25px; font-size:0.95rem;" data-key="ask_desc">For appointments and surgeries, please visit or contact the hospital reception directly.</p>
                     
-                    <div class="wa-input-group">
-                        <input type="text" id="wa-name" class="wa-input" placeholder="Your Name" data-placeholder="ph_name">
+                    <div style="margin-bottom: 20px;">
+                        <p style="font-weight:bold; font-size: 1.1rem;">National City Hospital (Private)</p>
+                        <p style="color: #666;">Hospital Road, Bharatpur-10, Chitwan</p>
                     </div>
-                    <div class="wa-input-group">
-                        <textarea id="wa-msg" class="wa-input" rows="3" placeholder="Describe your concern briefly..." data-placeholder="ph_msg"></textarea>
+
+                    <a href="tel:056493511" class="hosp-btn">
+                        <i class="fas fa-phone-alt"></i> <span data-key="ask_btn">Call Reception: 056-493511</span>
+                    </a>
+
+                    <div style="margin-top: 20px;">
+                        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">
+                            <i class="fas fa-map-marker-alt"></i> <span data-key="view_map">View Hospital Location on Map</span>
+                        </a>
                     </div>
-                    <button class="wa-btn" onclick="sendToWhatsapp()">
-                        <span data-key="ask_btn">Send to Dr. via WhatsApp</span> <i class="fas fa-paper-plane"></i>
-                    </button>
                 </div>
             </section>
 
@@ -574,7 +580,7 @@
                 name: "Dr. Nirmal Lamichhane",
                 title: "Senior Consultant Surgeon",
                 nav_bio: "Biography", nav_lead: "Leadership", nav_exp: "Expertise", nav_contact: "Contact",
-                btn_connect: "Quick Connect", // NEW BUTTON TRANSLATION
+                btn_connect: "Quick Connect",
                 hero_title: "Professional Biographical Abstract",
                 hero_desc: "Dr. Nirmal Lamichhane is a distinguished Senior Consultant Surgeon specializing in Surgical Oncology with a sub-specialization in Urological Cancers (Uro-Oncology).",
                 sec_exec: "Executive Summary",
@@ -610,11 +616,14 @@
                 res_li3: "<strong>Bladder Cancer:</strong> \"Orthotropic neobladder urinary diversion\" and resection urethroplasty.",
                 res_li4: "<strong>Breast Cancer:</strong> Pioneered early research on Sentinel Lymph Node Biopsy in breast cancer patients in Nepal and China.",
                 res_link: "View Full Publication List on Google Scholar",
+                
+                // UPDATED FOR HOSPITAL CONNECT
                 sec_ask: "Consultation",
-                ask_title: "Ask with Dr. Nirmal",
-                ask_desc: "Have a question about a urological or oncological condition? Send a direct message.",
-                ask_btn: "Send to Dr. via WhatsApp",
-                ph_name: "Your Name", ph_msg: "Describe your concern briefly...",
+                ask_title: "Visit National City Hospital",
+                ask_desc: "For appointments and surgeries, please visit or contact the hospital reception directly.",
+                ask_btn: "Call Reception: 056-493511",
+                view_map: "View Hospital Location on Map",
+                
                 sb_reg: "Professional Registrations",
                 reg_nmc: "<strong>Nepal Medical Council (NMC):</strong> 3261",
                 reg_gmc: "<strong>General Medical Council (GMC), UK:</strong> 7059752",
@@ -638,7 +647,6 @@
                 q4_text: "\"It is health that is real wealth and not pieces of gold and silver.\"", q4_auth: "- Mahatma Gandhi",
                 q5_text: "\"Prevention is better than cure.\"", q5_auth: "- Desiderius Erasmus",
                 
-                // HISTORY OF SURGERY
                 sb_history_title: "A Brief History of Surgery",
                 hist_1_date: "600 BC (Ancient):", hist_1_text: "Sushruta (the father of surgery) writes the Sushruta Samhita, describing plastic surgery.",
                 hist_2_date: "Middle Ages:", hist_2_text: "Surgery was often performed by barber-surgeons, separate from academic medicine.",
@@ -650,7 +658,7 @@
                 name: "डा. निर्मल लामिछाने",
                 title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
                 nav_bio: "जीवनी", nav_lead: "नेतृत्व", nav_exp: "विशेषज्ञता", nav_contact: "सम्पर्क",
-                btn_connect: "सम्पर्क सञ्जाल", // NEW BUTTON TRANSLATION
+                btn_connect: "सम्पर्क सञ्जाल",
                 hero_title: "व्यावसायिक जीवनी सारांश",
                 hero_desc: "डा. निर्मल लामिछाने सर्जिकल अन्कोलोजी र युरोलोजिकल क्यान्सर (Uro-oncology) मा विशेषज्ञता हासिल गरेका प्रतिष्ठित वरिष्ठ कन्सल्टेन्ट सर्जन हुनुहुन्छ।",
                 sec_exec: "कार्यकारी सारांश",
@@ -686,11 +694,14 @@
                 res_li3: "<strong>मुत्राशय क्यान्सर:</strong> नियोब्लाडर र युरेथ्रोप्लास्टी।",
                 res_li4: "<strong>स्तन क्यान्सर:</strong> नेपाल र चीनमा सेन्टिनेल लिम्फ नोड बायोप्सीको अनुसन्धान।",
                 res_link: "गुगल स्कलरमा पूर्ण सूची हेर्नुहोस्",
+                
+                // UPDATED FOR HOSPITAL CONNECT
                 sec_ask: "परामर्श",
-                ask_title: "डा. निर्मलसँग सोध्नुहोस्",
-                ask_desc: "के तपाइँ युरोलोजिकल वा क्यान्सर सम्बन्धी समस्याबारे सोध्न चाहनुहुन्छ?",
-                ask_btn: "ह्वाट्सएप मार्फत पठाउनुहोस्",
-                ph_name: "तपाईंको नाम", ph_msg: "तपाईंको समस्या संक्षेपमा लेख्नुहोस्...",
+                ask_title: "नेशनल सिटी हस्पिटल जानुहोस्",
+                ask_desc: "अपोइन्टमेन्ट र शल्यक्रियाको लागि, कृपया अस्पतालको रिसेप्सनमा सिधै सम्पर्क गर्नुहोस्।",
+                ask_btn: "रिसेप्सनमा फोन गर्नुहोस्: ०५६-४९३५११",
+                view_map: "अस्पतालको लोकेसन नक्सामा हेर्नुहोस्",
+
                 sb_reg: "दर्ता प्रमाणपत्र",
                 reg_nmc: "<strong>नेपाल मेडिकल काउन्सिल (NMC):</strong> ३२६१",
                 reg_gmc: "<strong>जनरल मेडिकल काउन्सिल (GMC), UK:</strong> ७०५९७५२",
@@ -713,8 +724,6 @@
                 q3_text: "\"शरीरलाई स्वस्थ राख्नु हाम्रो कर्तव्य हो, नत्र हामी आफ्नो दिमागलाई बलियो र स्वच्छ राख्न सक्दैनौं।\"", q3_auth: "- गौतम बुद्ध",
                 q4_text: "\"वास्तविक धन स्वास्थ्य हो, सुन र चाँदीका टुक्राहरू होइनन्।\"", q4_auth: "- महात्मा गान्धी",
                 q5_text: "\"उपचार भन्दा रोकथाम राम्रो हो।\"", q5_auth: "- डेसिडेरियस इरास्मस",
-
-                // HISTORY OF SURGERY
                 sb_history_title: "शल्यक्रियाको संक्षिप्त इतिहास",
                 hist_1_date: "६०० ई.पू. (प्राचीन):", hist_1_text: "सुश्रुत (शल्यक्रियाका पिता) ले सुश्रुत संहितामा प्लास्टिक सर्जरीको वर्णन गरे।",
                 hist_2_date: "मध्यकाल:", hist_2_text: "नाई-सर्जनहरूले शल्यक्रिया गर्थे, जुन शैक्षिक चिकित्सा भन्दा फरक थियो।",
@@ -726,7 +735,7 @@
                 name: "尼尔马尔·拉米查内 医生",
                 title: "高级顾问外科医生",
                 nav_bio: "简介", nav_lead: "领导力", nav_exp: "专长", nav_contact: "联系",
-                btn_connect: "快速连接", // NEW BUTTON TRANSLATION
+                btn_connect: "快速连接",
                 hero_title: "专业简历摘要",
                 hero_desc: "Nirmal Lamichhane 博士是一位杰出的高级顾问外科医生，专门从事肿瘤外科，并在泌尿系统癌症（肿瘤泌尿科）方面拥有亚专科特长。",
                 sec_exec: "执行摘要",
@@ -762,11 +771,14 @@
                 res_li3: "<strong>膀胱癌：</strong> “原位新膀胱尿流改道”和切除尿道成形术。",
                 res_li4: "<strong>乳腺癌：</strong> 率先在尼泊尔和中国的乳腺癌患者中开展前哨淋巴结活检的早期研究。",
                 res_link: "在 Google Scholar 上查看完整出版物列表",
+                
+                // UPDATED FOR HOSPITAL CONNECT
                 sec_ask: "咨询",
-                ask_title: "咨询 Nirmal 医生",
-                ask_desc: "您有关于泌尿科或肿瘤科疾病的问题吗？直接发送信息。",
-                ask_btn: "通过 WhatsApp 发送给医生",
-                ph_name: "您的姓名", ph_msg: "简要描述您的问题...",
+                ask_title: "前往国家城市医院",
+                ask_desc: "如需预约手术或咨询，请直接前往医院前台或致电。",
+                ask_btn: "前台电话: 056-493511",
+                view_map: "查看医院地图位置",
+
                 sb_reg: "专业注册",
                 reg_nmc: "<strong>尼泊尔医学委员会 (NMC):</strong> 3261",
                 reg_gmc: "<strong>英国医学总会 (GMC):</strong> 7059752",
@@ -789,8 +801,6 @@
                 q3_text: "\"保持身体健康是一种责任，否则我们将无法保持清醒和坚定的头脑。\"", q3_auth: "- 佛陀",
                 q4_text: "\"健康才是真正的财富，而不是金银。\"", q4_auth: "- 圣雄甘地",
                 q5_text: "\"预防胜于治疗。\"", q5_auth: "- 德西德里乌斯·伊拉斯谟",
-
-                // HISTORY OF SURGERY
                 sb_history_title: "外科手术简史",
                 hist_1_date: "公元前600年 (古代):", hist_1_text: "苏鲁塔 (外科之父) 撰写了《苏鲁塔本集》，描述了整形外科。",
                 hist_2_date: "中世纪:", hist_2_text: "手术通常由理发师兼外科医生进行，与学术医学分开。",
@@ -820,25 +830,6 @@
             const activeBtn = document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`);
             if(activeBtn) activeBtn.classList.add('active');
         }
-
-        function sendToWhatsapp() {
-            var name = document.getElementById("wa-name").value;
-            var msg = document.getElementById("wa-msg").value;
-            if(name === "" || msg === "") {
-                alert("Please enter your name and message.");
-                return;
-            }
-            var phonenumber = "9779855046811";
-            var url = "https://wa.me/" + phonenumber + "?text=" 
-            + "*New Inquiry*" + "%0a"
-            + "*Name:* " + name + "%0a"
-            + "*Message:* " + msg;
-            window.open(url, '_blank').focus();
-        }
     </script>
 </body>
 </html>
-
-
-
-
