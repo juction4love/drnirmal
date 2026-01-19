@@ -2,10 +2,10 @@
 User-agent: *
 Allow: /
 
-# Prevent search engines from indexing administrative or private folders
+# Prevent search engines from indexing sensitive or system folders
 Disallow: /admin/
-Disallow: /cgi-bin/
 Disallow: /private/
+Disallow: /cgi-bin/
 
-# Direct link to your sitemap
+# Direct link to the sitemap you just verified
 Sitemap: https://www.drnirmal.com.np/sitemap.xml
