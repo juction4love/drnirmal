@@ -1,0 +1,11 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Prevent search engines from indexing administrative or private folders
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /private/
+
+# Direct link to your sitemap
+Sitemap: https://www.drnirmal.com.np/sitemap.xml
