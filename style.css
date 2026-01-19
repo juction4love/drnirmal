@@ -1,0 +1,181 @@
+/* --- ROOT VARIABLES --- */
+:root {
+    --primary: #0056b3;
+    --primary-dark: #003d80;
+    --accent: #17a2b8;
+    --whatsapp: #25D366;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-grey: #555555;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Brand Specific Colors */
+    --high-red: #ff0000;
+    --black: #000000;
+    --footer-green: #2E7D32;
+
+    /* Fonts */
+    --font-en: 'Lato', sans-serif;
+    --font-ne: 'Mukta', sans-serif;
+    --font-zh: 'Noto Sans SC', sans-serif;
+}
+
+/* --- RESET & BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-en);
+    color: var(--text-dark);
+    background-color: #e8f5e9; /* Light Green Tint */
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Language Overrides */
+body.lang-ne { font-family: var(--font-ne); font-size: 1.1rem; }
+body.lang-zh { font-family: var(--font-zh); }
+
+h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--primary-dark); }
+ul { list-style: none; }
+a { text-decoration: none; transition: 0.3s; }
+
+/* --- HEADER & NAVIGATION --- */
+header { 
+    background: var(--white); 
+    box-shadow: var(--shadow); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+}
+
+.nav-container { 
+    max-width: 1250px; 
+    margin: 0 auto; 
+    padding: 10px 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.brand { display: flex; align-items: center; }
+.brand-text h1 { font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
+.brand-text span { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; }
+
+.nav-right { display: flex; align-items: center; gap: 15px; }
+.nav-menu { display: flex; gap: 20px; }
+.nav-menu a { color: var(--text-grey); font-weight: 600; font-size: 0.9rem; }
+.nav-menu a:hover { color: var(--primary); }
+
+/* --- BUTTONS --- */
+.btn-linktree {
+    background: var(--accent);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 5px rgba(23, 162, 184, 0.3);
+}
+
+.btn-linktree:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hosp-btn { 
+    background-color: var(--primary); 
+    color: var(--white); 
+    padding: 12px 25px; 
+    border-radius: 50px; 
+    font-weight: bold; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px;
+}
+
+/* --- HERO SECTION --- */
+.hero { 
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary)); 
+    color: var(--white); 
+    padding: 80px 20px; 
+}
+
+.hero-inner { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    display: flex; 
+    align-items: center; 
+    gap: 50px; 
+}
+
+.img-hero { 
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    border: 5px solid rgba(255,255,255,0.3); 
+    object-fit: cover; 
+}
+
+/* --- MAIN LAYOUT --- */
+.container { 
+    max-width: 1200px; 
+    margin: 50px auto; 
+    padding: 0 20px; 
+    display: grid; 
+    grid-template-columns: 3fr 1fr; 
+    gap: 40px; 
+}
+
+.card { 
+    background: var(--white); 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow); 
+    margin-bottom: 25px; 
+    border-left: 5px solid var(--primary); 
+}
+
+.section-head { 
+    border-bottom: 3px solid var(--accent); 
+    display: inline-block; 
+    margin-bottom: 25px; 
+    padding-bottom: 5px; 
+    font-size: 1.8rem; 
+}
+
+/* --- SIDEBAR --- */
+.sidebar-box { 
+    background: var(--white); 
+    padding: 25px; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow); 
+    margin-bottom: 25px; 
+}
+
+.img-sidebar { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    margin: 0 auto 15px; 
+    display: block; 
+    border: 3px solid var(--accent); 
+}
+
+/* --- FOOTER --- */
+footer { 
+    background: var(--footer-green); 
+    color: var(--high-red); 
+    text-align: center; 
+    padding: 50px 0; 
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 850px) {
+    .container { grid-template-columns: 1fr; }
+    .hero-inner { flex-direction: column; text-align: center; }
+}
