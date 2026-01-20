@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Nirmal Lamichhane | Professional Surgeon & Uro-Oncologist Portfolio</title>
+    <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon & Uro-Oncologist</title>
     
-    <meta name="description" content="Professional medical portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon with 20+ years of experience in Surgical Oncology and Uro-Oncology in Nepal.">
-    <meta name="keywords" content="Dr. Nirmal Lamichhane, Surgeon Nepal, BPKMCH Chairman, Prostate Surgeon, Bladder Cancer Specialist">
+    <meta name="description" content="Official portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon with 20+ years of experience in Uro-Oncology and Surgical Oncology at BPKMCH, Nepal.">
+    <meta name="keywords" content="Dr. Nirmal Lamichhane, Surgeon Nepal, BPKMCH Chairman, Prostate Surgeon, Bladder Cancer Specialist, Studer Pouch Nepal, NMC 3261">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.drnirmal.com.np/" />
 
@@ -37,8 +37,8 @@
             --primary: #004085;
             --primary-dark: #002752;
             --accent: #17a2b8;
-            --light-bg: #fdfdfd;
-            --timeline-line: #dee2e6;
+            --light-bg: #e8f5e9; /* Light Green Tint */
+            --white: #ffffff;
             --text-dark: #212529;
             --footer-green: #1b5e20;
             --high-red: #d32f2f;
@@ -48,44 +48,50 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-en); color: var(--text-dark); background-color: #f4f7f6; line-height: 1.7; }
+        body { font-family: var(--font-en); color: var(--text-dark); background-color: #f4f7f6; line-height: 1.7; scroll-behavior: smooth; }
         body.lang-ne { font-family: var(--font-ne); font-size: 1.1rem; }
         body.lang-zh { font-family: var(--font-zh); }
         
+        /* Navigation */
         header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; padding: 12px 0; }
-        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .nav-inner { max-width: 1250px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .brand { display: flex; align-items: center; gap: 10px; }
         .brand h1 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--primary); }
+        .brand img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); }
+
+        .nav-right { display: flex; align-items: center; gap: 15px; }
+        .btn-connect { background: var(--accent); color: white; padding: 8px 18px; border-radius: 30px; font-weight: 700; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+        .btn-connect:hover { background: var(--primary); transform: translateY(-2px); }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 80px 20px; text-align: center; }
+        .hero-inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+        .hero-img { width: 200px; height: 200px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.2); object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { max-width: 700px; font-size: 1.2rem; opacity: 0.9; }
+
+        /* Layout */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: 3fr 1fr; gap: 40px; }
+        .section-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 25px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 5px; color: var(--primary-dark); }
+        .card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border-left: 6px solid var(--primary); }
         
-        .hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 100px 20px; text-align: center; }
-        .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 15px; }
+        /* Timeline */
+        .timeline { position: relative; list-style: none; padding-left: 30px; border-left: 3px solid #dee2e6; }
+        .timeline-item { position: relative; margin-bottom: 30px; }
+        .timeline-item::before { content: ''; position: absolute; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; left: -39px; top: 5px; border: 3px solid #fff; }
+        .timeline-date { font-weight: bold; color: var(--primary); font-size: 0.95rem; }
 
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 30px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-        
-        .card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        
-        .timeline { position: relative; padding: 20px 0; list-style: none; }
-        .timeline::before { content: ''; position: absolute; top: 0; bottom: 0; width: 3px; background: var(--timeline-line); left: 20px; }
-        .timeline-item { position: relative; margin-bottom: 40px; padding-left: 50px; }
-        .timeline-item::before { content: ''; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); left: 14px; top: 5px; border: 3px solid #fff; }
-        .timeline-date { font-weight: bold; color: var(--primary); }
-
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .expertise-card { background: #fff; padding: 25px; border-radius: 8px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-
-        .lang-btn { background: #eee; border: none; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 5px; transition: 0.3s; }
-        .lang-btn.active { background: var(--primary); color: #fff; }
-
-        .faq-item { margin-bottom: 20px; padding: 15px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--accent); }
-        .faq-q { font-weight: bold; color: var(--primary-dark); display: block; margin-bottom: 5px; }
+        /* Buttons & Switches */
+        .lang-switch { display: flex; background: #eee; border-radius: 20px; padding: 3px; }
+        .lang-btn { border: none; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.75rem; background: none; }
+        .lang-btn.active { background: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: var(--primary); }
 
         footer { background: var(--footer-green); color: #fff; text-align: center; padding: 50px 20px; margin-top: 60px; }
+        .footer-logo { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--high-red); margin-bottom: 15px; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; }
             .hero h2 { font-size: 1.8rem; }
-            .timeline::before { left: 10px; }
-            .timeline-item { padding-left: 35px; }
-            .timeline-item::before { left: 4px; }
         }
     </style>
 </head>
@@ -94,101 +100,87 @@
     <header>
         <div class="nav-inner">
             <div class="brand">
+                <img src="profile.png" alt="Dr. Nirmal Logo">
                 <h1 data-key="name">Dr. Nirmal Lamichhane</h1>
             </div>
-            <nav class="nav-menu">
-                <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" id="btn-ne" onclick="setLanguage('ne')">NP</button>
-                <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">ZH</button>
-            </nav>
+            <div class="nav-right">
+                <div class="lang-switch">
+                    <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" id="btn-ne" onclick="setLanguage('ne')">NP</button>
+                    <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">ZH</button>
+                </div>
+                <a href="links.html" class="btn-connect" data-key="btn_connect">Quick Connect</a>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <h2 data-key="hero_title">Senior Consultant Surgeon & Uro-Oncologist</h2>
-        <p data-key="hero_desc">Dedicated to advancing the surgical management of cancer through clinical excellence and leadership.</p>
+        <div class="hero-inner">
+            <img src="profile.png" alt="Dr. Nirmal Lamichhane Surgeon" class="hero-img">
+            <h2 data-key="hero_title">Senior Consultant Surgeon & Uro-Oncologist</h2>
+            <p data-key="hero_desc">Dedicated to advancing the surgical management of cancer through clinical excellence and strategic leadership at BPKMCH, Nepal.</p>
+        </div>
     </section>
 
     <div class="container">
-        <section>
-            <h2 class="section-title" data-key="sec_bio">Historical Executive Summary</h2>
-            <div class="card">
-                <p style="margin-bottom:15px;" data-key="bio_1">Dr. Nirmal Lamichhane stands as a cornerstone of urological oncology in Nepal. With a surgical career spanning over two decades, he has integrated elite international training with local clinical leadership.</p>
-                <p data-key="bio_2">His tenure as Chairman and Deputy Director at B. P. Koirala Memorial Cancer Hospital marks a period of significant institutional growth and modernization.</p>
-            </div>
-        </section>
+        <main>
+            <section id="biography">
+                <h2 class="section-title" data-key="sec_bio">Historical Executive Summary</h2>
+                <div class="card">
+                    <p style="margin-bottom:15px;" data-key="bio_1">Dr. Nirmal Lamichhane stands as a cornerstone of urological oncology in Nepal. With a surgical career spanning over two decades, he has integrated elite international training with local clinical leadership.</p>
+                    <p data-key="bio_2">His legacy as Chairman and Deputy Director at B. P. Koirala Memorial Cancer Hospital (BPKMCH) marks a period of significant growth and modernization in oncological surgery protocols.</p>
+                </div>
+            </section>
 
-        <section style="margin-top:40px;">
-            <h2 class="section-title" data-key="sec_time">Professional Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-date">2020 — 2023</span>
-                    <div class="timeline-content">
+            <section id="journey">
+                <h2 class="section-title" data-key="sec_time">Professional Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2020 — 2023</span>
                         <h3 data-key="t1_title">Chairman, Board of Directors</h3>
                         <p data-key="t1_desc">BPKMCH, Chitwan. Led strategic governance for Nepal's premier cancer center.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">2018 — 2020</span>
-                    <div class="timeline-content">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2018 — 2020</span>
                         <h3 data-key="t2_title">Deputy Director</h3>
-                        <p data-key="t2_desc">Managed administrative and clinical surgical departments at BPKMCH.</p>
+                        <p data-key="t2_desc">Managed administrative and clinical operations for the surgical departments.</p>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">2016</span>
-                    <div class="timeline-content">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2016</span>
                         <h3 data-key="t3_title">M.Ch in Urology</h3>
-                        <p data-key="t3_desc">Kathmandu University. Specialized training in complex urological malignancies.</p>
+                        <p data-key="t3_desc">Kathmandu University. Specialized surgical training in complex urological malignancies.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section style="margin-top:40px;">
-            <h2 class="section-title" data-key="sec_exp">Clinical & Surgical Expertise</h2>
-            
-            
+            <section id="expertise">
+                <h2 class="section-title" data-key="sec_exp">Clinical & Surgical Expertise</h2>
+                <div class="card">
+                    <p style="margin-bottom:10px;"><strong data-key="e1">Uro-Oncology:</strong> Specialized surgical treatment for Bladder, Prostate, and Kidney cancers.</p>
+                    <p style="margin-bottom:10px;"><strong data-key="e2">Reconstructive Surgery:</strong> Authority in 'Studer Pouch' neobladder reconstruction.</p>
+                    <p><strong data-key="e3">Academic Leadership:</strong> Prolific researcher with over 30 peer-reviewed publications.</p>
+                </div>
+            </section>
+        </main>
 
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <i class="fas fa-user-md"></i>
-                    <h3 data-key="e1_title">Uro-Oncology</h3>
-                    <p data-key="e1_desc">Surgical treatment for Bladder, Prostate, Kidney, and Penile cancers.</p>
-                </div>
-                <div class="expertise-card">
-                    <i class="fas fa-notes-medical"></i>
-                    <h3 data-key="e2_title">Reconstructive Surgery</h3>
-                    <p data-key="e2_desc">Expert in 'Studer Pouch' neobladder reconstruction.</p>
-                </div>
+        <aside>
+            <div class="card" style="border-left:none; border-top:5px solid var(--accent); text-align:center; padding: 20px;">
+                <h3 style="font-size:1rem; margin-bottom:15px;" data-key="sb_reg">Medical License</h3>
+                <p><strong>NMC:</strong> 3261</p>
+                <p><strong>GMC (UK):</strong> 7059752</p>
             </div>
-        </section>
 
-        <section style="margin-top:40px;">
-            <h2 class="section-title" data-key="sec_edu">Patient Education (FAQ)</h2>
-            <div class="card">
-                <div class="faq-item">
-                    <span class="faq-q" data-key="q1_q">What are the early signs of Prostate Cancer?</span>
-                    <p class="faq-a" data-key="q1_a">Symptoms often include frequent urination (especially at night), difficulty starting urination, or blood in the urine. Early screening is vital.</p>
-                </div>
-                <div class="faq-item">
-                    <span class="faq-q" data-key="q2_q">What is a Studer Pouch?</span>
-                    <p class="faq-a" data-key="q2_a">It is a form of orthotopic neobladder reconstruction. After removing the bladder due to cancer, a new bladder is created from the patient's own intestine, allowing normal urination.</p>
-                </div>
+            <div class="card" style="border-left:none; border-top:5px solid var(--primary); text-align:center; padding: 20px;">
+                <h3 style="font-size:1rem; margin-bottom:15px;" data-key="sb_hosp">Appointment</h3>
+                <p>National City Hospital</p>
+                <p style="font-size:0.85rem; color:#666;">Bharatpur, Chitwan</p>
+                <a href="tel:056493511" class="btn-connect" style="display:block; margin-top:10px;">Call: 056-493511</a>
             </div>
-        </section>
-
-        <section id="contact" style="margin-top:40px; text-align:center;">
-            <div style="background:#fff; padding:40px; border-radius:12px; border: 2px solid var(--primary);">
-                <h2 data-key="c_title">Consultation & Contact</h2>
-                <p data-key="c_desc">National City Hospital, Bharatpur-10, Chitwan</p>
-                <p style="font-weight:bold; font-size:1.5rem; margin:15px 0;">056-493511</p>
-                <p>NMC: 3261 | GMC (UK): 7059752</p>
-            </div>
-        </section>
+        </aside>
     </div>
 
     <footer>
+        <img src="profile.png" alt="Footer Logo" class="footer-logo">
         <p>© 2026 Dr. Nirmal Lamichhane. Senior Consultant Surgeon.</p>
         <p style="font-size:0.8rem; margin-top:10px; opacity:0.8;">BPKMCH | National City Hospital | Design by BL</p>
     </footer>
@@ -196,79 +188,43 @@
     <script>
         const translations = {
             en: {
-                name: "Dr. Nirmal Lamichhane",
+                name: "Dr. Nirmal Lamichhane", btn_connect: "Quick Connect",
                 hero_title: "Senior Consultant Surgeon & Uro-Oncologist",
-                hero_desc: "Dedicated to advancing surgical oncology through clinical excellence and leadership.",
+                hero_desc: "Dedicated to clinical excellence and leadership in Surgical Oncology at BPKMCH, Nepal.",
                 sec_bio: "Historical Executive Summary",
                 sec_time: "Professional Journey",
                 sec_exp: "Clinical & Surgical Expertise",
-                sec_edu: "Patient Education (FAQ)",
-                t1_title: "Chairman, Board of Directors",
-                t1_desc: "BPKMCH, Chitwan. Led strategic governance for Nepal's premier cancer center.",
-                t2_title: "Deputy Director",
-                t2_desc: "Managed administrative and clinical surgical departments at BPKMCH.",
-                t3_title: "M.Ch in Urology",
-                t3_desc: "Kathmandu University. Specialized training in complex urological malignancies.",
-                e1_title: "Uro-Oncology",
-                e1_desc: "Surgical treatment for Bladder, Prostate, Kidney, and Penile cancers.",
-                e2_title: "Reconstructive Surgery",
-                e2_desc: "Expert in 'Studer Pouch' neobladder reconstruction.",
-                q1_q: "What are the early signs of Prostate Cancer?",
-                q1_a: "Symptoms often include frequent urination, difficulty starting, or blood in the urine.",
-                q2_q: "What is a Studer Pouch?",
-                q2_a: "A new bladder created from the intestine after bladder removal.",
-                c_title: "Consultation & Contact",
-                c_desc: "National City Hospital, Bharatpur-10, Chitwan"
+                t1_title: "Chairman, Board of Directors", t1_desc: "BPKMCH, Chitwan. Led strategic governance for Nepal's premier cancer center.",
+                t2_title: "Deputy Director", t2_desc: "Managed administrative and clinical operations for surgical departments.",
+                t3_title: "M.Ch in Urology", t3_desc: "Kathmandu University. Specialized training in complex urological malignancies.",
+                e1: "Uro-Oncology", e2: "Reconstructive Surgery", e3: "Academic Leadership",
+                sb_reg: "Medical License", sb_hosp: "Appointment"
             },
             ne: {
-                name: "डा. निर्मल लामिछाने",
+                name: "डा. निर्मल लामिछाने", btn_connect: "सम्पर्क सञ्जाल",
                 hero_title: "वरिष्ठ कन्सल्टेन्ट सर्जन र युरो-अन्कोलोजी विशेषज्ञ",
-                hero_desc: "क्लिनिकल उत्कृष्टता र नेतृत्व मार्फत सर्जिकल अन्कोलोजीलाई अगाडि बढाउन समर्पित।",
+                hero_desc: "नेपालको बीपीकेएमसिएचमा सर्जिकल अन्कोलोजीमा क्लिनिकल उत्कृष्टता र नेतृत्वका लागि समर्पित।",
                 sec_bio: "ऐतिहासिक कार्यकारी सारांश",
                 sec_time: "व्यावसायिक यात्रा",
                 sec_exp: "क्लिनिकल र शल्यक्रिया विशेषज्ञता",
-                sec_edu: "बिरामी शिक्षा (FAQ)",
-                t1_title: "अध्यक्ष, सञ्चालक समिति",
-                t1_desc: "BPKMCH, चितवन। नेपालको प्रमुख क्यान्सर केन्द्रको लागि रणनीतिक सुशासनको नेतृत्व।",
-                t2_title: "उप-निर्देशक",
-                t2_desc: "BPKMCH मा प्रशासनिक र क्लिनिकल सर्जिकल विभागहरूको व्यवस्थापन।",
-                t3_title: "युरोलोजीमा एम.सी.एच. (M.Ch)",
-                t3_desc: "काठमाडौं विश्वविद्यालय। जटिल युरोलोजिकल क्यान्सरमा विशेष तालिम।",
-                e1_title: "युरो-अन्कोलोजी",
-                e1_desc: "मूत्रथैली, प्रोस्टेट, मिर्गौला र लिंगको क्यान्सरको शल्यक्रिया उपचार।",
-                e2_title: "पुनर्निर्माण शल्यक्रिया",
-                e2_desc: "'स्टुडर पाउच' नियोब्लाडर पुनर्निर्माणमा विशेषज्ञ।",
-                q1_q: "प्रोस्टेट क्यान्सरका प्रारम्भिक लक्षणहरू के हुन्?",
-                q1_a: "लक्षणहरूमा बारम्बार पिसाब लाग्नु, पिसाब फेर्न गाह्रो हुनु, वा पिसाबमा रगत देखिनु समावेश छन्।",
-                q2_q: "स्टुडर पाउच भनेको के हो?",
-                q2_a: "मूत्रथैली निकालेपछि आन्द्राबाट बनाइएको नयाँ मूत्रथैली।",
-                c_title: "परामर्श र सम्पर्क",
-                c_desc: "नेशनल सिटी हस्पिटल, भरतपुर-१०, चितवन"
+                t1_title: "अध्यक्ष, सञ्चालक समिति", t1_desc: "BPKMCH, चितवन। नेपालको प्रमुख क्यान्सर केन्द्रको लागि रणनीतिक सुशासनको नेतृत्व।",
+                t2_title: "उप-निर्देशक", t2_desc: "सर्जिकल विभागहरूको प्रशासनिक र क्लिनिकल अपरेसनहरूको व्यवस्थापन।",
+                t3_title: "युरोलोजीमा एम.सी.एच. (M.Ch)", t3_desc: "काठमाडौं विश्वविद्यालय। जटिल युरोलोजिकल क्यान्सरमा विशेष तालिम।",
+                e1: "युरो-अन्कोलोजी", e2: "पुनर्निर्माण शल्यक्रिया", e3: "शैक्षिक नेतृत्व",
+                sb_reg: "दर्ता नम्बर", sb_hosp: "अपोइन्टमेन्ट"
             },
             zh: {
-                name: "尼尔马尔·拉米恰内 博士",
+                name: "尼尔马尔·拉米恰内 博士", btn_connect: "快速连接",
                 hero_title: "高级顾问外科医生与泌尿肿瘤专家",
-                hero_desc: "通过卓越的临床表现和领导力致力于推进外科肿瘤学的发展。",
+                hero_desc: "致力于尼泊尔 BPKMCH 外科肿瘤学领域的卓越临床表现和领导力。",
                 sec_bio: "历史执行摘要",
                 sec_time: "职业历程",
                 sec_exp: "临床与外科专业知识",
-                sec_edu: "患者教育 (常见问题)",
-                t1_title: "董事会主席",
-                t1_desc: "BPKMCH，奇特旺。领导尼泊尔首屈一指的癌症中心的战略治理。",
-                t2_title: "副院长",
-                t2_desc: "管理 BPKMCH 的行政和临床外科部门。",
-                t3_title: "泌尿外科硕士 (M.Ch)",
-                t3_desc: "加德满都大学。复杂泌尿系统恶性肿瘤的专业外科培训。",
-                e1_title: "泌尿肿瘤学",
-                e1_desc: "膀胱癌、前列腺癌、肾癌和阴茎癌的外科治疗。",
-                e2_title: "重建外科",
-                e2_desc: "“Studer Pouch”原位新膀胱重建专家。",
-                q1_q: "前列腺癌的早期症状有哪些？",
-                q1_a: "症状通常包括尿频（尤其是夜间）、排尿困难或尿血。早期筛查至关重要。",
-                q2_q: "什么是 Studer Pouch？",
-                q2_a: "这是原位新膀胱重建的一种形式。膀胱切除后，利用患者自身肠道制造新膀胱。",
-                c_title: "咨询与联系",
-                c_desc: "国家城市医院，奇特旺，巴拉特普尔-10"
+                t1_title: "董事会主席", t1_desc: "BPKMCH，奇特旺。领导尼泊尔首屈一指的癌症中心的战略治理。",
+                t2_title: "副院长", t2_desc: "管理外科部门的行政和临床业务。",
+                t3_title: "泌尿外科硕士 (M.Ch)", t3_desc: "加德满都大学。复杂泌尿系统恶性肿瘤的专业培训。",
+                e1: "泌尿肿瘤学", e2: "重建外科", e3: "学术领导力",
+                sb_reg: "行医执照", sb_hosp: "预约咨询"
             }
         };
 
