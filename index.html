@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon & Uro-Oncologist</title>
     
-    <meta name="description" content="Professional portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon with 20+ years of experience in Uro-Oncology and Surgical Oncology at BPKMCH, Nepal.">
-    <meta name="keywords" content="Dr. Nirmal Lamichhane, Surgeon Nepal, BPKMCH Chairman, Prostate Surgeon, Bladder Cancer, Studer Pouch, Urology Research">
+    <meta name="description" content="Official historical portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgeon. 20+ years of expertise in Uro-Oncology, Radical Prostatectomy, and Studer Pouch Reconstruction.">
+    <meta name="keywords" content="Dr. Nirmal Lamichhane, Surgeon Nepal, BPKMCH Chairman, Prostate Surgeon, Bladder Cancer Specialist, Urology Research, Nepal Surgeon History">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.drnirmal.com.np/" />
 
@@ -17,15 +17,18 @@
       "name": "Dr. Nirmal Lamichhane",
       "image": "https://www.drnirmal.com.np/profile.png",
       "medicalSpecialty": ["SurgicalOncology", "Urology"],
-      "description": "Senior Consultant Surgeon specializing in Urological Cancers and Surgical Oncology with over 20 years of experience.",
+      "description": "Senior Consultant Surgeon with over 20 years of experience in Urological Cancers and Strategic Healthcare Leadership.",
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "M.Ch Urology" },
+        { "@type": "EducationalOccupationalCredential", "name": "MS Surgical Oncology" }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Hospital Road, Bharatpur-10",
         "addressLocality": "Chitwan",
         "addressCountry": "NP"
       },
-      "telephone": "056-493511",
-      "url": "https://www.drnirmal.com.np"
+      "telephone": "056-493511"
     }
     </script>
 
@@ -43,109 +46,78 @@
             --text-muted: #6c757d;
             --footer-green: #1b5e20;
             --high-red: #d32f2f;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Lato', sans-serif; color: var(--text-dark); background-color: #f4f7f6; line-height: 1.8; }
         
-        /* Language Overrides */
-        body.lang-ne { font-family: 'Mukta', sans-serif; font-size: 1.1rem; }
+        body.lang-ne { font-family: 'Mukta', sans-serif; font-size: 1.15rem; }
         body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
 
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary-dark); }
-        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        a { text-decoration: none; transition: 0.3s; }
 
-        /* --- Navigation --- */
-        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 12px 0; }
+        /* Navigation */
+        header { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 10px 0; }
         .nav-inner { max-width: 1250px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .brand { display: flex; align-items: center; gap: 12px; }
-        .brand img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); }
-        .brand-text h1 { font-size: 1.1rem; line-height: 1.2; }
-        .brand-text span { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; font-weight: 600; display: block; }
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .brand img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); }
+        .brand-text h1 { font-size: 1.2rem; line-height: 1.1; }
+        .brand-text span { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; font-weight: 700; }
 
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); }
-        .nav-links a:hover { color: var(--primary); }
-        
-        .social-header { display: flex; gap: 12px; padding-left: 20px; border-left: 1px solid #ddd; }
-        .social-header a { font-size: 1rem; color: var(--text-muted); }
-        .social-header a:hover { color: var(--primary); transform: translateY(-2px); }
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 100px 20px; position: relative; }
+        .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; align-items: center; gap: 50px; }
+        .hero-img { width: 350px; height: 350px; border-radius: 50%; border: 12px solid rgba(255,255,255,0.1); object-fit: cover; box-shadow: var(--shadow); }
+        .hero h2 { font-size: 2.8rem; color: #fff; margin-bottom: 20px; }
+        .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 35px; max-width: 650px; border-left: 4px solid var(--accent); padding-left: 20px; }
 
-        /* --- Hero Section --- */
-        .hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 100px 20px; position: relative; overflow: hidden; }
-        .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 40px; }
-        .hero-img-container { position: relative; text-align: center; }
-        .hero-img { width: 320px; height: 320px; border-radius: 50%; border: 10px solid rgba(255,255,255,0.1); object-fit: cover; box-shadow: var(--shadow); }
-        .hero h2 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 15px; color: #fff; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; max-width: 600px; }
-        .hero-btns { display: flex; gap: 15px; }
-        .btn { padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-        .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4); border: none; }
-        .btn-primary:hover { background: #fff; color: var(--accent); transform: translateY(-3px); }
-        .btn-outline { border: 2px solid #fff; color: #fff; }
-        .btn-outline:hover { background: #fff; color: var(--primary); }
-
-        /* --- Stats Section --- */
-        .stats-bar { background: #fff; padding: 30px 0; border-bottom: 1px solid #eee; margin-top: -40px; border-radius: 15px; max-width: 1000px; margin-left: auto; margin-right: auto; position: relative; z-index: 10; display: flex; justify-content: space-around; box-shadow: var(--shadow); }
+        /* Stats Authority Bar */
+        .stats-bar { background: #fff; padding: 35px; border-radius: 15px; max-width: 1000px; margin: -50px auto 50px; position: relative; z-index: 10; display: flex; justify-content: space-around; box-shadow: var(--shadow); }
         .stat-item { text-align: center; }
-        .stat-item h4 { font-size: 1.8rem; color: var(--primary); margin-bottom: 2px; }
-        .stat-item span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+        .stat-item h4 { font-size: 2rem; color: var(--primary); }
+        .stat-item span { font-size: 0.85rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
 
-        /* --- Main Content --- */
-        .main-container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 2.2fr 1fr; gap: 50px; }
-        .section-title { font-size: 1.8rem; margin-bottom: 30px; position: relative; padding-left: 15px; }
-        .section-title::before { content: ''; position: absolute; left: 0; top: 10%; height: 80%; width: 5px; background: var(--accent); border-radius: 10px; }
-        
+        /* Layout */
+        .main-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 2.2fr 1fr; gap: 50px; }
+        .section-title { font-size: 1.8rem; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 4px solid var(--accent); display: inline-block; }
         .card { background: #fff; padding: 40px; border-radius: 15px; box-shadow: var(--shadow); margin-bottom: 40px; }
-        
-        /* Timeline */
-        .timeline { list-style: none; padding-left: 30px; border-left: 3px solid #dee2e6; }
-        .timeline-item { position: relative; margin-bottom: 40px; padding-left: 20px; }
-        .timeline-item::before { content: ''; position: absolute; width: 18px; height: 18px; background: var(--accent); border-radius: 50%; left: -31px; top: 5px; border: 4px solid #fff; }
-        .timeline-date { font-weight: 800; color: var(--primary); font-size: 0.95rem; }
-        .timeline h3 { font-size: 1.15rem; margin: 5px 0; }
 
-        /* Expertise Grid */
-        .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .expertise-item { padding: 20px; background: #f8fbfd; border-radius: 12px; border-bottom: 4px solid var(--primary); }
-        .expertise-item i { color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; display: block; }
-        .expertise-item h4 { font-size: 1rem; margin-bottom: 8px; }
-        .expertise-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        /* Historical Timeline */
+        .timeline { list-style: none; padding-left: 30px; border-left: 4px solid #dee2e6; }
+        .timeline-item { position: relative; margin-bottom: 50px; padding-left: 25px; }
+        .timeline-item::before { content: ''; position: absolute; width: 20px; height: 20px; background: var(--accent); border-radius: 50%; left: -45px; top: 5px; border: 5px solid #fff; }
+        .timeline-date { font-weight: 900; color: var(--primary); font-size: 1rem; }
+        .timeline h3 { font-size: 1.3rem; margin-top: 5px; }
 
-        /* Research List */
-        .pub-list { list-style: none; }
-        .pub-item { background: #fff; padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #eee; display: flex; gap: 15px; align-items: center; }
-        .pub-item i { color: var(--primary); font-size: 1.2rem; }
-        .pub-item p { font-size: 0.9rem; font-weight: 600; color: #444; }
+        /* Surgical Expertise Grid */
+        .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        .expertise-item { padding: 25px; background: #f0f7ff; border-radius: 12px; border-left: 6px solid var(--primary); transition: 0.3s; }
+        .expertise-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .expertise-item i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
 
-        /* Sidebar */
-        aside .card { padding: 25px; border-top: 5px solid var(--accent); }
-        .appointment-box { background: var(--primary-dark); color: #fff; text-align: center; }
-        .appointment-box h3 { color: #fff; margin-bottom: 10px; }
-        .btn-call { display: block; width: 100%; background: var(--high-red); color: #fff; padding: 12px; border-radius: 8px; font-weight: 800; margin-top: 20px; }
+        /* Social Sidebar Buttons */
+        .social-sidebar { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .soc-link { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: #fff; font-weight: 700; font-size: 0.9rem; }
+        .bg-li { background: #0077b5; }
+        .bg-fb { background: #1877f2; }
+        .bg-rg { background: #00ccbb; }
 
-        /* Footer */
-        footer { background: var(--footer-green); color: #fff; padding: 80px 20px 40px; margin-top: 80px; text-align: center; }
-        .footer-socials { display: flex; justify-content: center; gap: 25px; margin-bottom: 40px; }
-        .footer-socials a { font-size: 1.8rem; color: rgba(255,255,255,0.7); }
-        .footer-socials a:hover { color: #fff; transform: scale(1.1); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.85rem; opacity: 0.7; }
+        /* Lang switch */
+        .lang-switch { display: flex; background: #eee; border-radius: 30px; padding: 5px; }
+        .lang-btn { border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 700; font-size: 0.8rem; background: none; }
+        .lang-btn.active { background: var(--white); color: var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 
-        /* Language Switcher */
-        .lang-switch { display: flex; background: #eee; border-radius: 30px; padding: 4px; }
-        .lang-btn { border: none; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: 700; font-size: 0.75rem; background: none; transition: 0.2s; }
-        .lang-btn.active { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.1); color: var(--primary); }
+        footer { background: var(--footer-green); color: #fff; padding: 100px 20px 40px; text-align: center; }
+        .footer-socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; font-size: 2.2rem; }
 
         @media (max-width: 950px) {
-            .hero-inner { grid-template-columns: 1fr; text-align: center; }
-            .hero-btns { justify-content: center; }
-            .main-container { grid-template-columns: 1fr; }
-            .stats-bar { flex-wrap: wrap; gap: 20px; }
+            .hero-inner, .main-grid { grid-template-columns: 1fr; }
+            .hero-inner { text-align: center; }
+            .stats-bar { flex-wrap: wrap; gap: 20px; margin-top: 20px; }
             .expertise-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -154,29 +126,19 @@
     <header>
         <div class="nav-inner">
             <div class="brand">
-                <img src="profile.png" alt="Dr. Nirmal Lamichhane Profile">
+                <img src="profile.png" alt="Dr. Nirmal Profile">
                 <div class="brand-text">
                     <h1 data-key="name">Dr. Nirmal Lamichhane</h1>
-                    <span data-key="title_sub">Senior Consultant Surgeon</span>
+                    <span data-key="title_sub">Senior Consultant Surgeon & Uro-Oncologist</span>
                 </div>
             </div>
-            
             <div class="nav-right">
-                <nav class="nav-links">
-                    <a href="#biography" data-key="nav_bio">Biography</a>
-                    <a href="#expertise" data-key="nav_exp">Expertise</a>
-                    <a href="#research" data-key="nav_res">Research</a>
-                </nav>
                 <div class="lang-switch">
                     <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn" id="btn-ne" onclick="setLanguage('ne')">NP</button>
                     <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">ZH</button>
                 </div>
-                <div class="social-header">
-                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
-                </div>
+                <a href="links.html" style="background:var(--accent); color:#fff; padding:10px 20px; border-radius:50px; font-weight:700; font-size:0.85rem; margin-left:15px;">Quick Connect</a>
             </div>
         </div>
     </header>
@@ -184,138 +146,116 @@
     <section class="hero">
         <div class="hero-inner">
             <div class="hero-text">
-                <h2 data-key="hero_title">Pioneering Uro-Oncology & Surgical Excellence</h2>
-                <p data-key="hero_desc">With over two decades of clinical mastery and leadership, Dr. Nirmal Lamichhane specializes in the advanced surgical management of urological cancers and complex reconstructive procedures.</p>
-                <div class="hero-btns">
-                    <a href="links.html" class="btn btn-primary" data-key="hero_btn_1"><i class="fas fa-link"></i> Quick Connect</a>
-                    <a href="#contact" class="btn btn-outline" data-key="hero_btn_2">Book Consultation</a>
+                <h2 data-key="hero_title">Two Decades of Surgical Precision & Oncology Leadership</h2>
+                <p data-key="hero_desc">Senior Consultant Surgeon specializing in the complex radical management of urological cancers and transformative reconstructive urology at BPKMCH, Nepal.</p>
+                <div style="display:flex; gap:15px;">
+                    <a href="#contact" style="background:var(--white); color:var(--primary); padding:15px 35px; border-radius:50px; font-weight:800;">Consultation</a>
+                    <a href="#research" style="border:2px solid #fff; color:#fff; padding:15px 35px; border-radius:50px; font-weight:800;">View Research</a>
                 </div>
             </div>
-            <div class="hero-img-container">
-                <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="hero-img">
+            <div style="text-align:center;">
+                <img src="profile.png" alt="Dr. Nirmal Lamichhane Surgeon" class="hero-img">
             </div>
         </div>
     </section>
 
     <div class="stats-bar">
-        <div class="stat-item">
-            <h4>20+</h4>
-            <span data-key="stat_1">Years Experience</span>
-        </div>
-        <div class="stat-item">
-            <h4>30+</h4>
-            <span data-key="stat_2">Publications</span>
-        </div>
-        <div class="stat-item">
-            <h4>5000+</h4>
-            <span data-key="stat_3">Surgeries</span>
-        </div>
-        <div class="stat-item">
-            <h4>NMC</h4>
-            <span>3261</span>
-        </div>
+        <div class="stat-item"><h4>20+</h4><span data-key="stat_1">Years Experience</span></div>
+        <div class="stat-item"><h4>30+</h4><span data-key="stat_2">Publications</span></div>
+        <div class="stat-item"><h4>M.Ch</h4><span data-key="stat_3">Urology Fellow</span></div>
+        <div class="stat-item"><h4>NMC</h4><span>3261</span></div>
     </div>
 
-    <div class="main-container">
+    <div class="main-grid">
         <main>
             <section id="biography">
-                <h2 class="section-title" data-key="sec_bio">Historical Executive Summary</h2>
+                <h2 class="section-title" data-key="sec_bio">Professional Biography</h2>
                 <div class="card">
-                    <p style="margin-bottom:15px;" data-key="bio_1">Dr. Nirmal Lamichhane stands as a cornerstone of urological oncology in Nepal. Integrating elite international training from New York and China with local clinical leadership, he has transformed cancer care protocols at the national level.</p>
-                    <p data-key="bio_2">As a former Chairman and Deputy Director of the B. P. Koirala Memorial Cancer Hospital (BPKMCH), his career is defined by academic precision and surgical innovation.</p>
+                    <p style="margin-bottom:20px;" data-key="bio_1">Dr. Nirmal Lamichhane is a distinguished figure in the field of Surgical Oncology in Nepal. With an academic foundation from Fudan University (Shanghai) and Kathmandu University, he has served as a cornerstone for urological cancer management for over 20 years.</p>
+                    <p data-key="bio_2">His career is defined by high-level governance as the former Chairman of the Board and Deputy Director at B. P. Koirala Memorial Cancer Hospital (BPKMCH), where he pioneered advanced surgical protocols and patient advocacy programs.</p>
                 </div>
             </section>
 
             
 
-[Image of the human urinary system]
+[Image of bladder cancer stages]
 
             <section id="expertise">
                 <h2 class="section-title" data-key="sec_exp">Surgical Expertise</h2>
                 <div class="expertise-grid">
                     <div class="expertise-item">
-                        <i class="fas fa-shield-virus"></i>
+                        <i class="fas fa-microscope"></i>
                         <h4 data-key="e1_t">Uro-Oncology</h4>
-                        <p data-key="e1_d">Radical management of Bladder, Prostate, Kidney, and Penile cancers.</p>
+                        <p data-key="e1_d">Radical surgery for Bladder, Prostate, and Kidney cancers.</p>
                     </div>
                     <div class="expertise-item">
-                        <i class="fas fa-hand-holding-medical"></i>
-                        <h4 data-key="e2_t">Reconstructive Urology</h4>
-                        <p data-key="e2_d">Authority in 'Studer Pouch' neobladder reconstruction for urinary function retention.</p>
+                        <i class="fas fa-user-md"></i>
+                        <h4 data-key="e2_t">Reconstructive Surgery</h4>
+                        <p data-key="e2_d">Authority in 'Studer Pouch' neobladder reconstruction.</p>
+                        
                     </div>
                     <div class="expertise-item">
                         <i class="fas fa-stethoscope"></i>
                         <h4 data-key="e3_t">Radical Procedures</h4>
-                        <p data-key="e3_d">Advanced Radical Prostatectomy and specialized lymph node dissections.</p>
+                        <p data-key="e3_d">Specialized in Radical Prostatectomy and lymph node dissections.</p>
+                        
+
+[Image of the prostate gland anatomy]
+
                     </div>
                     <div class="expertise-item">
-                        <i class="fas fa-hospital-user"></i>
-                        <h4 data-key="e4_t">General Onco-Surgery</h4>
-                        <p data-key="e4_d">Expertise in complex Mastectomies and Colorectal oncological procedures.</p>
+                        <i class="fas fa-award"></i>
+                        <h4 data-key="e4_t">Onco-Surgery</h4>
+                        <p data-key="e4_d">Advanced mastectomies and colorectal cancer operations.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="journey" style="margin-top:60px;">
+            <section id="journey" style="margin-top:40px;">
                 <h2 class="section-title" data-key="sec_time">Professional Journey</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <span class="timeline-date">2020 — 2023</span>
                         <h3 data-key="t1_title">Chairman, Board of Directors</h3>
-                        <p data-key="t1_desc">BPKMCH, Chitwan. Strategic governance for Nepal's premier oncology institution.</p>
+                        <p data-key="t1_desc">BPKMCH, Chitwan. Strategic institutional governance for Nepal's oncology sector.</p>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2018 — 2020</span>
                         <h3 data-key="t2_title">Deputy Director</h3>
-                        <p data-key="t2_desc">Operational and clinical oversight of surgical departments at BPKMCH.</p>
+                        <p data-key="t2_desc">Managed clinical operations and surgical infrastructure at BPKMCH.</p>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">2016</span>
-                        <h3 data-key="t3_title">M.Ch in Urology</h3>
-                        <p data-key="t3_desc">Kathmandu University. Specialized training in advanced urological surgery.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="research" style="margin-top:60px;">
-                <h2 class="section-title" data-key="sec_res">Scientific Research & Publications</h2>
-                <div class="pub-list">
-                    <div class="pub-item">
-                        <i class="fas fa-book-medical"></i>
-                        <p data-key="res_1">Over 30 peer-reviewed publications in international medical journals.</p>
-                    </div>
-                    <div class="pub-item">
-                        <i class="fas fa-microscope"></i>
-                        <p data-key="res_2">Pioneer in Sentinel Lymph Node Biopsy research in Nepal for breast cancer.</p>
-                    </div>
-                    <div class="pub-item">
-                        <i class="fas fa-globe-asia"></i>
-                        <p data-key="res_3">Regular speaker at international oncology conferences (USA, China, SAARC).</p>
+                        <span class="timeline-date">2006</span>
+                        <h3 data-key="t3_title">Saudavar Fellowship</h3>
+                        <p data-key="t3_desc">Memorial Sloan Kettering Cancer Center (MSKCC), New York. Advanced Surgical Training.</p>
                     </div>
                 </div>
             </section>
         </main>
 
         <aside id="contact">
-            <div class="card appointment-box">
-                <i class="fas fa-calendar-check" style="font-size:2rem; margin-bottom:15px;"></i>
-                <h3 data-key="sb_h_t">Private Consultation</h3>
-                <p style="font-size:0.9rem; opacity:0.9;" data-key="sb_h_d">National City Hospital, Hospital Road, Bharatpur-10, Chitwan</p>
-                <a href="tel:056493511" class="btn-call">CALL: 056-493511</a>
+            <div class="card" style="border-top: 5px solid var(--primary);">
+                <h3 style="font-size:1.1rem; margin-bottom:15px;" data-key="sb_cred">Medical Credentials</h3>
+                <ul style="font-size:0.9rem; color:#444;">
+                    <li style="margin-bottom:10px;"><strong>M.Ch Urology:</strong> Kathmandu University</li>
+                    <li style="margin-bottom:10px;"><strong>MS Surgical Oncology:</strong> Fudan University</li>
+                    <li style="margin-bottom:10px;"><strong>NMC:</strong> 3261 (Specialist)</li>
+                    <li><strong>GMC (UK):</strong> 7059752</li>
+                </ul>
             </div>
 
-            <div class="card" style="text-align:center;">
-                <h3 style="font-size:1rem; margin-bottom:15px;" data-key="sb_reg">Medical Registrations</h3>
-                <p style="font-size:0.9rem;"><strong>Nepal Medical Council:</strong> 3261</p>
-                <p style="font-size:0.9rem;"><strong>GMC (UK):</strong> 7059752</p>
+            <div class="card" style="background:var(--primary-dark); color:#fff; text-align:center;">
+                <h3 style="color:#fff; margin-bottom:10px;">Appointment</h3>
+                <p style="font-size:0.85rem; opacity:0.9;">National City Hospital, Bharatpur</p>
+                <a href="tel:056493511" style="display:block; background:var(--high-red); color:#fff; padding:12px; border-radius:8px; margin-top:20px; font-weight:800;">CALL: 056-493511</a>
             </div>
 
-            <div class="card" style="text-align:center;">
-                <h3 style="font-size:1rem; margin-bottom:15px;" data-key="sb_soc">Follow Dr. Nirmal</h3>
-                <div style="display:flex; justify-content:center; gap:15px;">
-                    <a href="#" class="social-btn" style="color:#0077b5; font-size:1.5rem;"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-btn" style="color:#1877f2; font-size:1.5rem;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-btn" style="color:#000; font-size:1.5rem;"><i class="fab fa-x-twitter"></i></a>
+            <div class="card">
+                <h3 style="font-size:1.1rem; margin-bottom:15px;" data-key="sb_soc">Digital Presence</h3>
+                <div class="social-sidebar">
+                    <a href="#" class="soc-link bg-li"><i class="fab fa-linkedin-in"></i> LinkedIn Profile</a>
+                    <a href="#" class="soc-link bg-fb"><i class="fab fa-facebook-f"></i> Facebook Page</a>
+                    <a href="#" class="soc-link bg-rg"><i class="fab fa-researchgate"></i> ResearchGate</a>
                 </div>
             </div>
         </aside>
@@ -323,55 +263,42 @@
 
     <footer>
         <div class="footer-socials">
-            <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
             <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-researchgate"></i></a>
         </div>
         <p>© 2026 Dr. Nirmal Lamichhane. Senior Consultant Surgeon & Uro-Oncologist.</p>
-        <p class="footer-bottom">NMC 3261 | BPKMCH | National City Hospital | Design by BL</p>
+        <p style="font-size:0.8rem; margin-top:20px; opacity:0.6;">BPKMCH | National City Hospital | NMC 3261 | Design by BL</p>
     </footer>
 
     <script>
         const translations = {
             en: {
-                name: "Dr. Nirmal Lamichhane", title_sub: "Senior Consultant Surgeon",
-                nav_bio: "Biography", nav_exp: "Expertise", nav_res: "Research",
-                hero_title: "Pioneering Uro-Oncology & Surgical Excellence",
-                hero_desc: "Advanced surgical management of cancers and complex reconstructive procedures with 20+ years of mastery.",
-                hero_btn_1: "Quick Connect", hero_btn_2: "Book Consultation",
-                stat_1: "Years Experience", stat_2: "Publications", stat_3: "Surgeries",
-                sec_bio: "Historical Executive Summary", sec_exp: "Surgical Expertise", sec_time: "Professional Journey", sec_res: "Research & Publications",
-                e1_t: "Uro-Oncology", e1_d: "Radical management of Bladder, Prostate, and Kidney cancers.",
-                e2_t: "Reconstructive Urology", e2_d: "Expert in 'Studer Pouch' neobladder reconstruction.",
-                t1_title: "Chairman, Board of Directors", t1_desc: "BPKMCH, Chitwan. Strategic governance for Nepal's premier oncology center.",
-                sb_h_t: "Private Consultation", sb_h_d: "National City Hospital, Bharatpur-10", sb_reg: "Medical Registrations", sb_soc: "Follow Dr. Nirmal"
+                name: "Dr. Nirmal Lamichhane", title_sub: "Senior Consultant Surgeon & Uro-Oncologist",
+                hero_title: "Two Decades of Surgical Precision & Oncology Leadership",
+                hero_desc: "Specializing in the radical management of urological cancers and transformative reconstructive surgery in Nepal.",
+                sec_bio: "Professional Biography", sec_exp: "Surgical Expertise", sec_time: "Professional Journey",
+                stat_1: "Years Experience", stat_2: "Publications", stat_3: "Urology Fellow",
+                t1_title: "Chairman, Board of Directors", t2_title: "Deputy Director", t3_title: "Saudavar Fellowship (NY)",
+                e1_t: "Uro-Oncology", e2_t: "Reconstructive Surgery", e3_t: "Radical Procedures", e4_t: "Onco-Surgery"
             },
             ne: {
-                name: "डा. निर्मल लामिछाने", title_sub: "वरिष्ठ कन्सल्टेन्ट सर्जन",
-                nav_bio: "जीवनी", nav_exp: "विशेषज्ञता", nav_res: "अनुसन्धान",
-                hero_title: "अग्रगामी युरो-अन्कोलोजी र शल्यक्रिया उत्कृष्टता",
-                hero_desc: "२० वर्ष भन्दा बढीको क्लिनिकल अनुभवका साथ क्यान्सरको उन्नत शल्यक्रिया र जटिल पुनर्निर्माण प्रक्रियाहरूमा विशेषज्ञ।",
-                hero_btn_1: "सम्पर्क सञ्जाल", hero_btn_2: "परामर्श लिनुहोस्",
-                stat_1: "वर्षको अनुभव", stat_2: "अनुसन्धान पत्र", stat_3: "शल्यक्रियाहरू",
-                sec_bio: "ऐतिहासिक कार्यकारी सारांश", sec_exp: "शल्यक्रिया विशेषज्ञता", sec_time: "व्यावसायिक यात्रा", sec_res: "अनुसन्धान र प्रकाशनहरू",
-                e1_t: "युरो-अन्कोलोजी", e1_d: "मृगौला, प्रोस्टेट र मूत्रथैलीको क्यान्सरको शल्यक्रिया उपचार।",
-                e2_t: "पुनर्निर्माण युरोलोजी", e2_d: "'स्टुडर पाउच' नियोब्लाडर पुनर्निर्माणमा विशेष दख्खल।",
-                t1_title: "अध्यक्ष, सञ्चालक समिति", t1_desc: "BPKMCH, चितवन। नेपालको प्रमुख क्यान्सर केन्द्रको रणनीतिक सुशासन नेतृत्व।",
-                sb_h_t: "निजी परामर्श", sb_h_d: "नेशनल सिटी हस्पिटल, भरतपुर-१०", sb_reg: "दर्ता नम्बर", sb_soc: "सामाजिक सञ्जाल"
+                name: "डा. निर्मल लामिछाने", title_sub: "वरिष्ठ कन्सल्टेन्ट सर्जन र युरो-अन्कोलोजी विशेषज्ञ",
+                hero_title: "दुई दशकको शल्यक्रिया विशेषज्ञता र अन्कोलोजी नेतृत्व",
+                hero_desc: "नेपालमा युरोलोजिकल क्यान्सरको रेडिकल व्यवस्थापन र पुनर्निर्माण शल्यक्रियामा विशेषज्ञता।",
+                sec_bio: "व्यावसायिक जीवनी", sec_exp: "शल्यक्रिया विशेषज्ञता", sec_time: "व्यावसायिक यात्रा",
+                stat_1: "वर्षको अनुभव", stat_2: "अनुसन्धान पत्र", stat_3: "युरोलोजी फेलो",
+                t1_title: "अध्यक्ष, सञ्चालक समिति", t2_title: "उप-निर्देशक", t3_title: "साउदाभर फेलोशिप (न्यूयोर्क)",
+                e1_t: "युरो-अन्कोलोजी", e2_t: "पुनर्निर्माण शल्यक्रिया", e3_t: "रेडिकल प्रक्रियाहरू", e4_t: "अन्को-सर्जरी"
             },
             zh: {
-                name: "尼尔马尔 博士", title_sub: "高级顾问外科医生",
-                nav_bio: "个人简历", nav_exp: "专业领域", nav_res: "科学研究",
-                hero_title: "泌尿肿瘤学与外科卓越先锋",
-                hero_desc: "拥有20多年临床经验，专注于泌尿系统癌症的高级外科治疗和复杂重建手术。",
-                hero_btn_1: "快速连接", hero_btn_2: "预约咨询",
-                stat_1: "多年经验", stat_2: "发表论文", stat_3: "手术案例",
-                sec_bio: "历史执行摘要", sec_exp: "外科专业知识", sec_time: "职业历程", sec_res: "研究与出版物",
-                e1_t: "泌尿肿瘤学", e1_d: "膀胱、前列腺和肾脏癌症的根治性治疗。",
-                e2_t: "重建泌尿外科", e2_d: "Studer Pouch 原位新膀胱重建专家。",
-                t1_title: "董事会主席", t1_desc: "BPKMCH，奇特旺。尼泊尔顶级癌症中心的战略治理。",
-                sb_h_t: "私人咨询", sb_h_d: "国家城市医院，巴拉特普尔", sb_reg: "行医执照", sb_soc: "关注医生"
+                name: "尼尔马尔 博士", title_sub: "高级顾问外科医生与泌尿肿瘤专家",
+                hero_title: "二十年的外科精准医疗与肿瘤学领导地位",
+                hero_desc: "专注于尼泊尔泌尿系统癌症的根治性治疗和转化性重建外科手术。",
+                sec_bio: "职业传记", sec_exp: "外科专业领域", sec_time: "职业历程",
+                stat_1: "多年经验", stat_2: "研究出版", stat_3: "泌尿外科研究员",
+                t1_title: "董事会主席", t2_title: "副院长", t3_title: "萨奥达瓦尔奖学金（纽约）",
+                e1_t: "泌尿肿瘤学", e2_t: "重建外科", e3_t: "根治性手术", e4_t: "肿瘤外科"
             }
         };
 
