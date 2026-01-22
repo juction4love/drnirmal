@@ -1,31 +1,44 @@
-# Section 1: General Search Engine Access
-# This allows Google, Bing, and others to index the portfolio
-User-agent: *
-Allow: /
-Content-Signal: search=yes,ai-train=no
+# --- LEGAL NOTICE ---
+# As a condition of accessing this website, you agree to abide by the 
+# Content-Signals designated below. 
+# Search = Yes (Indexing allowed)
+# AI-Train = No (Training prohibited)
+# --------------------
 
-# Section 2: AI Protection
-# These instructions stop AI companies from "scraping" the research data
+# Section 1: AI & Scraper Blocking
+# (Combines Cloudflare Managed List + Your Custom List)
 User-agent: GPTBot
 Disallow: /
+
 User-agent: Google-Extended
 Disallow: /
+
 User-agent: ClaudeBot
 Disallow: /
+
 User-agent: CCBot
 Disallow: /
+
 User-agent: Amazonbot
 Disallow: /
+
 User-agent: Bytespider
 Disallow: /
 
-# Section 3: Privacy and Security
-# Prevents indexing of system folders
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+# Section 2: General Access & Security
+# (Applies to Google Search, Bing, and all other good bots)
 User-agent: *
+Allow: /
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /private/
+Content-Signal: search=yes,ai-train=no
 
-# Section 4: Sitemap Location
-# Tells Google where to find your page list (ensure the file is renamed to sitemap.xml)
+# Section 3: Sitemap
 Sitemap: https://www.drnirmal.com.np/sitemap.xml
