@@ -10,8 +10,7 @@
 # --------------------
 
 # --- SECTION 1: AI & Scraper Blocking ---
-# (Blocks OpenAI, Google AI, Claude, Amazon, Apple AI, etc.)
-
+# (Blocks OpenAI, Google AI, Claude, Amazon, Apple AI, Facebook, etc.)
 User-agent: GPTBot
 Disallow: /
 
