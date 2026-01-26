@@ -39,6 +39,15 @@ Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /private/
 Content-Signal: search=yes,ai-train=no
+# Section 2: General Access & Security
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /private/
 
 # Section 3: Sitemap
 Sitemap: https://www.drnirmal.com.np/sitemap.xml
