@@ -3,9 +3,15 @@
 # Content-Signals designated below.
 # Search = Yes (Indexing allowed)
 # AI-Train = No (Training prohibited)
+#
+# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF
+# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT
+# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.
 # --------------------
 
-# Section 1: AI & Scraper Blocking
+# --- SECTION 1: AI & Scraper Blocking ---
+# (Blocks OpenAI, Google AI, Claude, Amazon, Apple AI, etc.)
+
 User-agent: GPTBot
 Disallow: /
 
@@ -30,12 +36,13 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-# Section 2: AdSense Specific (CRITICAL for approval)
+# --- SECTION 2: AdSense Specific ---
+# (CRITICAL: This allows Google AdSense to crawl your site for approval)
 User-agent: Mediapartners-Google
 Allow: /
 
-# Section 3: General Access & Security
-# (Applies to Google Search, Bing, and all other good bots)
+# --- SECTION 3: General Access & Security ---
+# (Applies to Google Search, Bing, and all other standard bots)
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -43,5 +50,5 @@ Disallow: /cgi-bin/
 Disallow: /private/
 # Content-Signal: search=yes,ai-train=no
 
-# Section 4: Sitemap
+# --- SECTION 4: Sitemap ---
 Sitemap: https://www.drnirmal.com.np/sitemap.xml
