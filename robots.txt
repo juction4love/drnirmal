@@ -1,12 +1,11 @@
 # --- LEGAL NOTICE ---
-# As a condition of accessing this website, you agree to abide by the 
-# Content-Signals designated below. 
+# As a condition of accessing this website, you agree to abide by the
+# Content-Signals designated below.
 # Search = Yes (Indexing allowed)
 # AI-Train = No (Training prohibited)
 # --------------------
 
 # Section 1: AI & Scraper Blocking
-# (Combines Cloudflare Managed List + Your Custom List)
 User-agent: GPTBot
 Disallow: /
 
@@ -31,23 +30,18 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-# Section 2: General Access & Security
+# Section 2: AdSense Specific (CRITICAL for approval)
+User-agent: Mediapartners-Google
+Allow: /
+
+# Section 3: General Access & Security
 # (Applies to Google Search, Bing, and all other good bots)
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /private/
-Content-Signal: search=yes,ai-train=no
-# Section 2: General Access & Security
-User-agent: Mediapartners-Google
-Allow: /
+# Content-Signal: search=yes,ai-train=no
 
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /cgi-bin/
-Disallow: /private/
-
-# Section 3: Sitemap
+# Section 4: Sitemap
 Sitemap: https://www.drnirmal.com.np/sitemap.xml
