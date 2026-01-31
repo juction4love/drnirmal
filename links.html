@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links | Dr. Nirmal Lamichhane</title>
+    <meta name="description" content="Connect with Dr. Nirmal Lamichhane - Senior Consultant Surgeon.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -14,6 +15,7 @@
             --bg-color: #e8f5e9;
             --card-bg: #ffffff;
             --text-dark: #333333;
+            --chat-bg: #ffffff;
             --chat-header: #0056b3;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,78 +30,145 @@
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
+            position: relative;
         }
+        /* --- TOP BACK BUTTON (Absolute) --- */
+        .back-home-btn {
+            position: absolute; top: 20px; left: 20px; text-decoration: none;
+            color: var(--text-dark); font-weight: 700; display: flex; align-items: center;
+            gap: 8px; background: rgba(255, 255, 255, 0.9); padding: 8px 15px;
+            border-radius: 30px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, color 0.2s; border: 1px solid #ddd; z-index: 10;
+        }
+        .back-home-btn:hover { transform: translateX(-3px); color: var(--primary); background: #fff; }
+
+        /* --- BOTTOM BACK BUTTON (Relative) --- */
+        .footer-back-btn {
+            margin-top: 30px; display: inline-flex; align-items: center; gap: 10px;
+            text-decoration: none; color: #555; background: #fff; padding: 10px 25px;
+            border-radius: 30px; font-weight: 600; border: 1px solid #ddd; transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .footer-back-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+
         /* --- PROFILE --- */
-        .profile-container { text-align: center; margin-bottom: 30px; }
+        .profile-container { text-align: center; margin-bottom: 30px; margin-top: 20px; animation: fadeInDown 0.8s ease-out; }
         .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; box-shadow: 0 8px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); }
+        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 5px; }
         .title { font-size: 0.95rem; color: #555; background: #fff; padding: 5px 15px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         /* --- LINKS --- */
-        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; }
+        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; animation: fadeInUp 0.8s ease-out; }
         .link-btn {
             display: flex; align-items: center; justify-content: center; background: var(--card-bg);
             color: var(--text-dark); text-decoration: none; padding: 18px 25px; border-radius: 50px;
-            font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; position: relative; width: 100%; cursor: pointer; border: 2px solid transparent;
+            font-weight: 600; font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s; border: 2px solid transparent;
+            position: relative; width: 100%; cursor: pointer;
         }
-        .link-btn:hover { transform: translateY(-3px); border-color: var(--primary); }
+        .link-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--primary); }
         .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
-        .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
 
-        /* --- CHAT WINDOW --- */
+        .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+        .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
+        .btn-clinic { border-left: 5px solid var(--accent); border-radius: 12px; justify-content: space-between; padding-left: 20px; }
+        .btn-clinic i { position: static; color: var(--accent); }
+        .btn-clinic span { text-align: center; flex: 1; }
+
+        .social-row { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        .social-icon { width: 45px; height: 45px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .social-icon:hover { transform: scale(1.1); color: var(--primary); }
+
+        footer { margin-top: 20px; padding-top: 20px; text-align: center; font-size: 0.8rem; color: #777; }
+
+        /* --- AI CHATBOT WINDOW STYLES --- */
         .chat-window {
-            position: fixed; bottom: 20px; right: 20px; width: 350px; height: 500px;
-            background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-            display: none; flex-direction: column; overflow: hidden; z-index: 1000; border: 1px solid #ddd;
+            position: fixed; bottom: 20px; right: 20px; width: 350px; height: 480px;
+            background: var(--chat-bg); border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            display: none; flex-direction: column; overflow: hidden; z-index: 1000; border: 1px solid #ddd; animation: fadeInUp 0.3s ease-out;
         }
+        @media (max-width: 500px) { .chat-window { right: 50%; transform: translateX(50%); width: 90%; bottom: 20px; } }
+
         .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 10px; }
-        
-        /* LANGUAGE SELECTOR */
-        .lang-select { display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; }
-        .lang-btn { padding: 8px 15px; border-radius: 20px; border: 1px solid var(--primary); cursor: pointer; font-weight: bold; background: white; color: var(--primary); }
+        .chat-close { cursor: pointer; font-size: 1.2rem; }
+
+        /* LANGUAGE TOGGLE INSIDE CHAT */
+        .lang-switch { display: flex; justify-content: center; gap: 10px; padding: 10px; background: #f0f0f0; border-bottom: 1px solid #ddd; }
+        .lang-btn { padding: 4px 12px; border-radius: 15px; border: 1px solid var(--primary); background: white; color: var(--primary); cursor: pointer; font-size: 0.8rem; font-weight: bold; }
         .lang-btn.active { background: var(--primary); color: white; }
 
-        .msg { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; }
-        .bot-msg { background: #e9ecef; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 15px; background: #fff; }
+        .auth-label { font-size: 0.9rem; font-weight: bold; color: #555; margin-bottom: -10px; }
+        .auth-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; }
+        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 1rem; }
+        
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 10px; }
+        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; }
+        .bot-msg { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-        
-        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; cursor: pointer; margin-right: 5px; margin-top: 5px; display: inline-block; }
-        
-        .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
-        .auth-input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+
+        .quick-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
+        .chip:hover { background: var(--primary); color: white; }
+
         .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: none; gap: 10px; background: white; }
         .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
-        .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+        .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
 
     <div class="profile-container">
         <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="profile-img">
         <h1 class="name">Dr. Nirmal Lamichhane</h1>
         <div class="title">Senior Consultant Surgeon</div>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Uro-Oncology Specialist | BPKMCH</p>
     </div>
 
     <div class="links-container">
-        <button onclick="toggleChat()" class="link-btn btn-ai"><i class="fas fa-robot"></i> AI Assistant (English/नेपाली)</button>
-        <a href="tel:056493511" class="link-btn"><span>Call Clinic</span><i class="fas fa-phone-alt"></i></a>
-        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn"><span>Find Hospital</span><i class="fas fa-map-marker-alt"></i></a>
+        <a href="index.html" class="link-btn btn-website"><i class="fas fa-globe"></i> Visit Official Portfolio</a>
+        <button onclick="toggleChat()" class="link-btn btn-ai"><i class="fas fa-robot"></i> AI Assistant</button>
+        <a href="tel:056493511" class="link-btn btn-clinic"><span>Call Clinic (National City Hospital)</span><i class="fas fa-phone-alt"></i></a>
+        <a href="mailto:nirmal.lamichhane@gmail.com" class="link-btn"><i class="fas fa-envelope"></i> Send an Email</a>
+        <a href="#" class="link-btn"><i class="fas fa-graduation-cap" style="color:#4285F4;"></i> Research & Publications</a>
+        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn"><i class="fas fa-map-marker-alt" style="color:#ea4335;"></i> Find Hospital Location</a>
     </div>
+
+    <div class="social-row">
+        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <a href="index.html" class="footer-back-btn"><i class="fas fa-arrow-left"></i> Back to Main Website</a>
+
+    <footer>
+        <p>© 2025 Dr. Nirmal Lamichhane.</p>
+        <p>Design by BL </p>
+    </footer>
 
     <div class="chat-window" id="chat-window">
         <div class="chat-header">
-            <span>Dr. Nirmal Assistant</span>
-            <span onclick="toggleChat()" style="cursor:pointer">×</span>
+            <span><i class="fas fa-user-md"></i> Dr. Nirmal Assistant</span>
+            <span class="chat-close" onclick="toggleChat()">×</span>
         </div>
         
+        <div class="lang-switch">
+            <button class="lang-btn active" id="en-btn" onclick="setLang('en')">English</button>
+            <button class="lang-btn" id="ne-btn" onclick="setLang('ne')">नेपाली</button>
+        </div>
+
         <div class="chat-auth" id="chat-auth">
-            <div class="lang-select">
-                <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
-                <button class="lang-btn" id="btn-ne" onclick="setLang('ne')">नेपाली</button>
-            </div>
-            <input type="text" id="client-name" class="auth-input" placeholder="Your Name / तपाईंको नाम">
-            <button class="link-btn btn-ai" style="padding: 10px;" onclick="startChat()">Start Chat / सुरु गर्नुहोस्</button>
+            <p id="auth-info" style="color:#666; text-align:center;">Please enter details to start chatting.</p>
+            <label class="auth-label" id="label-name">Your Name</label>
+            <input type="text" id="client-name" class="auth-input" placeholder="Ram Sharma">
+            <label class="auth-label" id="label-phone">Mobile Number</label>
+            <input type="tel" id="client-phone" class="auth-input" placeholder="9841XXXXXX">
+            <button class="auth-btn" id="start-btn" onclick="startChat()">Start Chatting</button>
         </div>
 
         <div class="chat-body" id="chat-body"></div>
@@ -113,10 +182,23 @@
         let clientName = "";
         let currentLang = "en";
 
-        function setLang(l) {
-            currentLang = l;
-            document.getElementById('btn-en').classList.toggle('active', l === 'en');
-            document.getElementById('btn-ne').classList.toggle('active', l === 'ne');
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            document.getElementById('ne-btn').classList.toggle('active', lang === 'ne');
+            
+            // Update Auth UI Language
+            if(lang === 'ne') {
+                document.getElementById('auth-info').innerText = "कुराकानी सुरु गर्न आफ्नो विवरण भर्नुहोस्।";
+                document.getElementById('label-name').innerText = "तपाईंको नाम";
+                document.getElementById('label-phone').innerText = "मोबाइल नम्बर";
+                document.getElementById('start-btn').innerText = "सुरु गर्नुहोस्";
+            } else {
+                document.getElementById('auth-info').innerText = "Please enter details to start chatting.";
+                document.getElementById('label-name').innerText = "Your Name";
+                document.getElementById('label-phone').innerText = "Mobile Number";
+                document.getElementById('start-btn').innerText = "Start Chatting";
+            }
         }
 
         function toggleChat() {
@@ -126,14 +208,16 @@
 
         function startChat() {
             const name = document.getElementById('client-name').value.trim();
-            if (!name) { alert(currentLang === 'en' ? "Please enter your name" : "कृपया आफ्नो नाम लेख्नुहोस्"); return; }
+            const phone = document.getElementById('client-phone').value.trim();
+            if (!name || !phone) { alert(currentLang === 'en' ? "Fill Name & Phone" : "नाम र फोन भर्नुहोस्"); return; }
+            
             clientName = name;
             document.getElementById('chat-auth').style.display = 'none';
             document.getElementById('chat-body').style.display = 'flex';
             document.getElementById('chat-input-area').style.display = 'flex';
 
-            const greet = currentLang === 'en' ? `Namaste <strong>${clientName}</strong>! How can I help?` : `नमस्ते <strong>${clientName}</strong>! म तपाईंलाई कसरी मद्दत गर्न सक्छु?`;
-            addBotMsg(greet, true);
+            let msg = currentLang === 'en' ? `Namaste <strong>${clientName}</strong>! How can I help?` : `नमस्ते <strong>${clientName}</strong>! म तपाईंलाई कसरी मद्दत गर्न सक्छु?`;
+            addBotMsg(msg, true);
         }
 
         function handleEnter(e) { if (e.key === 'Enter') sendMessage(); }
@@ -143,12 +227,9 @@
             const input = document.getElementById('user-input');
             const text = input.value.trim();
             if (!text) return;
-
             addUserMsg(text);
             input.value = "";
-            setTimeout(() => {
-                addBotMsg(getBotResponse(text.toLowerCase()), false);
-            }, 600);
+            setTimeout(() => { addBotMsg(getBotResponse(text.toLowerCase()), false); }, 600);
         }
 
         function addUserMsg(t) {
@@ -163,8 +244,8 @@
             const d = document.createElement('div');
             d.className = 'msg bot-msg'; d.innerHTML = t;
             if (chips) {
-                const opt = currentLang === 'en' ? ['Location', 'Appointment', 'Kidney Stones'] : ['लोकेसन', 'अपोइन्टमेन्ट', 'पत्थरी'];
-                let html = '<div style="margin-top:10px">';
+                const opt = currentLang === 'en' ? ['Location', 'Appointment', 'Kidney Stones', 'Timings'] : ['लोकेसन', 'अपोइन्टमेन्ट', 'पत्थरी', 'समय'];
+                let html = '<div class="quick-options">';
                 opt.forEach(o => html += `<span class="chip" onclick="sendQuick('${o}')">${o}</span>`);
                 d.innerHTML += html + '</div>';
             }
@@ -173,15 +254,15 @@
 
         function getBotResponse(input) {
             if (currentLang === 'en') {
-                if (input.includes("appointment")) return "Call **056-493511** for appointments.";
-                if (input.includes("stone")) return "Dr. Nirmal specializes in **Kidney Stone Laser surgery**.";
-                if (input.includes("location")) return "Located at **National City Hospital, Bharatpur**.";
-                return "Please call 056-493511 for more info.";
+                if (input.includes("appointment") || input.includes("book")) return `Mr./Ms. ${clientName}, call **056-493511** for an appointment at National City Hospital.`;
+                if (input.includes("location") || input.includes("map")) return "We are at **Hospital Road, Bharatpur-10, Chitwan**.";
+                if (input.includes("stone")) return "Dr. Nirmal specializes in **Kidney Stone Laser surgery** (RIRS/PCNL).";
+                return "Please call **056-493511** for detailed information.";
             } else {
-                if (input.includes("अपोइन्टमेन्ट") || input.includes("book")) return "अपोइन्टमेन्टको लागि **०५६-४९३५११** मा फोन गर्नुहोस्।";
-                if (input.includes("पत्थरी") || input.includes("stone")) return "डा. निर्मल **मिर्गौलाको पत्थरीको लेजर सर्जरी** विशेषज्ञ हुनुहुन्छ।";
-                if (input.includes("लोकेसन") || input.includes("कहाँ")) return "हामी **नेशनल सिटी हस्पिटल, भरतपुर** मा छौं।";
-                return "थप जानकारीको लागि कृपया ०५६-४९३५११ मा फोन गर्नुहोस्।";
+                if (input.includes("अपोइन्टमेन्ट") || input.includes("बुक")) return `${clientName} ज्यू, अपोइन्टमेन्टको लागि **०५६-४९३५११** मा फोन गर्नुहोस्।`;
+                if (input.includes("लोकेसन") || input.includes("कहाँ")) return "हामी **भरतपुर-१०, हस्पिटल रोड (नेशनल सिटी हस्पिटल)** मा छौं।";
+                if (input.includes("पत्थरी")) return "डा. निर्मल **मिर्गौलाको पत्थरीको लेजर प्रविधि** बाट उपचार गर्न माहिर हुनुहुन्छ।";
+                return "थप जानकारीको लागि कृपया **०५६-४९३५११** मा सम्पर्क गर्नुहोस्।";
             }
         }
     </script>
