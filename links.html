@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links | Dr. Nirmal Lamichhane</title>
-    <meta name="description" content="Connect with Dr. Nirmal Lamichhane - Senior Consultant Surgeon.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -15,7 +14,6 @@
             --bg-color: #e8f5e9;
             --card-bg: #ffffff;
             --text-dark: #333333;
-            --chat-bg: #ffffff;
             --chat-header: #0056b3;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,112 +28,96 @@
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
-            position: relative;
         }
-        /* --- TOP BACK BUTTON --- */
-        .back-home-btn {
-            position: absolute; top: 20px; left: 20px; text-decoration: none;
-            color: var(--text-dark); font-weight: 700; display: flex; align-items: center;
-            gap: 8px; background: rgba(255, 255, 255, 0.9); padding: 8px 15px;
-            border-radius: 30px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: 0.2s; border: 1px solid #ddd; z-index: 10;
-        }
-        .back-home-btn:hover { transform: translateX(-3px); color: var(--primary); background: #fff; }
-
         /* --- PROFILE --- */
-        .profile-container { text-align: center; margin-bottom: 30px; margin-top: 20px; animation: fadeInDown 0.8s ease-out; }
+        .profile-container { text-align: center; margin-bottom: 30px; }
         .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; box-shadow: 0 8px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 5px; }
+        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); }
         .title { font-size: 0.95rem; color: #555; background: #fff; padding: 5px 15px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         /* --- LINKS --- */
-        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; animation: fadeInUp 0.8s ease-out; }
+        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; }
         .link-btn {
             display: flex; align-items: center; justify-content: center; background: var(--card-bg);
             color: var(--text-dark); text-decoration: none; padding: 18px 25px; border-radius: 50px;
-            font-weight: 600; font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: 0.2s; border: 2px solid transparent; position: relative; width: 100%; cursor: pointer;
+            font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; position: relative; width: 100%; cursor: pointer; border: 2px solid transparent;
         }
-        .link-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .link-btn:hover { transform: translateY(-3px); border-color: var(--primary); }
         .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
-
-        .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
         .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
-        .btn-clinic { border-left: 5px solid var(--accent); border-radius: 12px; justify-content: space-between; padding-left: 20px; }
-        .btn-clinic i { position: static; color: var(--accent); }
-        .btn-clinic span { text-align: center; flex: 1; }
 
         /* --- CHAT WINDOW --- */
         .chat-window {
             position: fixed; bottom: 20px; right: 20px; width: 350px; height: 500px;
-            background: var(--chat-bg); border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.3);
             display: none; flex-direction: column; overflow: hidden; z-index: 1000; border: 1px solid #ddd;
         }
         .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
         .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 10px; }
-        .msg { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; }
-        .bot-msg { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+        
+        /* LANGUAGE SELECTOR */
+        .lang-select { display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; }
+        .lang-btn { padding: 8px 15px; border-radius: 20px; border: 1px solid var(--primary); cursor: pointer; font-weight: bold; background: white; color: var(--primary); }
+        .lang-btn.active { background: var(--primary); color: white; }
+
+        .msg { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; }
+        .bot-msg { background: #e9ecef; align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
         
-        /* CHIPS */
-        .quick-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
-        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; }
-        .chip:hover { background: var(--primary); color: white; }
-
-        .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 15px; }
-        .auth-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
-        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; cursor: pointer; margin-right: 5px; margin-top: 5px; display: inline-block; }
+        
+        .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+        .auth-input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
         .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: none; gap: 10px; background: white; }
         .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
         .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
-
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-
-    <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
 
     <div class="profile-container">
         <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="profile-img">
         <h1 class="name">Dr. Nirmal Lamichhane</h1>
         <div class="title">Senior Consultant Surgeon</div>
-        <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Uro-Oncology Specialist | BPKMCH</p>
     </div>
 
     <div class="links-container">
-        <a href="index.html" class="link-btn btn-website"><i class="fas fa-globe"></i> Visit Official Portfolio</a>
-        <button onclick="toggleChat()" class="link-btn btn-ai"><i class="fas fa-robot"></i> AI Assistant</button>
-        <a href="tel:056493511" class="link-btn btn-clinic"><span>Call Clinic (National City Hospital)</span><i class="fas fa-phone-alt"></i></a>
-        <a href="mailto:nirmal.lamichhane@gmail.com" class="link-btn"><i class="fas fa-envelope"></i> Send an Email</a>
-        <a href="#" class="link-btn"><i class="fas fa-graduation-cap" style="color:#4285F4;"></i> Research & Publications</a>
-        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn"><i class="fas fa-map-marker-alt" style="color:#ea4335;"></i> Find Hospital Location</a>
+        <button onclick="toggleChat()" class="link-btn btn-ai"><i class="fas fa-robot"></i> AI Assistant (English/नेपाली)</button>
+        <a href="tel:056493511" class="link-btn"><span>Call Clinic</span><i class="fas fa-phone-alt"></i></a>
+        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn"><span>Find Hospital</span><i class="fas fa-map-marker-alt"></i></a>
     </div>
 
     <div class="chat-window" id="chat-window">
         <div class="chat-header">
-            <span><i class="fas fa-user-md"></i> Dr. Nirmal Assistant</span>
-            <span class="chat-close" onclick="toggleChat()">×</span>
+            <span>Dr. Nirmal Assistant</span>
+            <span onclick="toggleChat()" style="cursor:pointer">×</span>
         </div>
         
         <div class="chat-auth" id="chat-auth">
-            <p style="text-align:center; color:#666;">Enter details to start chatting.</p>
-            <input type="text" id="client-name" class="auth-input" placeholder="Your Name">
-            <input type="tel" id="client-phone" class="auth-input" placeholder="Mobile Number">
-            <button class="auth-btn" onclick="startChat()">Start Chatting</button>
+            <div class="lang-select">
+                <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
+                <button class="lang-btn" id="btn-ne" onclick="setLang('ne')">नेपाली</button>
+            </div>
+            <input type="text" id="client-name" class="auth-input" placeholder="Your Name / तपाईंको नाम">
+            <button class="link-btn btn-ai" style="padding: 10px;" onclick="startChat()">Start Chat / सुरु गर्नुहोस्</button>
         </div>
 
         <div class="chat-body" id="chat-body"></div>
-
         <div class="chat-input-area" id="chat-input-area">
-            <input type="text" id="user-input" class="chat-input" placeholder="Type a message..." onkeypress="handleEnter(event)">
+            <input type="text" id="user-input" class="chat-input" placeholder="Type here..." onkeypress="handleEnter(event)">
             <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
     <script>
         let clientName = "";
+        let currentLang = "en";
+
+        function setLang(l) {
+            currentLang = l;
+            document.getElementById('btn-en').classList.toggle('active', l === 'en');
+            document.getElementById('btn-ne').classList.toggle('active', l === 'ne');
+        }
 
         function toggleChat() {
             const win = document.getElementById('chat-window');
@@ -144,19 +126,18 @@
 
         function startChat() {
             const name = document.getElementById('client-name').value.trim();
-            const phone = document.getElementById('client-phone').value.trim();
-            if (!name || !phone) { alert("Please enter Name and Phone."); return; }
-            
+            if (!name) { alert(currentLang === 'en' ? "Please enter your name" : "कृपया आफ्नो नाम लेख्नुहोस्"); return; }
             clientName = name;
             document.getElementById('chat-auth').style.display = 'none';
             document.getElementById('chat-body').style.display = 'flex';
             document.getElementById('chat-input-area').style.display = 'flex';
 
-            addBotMsg(`Namaste <strong>${clientName}</strong>! How can I help you today?`, true);
+            const greet = currentLang === 'en' ? `Namaste <strong>${clientName}</strong>! How can I help?` : `नमस्ते <strong>${clientName}</strong>! म तपाईंलाई कसरी मद्दत गर्न सक्छु?`;
+            addBotMsg(greet, true);
         }
 
         function handleEnter(e) { if (e.key === 'Enter') sendMessage(); }
-        function sendQuick(text) { document.getElementById('user-input').value = text; sendMessage(); }
+        function sendQuick(t) { document.getElementById('user-input').value = t; sendMessage(); }
 
         function sendMessage() {
             const input = document.getElementById('user-input');
@@ -165,54 +146,43 @@
 
             addUserMsg(text);
             input.value = "";
-            
             setTimeout(() => {
-                const response = getBotResponse(text.toLowerCase());
-                addBotMsg(response, false);
+                addBotMsg(getBotResponse(text.toLowerCase()), false);
             }, 600);
         }
 
         function addUserMsg(t) {
-            const body = document.getElementById('chat-body');
+            const b = document.getElementById('chat-body');
             const d = document.createElement('div');
-            d.className = 'msg user-msg';
-            d.textContent = t;
-            body.appendChild(d);
-            body.scrollTop = body.scrollHeight;
+            d.className = 'msg user-msg'; d.textContent = t;
+            b.appendChild(d); b.scrollTop = b.scrollHeight;
         }
 
-        function addBotMsg(t, showChips) {
-            const body = document.getElementById('chat-body');
+        function addBotMsg(t, chips) {
+            const b = document.getElementById('chat-body');
             const d = document.createElement('div');
-            d.className = 'msg bot-msg';
-            d.innerHTML = t;
-            if (showChips) {
-                d.innerHTML += `
-                <div class="quick-options">
-                    <span class="chip" onclick="sendQuick('Location')">Location</span>
-                    <span class="chip" onclick="sendQuick('Appointment')">Appointment</span>
-                    <span class="chip" onclick="sendQuick('Kidney Stones')">Kidney Stones</span>
-                    <span class="chip" onclick="sendQuick('Prostate Care')">Prostate</span>
-                    <span class="chip" onclick="sendQuick('Timings')">Timings</span>
-                </div>`;
+            d.className = 'msg bot-msg'; d.innerHTML = t;
+            if (chips) {
+                const opt = currentLang === 'en' ? ['Location', 'Appointment', 'Kidney Stones'] : ['लोकेसन', 'अपोइन्टमेन्ट', 'पत्थरी'];
+                let html = '<div style="margin-top:10px">';
+                opt.forEach(o => html += `<span class="chip" onclick="sendQuick('${o}')">${o}</span>`);
+                d.innerHTML += html + '</div>';
             }
-            body.appendChild(d);
-            body.scrollTop = body.scrollHeight;
+            b.appendChild(d); b.scrollTop = b.scrollHeight;
         }
 
         function getBotResponse(input) {
-            if (input.includes("appointment") || input.includes("book")) {
-                return "To book an appointment, please call **056-493511** or visit the reception at National City Hospital.";
-            } else if (input.includes("stone")) {
-                return "Dr. Nirmal specializes in Laser surgery (RIRS/PCNL) for **Kidney Stones**. Please visit for a consultation.";
-            } else if (input.includes("prostate")) {
-                return "We offer advanced care for **Prostate** issues, including TURP and Laser surgery.";
-            } else if (input.includes("location") || input.includes("where")) {
-                return "Dr. Nirmal is at **National City Hospital**, Hospital Road, Bharatpur-10, Chitwan.";
-            } else if (input.includes("time") || input.includes("open")) {
-                return "OPD is generally open from **10:00 AM to 5:00 PM** (Sun-Fri). Contact 056-493511 to confirm.";
+            if (currentLang === 'en') {
+                if (input.includes("appointment")) return "Call **056-493511** for appointments.";
+                if (input.includes("stone")) return "Dr. Nirmal specializes in **Kidney Stone Laser surgery**.";
+                if (input.includes("location")) return "Located at **National City Hospital, Bharatpur**.";
+                return "Please call 056-493511 for more info.";
+            } else {
+                if (input.includes("अपोइन्टमेन्ट") || input.includes("book")) return "अपोइन्टमेन्टको लागि **०५६-४९३५११** मा फोन गर्नुहोस्।";
+                if (input.includes("पत्थरी") || input.includes("stone")) return "डा. निर्मल **मिर्गौलाको पत्थरीको लेजर सर्जरी** विशेषज्ञ हुनुहुन्छ।";
+                if (input.includes("लोकेसन") || input.includes("कहाँ")) return "हामी **नेशनल सिटी हस्पिटल, भरतपुर** मा छौं।";
+                return "थप जानकारीको लागि कृपया ०५६-४९३५११ मा फोन गर्नुहोस्।";
             }
-            return "I recommend calling **056-493511** for specific medical queries.";
         }
     </script>
 </body>
