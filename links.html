@@ -4,89 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links | Dr. Nirmal Lamichhane</title>
+    <meta name="description" content="Connect with Dr. Nirmal Lamichhane - Senior Consultant Surgeon.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Existing styles maintained - ensuring chat-body layout */
-        .chat-body { 
-            display: flex; 
-            flex-direction: column; 
-            overflow-y: auto;
-            max-height: 350px;
-            padding: 15px;
-            gap: 12px;
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d80;
+            --accent: #17a2b8;
+            --bg-color: #e8f5e9;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --chat-header: #0056b3;
         }
-        .quick-options { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 8px; 
-            margin-top: 12px; 
-        }
-        .chip { 
-            background: #fff; 
-            border: 1px solid #0056b3; 
-            color: #0056b3; 
-            padding: 6px 12px; 
-            border-radius: 20px; 
-            font-size: 0.8rem; 
-            cursor: pointer;
-            transition: 0.2s;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#c8e6c9 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-dark);
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 5px;
+            padding: 40px 20px;
+            position: relative;
         }
-        .chip:hover { 
-            background: #0056b3; 
-            color: white; 
+        /* Layout Components */
+        .profile-container { text-align: center; margin-bottom: 30px; }
+        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; box-shadow: 0 8px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); }
+        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; }
+        .link-btn {
+            display: flex; align-items: center; justify-content: center; background: var(--card-bg);
+            color: var(--text-dark); text-decoration: none; padding: 18px 25px; border-radius: 50px;
+            font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; position: relative;
         }
+        .link-btn:hover { transform: translateY(-3px); border: 1px solid var(--primary); }
+        .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
+        .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; cursor: pointer; width: 100%; font-family: inherit; }
+
+        /* Chat Window Styles */
+        .chat-window {
+            position: fixed; bottom: 20px; right: 20px; width: 350px; height: 480px;
+            background: white; border-radius: 15px; box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            display: none; flex-direction: column; overflow: hidden; z-index: 1000; border: 1px solid #ddd;
+        }
+        @media (max-width: 500px) { .chat-window { width: 95%; right: 2.5%; } }
+        .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chat-close { cursor: pointer; font-size: 1.5rem; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #f9f9f9; }
+        .chat-auth { padding: 25px; display: flex; flex-direction: column; gap: 10px; }
+        .auth-input { padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; }
+        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 10px; background: white; }
+        .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+
+        /* Message Styling */
         .msg { padding: 10px 14px; border-radius: 15px; max-width: 85%; line-height: 1.4; font-size: 0.95rem; }
         .bot-msg { background: #f0f2f5; align-self: flex-start; border-bottom-left-radius: 2px; }
-        .user-msg { background: #0056b3; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .user-msg { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .quick-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .chip { 
+            background: #fff; border: 1px solid var(--primary); color: var(--primary); 
+            padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; cursor: pointer;
+            display: flex; align-items: center; gap: 5px;
+        }
     </style>
 </head>
 <body>
+
+    <div class="profile-container">
+        <img src="profile.png" alt="Dr. Nirmal" class="profile-img">
+        <h1 class="name">Dr. Nirmal Lamichhane</h1>
+        <p style="color: #666;">Senior Consultant Surgeon & Uro-Oncologist</p>
+    </div>
+
+    <div class="links-container">
+        <button onclick="toggleChat()" class="link-btn btn-ai"><i class="fas fa-robot"></i> AI Medical Assistant</button>
+        <a href="tel:056493511" class="link-btn"><i class="fas fa-phone-alt"></i> Call Clinic</a>
+        <a href="https://maps.google.com" target="_blank" class="link-btn"><i class="fas fa-map-marker-alt"></i> Find Location</a>
+        <a href="mailto:nirmal.lamichhane@gmail.com" class="link-btn"><i class="fas fa-envelope"></i> Email Doctor</a>
+    </div>
+
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <span><i class="fas fa-user-md"></i> Dr. Nirmal Assistant</span>
+            <span class="chat-close" onclick="toggleChat()">&times;</span>
+        </div>
+        
+        <div class="chat-auth" id="chat-auth">
+            <p style="text-align:center; font-size: 0.9rem; color: #666;">Please enter details to start.</p>
+            <input type="text" id="client-name" class="auth-input" placeholder="Your Name">
+            <input type="tel" id="client-phone" class="auth-input" placeholder="Your Phone Number">
+            <button class="auth-btn" onclick="startChat()">Start Chatting</button>
+        </div>
+
+        <div class="chat-body" id="chat-body" style="display: none;"></div>
+        
+        <div class="chat-input-area" id="chat-input-area" style="display: none;">
+            <input type="text" id="user-input" class="chat-input" placeholder="Ask a question..." onkeypress="handleEnter(event)">
+            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script>
         let clientName = "";
         let clientPhone = "";
 
-        /**
-         * SMART RESPONSE ENGINE
-         * Handles keywords and maps them to professional urological advice.
-         */
         const getAssistantResponse = (input) => {
             const text = input.toLowerCase();
-            
             if (text.includes("hello") || text.includes("hi") || text.includes("namaste")) {
-                return `Namaste ${clientName}! How can I assist you with Dr. Nirmal's urology or surgical services today?`;
+                return `Namaste ${clientName}! How can I assist you today?`;
             }
-            if (text.includes("appointment") || text.includes("book") || text.includes("ticket")) {
-                return "To book an appointment at **National City Hospital**, please call directly at <a href='tel:056493511'>056493511</a>. Our reception team will help you find the earliest slot.";
-            }
-            if (text.includes("location") || text.includes("where") || text.includes("hospital")) {
-                return "Dr. Nirmal is based at **National City Hospital, Hospital Road, Bharatpur-10, Chitwan**. We are centrally located and easily accessible.";
-            }
-            if (text.includes("time") || text.includes("opd") || text.includes("hours")) {
-                return "Dr. Nirmal's OPD is available **Sunday to Friday, 10:00 AM – 5:00 PM**. Please arrive 30 minutes early for registration.";
+            if (text.includes("appointment") || text.includes("book")) {
+                return "To book an appointment at **National City Hospital**, please call <a href='tel:056493511'>056493511</a>.";
             }
             if (text.includes("stone")) {
-                return "Dr. Nirmal specializes in **Laser & Keyhole surgery** for Kidney Stones (RIRS/PCNL). These procedures offer minimal pain and faster recovery.";
+                return "Dr. Nirmal specializes in **Laser surgery** for Kidney Stones (RIRS/PCNL) with fast recovery.";
             }
-            if (text.includes("prostate")) {
-                return "We offer comprehensive care for **Prostate issues**, including Laser Prostatectomy (TURP) for enlargement and specialized cancer screenings.";
+            if (text.includes("location") || text.includes("where")) {
+                return "We are located at **National City Hospital, Bharatpur-10, Chitwan**.";
             }
-            if (text.includes("cancer") || text.includes("tumor") || text.includes("oncology")) {
-                return "As a Senior **Uro-Oncologist**, Dr. Nirmal provides expert surgical treatment for Kidney, Bladder, and Prostate cancers using both open and laparoscopic methods.";
+            if (text.includes("time") || text.includes("opd")) {
+                return "OPD hours: **Sunday to Friday, 10:00 AM – 5:00 PM**.";
             }
-            if (text.includes("laparoscopy") || text.includes("keyhole")) {
-                return "Dr. Nirmal is an expert in **Laparoscopic Urological Surgery**, which reduces hospital stay and ensures smaller surgical scars.";
+            if (text.includes("emergency") || text.includes("pain")) {
+                return "<strong style='color:red;'>EMERGENCY:</strong> Please visit the ER at National City Hospital immediately.";
             }
-            if (text.includes("report") || text.includes("lab")) {
-                return "You can collect lab reports from the hospital desk or download them from the official portal if you have your Bill Number and Patient ID.";
-            }
-            if (text.includes("emergency") || text.includes("pain") || text.includes("bleeding")) {
-                return "<strong style='color:red;'>EMERGENCY:</strong> If you have severe pain, inability to pass urine, or bleeding, please go to the **National City Hospital Emergency Room** immediately.";
-            }
-            
-            return `Thank you, ${clientName}. For detailed medical advice, it's best to consult Dr. Nirmal in person. Would you like the clinic's contact number?`;
+            return `Thank you, ${clientName}. For specific medical advice, please call the clinic at 056493511.`;
         };
 
         window.toggleChat = () => {
@@ -95,27 +143,20 @@
         };
 
         window.startChat = () => {
-            const nameInput = document.getElementById('client-name');
-            const phoneInput = document.getElementById('client-phone');
-            if (!nameInput.value.trim() || !phoneInput.value.trim()) {
-                alert("Please enter your Name and Mobile Number to continue."); return;
-            }
-            clientName = nameInput.value.trim();
-            clientPhone = phoneInput.value.trim();
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            if (!name || !phone) { alert("Enter Name and Phone"); return; }
             
+            clientName = name;
             document.getElementById('chat-auth').style.display = 'none';
             document.getElementById('chat-body').style.display = 'flex';
             document.getElementById('chat-input-area').style.display = 'flex';
 
-            addBotMsg(`Namaste <strong>${clientName}</strong>! I am Dr. Nirmal's virtual assistant. How can I help you today?`, true);
+            addBotMsg(`Namaste <strong>${clientName}</strong>! How can I help you?`, true);
         };
 
         window.handleEnter = (e) => { if (e.key === 'Enter') sendMessage(); };
-
-        window.sendQuick = (text) => {
-            document.getElementById('user-input').value = text;
-            sendMessage();
-        };
+        window.sendQuick = (text) => { document.getElementById('user-input').value = text; sendMessage(); };
 
         window.sendMessage = () => {
             const input = document.getElementById('user-input');
@@ -124,7 +165,6 @@
 
             addUserMsg(text);
             input.value = "";
-
             setTimeout(() => {
                 const response = getAssistantResponse(text);
                 addBotMsg(response, false);
@@ -140,10 +180,6 @@
             body.scrollTop = body.scrollHeight;
         }
 
-        /**
-         * addBotMsg
-         * Handles bot replies and generates the Quick Action Chips.
-         */
         function addBotMsg(text, showChips) {
             const body = document.getElementById('chat-body');
             const div = document.createElement('div');
@@ -153,31 +189,22 @@
             if (showChips) {
                 const chipContainer = document.createElement('div');
                 chipContainer.className = 'quick-options';
-                
-                const chips = [
-                    { label: 'Location', icon: 'fa-map-marker-alt' },
-                    { label: 'Appointment', icon: 'fa-calendar-check' },
-                    { label: 'OPD Timings', icon: 'fa-clock' },
-                    { label: 'Kidney Stones', icon: 'fa-disease' },
-                    { label: 'Prostate Health', icon: 'fa-user-nurse' },
-                    { label: 'Cancer Care', icon: 'fa-ribbon' },
-                    { label: 'Laparoscopy', icon: 'fa-stethoscope' }
+                const options = [
+                    {l: 'Location', i: 'fa-map-marker-alt'},
+                    {l: 'Appointment', i: 'fa-calendar-check'},
+                    {l: 'Kidney Stones', i: 'fa-disease'}
                 ];
-
-                chips.forEach(chip => {
-                    const span = document.createElement('span');
-                    span.className = 'chip';
-                    span.innerHTML = `<i class="fas ${chip.icon}"></i> ${chip.label}`;
-                    span.onclick = () => sendQuick(chip.label);
-                    chipContainer.appendChild(span);
+                options.forEach(opt => {
+                    const s = document.createElement('span');
+                    s.className = 'chip';
+                    s.innerHTML = `<i class="fas ${opt.i}"></i> ${opt.l}`;
+                    s.onclick = () => sendQuick(opt.l);
+                    chipContainer.appendChild(s);
                 });
-                
                 div.appendChild(chipContainer);
             }
-            
             body.appendChild(div);
             body.scrollTop = body.scrollHeight;
-            return div;
         }
     </script>
 </body>
