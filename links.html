@@ -1,36 +1,225 @@
-<script type="importmap">
-      {
-        "imports": {
-          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links | Dr. Nirmal Lamichhane</title>
+    <meta name="description" content="Connect with Dr. Nirmal Lamichhane - Senior Consultant Surgeon.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d80;
+            --accent: #17a2b8;
+            --bg-color: #e8f5e9;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --chat-bg: #ffffff;
+            --chat-header: #0056b3;
         }
-      }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#c8e6c9 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        .back-home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, color 0.2s;
+            border: 1px solid #ddd;
+            z-index: 10;
+        }
+        .back-home-btn:hover { transform: translateX(-3px); color: var(--primary); background: #fff; }
+        .footer-back-btn {
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #555;
+            background: #fff;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .footer-back-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+        .profile-container { text-align: center; margin-bottom: 30px; margin-top: 20px; animation: fadeInDown 0.8s ease-out; }
+        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; box-shadow: 0 8px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 5px; }
+        .title { font-size: 0.95rem; color: #555; background: #fff; padding: 5px 15px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; animation: fadeInUp 0.8s ease-out; }
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 18px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            border: 2px solid transparent;
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+        }
+        .link-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
+        .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+        .btn-ai { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border: none; }
+        .btn-clinic { border-left: 5px solid var(--accent); border-radius: 12px; justify-content: space-between; padding-left: 20px; }
+        .btn-clinic i { position: static; color: var(--accent); }
+        .btn-clinic span { text-align: center; flex: 1; }
+        .social-row { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        .social-icon { width: 45px; height: 45px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        footer { margin-top: 20px; padding-top: 20px; text-align: center; font-size: 0.8rem; color: #777; }
+        
+        /* CHAT WINDOW */
+        .chat-window {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 480px;
+            background: var(--chat-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            display: none; 
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            border: 1px solid #ddd;
+            animation: fadeInUp 0.3s ease-out;
+        }
+        @media (max-width: 500px) { .chat-window { right: 50%; transform: translateX(50%); width: 90%; bottom: 20px; } }
+        .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chat-close { cursor: pointer; font-size: 1.2rem; }
+        .chat-auth { flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center; gap: 15px; background: #fff; }
+        .auth-label { font-size: 0.9rem; font-weight: bold; color: #555; margin-bottom: -10px; }
+        .auth-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; }
+        .auth-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 1rem; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: none; flex-direction: column; gap: 10px; }
+        .msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; }
+        .bot-msg { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-msg { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .quick-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+        .chip { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; }
+        .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: none; gap: 10px; background: white; }
+        .chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        .send-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+    
+    <div class="profile-container">
+        <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="profile-img">
+        <h1 class="name">Dr. Nirmal Lamichhane</h1>
+        <div class="title">Senior Consultant Surgeon</div>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">Uro-Oncology Specialist | BPKMCH</p>
+    </div>
+
+    <div class="links-container">
+        <a href="index.html" class="link-btn btn-website"><i class="fas fa-globe"></i> Visit Official Portfolio</a>
+        <button onclick="toggleChat()" class="link-btn btn-ai"><i class="fas fa-robot"></i> AI Assistant</button>
+        <a href="tel:056493511" class="link-btn btn-clinic">
+            <span>Call Clinic (National City Hospital)</span>
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="mailto:nirmal.lamichhane@gmail.com" class="link-btn"><i class="fas fa-envelope"></i> Send an Email</a>
+        <a href="#" class="link-btn"><i class="fas fa-graduation-cap" style="color:#4285F4;"></i> Research & Publications</a>
+        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn">
+            <i class="fas fa-map-marker-alt" style="color:#ea4335;"></i> Find Hospital Location
+        </a>
+    </div>
+
+    <div class="social-row">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <a href="index.html" class="footer-back-btn"><i class="fas fa-arrow-left"></i> Back to Main Website</a>
+
+    <footer>
+        <p>© 2025 Dr. Nirmal Lamichhane.</p>
+        <p>Design by BL</p>
+    </footer>
+
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <span><i class="fas fa-user-md"></i> Dr. Nirmal Assistant</span>
+            <span class="chat-close" onclick="toggleChat()">×</span>
+        </div>
+        <div class="chat-auth" id="chat-auth">
+            <div style="text-align:center; margin-bottom:10px;"><p style="color:#666;">Please enter your details to start chatting.</p></div>
+            <label class="auth-label">Your Name</label>
+            <input type="text" id="client-name" class="auth-input" placeholder="e.g. Ram Sharma">
+            <label class="auth-label">Mobile Number</label>
+            <input type="tel" id="client-phone" class="auth-input" placeholder="e.g. 9841XXXXXX">
+            <button class="auth-btn" onclick="startChat()">Start Chatting</button>
+        </div>
+        <div class="chat-body" id="chat-body"></div>
+        <div class="chat-input-area" id="chat-input-area">
+            <input type="text" id="user-input" class="chat-input" placeholder="Type a message..." onkeypress="handleEnter(event)">
+            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script type="importmap">
+        { "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }
     </script>
 
     <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        // --- CONFIGURATION & FAQ KNOWLEDGE BASE ---
         const API_KEY = "AIzaSyBsJ0q6r-CkLOMVoqq4fJNIahocoMBTBDk";
         const genAI = new GoogleGenerativeAI(API_KEY);
         
-        // This is the "brain" of your assistant. Add more details here as needed.
+        let clientName = "";
+        let clientPhone = "";
+
         const systemPrompt = `
             You are the AI Medical Assistant for Dr. Nirmal Lamichhane. 
-            Role: Senior Consultant Surgeon & Uro-Oncologist.
-            Location: Bharatpur, Nepal.
-            Clinic Phone: 056493511.
-            
-            KNOWLEDGE BASE (FAQ):
-            1. SURGERY TYPES: Dr. Nirmal specializes in Uro-Oncology (Kidney, Bladder, Prostate cancer surgeries), Laparoscopic surgeries, and general advanced surgical procedures.
-            2. CLINIC HOURS: Sunday to Friday, 10:00 AM to 5:00 PM. (Closed on Saturdays).
-            3. APPOINTMENTS: Users can call 056493511 or visit the official website.
-            4. BIOGRAPHY: He is a highly experienced surgeon dedicated to advanced urological and oncological care in Nepal.
-            
-            GUIDELINES:
-            - Be professional, warm, and concise.
-            - Answer in the language the user speaks (English, Nepali, or Chinese).
-            - For medical emergencies, tell them to visit the Emergency Ward immediately.
-            - Always mention that AI advice is not a substitute for a physical consultation.
+            Dr. Nirmal is a Senior Consultant Surgeon & Uro-Oncologist in Bharatpur, Nepal.
+            Clinic: National City Hospital. Phone: 056493511.
+            Hours: Sunday to Friday, 10:00 AM - 5:00 PM.
+            Specialties: Kidney/Bladder/Prostate cancer, Laparoscopic surgery.
+            Guidelines: 
+            - Always address the user by their name if provided.
+            - Keep answers professional and concise.
+            - Emergency cases must be told to visit the ER immediately.
+            - AI is not a substitute for physical consultation.
         `;
 
         const model = genAI.getGenerativeModel({ 
@@ -38,120 +227,77 @@
             systemInstruction: systemPrompt
         });
 
-        // --- TRANSLATIONS ---
-        const translations = {
-            en: {
-                back_home: "Home", name: "Dr. Nirmal Lamichhane", spec: "Senior Consultant Surgeon | Uro-Oncology",
-                visit_site: "Visit Official Website", chat_ai: "Chat with Medical Assistant",
-                call_clinic: "Call Clinic Appointment", email_us: "Send an Email", find_map: "Hospital Location Map",
-                chat_head: "Medical Assistant",
-                welcome_msg: "Namaste. I am Dr. Nirmal's Assistant. How can I help you?",
-                loading: "Consulting Dr. Nirmal's schedule..."
-            },
-            ne: {
-                back_home: "होम", name: "डा. निर्मल लामिछाने", spec: "वरिष्ठ कन्सल्टेन्ट सर्जन | युरो-अन्कोलोजी",
-                visit_site: "आधिकारिक वेबसाइट", chat_ai: "मेडिकल असिस्टेन्टसँग च्याट गर्नुहोस्",
-                call_clinic: "क्लिनिकमा कल गर्नुहोस्", email_us: "इमेल पठाउनुहोस्", find_map: "अस्पतालको नक्सा",
-                chat_head: "मेडिकल असिस्टेन्ट",
-                welcome_msg: "नमस्ते। म डा. निर्मलको सहायक हुँ। म तपाईंलाई कसरी सहयोग गर्न सक्छु?",
-                loading: "डा. निर्मलको तालिका हेर्दै..."
-            },
-            zh: {
-                back_home: "主页", name: "尼尔马尔·拉米恰内 博士", spec: "高级顾问外科医生 | 泌尿肿瘤学",
-                visit_site: "访问官方网站", chat_ai: "与医疗助手聊天",
-                call_clinic: "致电诊所预约", email_us: "发送电子邮件", find_map: "医院位置地图",
-                chat_head: "医疗助手",
-                welcome_msg: "您好，我是尼尔马尔医生的助手。请问有什么可以帮您？",
-                loading: "正在查询医生的日程..."
-            }
-        };
-
-        let currentLang = 'en';
-
-        // Bind functions to window so they work with HTML onclick
-        window.setLanguage = (lang) => {
-            currentLang = lang;
-            document.body.className = 'lang-' + lang;
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
-            
-            const trans = translations[lang];
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (trans[key]) el.innerText = trans[key];
-            });
-
-            document.getElementById('user-input').placeholder = 
-                lang === 'ne' ? "लेख्नुहोस् वा बोल्नुहोस्..." : lang === 'zh' ? "输入或说话..." : "Type or speak...";
-        };
-
         window.toggleChat = () => {
             const win = document.getElementById('chat-window');
             win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
-            if (win.style.display === 'flex' && document.getElementById('chat-body').children.length <= 1) {
-                const welcome = translations[currentLang].welcome_msg;
-                document.querySelector('.bot-msg').innerText = welcome;
-                speakText(welcome);
+        };
+
+        window.startChat = () => {
+            const nameInput = document.getElementById('client-name');
+            const phoneInput = document.getElementById('client-phone');
+            if (!nameInput.value.trim() || !phoneInput.value.trim()) {
+                alert("Please enter Name and Phone."); return;
             }
+            clientName = nameInput.value.trim();
+            clientPhone = phoneInput.value.trim();
+            document.getElementById('chat-auth').style.display = 'none';
+            document.getElementById('chat-body').style.display = 'flex';
+            document.getElementById('chat-input-area').style.display = 'flex';
+
+            addBotMsg(`Namaste <strong>${clientName}</strong>! How can I help you regarding Dr. Nirmal's services?`, true);
+        };
+
+        window.handleEnter = (e) => { if (e.key === 'Enter') sendMessage(); };
+
+        window.sendQuick = (text) => {
+            document.getElementById('user-input').value = text;
+            sendMessage();
         };
 
         window.sendMessage = async () => {
             const input = document.getElementById('user-input');
             const text = input.value.trim();
-            if(!text) return;
-            
-            addMessage(text, 'user-msg');
-            input.value = '';
-            
-            const loadingMsg = addMessage(translations[currentLang].loading, 'bot-msg');
+            if (!text) return;
+
+            addUserMsg(text);
+            input.value = "";
+            const loadingDiv = addBotMsg("...", false);
 
             try {
-                const result = await model.generateContent(text);
+                const result = await model.generateContent(`The user ${clientName} says: ${text}`);
                 const response = await result.response;
-                const aiResponseText = response.text();
-                
-                loadingMsg.innerText = aiResponseText;
-                speakText(aiResponseText);
-            } catch (error) {
-                loadingMsg.innerText = "Error: Could not connect to the assistant. Please call the clinic directly.";
-                console.error(error);
+                loadingDiv.innerHTML = response.text().replace(/\n/g, '<br>');
+            } catch (err) {
+                loadingDiv.innerText = "Connection error. Please call 056493511.";
             }
         };
 
-        function addMessage(text, className) {
+        function addUserMsg(text) {
             const body = document.getElementById('chat-body');
             const div = document.createElement('div');
-            div.className = 'msg ' + className;
+            div.className = 'msg user-msg';
             div.innerText = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function addBotMsg(text, showChips) {
+            const body = document.getElementById('chat-body');
+            const div = document.createElement('div');
+            div.className = 'msg bot-msg';
+            div.innerHTML = text;
+            if (showChips) {
+                div.innerHTML += `
+                <div class="quick-options">
+                    <span class="chip" onclick="sendQuick('Location?')">Location</span>
+                    <span class="chip" onclick="sendQuick('Appointments?')">Appointment</span>
+                    <span class="chip" onclick="sendQuick('OPD Time?')">Timings</span>
+                </div>`;
+            }
             body.appendChild(div);
             body.scrollTop = body.scrollHeight;
             return div;
         }
-
-        window.startVoice = () => {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SpeechRecognition) return alert("Voice not supported");
-            
-            const recognition = new SpeechRecognition();
-            recognition.lang = currentLang === 'ne' ? 'ne-NP' : currentLang === 'zh' ? 'zh-CN' : 'en-US';
-            
-            const micBtn = document.getElementById('mic-btn');
-            micBtn.classList.add('listening');
-            
-            recognition.start();
-            recognition.onresult = (event) => {
-                document.getElementById('user-input').value = event.results[0][0].transcript;
-                micBtn.classList.remove('listening');
-                window.sendMessage();
-            };
-            recognition.onerror = () => micBtn.classList.remove('listening');
-        };
-
-        function speakText(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = currentLang === 'ne' ? 'hi-IN' : currentLang === 'zh' ? 'zh-CN' : 'en-US';
-            window.speechSynthesis.speak(utterance);
-        }
     </script>
+</body>
+</html>
