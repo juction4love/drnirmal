@@ -1,188 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links | Dr. Nirmal Lamichhane</title>
-    <meta name="description" content="Connect with Dr. Nirmal Lamichhane - Senior Consultant Surgeon.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&family=Mukta:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        :root {
-            --primary: #0056b3;
-            --primary-dark: #003d80;
-            --accent: #17a2b8;
-            --bg-color: #e8f5e9;
-            --card-bg: #ffffff;
-            --text-dark: #333333;
-            --chat-bg: #ffffff;
-            --chat-header: #0056b3;
-            --user-msg-bg: #0056b3;
-            --bot-msg-bg: #f1f3f5;
+<script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
         }
+      }
+    </script>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(#c8e6c9 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: var(--text-dark);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            position: relative;
-        }
+        // --- CONFIGURATION & FAQ KNOWLEDGE BASE ---
+        const API_KEY = "AIzaSyBsJ0q6r-CkLOMVoqq4fJNIahocoMBTBDk";
+        const genAI = new GoogleGenerativeAI(API_KEY);
         
-        /* Language Overrides */
-        body.lang-ne { font-family: 'Mukta', sans-serif; }
-        body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
-
-        .back-home-btn {
-            position: absolute; top: 20px; left: 20px;
-            text-decoration: none; color: var(--text-dark);
-            font-weight: 700; display: flex; align-items: center; gap: 8px;
-            background: rgba(255, 255, 255, 0.9); padding: 8px 15px;
-            border-radius: 30px; font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border: 1px solid #ddd; z-index: 10;
-        }
-
-        .lang-switcher-top {
-            position: absolute; top: 20px; right: 20px;
-            display: flex; gap: 5px; z-index: 10;
-        }
-        .lang-btn {
-            background: #fff; border: 1px solid #ddd; padding: 5px 12px;
-            border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-weight: bold;
-        }
-        .lang-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-
-        .profile-container {
-            text-align: center; margin-bottom: 30px; margin-top: 40px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-        .profile-img {
-            width: 120px; height: 120px; border-radius: 50%;
-            border: 4px solid var(--primary); object-fit: cover;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1); margin-bottom: 15px;
-        }
-        .name { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 5px; }
-
-        .links-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 15px; }
-
-        .link-btn {
-            display: flex; align-items: center; justify-content: center;
-            background: var(--card-bg); color: var(--text-dark);
-            text-decoration: none; padding: 18px 25px; border-radius: 50px;
-            font-weight: 600; font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: 0.3s; border: 2px solid transparent;
-            position: relative; width: 100%; cursor: pointer;
-        }
-        .link-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--primary); }
-        .link-btn i { position: absolute; left: 25px; font-size: 1.3rem; }
-        
-        .btn-website { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
-        .btn-ai { background: linear-gradient(135deg, #28a745, #20c997); color: white; border: none; }
-
-        /* --- CHAT WINDOW (Enhanced) --- */
-        .chat-window {
-            position: fixed; bottom: 20px; right: 20px;
-            width: 360px; height: 580px; max-height: 80vh;
-            background: var(--chat-bg); border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-            display: none; flex-direction: column; overflow: hidden;
-            z-index: 1000; border: 1px solid #ddd;
-        }
-        .chat-header { background: var(--chat-header); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 12px; }
-        .msg { padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; max-width: 85%; }
-        .bot-msg { background: #eee; align-self: flex-start; }
-        .user-msg { background: var(--primary); color: white; align-self: flex-end; }
-        
-        .chat-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 10px; align-items: center; }
-        .chat-input { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ddd; outline: none; }
-        .send-btn { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
-        
-        /* Voice Button Style */
-        .mic-btn { 
-            background: #f1f3f5; color: var(--primary); 
-            border: 1px solid #ddd; padding: 10px 14px; 
-            border-radius: 50%; cursor: pointer; font-size: 1rem;
-            transition: 0.2s;
-        }
-        .mic-btn.listening { 
-            background: #dc3545; color: white; 
-            animation: pulse 1.5s infinite; 
-        }
-
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Mobile Responsive */
-        @media(max-width: 480px) {
-            .chat-window { width: 95%; right: 2.5%; bottom: 10px; height: 70vh; }
-        }
-    </style>
-</head>
-<body class="lang-en">
-
-    <a href="index.html" class="back-home-btn" data-key="back_home"><i class="fas fa-arrow-left"></i> Home</a>
-
-    <div class="lang-switcher-top">
-        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
-        <button class="lang-btn" id="btn-ne" onclick="setLanguage('ne')">NP</button>
-        <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">ZH</button>
-    </div>
-
-    <div class="profile-container">
-        <img src="profile.png" onerror="this.src='https://via.placeholder.com/150'" alt="Dr. Nirmal Lamichhane" class="profile-img">
-        <h1 class="name" data-key="name">Dr. Nirmal Lamichhane</h1>
-        <p style="font-size: 0.9rem; color: #666;" data-key="spec">Senior Consultant Surgeon | Uro-Oncology</p>
-    </div>
-
-    <div class="links-container">
-        <a href="index.html" class="link-btn btn-website">
-            <i class="fas fa-globe"></i> <span data-key="visit_site">Visit Official Website</span>
-        </a>
-        <button onclick="toggleChat()" class="link-btn btn-ai">
-            <i class="fas fa-robot"></i> <span data-key="chat_ai">Chat with Medical Assistant</span>
-        </button>
-        <a href="tel:056493511" class="link-btn">
-            <i class="fas fa-phone-alt"></i> <span data-key="call_clinic">Call Clinic Appointment</span>
-        </a>
-        <a href="mailto:nirmal.lamichhane@gmail.com" class="link-btn">
-            <i class="fas fa-envelope"></i> <span data-key="email_us">Send an Email</span>
-        </a>
-        <a href="https://maps.google.com/?q=B.P.+Koirala+Memorial+Cancer+Hospital" target="_blank" class="link-btn">
-            <i class="fas fa-map-marker-alt" style="color:#ea4335;"></i> <span data-key="find_map">Hospital Location Map</span>
-        </a>
-    </div>
-
-    <div class="chat-window" id="chat-window">
-        <div class="chat-header">
-            <span data-key="chat_head">Medical Assistant</span>
-            <span style="cursor:pointer; font-size:1.5rem;" onclick="toggleChat()">×</span>
-        </div>
-        <div class="chat-body" id="chat-body">
-            <div class="msg bot-msg">Namaste. I am Dr. Nirmal's Voice Assistant. How can I help you?</div>
-        </div>
-        <div class="chat-input-area">
-            <button class="mic-btn" id="mic-btn" onclick="startVoice()">
-                <i class="fas fa-microphone"></i>
-            </button>
+        // This is the "brain" of your assistant. Add more details here as needed.
+        const systemPrompt = `
+            You are the AI Medical Assistant for Dr. Nirmal Lamichhane. 
+            Role: Senior Consultant Surgeon & Uro-Oncologist.
+            Location: Bharatpur, Nepal.
+            Clinic Phone: 056493511.
             
-            <input type="text" id="user-input" class="chat-input" placeholder="Type or speak...">
-            <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
+            KNOWLEDGE BASE (FAQ):
+            1. SURGERY TYPES: Dr. Nirmal specializes in Uro-Oncology (Kidney, Bladder, Prostate cancer surgeries), Laparoscopic surgeries, and general advanced surgical procedures.
+            2. CLINIC HOURS: Sunday to Friday, 10:00 AM to 5:00 PM. (Closed on Saturdays).
+            3. APPOINTMENTS: Users can call 056493511 or visit the official website.
+            4. BIOGRAPHY: He is a highly experienced surgeon dedicated to advanced urological and oncological care in Nepal.
+            
+            GUIDELINES:
+            - Be professional, warm, and concise.
+            - Answer in the language the user speaks (English, Nepali, or Chinese).
+            - For medical emergencies, tell them to visit the Emergency Ward immediately.
+            - Always mention that AI advice is not a substitute for a physical consultation.
+        `;
 
-    <script>
+        const model = genAI.getGenerativeModel({ 
+            model: "gemini-1.5-flash",
+            systemInstruction: systemPrompt
+        });
+
         // --- TRANSLATIONS ---
         const translations = {
             en: {
@@ -191,7 +46,7 @@
                 call_clinic: "Call Clinic Appointment", email_us: "Send an Email", find_map: "Hospital Location Map",
                 chat_head: "Medical Assistant",
                 welcome_msg: "Namaste. I am Dr. Nirmal's Assistant. How can I help you?",
-                reply_msg: "Thank you. For surgeries or appointments, please call the clinic directly."
+                loading: "Consulting Dr. Nirmal's schedule..."
             },
             ne: {
                 back_home: "होम", name: "डा. निर्मल लामिछाने", spec: "वरिष्ठ कन्सल्टेन्ट सर्जन | युरो-अन्कोलोजी",
@@ -199,7 +54,7 @@
                 call_clinic: "क्लिनिकमा कल गर्नुहोस्", email_us: "इमेल पठाउनुहोस्", find_map: "अस्पतालको नक्सा",
                 chat_head: "मेडिकल असिस्टेन्ट",
                 welcome_msg: "नमस्ते। म डा. निर्मलको सहायक हुँ। म तपाईंलाई कसरी सहयोग गर्न सक्छु?",
-                reply_msg: "धन्यवाद। शल्यक्रिया वा भेटघाटका लागि कृपया क्लिनिकमा सिधा सम्पर्क गर्नुहोस्।"
+                loading: "डा. निर्मलको तालिका हेर्दै..."
             },
             zh: {
                 back_home: "主页", name: "尼尔马尔·拉米恰内 博士", spec: "高级顾问外科医生 | 泌尿肿瘤学",
@@ -207,58 +62,40 @@
                 call_clinic: "致电诊所预约", email_us: "发送电子邮件", find_map: "医院位置地图",
                 chat_head: "医疗助手",
                 welcome_msg: "您好，我是尼尔马尔医生的助手。请问有什么可以帮您？",
-                reply_msg: "谢谢。如需手术或预约，请直接致电诊所。"
+                loading: "正在查询医生的日程..."
             }
         };
 
-        // --- STATE ---
         let currentLang = 'en';
-        let recognition; // Speech Recognition Object
 
-        // --- LANGUAGE LOGIC ---
-        function setLanguage(lang) {
+        // Bind functions to window so they work with HTML onclick
+        window.setLanguage = (lang) => {
             currentLang = lang;
             document.body.className = 'lang-' + lang;
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
             
             const trans = translations[lang];
-            
-            // Update Text Elements
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (trans[key]) el.innerText = trans[key];
             });
 
-            // Update Input Placeholder based on Lang
-            const placeholders = {
-                en: "Type or speak...",
-                ne: "लेख्नुहोस् वा बोल्नुहोस्...",
-                zh: "输入或说话..."
-            };
-            document.getElementById('user-input').placeholder = placeholders[lang];
-        }
+            document.getElementById('user-input').placeholder = 
+                lang === 'ne' ? "लेख्नुहोस् वा बोल्नुहोस्..." : lang === 'zh' ? "输入或说话..." : "Type or speak...";
+        };
 
-        // --- CHAT LOGIC ---
-        function toggleChat() {
+        window.toggleChat = () => {
             const win = document.getElementById('chat-window');
-            if (win.style.display === 'flex') {
-                win.style.display = 'none';
-                // Stop speaking if closed
-                window.speechSynthesis.cancel();
-            } else {
-                win.style.display = 'flex';
-                // Only greet if empty
-                if(document.getElementById('chat-body').children.length <= 1) {
-                    const welcome = translations[currentLang].welcome_msg;
-                    speakText(welcome);
-                    // Update initial text if language changed before opening
-                    document.querySelector('.bot-msg').innerText = welcome;
-                }
+            win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+            if (win.style.display === 'flex' && document.getElementById('chat-body').children.length <= 1) {
+                const welcome = translations[currentLang].welcome_msg;
+                document.querySelector('.bot-msg').innerText = welcome;
+                speakText(welcome);
             }
-        }
+        };
 
-        function sendMessage() {
+        window.sendMessage = async () => {
             const input = document.getElementById('user-input');
             const text = input.value.trim();
             if(!text) return;
@@ -266,13 +103,20 @@
             addMessage(text, 'user-msg');
             input.value = '';
             
-            // Bot Reply Simulation
-            setTimeout(() => {
-                const reply = translations[currentLang].reply_msg;
-                addMessage(reply, 'bot-msg');
-                speakText(reply); // BOT SPEAKS HERE
-            }, 1000);
-        }
+            const loadingMsg = addMessage(translations[currentLang].loading, 'bot-msg');
+
+            try {
+                const result = await model.generateContent(text);
+                const response = await result.response;
+                const aiResponseText = response.text();
+                
+                loadingMsg.innerText = aiResponseText;
+                speakText(aiResponseText);
+            } catch (error) {
+                loadingMsg.innerText = "Error: Could not connect to the assistant. Please call the clinic directly.";
+                console.error(error);
+            }
+        };
 
         function addMessage(text, className) {
             const body = document.getElementById('chat-body');
@@ -281,72 +125,33 @@
             div.innerText = text;
             body.appendChild(div);
             body.scrollTop = body.scrollHeight;
+            return div;
         }
 
-        // --- VOICE INPUT (Speech-to-Text) ---
-        function startVoice() {
-            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-                alert("Voice input is not supported in this browser. Please try Chrome.");
-                return;
-            }
-
+        window.startVoice = () => {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRecognition();
+            if (!SpeechRecognition) return alert("Voice not supported");
             
-            // Set Language based on current selection
-            if(currentLang === 'ne') recognition.lang = 'ne-NP';
-            else if(currentLang === 'zh') recognition.lang = 'zh-CN';
-            else recognition.lang = 'en-US';
-
-            recognition.interimResults = false;
-            recognition.maxAlternatives = 1;
-
+            const recognition = new SpeechRecognition();
+            recognition.lang = currentLang === 'ne' ? 'ne-NP' : currentLang === 'zh' ? 'zh-CN' : 'en-US';
+            
             const micBtn = document.getElementById('mic-btn');
             micBtn.classList.add('listening');
-
+            
             recognition.start();
-
             recognition.onresult = (event) => {
-                const speechResult = event.results[0][0].transcript;
-                document.getElementById('user-input').value = speechResult;
+                document.getElementById('user-input').value = event.results[0][0].transcript;
                 micBtn.classList.remove('listening');
-                sendMessage(); // Auto send after speaking
+                window.sendMessage();
             };
+            recognition.onerror = () => micBtn.classList.remove('listening');
+        };
 
-            recognition.onspeechend = () => {
-                recognition.stop();
-                micBtn.classList.remove('listening');
-            };
-
-            recognition.onerror = (event) => {
-                micBtn.classList.remove('listening');
-                // console.log('Error occurred in recognition: ' + event.error);
-            };
-        }
-
-        // --- VOICE OUTPUT (Text-to-Speech) ---
         function speakText(text) {
             if (!('speechSynthesis' in window)) return;
-
-            // Stop any current speech
             window.speechSynthesis.cancel();
-
             const utterance = new SpeechSynthesisUtterance(text);
-            
-            // Attempt to match voice to language
-            if(currentLang === 'ne') {
-                utterance.lang = 'hi-IN'; // Fallback for Nepali (often sounds better than default en)
-            } else if (currentLang === 'zh') {
-                utterance.lang = 'zh-CN';
-            } else {
-                utterance.lang = 'en-US';
-            }
-
-            utterance.rate = 1;
-            utterance.pitch = 1;
-            
+            utterance.lang = currentLang === 'ne' ? 'hi-IN' : currentLang === 'zh' ? 'zh-CN' : 'en-US';
             window.speechSynthesis.speak(utterance);
         }
     </script>
-</body>
-</html>
