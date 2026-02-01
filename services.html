@@ -1,256 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Dr. Nirmal Lamichhane</title>
-    <meta name="description" content="Surgical services by Dr. Nirmal Lamichhane, Senior Consultant Surgeon & Former Chairman of BPKMCH. Expert in Uro-Oncology and Neobladder reconstruction.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"><title>Services | Dr. Nirmal Lamichhane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
-        /* --- DESIGN SYSTEM: MEDICAL BLUE --- */
-        :root {
-            --primary: #004085;      /* Deep Medical Blue */
-            --primary-dark: #002752; /* Navy */
-            --accent: #c0a16b;       /* Gold */
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
-            --text-dark: #333333;
-            --text-grey: #555555;
-            --shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-        }
-
-        /* NEPALI FONT SUPPORT */
-        body.lang-ne { font-family: 'Mukta', sans-serif; }
-        body.lang-ne h1, body.lang-ne h2, body.lang-ne h3 { font-family: 'Mukta', sans-serif; font-weight: 700; }
-
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
-        a { text-decoration: none; transition: 0.3s; }
-        
-        /* --- HEADER --- */
-        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        
-        .brand h1 { font-size: 1.5rem; margin: 0; line-height: 1.2; }
-        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-menu { display: flex; gap: 25px; }
-        .nav-menu a { color: var(--text-grey); font-weight: 600; font-size: 0.95rem; }
-        .nav-menu a:hover { color: var(--primary); }
-        .nav-menu a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
-
-        /* LANGUAGE SWITCHER */
-        .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
-        .lang-btn { background: #fff; border: none; padding: 5px 12px; cursor: pointer; font-size: 0.85rem; font-weight: bold; color: var(--text-grey); }
-        .lang-btn:hover { background: #f0f0f0; }
-        .lang-btn.active { background: var(--primary); color: white; }
-
-        /* --- CONTENT SECTION --- */
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        
-        .section-head { text-align: center; margin-bottom: 50px; }
-        .section-head h2 { font-size: 2.2rem; margin-bottom: 10px; }
-        .section-head p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; }
-
-        /* SERVICE GRID */
-        .service-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        .service-card { 
-            background: var(--white); 
-            padding: 35px; 
-            border-radius: 10px; 
-            border-left: 6px solid var(--accent); 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-            transition: transform 0.3s; 
-        }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        
-        h3 { font-size: 1.4rem; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
-        h3 i { color: var(--accent); }
-        
-        .service-desc { margin-bottom: 15px; color: #444; text-align: justify; }
-        
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; color: #555; }
-        strong { color: var(--primary); }
-
-        /* Responsive Layout */
-        @media (min-width: 768px) {
-            .service-grid { grid-template-columns: 1fr 1fr; }
-            .full-width { grid-column: span 2; }
-        }
-        @media (max-width: 768px) {
-            .nav-menu { display: none; } 
-        }
-
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: 50px; }
+        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; }
+        body { font-family: 'Lato', sans-serif; background: var(--light); color: #333; line-height: 1.7; margin: 0; }
+        header { background: #fff; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .srv-card { background: #fff; padding: 30px; border-radius: 8px; border-left: 6px solid var(--accent); margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        h1 { color: var(--primary); text-align: center; margin-bottom: 30px; font-family: 'Montserrat', sans-serif; }
+        h3 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
     </style>
 </head>
-
-<body class="lang-en">
-
+<body>
     <header>
-        <div class="nav-container">
-            <div class="brand">
-                <h1 data-key="header_name">Dr. Nirmal Lamichhane</h1>
-                <span data-key="header_title">Senior Consultant Surgeon</span>
-            </div>
-            
-            <div class="nav-right">
-                <nav class="nav-menu">
-                    <a href="index.html" data-key="nav_home">Home</a>
-                    <a href="about.html" data-key="nav_about">About</a>
-                    <a href="services.html" class="active" data-key="nav_services">Services</a>
-                    <a href="appointment.html" data-key="nav_appt">Appointment</a>
-                    <a href="links.html" data-key="nav_links">Links</a>
-                    <a href="contact.html" data-key="nav_contact">Contact</a>
-                </nav>
-
-                <div class="lang-switch">
-                    <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
-                    <button class="lang-btn" id="btn-ne" onclick="setLanguage('ne')">ने</button>
-                </div>
-            </div>
+        <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+            <h2 style="font-size:1.2rem; color:var(--primary); margin:0;">Dr. Nirmal Lamichhane</h2>
+            <nav><a href="index.html" style="margin-left:15px; text-decoration:none; color:#555;">Home</a><a href="services.html" style="margin-left:15px; text-decoration:none; color:var(--primary); font-weight:bold;">Services</a></nav>
         </div>
     </header>
 
     <main class="container">
-        <div class="section-head">
-            <h2 data-key="page_title">Clinical Expertise & Procedures</h2>
-            <p data-key="page_subtitle">Comprehensive surgical solutions for urological malignancies and complex pelvic conditions, backed by over two decades of international experience.</p>
-        </div>
-
-        <div class="service-grid">
+        <h1>Clinical Expertise & Procedures</h1>
+        <div class="srv-card">
+            <h3><i class="fas fa-procedures"></i> Urological Oncology</h3>
+            <p>Specialized management of genito-urinary tract tumors including bladder, prostate, and kidney cancers. Expert in Radical Cystectomy and Prostatectomy.</p>
             
-            <div class="service-card full-width">
-                <h3><i class="fas fa-procedures"></i> <span data-key="srv1_title">Urological Oncology</span></h3>
-                <p class="service-desc" data-key="srv1_desc">
-                    Dr. Lamichhane specializes in the surgical management of genito-urinary tract tumors. His primary focus is on delivering curative outcomes while preserving quality of life through advanced reconstruction techniques. He combines rigorous oncological principles with meticulous surgical skill to treat various malignancies.
-                </p>
-                <ul>
-                    <li data-key="srv1_li1"><strong>Bladder Cancer:</strong> Expertise in Radical Cystectomy. Dr. Nirmal has a special interest in the "Studer Pouch" (Orthotopic Neobladder), a complex procedure that constructs a new bladder from the intestine, allowing patients to urinate normally.</li>
-                    <li data-key="srv1_li2"><strong>Prostate Cancer:</strong> Performing Radical Prostatectomy for high-risk cases and managing active surveillance protocols for early-stage disease to minimize overtreatment while ensuring safety.</li>
-                    <li data-key="srv1_li3"><strong>Penile & Testicular Cancer:</strong> Surgical management including partial or total penectomy and meticulous groin lymph node dissections to ensure complete cancer removal.</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <h3><i class="fas fa-microscope"></i> <span data-key="srv2_title">Endourology</span></h3>
-                <p class="service-desc" data-key="srv2_desc">
-                    Utilizing minimally invasive technology to treat urinary tract conditions without open incisions. These procedures offer faster recovery times and reduced hospital stays.
-                </p>
-                <ul>
-                    <li data-key="srv2_li1"><strong>TURP:</strong> Transurethral Resection of the Prostate is the gold standard treatment for benign prostate enlargement (BPH), relieving urinary obstruction.</li>
-                    <li data-key="srv2_li2"><strong>TURBT:</strong> Endoscopic removal of bladder tumors for both accurate diagnosis and staging of bladder cancer before definitive treatment.</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <h3><i class="fas fa-user-md"></i> <span data-key="srv3_title">Complex Reconstruction</span></h3>
-                <p class="service-desc" data-key="srv3_desc">
-                    Leveraging his fellowship training in Colorectal Surgery from the UK, Dr. Lamichhane performs complex pelvic surgeries that often require multi-organ resection.
-                </p>
-                <ul>
-                    <li data-key="srv3_li1"><strong>Colorectal Surgery:</strong> Management of advanced rectal cancers and colectomies for patients with synchronous tumors or extensive disease.</li>
-                    <li data-key="srv3_li2"><strong>Breast Oncology:</strong> Experienced in Sentinel Lymph Node Biopsy using dye-guided methods for precise breast cancer staging.</li>
-                    <li data-key="srv3_li3"><strong>Tumor Boards:</strong> Active involvement in multidisciplinary planning for difficult cases.</li>
-                </ul>
-            </div>
-
+        </div>
+        <div class="srv-card">
+            <h3><i class="fas fa-microscope"></i> Neobladder Reconstruction</h3>
+            <p>Special interest in the <strong>Studer Pouch (Orthotopic Neobladder)</strong>. This complex intestinal reconstruction allows patients to maintain normal urination after bladder removal.</p>
+        </div>
+        <div class="srv-card">
+            <h3><i class="fas fa-user-md"></i> Complex Pelvic Surgery</h3>
+            <p>Expertise in colorectal oncology and major pelvic resections for advanced solid tumors, focusing on both curative outcomes and quality of life.</p>
         </div>
     </main>
-
-    <footer>
-        <p>&copy; <span id="year">2026</span> Dr. Nirmal Lamichhane. All Rights Reserved.</p>
-        <p data-key="footer_loc">Bharatpur, Chitwan, Nepal</p>
-    </footer>
-
-    <script>
-        // 1. DYNAMIC YEAR
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // 2. TRANSLATION DATA
-        const translations = {
-            en: {
-                header_name: "Dr. Nirmal Lamichhane",
-                header_title: "Senior Consultant Surgeon",
-                nav_home: "Home", nav_about: "About", nav_services: "Services", nav_appt: "Appointment", nav_links: "Links", nav_contact: "Contact",
-                footer_loc: "Bharatpur, Chitwan, Nepal",
-                
-                page_title: "Clinical Expertise & Procedures",
-                page_subtitle: "Comprehensive surgical solutions for urological malignancies and complex pelvic conditions, backed by over two decades of international experience.",
-                
-                srv1_title: "Urological Oncology",
-                srv1_desc: "Dr. Lamichhane specializes in the surgical management of genito-urinary tract tumors. His primary focus is on delivering curative outcomes while preserving quality of life through advanced reconstruction techniques. He combines rigorous oncological principles with meticulous surgical skill to treat various malignancies.",
-                srv1_li1: "<strong>Bladder Cancer:</strong> Expertise in Radical Cystectomy. Dr. Nirmal has a special interest in the 'Studer Pouch' (Orthotopic Neobladder), a complex procedure that constructs a new bladder from the intestine, allowing patients to urinate normally.",
-                srv1_li2: "<strong>Prostate Cancer:</strong> Performing Radical Prostatectomy for high-risk cases and managing active surveillance protocols for early-stage disease to minimize overtreatment while ensuring safety.",
-                srv1_li3: "<strong>Penile & Testicular Cancer:</strong> Surgical management including partial or total penectomy and meticulous groin lymph node dissections to ensure complete cancer removal.",
-                
-                srv2_title: "Endourology",
-                srv2_desc: "Utilizing minimally invasive technology to treat urinary tract conditions without open incisions. These procedures offer faster recovery times and reduced hospital stays.",
-                srv2_li1: "<strong>TURP:</strong> Transurethral Resection of the Prostate is the gold standard treatment for benign prostate enlargement (BPH), relieving urinary obstruction.",
-                srv2_li2: "<strong>TURBT:</strong> Endoscopic removal of bladder tumors for both accurate diagnosis and staging of bladder cancer before definitive treatment.",
-                
-                srv3_title: "Complex Reconstruction",
-                srv3_desc: "Leveraging his fellowship training in Colorectal Surgery from the UK, Dr. Lamichhane performs complex pelvic surgeries that often require multi-organ resection.",
-                srv3_li1: "<strong>Colorectal Surgery:</strong> Management of advanced rectal cancers and colectomies for patients with synchronous tumors or extensive disease.",
-                srv3_li2: "<strong>Breast Oncology:</strong> Experienced in Sentinel Lymph Node Biopsy using dye-guided methods for precise breast cancer staging.",
-                srv3_li3: "<strong>Tumor Boards:</strong> Active involvement in multidisciplinary planning for difficult cases."
-            },
-            ne: {
-                header_name: "डा. निर्मल लामिछाने",
-                header_title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
-                nav_home: "गृहपृष्ठ", nav_about: "बारेमा", nav_services: "सेवाहरू", nav_appt: "अपोइन्टमेन्ट", nav_links: "लिङ्कहरू", nav_contact: "सम्पर्क",
-                footer_loc: "भरतपुर, चितवन, नेपाल",
-                
-                page_title: "क्लिनिकल विशेषज्ञता र प्रक्रियाहरू",
-                page_subtitle: "दुई दशकभन्दा बढीको अन्तर्राष्ट्रिय अनुभवसहित युरोलोजिकल क्यान्सर र जटिल पेल्भिक समस्याहरूको लागि व्यापक शल्यक्रिया समाधानहरू।",
-                
-                srv1_title: "युरोलोजिकल अंकोलोजी (Urological Oncology)",
-                srv1_desc: "डा. लामिछाने जेनीटो-युरिनरी ट्युमरहरूको शल्यक्रिया व्यवस्थापनमा विशेषज्ञ हुनुहुन्छ। उहाँको मुख्य ध्यान उन्नत पुनर्निर्माण प्रविधिहरू मार्फत बिरामीको जीवनको गुणस्तर बचाउँदै रोग निको पार्ने नतिजा दिनु हो।",
-                srv1_li1: "<strong>मुत्रथैली क्यान्सर:</strong> रेडिकल सिस्टेक्टमीमा विशेषज्ञता। डा. निर्मलको 'Studer Pouch' (अर्थोटोपिक नियोब्ल्याडर) मा विशेष रुचि छ, जसमा आन्द्राबाट नयाँ मुत्रथैली बनाइन्छ ताकि बिरामीले सामान्य रूपमा पिसाब फेर्न सकून्।",
-                srv1_li2: "<strong>प्रोस्टेट क्यान्सर:</strong> उच्च जोखिम भएका केसहरूको लागि रेडिकल प्रोस्टेक्टमी र प्रारम्भिक चरणको रोगको लागि 'सक्रिय निगरानी' (Active Surveillance) प्रोटोकलहरू व्यवस्थापन।",
-                srv1_li3: "<strong>लिङ्ग र अण्डकोष क्यान्सर:</strong> पूर्ण क्यान्सर निवारण सुनिश्चित गर्न आंशिक वा पूर्ण पेनेक्टमी र ग्रोइन लिम्फ नोड विच्छेदन सहितको शल्यक्रिया।",
-                
-                srv2_title: "इन्डोयुरोलोजी (Endourology)",
-                srv2_desc: "ठूलो चिरफार नगरी मुत्रनलीको समस्या उपचार गर्न न्यूनतम इनभेसिभ प्रविधि प्रयोग गरिन्छ। यी प्रक्रियाहरूले छिटो निको हुन मद्दत गर्छन्।",
-                srv2_li1: "<strong>TURP:</strong> यो प्रोस्टेट ग्रन्थि बढेको (BPH) उपचार गर्ने स्वर्ण मापदण्ड हो, जसले पिसाबको रुकावट हटाउँछ।",
-                srv2_li2: "<strong>TURBT:</strong> मुत्रथैलीको क्यान्सरको सही निदान र स्टेजिङको लागि इन्डोस्कोपिक विधिद्वारा ट्युमर निकाल्ने प्रक्रिया।",
-                
-                srv3_title: "जटिल पुनर्निर्माण (Complex Reconstruction)",
-                srv3_desc: "बेलायतबाट कोलोरेक्टल सर्जरीमा फेलोशिप तालिम प्राप्त गर्नुभएको डा. लामिछाने बहु-अंग रिसेक्सन (multi-organ resection) आवश्यक पर्ने जटिल पेल्भिक शल्यक्रियाहरू गर्नुहुन्छ।",
-                srv3_li1: "<strong>कोलोरेक्टल सर्जरी:</strong> जटिल वा फैलिएको रोग भएका बिरामीहरूका लागि रेक्टल क्यान्सर र कोलेक्टोमी व्यवस्थापन।",
-                srv3_li2: "<strong>स्तन अंकोलोजी:</strong> स्तन क्यान्सर स्टेजिङको लागि डाई-गाइडेड विधिहरू प्रयोग गरी सेन्टिनल लिम्फ नोड बायोप्सी गर्न अनुभवी।",
-                srv3_li3: "<strong>ट्युमर बोर्ड:</strong> जटिल केसहरूको लागि उत्तम उपचार विधि तय गर्न ट्युमर बोर्ड बैठकहरूमा सक्रिय सहभागिता।"
-            }
-        };
-
-        // 3. LANGUAGE FUNCTION
-        function setLanguage(lang) {
-            document.body.className = 'lang-' + lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
-
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-        }
-    </script>
 </body>
 </html>
