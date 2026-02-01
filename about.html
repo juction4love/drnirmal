@@ -1,160 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Profile | Dr. Nirmal Lamichhane</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Dr. Nirmal Lamichhane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --primary: #004085;
-            --accent: #c0a16b;
-            --light-bg: #f8f9fa;
-            --text-dark: #333;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            line-height: 1.8;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary);
-            margin-bottom: 30px;
-        }
-
-        h1, h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        .section-title {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .milestone-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .milestone-item {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .milestone-item strong {
-            display: block;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .training-box {
-            background-color: #f0f4f8;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .training-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .training-item i {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
-
-        .footer-note {
-            text-align: center;
-            font-style: italic;
-            color: #666;
-            margin-top: 40px;
-        }
+        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; }
+        body { font-family: 'Lato', sans-serif; color: #333; background: var(--light); line-height: 1.8; margin: 0; }
+        body.lang-ne { font-family: 'Mukta', sans-serif; }
+        header { background: #fff; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top:0; z-index:100;}
+        .nav-box { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: #555; margin-left: 15px; text-decoration: none; font-weight: 600; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .card { background: #fff; padding: 35px; border-radius: 10px; border-top: 5px solid var(--primary); margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); font-family: 'Montserrat', sans-serif; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+        .milestone { border-left: 3px solid var(--accent); padding-left: 20px; margin-bottom: 20px; }
     </style>
 </head>
-<body>
-
-<div class="container">
-    <div class="card">
-        <h2 class="section-title"><i class="fas fa-award"></i> Professional Milestones</h2>
-        <p>
-            Dr. Nirmal Lamichhane joined the B.P. Koirala Memorial Cancer Hospital (BPKMCH) in 2002, rising through the ranks from Registrar to Senior Consultant. Throughout his distinguished tenure, he has held significant administrative and leadership responsibilities that have shaped cancer care in the region:
-        </p>
-
-        <div class="milestone-list">
-            <div class="milestone-item">
-                <strong>Former Chairman of the Board of Directors</strong>
-                Led the strategic governance and policy framework of BPKMCH to improve oncology services nationwide.
-            </div>
-            <div class="milestone-item">
-                <strong>Former Deputy Director (2018–2020)</strong>
-                Managed hospital operations, clinical services, and administrative coordination during a period of hospital expansion.
-            </div>
-            <div class="milestone-item">
-                <strong>Academic Leadership</strong>
-                Served as an Assistant Professor of Surgery at the College of Medical Sciences, Bharatpur, mentoring the next generation of Nepalese surgeons.
-            </div>
+<body class="lang-en">
+    <header>
+        <div class="nav-box">
+            <h2 style="font-size:1.2rem; border:none; margin:0;">Dr. Nirmal Lamichhane</h2>
+            <nav class="nav-links">
+                <a href="index.html">Home</a><a href="about.html" style="color:var(--primary)">About</a><a href="services.html">Services</a><a href="appointment.html">Appt</a><a href="links.html">Links</a><a href="contact.html">Contact</a>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <div class="card">
-        <h2 class="section-title"><i class="fas fa-globe-americas"></i> International Training & Clinical Excellence</h2>
-        <p>Dr. Lamichhane’s expertise is backed by prestigious global training and fellowships at world-renowned medical institutions:</p>
-        
-        <div class="training-box">
-            <div class="training-item">
-                <i class="fas fa-certificate"></i>
-                <div>
-                    <strong>United States of America</strong>
-                    Saudavar Fellowship in Surgical Oncology at <em>Memorial Sloan Kettering Cancer Center</em> (New York) and Sentinel Lymph Node Biopsy training at <em>H. Lee Moffitt Cancer Center</em> (Florida).
-                </div>
-            </div>
-            <div class="training-item">
-                <i class="fas fa-certificate"></i>
-                <div>
-                    <strong>United Kingdom</strong>
-                    Fellowship in Colorectal Surgical Oncology sponsored by the <em>Royal College of Surgeons of Edinburgh</em>.
-                </div>
+    <main class="container">
+        <div class="card">
+            <h2 data-key="t1">Professional Milestones</h2>
+            <p data-key="p1">Dr. Nirmal Lamichhane joined B.P. Koirala Memorial Cancer Hospital in 2002. Over two decades, he has held major leadership roles that shaped regional cancer care:</p>
+            <div class="milestone">
+                <p data-key="m1"><strong>Former Chairman:</strong> Led the Board of Directors at BPKMCH, managing national oncology policies.</p>
+                <p data-key="m2"><strong>Former Deputy Director (2018–2020):</strong> Oversaw hospital clinical operations and administrative growth.</p>
+                <p data-key="m3"><strong>Academic:</strong> Former Assistant Professor of Surgery at the College of Medical Sciences, Bharatpur.</p>
             </div>
         </div>
 
-        
+        <div class="card">
+            <h2 data-key="t2">International Training</h2>
+            <p data-key="p2">His surgical expertise is backed by fellowships at the world's leading cancer centers:</p>
+            <ul>
+                <li data-key="f1"><strong>USA:</strong> Saudavar Fellowship at Memorial Sloan Kettering Cancer Center (New York).</li>
+                <li data-key="f2"><strong>USA:</strong> Sentinel Node Biopsy training at H. Lee Moffitt Cancer Center (Florida).</li>
+                <li data-key="f3"><strong>UK:</strong> Colorectal Surgical Oncology Fellowship, Royal College of Surgeons of Edinburgh.</li>
+            </ul>
+        </div>
+    </main>
 
-        <p style="margin-top: 25px;">
-            Today, he remains a dedicated <strong>Senior Consultant Surgical Oncologist</strong>, focusing on advanced urological procedures, complex pelvic reconstructions, and maintaining a high standard of patient-centered care in Nepal.
-        </p>
-    </div>
-
-    <div class="footer-note">
-        Official Portfolio of Dr. Nirmal Lamichhane &copy; 2026
-    </div>
-</div>
-
+    <script>
+        const txt = {
+            en: { t1:"Professional Milestones", p1:"Dr. Nirmal Lamichhane joined B.P. Koirala Memorial Cancer Hospital in 2002. Over two decades, he has held major leadership roles that shaped regional cancer care:", m1:"<strong>Former Chairman:</strong> Led the Board of Directors at BPKMCH, managing national oncology policies.", m2:"<strong>Former Deputy Director (2018–2020):</strong> Oversaw hospital clinical operations and administrative growth.", m3:"<strong>Academic:</strong> Former Assistant Professor of Surgery at the College of Medical Sciences, Bharatpur.", t2:"International Training", p2:"His surgical expertise is backed by fellowships at the world's leading cancer centers:", f1:"<strong>USA:</strong> Saudavar Fellowship at Memorial Sloan Kettering Cancer Center (New York).", f2:"<strong>USA:</strong> Sentinel Node Biopsy training at H. Lee Moffitt Cancer Center (Florida).", f3:"<strong>UK:</strong> Colorectal Surgical Oncology Fellowship, Royal College of Surgeons of Edinburgh." },
+            ne: { t1:"व्यावसायिक माइलस्टोनहरू", p1:"डा. निर्मल लामिछाने २००२ मा बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालमा आबद्ध हुनुभयो। दुई दशकमा उहाँले प्रमुख नेतृत्वदायी भूमिकाहरू सम्हाल्नुभएको छ:", m1:"<strong>पूर्व अध्यक्ष:</strong> BPKMCH को सञ्चालक समितिको नेतृत्व गर्दै राष्ट्रिय अंकोलोजी नीतिहरू व्यवस्थापन गर्नुभयो।", m2:"<strong>पूर्व उप-निर्देशक (२०१८-२०२०):</strong> अस्पतालको क्लिनिकल सञ्चालन र प्रशासनिक विकासको रेखदेख गर्नुभयो।", m3:"<strong>प्राज्ञिक:</strong> कलेज अफ मेडिकल साइन्सेज, भरतपुरमा शल्यक्रिया विषयको पूर्व सहायक प्राध्यापक।", t2:"अन्तर्राष्ट्रिय तालिम", p2:"उहाँको शल्यक्रिया विशेषज्ञता विश्वका प्रमुख क्यान्सर केन्द्रहरूको फेलोशिपद्वारा समर्थित छ:", f1:"<strong>अमेरिका:</strong> मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर (न्युयोर्क) मा सौदावर फेलोशिप।", f2:"<strong>अमेरिका:</strong> एच. ली मोफिट क्यान्सर सेन्टर (फ्लोरिडा) मा सेन्टिनल नोड बायोप्सी तालिम।", f3:"<strong>बेलायत:</strong> रोयल कलेज अफ सर्जन्स अफ एडिनबर्गद्वारा प्रायोजित कोलोरेक्टल सर्जिकल अंकोलोजी फेलोशिप।" }
+        };
+        // Initialization script to handle toggles (simplified)
+    </script>
 </body>
 </html>
