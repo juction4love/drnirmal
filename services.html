@@ -6,24 +6,47 @@
     <title>Services | Dr. Nirmal Lamichhane</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; }
-        body { font-family: 'Lato', sans-serif; color: #333; background: var(--light); margin: 0; line-height: 1.6; }
-        header { background: #fff; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        /* --- DESIGN SYSTEM --- */
+        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; --dark: #333; }
+        body { font-family: 'Lato', sans-serif; color: var(--dark); background: var(--light); margin: 0; line-height: 1.8; }
+        
+        /* Navigation */
+        header { background: #fff; padding: 15px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
         .nav-box { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 600; }
-        .nav-links a.active { color: var(--primary); }
-        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
-        .service-card { background: #fff; padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent); margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1 { text-align: center; color: var(--primary); font-family: 'Montserrat', sans-serif; margin-bottom: 40px; }
-        h3 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        /* Main Layout */
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h1 { color: var(--primary); font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px; }
+        .section-header p { color: #666; max-width: 600px; margin: 0 auto; }
+
+        /* Service Cards */
+        .service-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .service-card { background: #fff; padding: 35px; border-radius: 10px; border-left: 6px solid var(--accent); box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        h3 { color: var(--primary); margin-bottom: 15px; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; gap: 12px; font-size: 1.4rem; }
+        h3 i { color: var(--accent); }
+        
+        ul { padding-left: 20px; margin-top: 15px; }
+        li { margin-bottom: 8px; color: #555; }
+        strong { color: var(--primary); }
+
+        @media (min-width: 768px) {
+            .service-grid { grid-template-columns: 1fr 1fr; }
+            .full-width { grid-column: span 2; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="nav-box">
-        <h2 style="margin:0; font-size:1.2rem; color:var(--primary);">Dr. Nirmal Lamichhane</h2>
+        <h2 style="margin:0; font-size:1.3rem; color:var(--primary);">Dr. Nirmal Lamichhane</h2>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -36,36 +59,48 @@
 </header>
 
 <main class="container">
-    <h1>Clinical Expertise</h1>
-
-    <div class="service-card">
-        <h3><i class="fas fa-procedures"></i> Urological Oncology</h3>
-        <p>
-            Expert diagnosis and surgical management of Genito-urinary tumors.
-            <ul>
-                <li><strong>Bladder Cancer:</strong> Radical Cystectomy with urinary diversions. [cite_start]Special interest in Studer pouch (Orthotopic) neobladder[cite: 53, 125].</li>
-                [cite_start]<li><strong>Prostate Cancer:</strong> Radical Prostatectomy and active surveillance protocols[cite: 53].</li>
-                [cite_start]<li><strong>Penile Cancer:</strong> Penectomies and groin node dissections[cite: 54, 131].</li>
-            </ul>
-        </p>
+    <div class="section-header">
+        <h1>Clinical Expertise & Procedures</h1>
+        [cite_start]<p>Comprehensive surgical solutions for urological malignancies and complex pelvic conditions, backed by over two decades of experience[cite: 42].</p>
     </div>
 
-    <div class="service-card">
-        <h3><i class="fas fa-microscope"></i> Endourology</h3>
-        <p>
-            Minimally invasive procedures for precise tumor removal.
+    <div class="service-grid">
+        
+        <div class="service-card full-width">
+            <h3><i class="fas fa-procedures"></i> Urological Oncology</h3>
+            <p>
+                Dr. Lamichhane specializes in the surgical management of genito-urinary tract tumors. His primary focus is on delivering curative outcomes while preserving quality of life through advanced reconstruction techniques.
+            </p>
             <ul>
-                [cite_start]<li><strong>TURP:</strong> Transurethral Resection of the Prostate[cite: 53].</li>
-                [cite_start]<li><strong>TURBT:</strong> Transurethral Resection of Bladder Tumor for diagnosis and staging[cite: 53].</li>
+                <li><strong>Bladder Cancer:</strong> Expertise in Radical Cystectomy. [cite_start]Dr. Nirmal has a special interest in the "Studer Pouch" (Orthotopic Neobladder), a complex procedure that constructs a new bladder from the intestine, allowing patients to urinate normally[cite: 53, 125].</li>
+                [cite_start]<li><strong>Prostate Cancer:</strong> Performing Radical Prostatectomy for high-risk cases and managing active surveillance protocols for early-stage disease[cite: 53].</li>
+                [cite_start]<li><strong>Penile & Testicular Cancer:</strong> Surgical management including partial or total penectomy and meticulous groin lymph node dissections[cite: 54, 131].</li>
             </ul>
-        </p>
-    </div>
+        </div>
 
-    <div class="service-card">
-        <h3><i class="fas fa-user-md"></i> Complex Reconstruction</h3>
-        <p>
-            [cite_start]Specialized in complex pelvic surgeries, colorectal resections, and major reconstructive procedures to restore function after cancer removal[cite: 42, 54].
-        </p>
+        <div class="service-card">
+            <h3><i class="fas fa-microscope"></i> Endourology</h3>
+            <p>
+                Utilizing minimally invasive technology to treat urinary tract conditions without open incisions. These procedures offer faster recovery times and reduced hospital stays.
+            </p>
+            <ul>
+                [cite_start]<li><strong>TURP (Transurethral Resection of the Prostate):</strong> The gold standard treatment for benign prostate enlargement (BPH)[cite: 53].</li>
+                [cite_start]<li><strong>TURBT:</strong> Endoscopic removal of bladder tumors for both diagnosis and staging of bladder cancer[cite: 53].</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3><i class="fas fa-user-md"></i> Complex Reconstruction</h3>
+            <p>
+                [cite_start]Leveraging his fellowship training in Colorectal Surgery from the UK[cite: 39], Dr. Lamichhane performs complex pelvic surgeries that often require multi-organ resection.
+            </p>
+            <ul>
+                [cite_start]<li><strong>Colorectal Surgery:</strong> Management of advanced rectal cancers and colectomies[cite: 54].</li>
+                [cite_start]<li><strong>Breast Oncology:</strong> Experienced in Sentinel Lymph Node Biopsy using dye-guided methods for breast cancer staging[cite: 33].</li>
+                [cite_start]<li><strong>Multidisciplinary Care:</strong> Active involvement in Tumor Board meetings to determine the best treatment path for complex cases[cite: 55].</li>
+            </ul>
+        </div>
+
     </div>
 </main>
 
