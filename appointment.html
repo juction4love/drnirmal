@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment | Dr. Nirmal Lamichhane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; }
+        body { font-family: 'Lato', sans-serif; color: #333; background: var(--light); margin: 0; }
+        header { background: #fff; padding: 15px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-box { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 600; }
+        .nav-links a.active { color: var(--primary); }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        .form-card { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-top: 5px solid var(--primary); }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .btn-submit { background: var(--primary); color: #fff; padding: 15px; width: 100%; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .btn-submit:hover { background: #003366; }
+        .alert { background: #ffebee; color: #c62828; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-box">
+        <h2 style="margin:0; font-size:1.2rem; color:var(--primary);">Dr. Nirmal Lamichhane</h2>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="appointment.html" class="active">Appointment</a>
+            <a href="links.html">Links</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="form-card">
+        <h1 style="color:var(--primary); margin-top:0;">Schedule Consultation</h1>
+        <p>Dr. Nirmal primarily consults at the Department of Surgical Oncology, B.P. [cite_start]Koirala Memorial Cancer Hospital[cite: 41].</p>
+        
+        <div class="alert">
+            <strong>Note:</strong> For urgent medical emergencies, please visit the BPKMCH Emergency Department immediately.
+        </div>
+
+        <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Patient Name">
+
+            <label>Contact Number</label>
+            <input type="tel" placeholder="98XXXXXXXX">
+
+            <label>Type of Condition</label>
+            <select>
+                <option>Prostate Cancer</option>
+                <option>Bladder Cancer</option>
+                <option>Kidney/Penile Tumor</option>
+                <option>Other / General Inquiry</option>
+            </select>
+
+            <label>Brief Message</label>
+            <textarea rows="4" placeholder="Describe your symptoms..."></textarea>
+
+            <button type="submit" class="btn-submit">Request Appointment</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
