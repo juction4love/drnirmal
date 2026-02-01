@@ -3,132 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Dr. Nirmal Lamichhane</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Professional Profile | Dr. Nirmal Lamichhane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; --dark: #333; }
-        body { font-family: 'Lato', sans-serif; color: var(--dark); background: var(--light); margin: 0; line-height: 1.8; }
-        body.lang-ne { font-family: 'Mukta', sans-serif; }
-        
-        /* Navigation */
-        header { background: #fff; padding: 15px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
-        .nav-box { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        
-        /* Language Button */
-        .lang-btn { background: none; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-left: 15px; }
-        .lang-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+        :root {
+            --primary: #004085;
+            --accent: #c0a16b;
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
 
-        /* Content Layout */
-        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
-        .card { background: #fff; padding: 40px; border-radius: 10px; border-top: 5px solid var(--primary); margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
-        h1, h2, h3 { color: var(--primary); font-family: 'Montserrat', sans-serif; margin-bottom: 20px; }
-        p { margin-bottom: 15px; text-align: justify; color: #444; }
-        ul { padding-left: 20px; } 
-        li { margin-bottom: 10px; color: #555; }
-        
-        strong { color: var(--primary); }
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .milestone-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .milestone-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .milestone-item strong {
+            display: block;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .training-box {
+            background-color: #f0f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .training-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .training-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 40px;
+        }
     </style>
 </head>
-<body class="lang-en">
+<body>
 
-<header>
-    <div class="nav-box">
-        <h2 style="margin:0; font-size:1.3rem;">Dr. Nirmal Lamichhane</h2>
-        <div style="display:flex; align-items:center;">
-            <nav class="nav-links">
-                <a href="index.html" data-key="nav_home">Home</a>
-                <a href="about.html" class="active" data-key="nav_about">About</a>
-                <a href="services.html" data-key="nav_services">Services</a>
-                <a href="appointment.html" data-key="nav_appt">Appointment</a>
-                <a href="links.html" data-key="nav_links">Links</a>
-                <a href="contact.html" data-key="nav_contact">Contact</a>
-            </nav>
-            <button class="lang-btn" onclick="toggleLang()">EN/ने</button>
+<div class="container">
+    <div class="card">
+        <h2 class="section-title"><i class="fas fa-award"></i> Professional Milestones</h2>
+        <p>
+            Dr. Nirmal Lamichhane joined the B.P. Koirala Memorial Cancer Hospital (BPKMCH) in 2002, rising through the ranks from Registrar to Senior Consultant. Throughout his distinguished tenure, he has held significant administrative and leadership responsibilities that have shaped cancer care in the region:
+        </p>
+
+        <div class="milestone-list">
+            <div class="milestone-item">
+                <strong>Former Chairman of the Board of Directors</strong>
+                Led the strategic governance and policy framework of BPKMCH to improve oncology services nationwide.
+            </div>
+            <div class="milestone-item">
+                <strong>Former Deputy Director (2018–2020)</strong>
+                Managed hospital operations, clinical services, and administrative coordination during a period of hospital expansion.
+            </div>
+            <div class="milestone-item">
+                <strong>Academic Leadership</strong>
+                Served as an Assistant Professor of Surgery at the College of Medical Sciences, Bharatpur, mentoring the next generation of Nepalese surgeons.
+            </div>
         </div>
     </div>
-</header>
-
-<main class="container">
-    <div class="card">
-        <h1 data-key="about_title">A Lifetime Dedicated to Oncology</h1>
-        <p data-key="about_intro">
-            Dr. Nirmal Lamichhane is a distinguished figure in the field of Nepalese oncology. His medical journey began with a Bachelor of Medicine and Bachelor of Surgery (MBBS) from Shanghai Medical University in 1998. Driven by a passion for cancer care, he pursued a Master of Medicine in Clinical Oncology from Fudan University (2001) and later specialized further with a Magister Chirurgiae (M.Ch) in Urology from Kathmandu University in 2016. This robust academic foundation has enabled him to treat complex malignancies with precision and compassion.
-        </p>
-    </div>
 
     <div class="card">
-        <h2 data-key="career_title">Professional Leadership & Experience</h2>
-        <p data-key="career_text">
-            His professional timeline is deeply rooted in the B.P. Koirala Memorial Cancer Hospital (BPKMCH). Joining as a Registrar in 2002, he ascended through the ranks to Junior Consultant and eventually Senior Consultant Surgeon. Dr. Lamichhane has held significant leadership responsibilities, notably serving as the Deputy Director from 2018 to 2020 and later as the <strong>Former Chairman of the Board of Directors</strong>. His vision helped shape the strategic growth of the institution. Additionally, he shared his extensive expertise as an Assistant Professor at the College of Medical Sciences (2012-2016).
-        </p>
-    </div>
-
-    <div class="card">
-        <h2 data-key="fel_title">Global Training & Fellowships</h2>
-        <p data-key="fel_intro">To bring world-class surgical techniques to Nepal, Dr. Lamichhane has completed extensive international training:</p>
-        <ul id="fel_list">
-            <li><strong>USA (2006):</strong> Completed the prestigious Saudavar Fellowship in Surgical Oncology at Memorial Sloan Kettering Cancer Center (New York).</li>
-            <li><strong>USA (2003):</strong> Specialized training in Sentinel Lymph Node Biopsy at the H. Lee Moffitt Cancer Center (Florida).</li>
-            <li><strong>UK (2010):</strong> Fellowship in Colorectal Surgical Oncology sponsored by the Royal College of Surgeons of Edinburgh.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2 data-key="mem_title">Memberships & Affiliations</h2>
-        <p data-key="mem_text">
-            Dr. Lamichhane is an active leader in the medical community. He is a Life Member of the Nepal Medical Association and the SAARC Federation of Oncologists. On the global stage, he maintains membership with the International Union Against Cancer (UICC) and the American Society of Clinical Oncology (ASCO), ensuring he stays updated with the latest advancements in cancer research and surgical innovation.
-        </p>
-    </div>
-</main>
-
-<script>
-    let currentLang = 'en';
-    
-    const content = {
-        en: {
-            nav_home: "Home", nav_about: "About", nav_services: "Services", nav_appt: "Appointment", nav_links: "Links", nav_contact: "Contact",
-            about_title: "A Lifetime Dedicated to Oncology",
-            about_intro: "Dr. Nirmal Lamichhane is a distinguished figure in the field of Nepalese oncology. His medical journey began with a Bachelor of Medicine and Bachelor of Surgery (MBBS) from Shanghai Medical University in 1998. Driven by a passion for cancer care, he pursued a Master of Medicine in Clinical Oncology from Fudan University (2001) and later specialized further with a Magister Chirurgiae (M.Ch) in Urology from Kathmandu University in 2016. This robust academic foundation has enabled him to treat complex malignancies with precision and compassion.",
-            career_title: "Professional Leadership & Experience",
-            career_text: "His professional timeline is deeply rooted in the B.P. Koirala Memorial Cancer Hospital (BPKMCH). Joining as a Registrar in 2002, he ascended through the ranks to Junior Consultant and eventually Senior Consultant Surgeon. Dr. Lamichhane has held significant leadership responsibilities, notably serving as the Deputy Director from 2018 to 2020 and later as the <strong>Former Chairman of the Board of Directors</strong>. His vision helped shape the strategic growth of the institution. Additionally, he shared his extensive expertise as an Assistant Professor at the College of Medical Sciences (2012-2016).",
-            fel_title: "Global Training & Fellowships",
-            fel_intro: "To bring world-class surgical techniques to Nepal, Dr. Lamichhane has completed extensive international training:",
-            fel_list_html: "<li><strong>USA (2006):</strong> Completed the prestigious Saudavar Fellowship in Surgical Oncology at Memorial Sloan Kettering Cancer Center (New York).</li><li><strong>USA (2003):</strong> Specialized training in Sentinel Lymph Node Biopsy at the H. Lee Moffitt Cancer Center (Florida).</li><li><strong>UK (2010):</strong> Fellowship in Colorectal Surgical Oncology sponsored by the Royal College of Surgeons of Edinburgh.</li>",
-            mem_title: "Memberships & Affiliations",
-            mem_text: "Dr. Lamichhane is an active leader in the medical community. He is a Life Member of the Nepal Medical Association and the SAARC Federation of Oncologists. On the global stage, he maintains membership with the International Union Against Cancer (UICC) and the American Society of Clinical Oncology (ASCO), ensuring he stays updated with the latest advancements in cancer research and surgical innovation."
-        },
-        ne: {
-            nav_home: "गृहपृष्ठ", nav_about: "बारेमा", nav_services: "सेवाहरू", nav_appt: "अपोइन्टमेन्ट", nav_links: "लिङ्कहरू", nav_contact: "सम्पर्क",
-            about_title: "अंकोलोजीमा समर्पित जीवन",
-            about_intro: "डा. निर्मल लामिछाने नेपाली अंकोलोजी क्षेत्रका एक विशिष्ट व्यक्तित्व हुनुहुन्छ। उहाँको चिकित्सा यात्रा सन् १९९८ मा साङ्घाई मेडिकल युनिभर्सिटीबाट MBBS गरेर सुरु भयो। क्यान्सर उपचारप्रतिको लगावका कारण उहाँले २००१ मा फुदान विश्वविद्यालयबाट क्लिनिकल अंकोलोजीमा मास्टर्स र २०१६ मा काठमाडौं विश्वविद्यालयबाट M.Ch युरोलोजी हासिल गर्नुभयो। यो बलियो शैक्षिक आधारले उहाँलाई जटिल क्यान्सरहरूको उपचार कुशलतापूर्वक गर्न सक्षम बनाएको छ।",
-            career_title: "व्यावसायिक नेतृत्व र अनुभव",
-            career_text: "उहाँको व्यावसायिक जीवन बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) सँग गहिरो रूपमा जोडिएको छ। २००२ मा रजिस्ट्रारको रूपमा सेवा सुरु गरी उहाँ कन्सल्टेन्ट हुँदै वरिष्ठ सर्जन बन्नुभयो। उहाँले २०१८ देखि २०२० सम्म उप-निर्देशक र पछि <strong>सञ्चालक समितिको पूर्व अध्यक्ष</strong>को रूपमा महत्वपूर्ण नेतृत्वदायी जिम्मेवारी सम्हाल्नुभयो। उहाँको दूरदर्शिताले संस्थाको रणनीतिक विकासमा मद्दत पुर्‍याएको छ। साथै, उहाँले कलेज अफ मेडिकल साइन्सेजमा सहायक प्राध्यापक (२०१२-२०१६) को रूपमा पनि सेवा गर्नुभयो।",
-            fel_title: "अन्तर्राष्ट्रिय तालिम र फेलोशिप",
-            fel_intro: "नेपालमा विश्वस्तरीय शल्यक्रिया प्रविधिहरू भित्र्याउन डा. लामिछानेले विस्तृत अन्तर्राष्ट्रिय तालिम लिनुभएको छ:",
-            fel_list_html: "<li><strong>अमेरिका (२००६):</strong> मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर (न्युयोर्क) मा प्रतिष्ठित सौदावर फेलोशिप पूरा गर्नुभयो।</li><li><strong>अमेरिका (२००३):</strong> एच. ली मोफिट क्यान्सर सेन्टर (फ्लोरिडा) मा सेन्टिनल लिम्फ नोड बायोप्सी सम्बन्धी विशेष तालिम।</li><li><strong>बेलायत (२०१०):</strong> रोयल कलेज अफ सर्जन्स अफ एडिनबर्गको सहयोगमा कोलोरेक्टल सर्जिकल अंकोलोजी फेलोशिप।</li>",
-            mem_title: "सदस्यता र आबद्धता",
-            mem_text: "डा. लामिछाने चिकित्सा समुदायमा एक सक्रिय नेता हुनुहुन्छ। उहाँ नेपाल Medical एसोसिएसन र सार्क फेडरेशन अफ अंकोलोजिस्टको आजीवन सदस्य हुनुहुन्छ। अन्तर्राष्ट्रिय स्तरमा, उहाँ इन्टरनेसनल युनियन अगेन्स्ट क्यान्सर (UICC) र अमेरिकन सोसाइटी अफ क्लिनिकल अंकोलोजी (ASCO) को सदस्य हुनुहुन्छ, जसले उहाँलाई क्यान्सर अनुसन्धानका नवीनतम प्रगतिहरूसँग अपडेट राख्छ।"
-        }
-    };
-
-    function toggleLang() {
-        currentLang = currentLang === 'en' ? 'ne' : 'en';
-        document.body.className = 'lang-' + currentLang;
+        <h2 class="section-title"><i class="fas fa-globe-americas"></i> International Training & Clinical Excellence</h2>
+        <p>Dr. Lamichhane’s expertise is backed by prestigious global training and fellowships at world-renowned medical institutions:</p>
         
-        document.querySelectorAll('[data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            if(content[currentLang][key]) {
-                el.innerHTML = content[currentLang][key];
-            }
-        });
+        <div class="training-box">
+            <div class="training-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <strong>United States of America</strong>
+                    Saudavar Fellowship in Surgical Oncology at <em>Memorial Sloan Kettering Cancer Center</em> (New York) and Sentinel Lymph Node Biopsy training at <em>H. Lee Moffitt Cancer Center</em> (Florida).
+                </div>
+            </div>
+            <div class="training-item">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <strong>United Kingdom</strong>
+                    Fellowship in Colorectal Surgical Oncology sponsored by the <em>Royal College of Surgeons of Edinburgh</em>.
+                </div>
+            </div>
+        </div>
 
-        document.getElementById('fel_list').innerHTML = content[currentLang]['fel_list_html'];
-    }
-</script>
+        
+
+        <p style="margin-top: 25px;">
+            Today, he remains a dedicated <strong>Senior Consultant Surgical Oncologist</strong>, focusing on advanced urological procedures, complex pelvic reconstructions, and maintaining a high standard of patient-centered care in Nepal.
+        </p>
+    </div>
+
+    <div class="footer-note">
+        Official Portfolio of Dr. Nirmal Lamichhane &copy; 2026
+    </div>
+</div>
 
 </body>
 </html>
