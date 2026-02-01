@@ -3,235 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Nirmal Lamichhane | Surgical Oncologist & Urologist</title>
-    
-    <meta name="description" content="Official portfolio of Dr. Nirmal Lamichhane, Senior Consultant Surgical Oncologist & Former Chairman of BPKMCH. Expert in Urological Cancers.">
-    
+    <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-     crossorigin="anonymous"></script>
-    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
     <style>
-        /* --- DESIGN SYSTEM: MEDICAL BLUE --- */
-        :root {
-            --primary: #004085;      /* Deep Medical Blue */
-            --primary-dark: #002752; /* Navy */
-            --accent: #c0a16b;       /* Gold */
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
-            --text-dark: #333333;
-            --text-grey: #555555;
-            --shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-        }
-
-        /* NEPALI FONT SUPPORT */
+        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Lato', sans-serif; color: var(--text); background: var(--light); line-height: 1.6; }
         body.lang-ne { font-family: 'Mukta', sans-serif; }
-        body.lang-ne h1, body.lang-ne h2, body.lang-ne h3 { font-family: 'Mukta', sans-serif; font-weight: 700; }
-
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
-        a { text-decoration: none; transition: 0.3s; }
-        
-        /* --- HEADER --- */
-        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        
-        .brand h1 { font-size: 1.5rem; margin: 0; line-height: 1.2; }
-        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-menu { display: flex; gap: 25px; }
-        .nav-menu a { color: var(--text-grey); font-weight: 600; font-size: 0.95rem; }
-        .nav-menu a:hover { color: var(--primary); }
-        .nav-menu a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
-
-        /* LANGUAGE SWITCHER */
-        .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
-        .lang-btn { background: #fff; border: none; padding: 5px 12px; cursor: pointer; font-size: 0.85rem; font-weight: bold; color: var(--text-grey); }
-        .lang-btn:hover { background: #f0f0f0; }
-        .lang-btn.active { background: var(--primary); color: white; }
-
-        /* --- HERO SECTION --- */
-        .hero { 
-            background: linear-gradient(rgba(0, 64, 133, 0.9), rgba(0, 39, 82, 0.95)), url('hospital-bg.jpg'); 
-            background-size: cover; 
-            background-position: center;
-            color: var(--white); 
-            padding: 80px 20px; 
-            text-align: center;
-        }
-        .hero-inner { max-width: 900px; margin: 0 auto; }
-        
-        .hero-img { 
-            width: 180px; height: 180px; 
-            border-radius: 50%; 
-            border: 4px solid var(--accent); 
-            object-fit: cover; 
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .hero h2 { color: var(--white); font-size: 2.5rem; margin-bottom: 10px; }
-        .hero h3 { color: var(--accent); font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; }
-        
-        .btn-cta {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary-dark);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .btn-cta:hover { background: var(--white); transform: translateY(-3px); }
-
-        /* --- CONTENT SECTION --- */
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        
-        .card { 
-            background: var(--white); 
-            padding: 40px; 
-            border-radius: 8px; 
-            box-shadow: var(--shadow); 
-            border-top: 5px solid var(--primary);
-            margin-bottom: 30px;
-        }
-        
-        .content-block { margin-bottom: 20px; }
-        .content-block p { font-size: 1.05rem; margin-bottom: 15px; color: #444; text-align: justify; }
-        .highlight { color: var(--primary); font-weight: 700; }
-
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: 50px; }
-        footer p { font-size: 0.9rem; }
-        
-        /* MOBILE */
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .hero h2 { font-size: 1.8rem; }
-        }
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-box { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: #555; margin-left: 15px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
+        .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; margin-left: 15px; }
+        .lang-btn { background: #fff; border: none; padding: 5px 10px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+        .lang-btn.active { background: var(--primary); color: #fff; }
+        .hero { background: linear-gradient(rgba(0,64,133,0.9), rgba(0,39,82,0.95)); color: #fff; padding: 60px 20px; text-align: center; }
+        .hero img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 15px; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .card { background: #fff; padding: 40px; border-radius: 8px; border-top: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        footer { background: #1a1a1a; color: #bbb; padding: 30px; text-align: center; }
     </style>
 </head>
-
 <body class="lang-en">
-
     <header>
-        <div class="nav-container">
-            <div class="brand">
-                <h1 data-key="header_name">Dr. Nirmal Lamichhane</h1>
-                <span data-key="header_title">Senior Consultant Surgeon</span>
+        <div class="nav-box">
+            <div>
+                <h1 style="font-size:1.2rem; color:var(--primary);" data-key="h_name">Dr. Nirmal Lamichhane</h1>
+                <small style="color:var(--accent); font-weight:700;" data-key="h_title">Senior Consultant Surgeon</small>
             </div>
-            
-            <div class="nav-right">
-                <nav class="nav-menu">
-                    <a href="index.html" class="active" data-key="nav_home">Home</a>
-                    <a href="about.html" data-key="nav_about">About</a>
-                    <a href="services.html" data-key="nav_services">Services</a>
-                    <a href="appointment.html" data-key="nav_appt">Appointment</a>
-                    <a href="links.html" data-key="nav_links">Links</a>
-                    <a href="contact.html" data-key="nav_contact">Contact</a>
+            <div style="display:flex; align-items:center;">
+                <nav class="nav-links">
+                    <a href="index.html" class="active" data-key="n_home">Home</a>
+                    <a href="about.html" data-key="n_about">About</a>
+                    <a href="services.html" data-key="n_services">Services</a>
+                    <a href="appointment.html" data-key="n_appt">Appointment</a>
+                    <a href="links.html" data-key="n_links">Links</a>
+                    <a href="contact.html" data-key="n_contact">Contact</a>
                 </nav>
-
                 <div class="lang-switch">
-                    <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
-                    <button class="lang-btn" id="btn-ne" onclick="setLanguage('ne')">ने</button>
+                    <button class="lang-btn active" id="b-en" onclick="setLang('en')">EN</button>
+                    <button class="lang-btn" id="b-ne" onclick="setLang('ne')">ने</button>
                 </div>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-inner">
-            <img src="profile.png" alt="Dr. Nirmal Lamichhane" class="hero-img">
-            
-            <h2 data-key="hero_welcome">Welcome to the Official Portfolio</h2>
-            <h3 data-key="hero_role">Senior Consultant Surgical Oncologist & Urologist</h3>
-            
-            <a href="appointment.html" class="btn-cta" data-key="hero_cta">Book a Consultation</a>
-        </div>
+        <img src="profile.png" alt="Dr. Nirmal">
+        <h2 data-key="hero_welcome">Welcome to the Official Portfolio</h2>
+        <p data-key="hero_sub">Dedicated to Advanced Urological & Cancer Surgery</p>
     </section>
 
     <main class="container">
         <div class="card">
-            <div class="content-block">
-                <p data-key="p1">Dedicated to excellence in cancer care, <strong>Dr. Nirmal Lamichhane</strong> is a distinguished Senior Consultant Surgeon based in Bharatpur, Nepal. He is the <strong>Former Chairman of the Board of Directors</strong> at the prestigious B.P. Koirala Memorial Cancer Hospital (BPKMCH), where he led strategic initiatives to improve patient care.</p>
-                
-                <p data-key="p2">With over two decades of specialized experience, Dr. Lamichhane is a leader in Urological Oncology and complex pelvic surgeries. His expertise spans the diagnosis, staging, and surgical management of solid tumors, with a specific focus on <span class="highlight">bladder, prostate, and genito-urinary tract cancers</span>.</p>
-                
-                <p data-key="p3">Dr. Lamichhane combines world-class education from <strong>Fudan University</strong> and <strong>Kathmandu University</strong> with advanced international fellowships in the USA (Memorial Sloan Kettering, H. Lee Moffitt) and the UK. He is committed to bringing advanced surgical techniques, such as orthotopic neobladder reconstruction, to patients in Nepal.</p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-                <h3 style="margin-bottom: 15px; font-size: 1.1rem;" data-key="connect_title">Connect for Expert Oncological Care</h3>
-                <a href="contact.html" style="color: var(--primary); font-weight: bold; text-decoration: underline;" data-key="contact_link">View Contact Details &rarr;</a>
-            </div>
+            <p data-key="p1"><strong>Dr. Nirmal Lamichhane</strong> is a highly respected Senior Consultant Surgical Oncologist and Urologist based in Bharatpur, Nepal. With over 20 years of experience, he is a leader in the diagnosis and surgical management of complex cancers.</p>
+            <br>
+            <p data-key="p2">In his distinguished career, he has served as the <strong>Former Chairman of the Board of Directors</strong> at the B.P. Koirala Memorial Cancer Hospital (BPKMCH). During his leadership, he played a vital role in enhancing oncology services and strategic development for the nation's premier cancer center.</p>
+            <br>
+            <p data-key="p3">Specializing in Urological Oncology, Dr. Lamichhane is an expert in treating bladder, prostate, and kidney cancers. He is uniquely trained in advanced procedures such as the orthotopic neobladder (Studer Pouch) reconstruction, bringing international surgical standards to patients in Nepal.</p>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; <span id="year">2026</span> Dr. Nirmal Lamichhane. All Rights Reserved.</p>
-        <p data-key="footer_loc">Bharatpur, Chitwan, Nepal</p>
-    </footer>
+    <footer><p>&copy; 2026 Dr. Nirmal Lamichhane. Bharatpur, Chitwan, Nepal.</p></footer>
 
     <script>
-        // 1. DYNAMIC YEAR
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // 2. TRANSLATION DATA
         const translations = {
-            en: {
-                header_name: "Dr. Nirmal Lamichhane",
-                header_title: "Senior Consultant Surgeon",
-                nav_home: "Home", nav_about: "About", nav_services: "Services", nav_appt: "Appointment", nav_links: "Links", nav_contact: "Contact",
-                hero_welcome: "Welcome to the Official Portfolio",
-                hero_role: "Senior Consultant Surgical Oncologist & Urologist",
-                hero_cta: "Book a Consultation Today",
-                p1: "Dedicated to excellence in cancer care, <strong>Dr. Nirmal Lamichhane</strong> is a distinguished Senior Consultant Surgeon based in Bharatpur, Nepal. He is the <strong>Former Chairman of the Board of Directors</strong> at the prestigious B.P. Koirala Memorial Cancer Hospital (BPKMCH), where he led strategic initiatives to improve patient care.",
-                p2: "With over two decades of specialized experience, Dr. Lamichhane is a leader in Urological Oncology and complex pelvic surgeries. His expertise spans the diagnosis, staging, and surgical management of solid tumors, with a specific focus on <span class='highlight'>bladder, prostate, and genito-urinary tract cancers</span>.",
-                p3: "Dr. Lamichhane combines world-class education from <strong>Fudan University</strong> and <strong>Kathmandu University</strong> with advanced international fellowships in the USA (Memorial Sloan Kettering, H. Lee Moffitt) and the UK. He is committed to bringing advanced surgical techniques, such as orthotopic neobladder reconstruction, to patients in Nepal.",
-                connect_title: "Connect for Expert Oncological Care",
-                contact_link: "View Contact Details &rarr;",
-                footer_loc: "Bharatpur, Chitwan, Nepal"
-            },
-            ne: {
-                header_name: "डा. निर्मल लामिछाने",
-                header_title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
-                nav_home: "गृहपृष्ठ", nav_about: "बारेमा", nav_services: "सेवाहरू", nav_appt: "अपोइन्टमेन्ट", nav_links: "लिङ्कहरू", nav_contact: "सम्पर्क",
-                hero_welcome: "आधिकारिक पोर्टफोलियोमा स्वागत छ",
-                hero_role: "वरिष्ठ कन्सल्टेन्ट सर्जिकल अंकोलोजिस्ट तथा युरोलोजिस्ट",
-                hero_cta: "आजै परामर्श बुक गर्नुहोस्",
-                p1: "क्यान्सर उपचारमा उत्कृष्टताप्रति समर्पित, <strong>डा. निर्मल लामिछाने</strong> भरतपुर, नेपालमा आधारित एक प्रतिष्ठित वरिष्ठ सर्जन हुनुहुन्छ। उहाँले प्रतिष्ठित बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) मा <strong>सञ्चालक समितिको अध्यक्ष</strong>को रूपमा नेतृत्व गर्नुभएको छ।",
-                p2: "दुई दशकभन्दा बढीको विशेष अनुभवका साथ, डा. लामिछाने युरोलोजिकल अंकोलोजी र जटिल पेल्भिक शल्यक्रियामा अग्रणी हुनुहुन्छ। उहाँको विशेषज्ञतामा <span class='highlight'>ब्ल्याडर (मुत्रथैली), प्रोस्टेट र जेनीटो-युरिनरी नलीको क्यान्सर</span>मा विशेष ध्यान दिँदै ट्युमरहरूको निदान, स्टेजिङ र शल्यक्रिया व्यवस्थापन समावेश छ।",
-                p3: "डा. लामिछानेले <strong>फुदान विश्वविद्यालय</strong> र <strong>काठमाडौं विश्वविद्यालय</strong>बाट विश्वस्तरीय शिक्षाका साथै अमेरिका (मेमोरियल स्लोन केटरिङ, एच. ली मोफिट) र बेलायतमा उच्च अन्तर्राष्ट्रिय फेलोशिपहरू हासिल गर्नुभएको छ। उहाँ नेपालमा अर्थोटोपिक नियोब्ल्याडर निर्माण जस्ता अत्याधुनिक शल्यक्रिया प्रविधिहरू भित्र्याउन प्रतिबद्ध हुनुहुन्छ।",
-                connect_title: "विशेषज्ञ अंकोलोजिकल उपचारको लागि सम्पर्क गर्नुहोस्",
-                contact_link: "सम्पर्क विवरण हेर्नुहोस् &rarr;",
-                footer_loc: "भरतपुर, चितवन, नेपाल"
-            }
+            en: { h_name: "Dr. Nirmal Lamichhane", h_title: "Senior Consultant Surgeon", n_home: "Home", n_about: "About", n_services: "Services", n_appt: "Appointment", n_links: "Links", n_contact: "Contact", hero_welcome: "Welcome to the Official Portfolio", hero_sub: "Dedicated to Advanced Urological & Cancer Surgery", p1: "<strong>Dr. Nirmal Lamichhane</strong> is a highly respected Senior Consultant Surgical Oncologist and Urologist based in Bharatpur, Nepal. With over 20 years of experience, he is a leader in the diagnosis and surgical management of complex cancers.", p2: "In his distinguished career, he has served as the <strong>Former Chairman of the Board of Directors</strong> at the B.P. Koirala Memorial Cancer Hospital (BPKMCH). During his leadership, he played a vital role in enhancing oncology services and strategic development for the nation's premier cancer center.", p3: "Specializing in Urological Oncology, Dr. Lamichhane is an expert in treating bladder, prostate, and kidney cancers. He is uniquely trained in advanced procedures such as the orthotopic neobladder (Studer Pouch) reconstruction, bringing international surgical standards to patients in Nepal." },
+            ne: { h_name: "डा. निर्मल लामिछाने", h_title: "वरिष्ठ कन्सल्टेन्ट सर्जन", n_home: "गृहपृष्ठ", n_about: "बारेमा", n_services: "सेवाहरू", n_appt: "अपोइन्टमेन्ट", n_links: "लिङ्कहरू", n_contact: "सम्पर्क", hero_welcome: "आधिकारिक पोर्टफोलियोमा स्वागत छ", hero_sub: "उन्नत युरोलोजिकल र क्यान्सर शल्यक्रियामा समर्पित", p1: "<strong>डा. निर्मल लामिछाने</strong> भरतपुर, नेपालमा आधारित एक अत्यन्त सम्मानित वरिष्ठ कन्सल्टेन्ट सर्जिकल अंकोलोजिस्ट र युरोलोजिस्ट हुनुहुन्छ। २० वर्षभन्दा बढीको अनुभवका साथ, उहाँ जटिल क्यान्सरहरूको निदान र शल्यक्रिया व्यवस्थापनमा अग्रणी हुनुहुन्छ।", p2: "आफ्नो विशिष्ट करियरमा, उहाँले बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) को <strong>सञ्चालक समितिको पूर्व अध्यक्ष</strong>को रूपमा सेवा गर्नुभएको छ। उहाँको नेतृत्वमा, नेपालको प्रमुख क्यान्सर केन्द्रको विकास र सेवा विस्तारमा महत्वपूर्ण भूमिका खेल्नुभएको थियो।", p3: "युरोलोजिकल अंकोलोजीमा विशेषज्ञता हासिल गर्नुभएका डा. लामिछाने मुत्रथैली, प्रोस्टेट र मृगौलाको क्यान्सर उपचारमा पोख्त हुनुहुन्छ। उहाँ 'अर्थोटोपिक नियोब्ल्याडर' (Studer Pouch) पुनर्निर्माण जस्ता उन्नत प्रक्रियाहरूमा विशेष तालिम प्राप्त हुनुहुन्छ।" }
         };
-
-        // 3. LANGUAGE FUNCTION
-        function setLanguage(lang) {
+        function setLang(lang) {
             document.body.className = 'lang-' + lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(el => {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('b-' + lang).classList.add('active');
+            document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
             });
         }
     </script>
