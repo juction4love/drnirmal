@@ -58,6 +58,15 @@
         .lang-btn { border: none; padding: 6px 15px; cursor: pointer; font-weight: bold; font-size: 0.8rem; background: none; transition: 0.3s; }
         .lang-btn.active { background: var(--primary); color: #fff; }
 
+        /* Mobile Menu Button */
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
         /* --- HERO SECTION --- */
         .hero { 
             background: linear-gradient(rgba(0,64,133,0.9), rgba(0,39,82,0.95)), url('hospital-bg.jpg'); 
@@ -132,7 +141,21 @@
 
         /* --- MOBILE VIEW --- */
         @media (max-width: 850px) {
-            .nav-links { display: none; } /* Add a toggle menu if needed, but for now simple stack */
+            .menu-btn { display: block; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 10px 0; margin-left: 0; font-size: 1.1rem; }
+            
             .main-card { padding: 30px 20px; }
             .hero h2 { font-size: 1.8rem; }
             .content-section h2 { font-size: 1.5rem; }
@@ -151,7 +174,7 @@
                 <span data-key="h_title">Senior Consultant Surgeon</span>
             </div>
             <div style="display:flex; align-items:center;">
-                <nav class="nav-links">
+                <nav class="nav-links" id="navLinks">
                     <a href="index.html" class="active" data-key="n_home">Home</a>
                     <a href="about.html" data-key="n_about">About</a>
                     <a href="services.html" data-key="n_services">Services</a>
@@ -162,6 +185,9 @@
                 <div class="lang-switch">
                     <button class="lang-btn active" id="b-en" onclick="setLang('en')">EN</button>
                     <button class="lang-btn" id="b-ne" onclick="setLang('ne')">ने</button>
+                </div>
+                <div class="menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
@@ -180,11 +206,9 @@
             <section class="content-section">
                 <h2 data-key="sec1_t">Vision & Professional Legacy</h2>
                 <div class="content-text" data-key="sec1_p">
-                    <strong>Dr. Nirmal Lamichhane</strong> stands as a pillar of oncology in Nepal, blending decades of experience with global medical standards. His journey is defined by a deep-seated commitment to transforming cancer care in the country. As the <strong>Former Chairman</strong> of the B.P. Koirala Memorial Cancer Hospital (BPKMCH), he led the institution through critical phases of growth, ensuring that patients across Nepal had access to life-saving surgical treatments and modernized oncology protocols.
+                    <strong>Dr. Nirmal Lamichhane</strong> stands as a pillar of oncology in Nepal, blending decades of experience with global medical standards. His journey is defined by a deep-seated commitment to transforming cancer care in the country. As the <strong>Former Chairman</strong> of the B.P. Koirala Memorial Cancer Hospital (BPKMCH), he led the institution through critical phases of growth, ensuring that patients across Nepal had access to life-saving surgical treatments and modernized oncology protocols. He has dedicated his life to bridging the gap between advanced medical research and accessible clinical practice in Bharatpur.
                 </div>
             </section>
-
-            
 
             <div class="feature-grid">
                 <div class="feature-item">
@@ -207,13 +231,11 @@
             <section class="content-section">
                 <h2 data-key="sec2_t">Advanced Surgical Innovation</h2>
                 <div class="content-text" data-key="sec2_p">
-                    Dr. Lamichhane’s expertise in <strong>Urological Oncology</strong> has redefined treatment for bladder and prostate cancers in Bharatpur. He is particularly recognized for his mastery of the <strong>Orthotopic Neobladder (Studer Pouch)</strong>, a complex procedure where a new bladder is constructed from the patient’s own intestine. This ensures that patients, following a radical cystectomy, can lead a life with dignity and normal function.
+                    Dr. Lamichhane’s expertise in <strong>Urological Oncology</strong> has redefined treatment for bladder and prostate cancers in Bharatpur. He is particularly recognized for his mastery of the <strong>Orthotopic Neobladder (Studer Pouch)</strong>, a complex procedure where a new bladder is constructed from the patient’s own intestine. This ensures that patients, following a radical cystectomy, can lead a life with dignity and normal function. His approach integrates multidisciplinary care, combining surgical precision with the latest findings in tumor biology.
                     <br><br>
-                    Furthermore, his tenure at <strong>Shanghai Medical University</strong> and <strong>Fudan University</strong> provided him with a unique perspective on clinical oncology, which he later refined through prestigious fellowships at <strong>Memorial Sloan Kettering Cancer Center</strong> (USA) and <strong>H. Lee Moffitt Cancer Center</strong> (USA). Today, he continues to serve as a Senior Consultant Surgeon, mentoring the next generation of surgeons while maintaining an active clinical practice.
+                    Furthermore, his tenure at <strong>Shanghai Medical University</strong> and <strong>Fudan University</strong> provided him with a unique perspective on clinical oncology, which he later refined through prestigious fellowships at <strong>Memorial Sloan Kettering Cancer Center</strong> (USA) and <strong>H. Lee Moffitt Cancer Center</strong> (USA). Today, he continues to serve as a Senior Consultant Surgeon, mentoring the next generation of surgeons while maintaining an active clinical practice that prioritizes patient survival and quality of life above all else.
                 </div>
             </section>
-
-            
 
             <div style="text-align: center; margin-top: 40px;">
                 <h3 data-key="cta_h" style="color:var(--primary); margin-bottom: 20px;">Dedicated to Your Recovery</h3>
@@ -231,29 +253,34 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
         const translations = {
             en: {
                 h_name: "Dr. Nirmal Lamichhane", h_title: "Senior Consultant Surgeon",
                 n_home: "Home", n_about: "About", n_services: "Services", n_appt: "Appointment", n_links: "Links", n_contact: "Contact",
-                hero_head: "Excellence in Surgical Oncology", hero_p: "Providing world-class Urological and Pelvic Cancer care with a commitment to surgical innovation and patient compassion.", hero_btn: "Book a Consultation",
-                sec1_t: "Vision & Professional Legacy", sec1_p: "<strong>Dr. Nirmal Lamichhane</strong> stands as a pillar of oncology in Nepal, blending decades of experience with global medical standards. His journey is defined by a deep-seated commitment to transforming cancer care in the country. As the <strong>Former Chairman</strong> of the B.P. Koirala Memorial Cancer Hospital (BPKMCH), he led the institution through critical phases of growth, ensuring that patients across Nepal had access to life-saving surgical treatments and modernized oncology protocols.",
+                hero_head: "Excellence in Surgical Oncology", hero_p: "Providing world-class Urological and Pelvic Cancer care with a commitment to surgical innovation and patient compassion. Our mission is to deliver life-saving surgical interventions using evidence-based techniques.", hero_btn: "Book a Consultation",
+                sec1_t: "Vision & Professional Legacy", sec1_p: "<strong>Dr. Nirmal Lamichhane</strong> stands as a pillar of oncology in Nepal, blending decades of experience with global medical standards. His journey is defined by a deep-seated commitment to transforming cancer care in the country. As the <strong>Former Chairman</strong> of the B.P. Koirala Memorial Cancer Hospital (BPKMCH), he led the institution through critical phases of growth, ensuring that patients across Nepal had access to life-saving surgical treatments and modernized oncology protocols. He has dedicated his life to bridging the gap between advanced medical research and accessible clinical practice in Bharatpur, serving thousands of patients with honesty and surgical excellence.",
                 f1_t: "Uro-Oncology", f1_p: "Specialized surgical management of kidney, prostate, and bladder tumors using advanced staging and radical techniques.",
                 f2_t: "Neobladder Reconstruction", f2_p: "One of the few surgeons in Nepal performing the Studer Pouch reconstruction to restore natural urination.",
                 f3_t: "Global Impact", f3_p: "Fellowship trained at MSKCC (USA) and the Royal College of Surgeons (UK) to provide international standard care.",
-                sec2_t: "Advanced Surgical Innovation", sec2_p: "Dr. Lamichhane’s expertise in <strong>Urological Oncology</strong> has redefined treatment for bladder and prostate cancers in Bharatpur. He is particularly recognized for his mastery of the <strong>Orthotopic Neobladder (Studer Pouch)</strong>, a complex procedure where a new bladder is constructed from the patient’s own intestine. This ensures that patients, following a radical cystectomy, can lead a life with dignity and normal function.<br><br>Furthermore, his tenure at <strong>Shanghai Medical University</strong> and <strong>Fudan University</strong> provided him with a unique perspective on clinical oncology, which he later refined through prestigious fellowships at <strong>Memorial Sloan Kettering Cancer Center</strong> (USA) and <strong>H. Lee Moffitt Cancer Center</strong> (USA). Today, he continues to serve as a Senior Consultant Surgeon, mentoring the next generation of surgeons while maintaining an active clinical practice.",
-                cta_h: "Dedicated to Your Recovery", cta_p: "For private appointments and second opinions, please connect with National City Hospital.", cta_btn: "Contact Details",
+                sec2_t: "Advanced Surgical Innovation", sec2_p: "Dr. Lamichhane’s expertise in <strong>Urological Oncology</strong> has redefined treatment for bladder and prostate cancers in Bharatpur. He is particularly recognized for his mastery of the <strong>Orthotopic Neobladder (Studer Pouch)</strong>, a complex procedure where a new bladder is constructed from the patient’s own intestine. This ensures that patients, following a radical cystectomy, can lead a life with dignity and normal function. His approach integrates multidisciplinary care, combining surgical precision with the latest findings in tumor biology.<br><br>Furthermore, his tenure at <strong>Shanghai Medical University</strong> and <strong>Fudan University</strong> provided him with a unique perspective on clinical oncology, which he later refined through prestigious fellowships at <strong>Memorial Sloan Kettering Cancer Center</strong> (USA) and <strong>H. Lee Moffitt Cancer Center</strong> (USA). Today, he continues to serve as a Senior Consultant Surgeon, mentoring the next generation of surgeons while maintaining an active clinical practice that prioritizes patient survival and quality of life above all else.",
+                cta_h: "Dedicated to Your Recovery", cta_p: "For private appointments and second opinions, please connect with National City Hospital directly through our administrative office.", cta_btn: "Contact Details",
                 f_addr: "Bharatpur-10, Hospital Road, Chitwan, Nepal"
             },
             ne: {
                 h_name: "डा. निर्मल लामिछाने", h_title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
                 n_home: "गृहपृष्ठ", n_about: "बारेमा", n_services: "सेवाहरू", n_appt: "अपोइन्टमेन्ट", n_links: "लिङ्कहरू", n_contact: "सम्पर्क",
-                hero_head: "सर्जिकल अंकोलोजीमा उत्कृष्टता", hero_p: "शल्यक्रियात्मक नवाचार र बिरामीप्रतिको संवेदनशीलताका साथ विश्व-स्तरीय युरोलोजिकल र पेल्भिक क्यान्सर उपचार सेवा।", hero_btn: "परामर्श लिनुहोस्",
-                sec1_t: "दृष्टिकोण र व्यावसायिक विरासत", sec1_p: "<strong>डा. निर्मल लामिछाने</strong> नेपालको अंकोलोजी क्षेत्रको एक बलियो खम्बा हुनुहुन्छ, जसले दशकौंको अनुभवलाई विश्वव्यापी चिकित्सा मापदण्डसँग जोड्नुभएको छ। उहाँको यात्रा देशमा क्यान्सर उपचारलाई रूपान्तरण गर्ने गहिरो प्रतिबद्धताद्वारा परिभाषित छ। बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) को <strong>पूर्व अध्यक्ष</strong>को रूपमा, उहाँले संस्थालाई विकासको महत्वपूर्ण चरणहरूमा नेतृत्व गर्नुभयो, जसले गर्दा नेपालभरका बिरामीहरूले जीवन बचाउने शल्यक्रिया र आधुनिक अंकोलोजी सेवा प्राप्त गरे।",
+                hero_head: "सर्जिकल अंकोलोजीमा उत्कृष्टता", hero_p: "शल्यक्रियात्मक नवाचार र बिरामीप्रतिको संवेदनशीलताका साथ विश्व-स्तरीय युरोलोजिकल र पेल्भिक क्यान्सर उपचार सेवा। हाम्रो लक्ष्य प्रमाण-आधारित प्रविधिहरू प्रयोग गरेर जीवन बचाउने शल्यक्रिया गर्नु हो।", hero_btn: "परामर्श लिनुहोस्",
+                sec1_t: "दृष्टिकोण र व्यावसायिक विरासत", sec1_p: "<strong>डा. निर्मल लामिछाने</strong> नेपालको अंकोलोजी क्षेत्रको एक बलियो खम्बा हुनुहुन्छ, जसले दशकौंको अनुभवलाई विश्वव्यापी चिकित्सा मापदण्डसँग जोड्नुभएको छ। उहाँको यात्रा देशमा क्यान्सर उपचारलाई रूपान्तरण गर्ने गहिरो प्रतिबद्धताद्वारा परिभाषित छ। बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) को <strong>पूर्व अध्यक्ष</strong>को रूपमा, उहाँले संस्थालाई विकासको महत्वपूर्ण चरणहरूमा नेतृत्व गर्नुभयो, जसले गर्दा नेपालभरका बिरामीहरूले जीवन बचाउने शल्यक्रिया र आधुनिक अंकोलोजी सेवा प्राप्त गरे। उहाँले आफ्नो जीवन उन्नत चिकित्सा अनुसन्धान र भरतपुरमा पहुँचयोग्य क्लिनिकल अभ्यास बीचको खाडललाई कम गर्न समर्पित गर्नुभएको छ, हजारौं बिरामीहरूलाई इमानदारी र सर्जिकल उत्कृष्टताका साथ सेवा प्रदान गर्दै।",
                 f1_t: "युरो-अंकोलोजी", f1_p: "उन्नत स्टेजिङ र रेडिकल प्रविधिहरू प्रयोग गरेर मृगौला, प्रोस्टेट र मुत्रथैलीको ट्युमरहरूको विशेष शल्यक्रिया व्यवस्थापन।",
                 f2_t: "नियोब्ल्याडर पुनर्निर्माण", f2_p: "प्राकृतिक रूपमा पिसाब फेर्ने प्रक्रिया पुन: स्थापना गर्न 'Studer Pouch' पुनर्निर्माण गर्ने नेपालका थोरै सर्जनहरूमध्ये एक।",
                 f3_t: "विश्वव्यापी प्रभाव", f3_p: "अन्तर्राष्ट्रिय स्तरको सेवा प्रदान गर्न MSKCC (USA) र रोयल कलेज अफ सर्जन्स (UK) बाट फेलोशिप प्राप्त विशेषज्ञ।",
-                sec2_t: "उन्नत शल्यक्रियात्मक नवाचार", sec2_p: "डा. लामिछानेको <strong>युरोलोजिकल अंकोलोजी</strong>मा रहेको विशेषज्ञताले भरतपुरमा मुत्रथैली र प्रोस्टेट क्यान्सरको उपचारलाई नयाँ परिभाषा दिएको छ। उहाँ विशेष गरी <strong>अर्थोटोपिक नियोब्ल्याडर (Studer Pouch)</strong> मा आफ्नो दख्खलका लागि चिनिनुहुन्छ, जुन बिरामीको आफ्नै आन्द्राबाट नयाँ मुत्रथैली बनाइने एक जटिल प्रक्रिया हो। यसले रेडिकल सिस्टेक्टमी पछि बिरामीहरूलाई सम्मानजनक र सामान्य जीवन जिउन सुनिश्चित गर्दछ।<br><br>थप रूपमा, उहाँको <strong>साङ्घाई मेडिकल युनिभर्सिटी</strong> र <strong>फुदान विश्वविद्यालय</strong>को कार्यकालले उहाँलाई क्लिनिकल अंकोलोजीमा एक अद्वितीय दृष्टिकोण प्रदान गर्‍यो, जसलाई उहाँले पछि अमेरिकाको <strong>मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर</strong> र <strong>एच. ली मोफिट क्यान्सर सेन्टर</strong>बाट थप निखार्नुभयो। हाल उहाँ वरिष्ठ कन्सल्टेन्ट सर्जनको रूपमा सेवा गर्दै आगामी पुस्ताका सर्जनहरूलाई मार्गदर्शन गरिरहनुभएको छ।",
-                cta_h: "तपाईंको स्वास्थ्यलाभमा समर्पित", cta_p: "निजी परामर्श र विशेषज्ञ सल्लाहका लागि कृपया नेशनल सिटी हस्पिटलमा सम्पर्क गर्नुहोस्।", cta_btn: "सम्पर्क विवरण",
+                sec2_t: "उन्नत शल्यक्रियात्मक नवाचार", sec2_p: "डा. लामिछानेको <strong>युरोलोजिकल अंकोलोजी</strong>मा रहेको विशेषज्ञताले भरतपुरमा मुत्रथैली र प्रोस्टेट क्यान्सरको उपचारलाई नयाँ परिभाषा दिएको छ। उहाँ विशेष गरी <strong>अर्थोटोपिक नियोब्ल्याडर (Studer Pouch)</strong> मा आफ्नो दख्खलका लागि चिनिनुहुन्छ, जुन बिरामीको आफ्नै आन्द्राबाट नयाँ मुत्रथैली बनाइने एक जटिल प्रक्रिया हो। यसले रेडिकल सिस्टेक्टमी पछि बिरामीहरूलाई सम्मानजनक र सामान्य जीवन जिउन सुनिश्चित गर्दछ। उहाँको दृष्टिकोणले सर्जिकल शुद्धतालाई ट्युमर जीवविज्ञानमा नवीनतम खोजहरूसँग जोड्दछ।<br><br>थप रूपमा, उहाँको <strong>साङ्घाई मेडिकल युनिभर्सिटी</strong> र <strong>फुदान विश्वविद्यालय</strong>को कार्यकालले उहाँलाई क्लिनिकल अंकोलोजीमा एक अद्वितीय दृष्टिकोण प्रदान गर्‍यो, जसलाई उहाँले पछि अमेरिकाको <strong>मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर</strong> र <strong>एच. ली मोफिट क्यान्सर सेन्टर</strong>बाट थप निखार्नुभयो। हाल उहाँ वरिष्ठ कन्सल्टेन्ट सर्जनको रूपमा सेवा गर्दै आगामी पुस्ताका सर्जनहरूलाई मार्गदर्शन गरिरहनुभएको छ।",
+                cta_h: "तपाईंको स्वास्थ्यलाभमा समर्पित", cta_p: "निजी परामर्श र विशेषज्ञ सल्लाहका लागि कृपया हाम्रो प्रशासनिक कार्यालय मार्फत नेशनल सिटी हस्पिटलमा सिधै सम्पर्क गर्नुहोस्।", cta_btn: "सम्पर्क विवरण",
                 f_addr: "भरतपुर-१०, हस्पिटल रोड, चितवन, नेपाल"
             }
         };
