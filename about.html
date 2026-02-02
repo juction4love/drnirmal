@@ -1,61 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Dr. Nirmal Lamichhane</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बारेमा | डा. निर्मल लामिछाने - वरिष्ठ कन्सल्टेन्ट सर्जन</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    
     <style>
-        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; }
-        body { font-family: 'Lato', sans-serif; color: #333; background: var(--light); line-height: 1.8; margin: 0; }
-        body.lang-ne { font-family: 'Mukta', sans-serif; }
-        header { background: #fff; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top:0; z-index:100;}
-        .nav-box { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { color: #555; margin-left: 15px; text-decoration: none; font-weight: 600; }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .card { background: #fff; padding: 35px; border-radius: 10px; border-top: 5px solid var(--primary); margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); font-family: 'Montserrat', sans-serif; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
-        .milestone { border-left: 3px solid var(--accent); padding-left: 20px; margin-bottom: 20px; }
+        :root {
+            --primary: #004085;      /* Deep Medical Blue */
+            --primary-dark: #002752; /* Navy */
+            --accent: #c0a16b;       /* Gold */
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-grey: #555555;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Mukta', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+            font-size: 1.15rem;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
+        a { text-decoration: none; transition: 0.3s; }
+        
+        /* --- HEADER & NAV --- */
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        
+        .brand h1 { font-size: 1.4rem; margin: 0; line-height: 1.2; color: var(--primary); }
+        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { color: #555; font-weight: 600; font-size: 0.95rem; }
+        .nav-menu a:hover { color: var(--primary); }
+        .nav-menu a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(rgba(0, 64, 133, 0.9), rgba(0, 39, 82, 0.95)), url('hospital-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white); 
+            padding: 80px 20px; 
+            text-align: center;
+        }
+        .hero img { 
+            width: 180px; height: 180px; 
+            border-radius: 50%; 
+            border: 5px solid var(--accent); 
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+        .hero h2 { color: var(--white); font-size: 2.8rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.3rem; opacity: 0.9; }
+
+        /* --- CONTENT SECTION --- */
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        
+        .bio-card { 
+            background: var(--white); 
+            padding: 50px; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow); 
+            border-top: 8px solid var(--primary);
+            margin-bottom: 40px;
+        }
+        
+        .section-title { 
+            margin-bottom: 30px; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            font-size: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .section-title i { color: var(--accent); }
+        
+        .content-paragraph { text-align: justify; color: #444; margin-bottom: 25px; }
+        .content-paragraph strong { color: var(--primary); }
+
+        .highlight-box {
+            background: #fdfaf4;
+            border-left: 5px solid var(--accent);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .milestone-item {
+            background: #f8fbfd;
+            padding: 20px;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--primary);
+        }
+        .milestone-item h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
+
+        /* --- FOOTER --- */
+        footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h2 { font-size: 2rem; }
+            .bio-card { padding: 30px 20px; }
+            .milestone-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
-<body class="lang-en">
+<body>
+
     <header>
-        <div class="nav-box">
-            <h2 style="font-size:1.2rem; border:none; margin:0;">Dr. Nirmal Lamichhane</h2>
-            <nav class="nav-links">
-                <a href="index.html">Home</a><a href="about.html" style="color:var(--primary)">About</a><a href="services.html">Services</a><a href="appointment.html">Appt</a><a href="links.html">Links</a><a href="contact.html">Contact</a>
+        <div class="nav-container">
+            <div class="brand">
+                <h1>डा. निर्मल लामिछाने</h1>
+                <span>वरिष्ठ कन्सल्टेन्ट सर्जन</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">गृहपृष्ठ</a>
+                <a href="about.html" class="active">बारेमा</a>
+                <a href="services.html">सेवाहरू</a>
+                <a href="appointment.html">अपोइन्टमेन्ट</a>
+                <a href="links.html">लिङ्कहरू</a>
+                <a href="contact.html">सम्पर्क</a>
             </nav>
         </div>
     </header>
 
+    <section class="hero">
+        <img src="profile.png" alt="Dr. Nirmal Lamichhane">
+        <h2>डा. निर्मल लामिछाने</h2>
+        <p>नेपालमा आधुनिक क्यान्सर शल्यक्रिया र विशेषज्ञताको संवाहक</p>
+    </section>
+
     <main class="container">
-        <div class="card">
-            <h2 data-key="t1">Professional Milestones</h2>
-            <p data-key="p1">Dr. Nirmal Lamichhane joined B.P. Koirala Memorial Cancer Hospital in 2002. Over two decades, he has held major leadership roles that shaped regional cancer care:</p>
-            <div class="milestone">
-                <p data-key="m1"><strong>Former Chairman:</strong> Led the Board of Directors at BPKMCH, managing national oncology policies.</p>
-                <p data-key="m2"><strong>Former Deputy Director (2018–2020):</strong> Oversaw hospital clinical operations and administrative growth.</p>
-                <p data-key="m3"><strong>Academic:</strong> Former Assistant Professor of Surgery at the College of Medical Sciences, Bharatpur.</p>
+        
+        <div class="bio-card">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> परिचय र संक्षिप्त जीवनी</h2>
+            <p class="content-paragraph">
+                <strong>डा. निर्मल लामिछाने</strong> नेपालको चिकित्सा क्षेत्रमा, विशेष गरी क्यान्सर उपचार (Oncology) र युरोलोजी (Urology) को क्षेत्रमा एक सुप्रसिद्ध र सम्मानित नाम हुनुहुन्छ। विगत दुई दशकभन्दा लामो समयदेखि क्यान्सरका बिरामीहरूको सेवामा समर्पित डा. लामिछाने हाल भरतपुर, चितवनमा आधारित रहेर आफ्नो विशेषज्ञ सेवा प्रदान गर्दै आउनुभएको छ। उहाँले आफ्नो जीवनको महत्वपूर्ण समय नेपालमा क्यान्सर उपचारको गुणस्तर सुधार्न र शल्यक्रियामा आधुनिक प्रविधिहरू भित्र्याउन खर्चनुभएको छ।
+            </p>
+            <p class="content-paragraph">
+                भरतपुरस्थित <strong>बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH)</strong> सँग उहाँको सम्बन्ध अत्यन्तै गहिरो छ। उहाँले यस संस्थामा रजिस्ट्रारको रूपमा सेवा प्रवेश गरी वरिष्ठ कन्सल्टेन्ट सर्जनसम्मको भूमिका कुशलतापूर्वक सम्हाल्नुभएको छ। यति मात्र नभई, उहाँले यस अस्पतालको <strong>सञ्चालक समितिको अध्यक्ष</strong> र उप-निर्देशक जस्ता उच्च नेतृत्वदायी पदहरूमा रहेर अस्पतालको नीतिगत र प्रशासनिक विकासमा दूरगामी योगदान पुर्‍याउनुभएको छ।
+            </p>
+        </div>
+
+        <div class="bio-card">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> शैक्षिक पृष्ठभूमि र जग</h2>
+            <p class="content-paragraph">
+                डा. लामिछानेको शैक्षिक यात्रा अन्तर्राष्ट्रियस्तरको उत्कृष्ट संस्थानहरूबाट सुरु भएको हो। उहाँले सन् १९९८ मा चीनको प्रतिष्ठित <strong>साङ्घाई मेडिकल युनिभर्सिटी</strong>बाट चिकित्सा शास्त्रमा स्नातक (MBBS) तहको शिक्षा हासिल गर्नुभयो। लगत्तै, उहाँले सन् २००१ मा <strong>फुदान विश्वविद्यालय</strong>बाट क्लिनिकल अंकोलोजी (Clinical Oncology) मा स्नातकोत्तर (Master of Medicine) पूरा गर्नुभयो।
+            </p>
+            <div class="highlight-box">
+                <p>क्यान्सर उपचारमा शल्यक्रियाको महत्वलाई बुझेर उहाँले पछि नेपालको <strong>काठमाडौं विश्वविद्यालय</strong>बाट युरोलोजीमा <strong>M.Ch.</strong> (Magister Chirurgiae) को उपाधि प्राप्त गर्नुभयो, जुन शल्यक्रिया क्षेत्रको सर्वोच्च शैक्षिक उपाधिहरूमध्ये एक मानिन्छ।</p>
+            </div>
+            <p class="content-paragraph">
+                यी शैक्षिक योग्यताहरूले उहाँलाई क्यान्सरको जीवविज्ञान (Biology) बुझ्न र त्यसलाई शल्यक्रियाको माध्यमबाट कसरी प्रभावकारी रूपमा हटाउन सकिन्छ भन्ने कुरामा निपुण बनाएको छ। उहाँको ज्ञानको आधार नै आजको सफल करियरको मेरुदण्ड हो।
+            </p>
+        </div>
+
+        <div class="bio-card">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> व्यावसायिक माइलस्टोनहरू</h2>
+            <p class="content-paragraph">
+                बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालमा उहाँले सन् २००२ देखि आफ्नो व्यावसायिक यात्रा सुरु गर्नुभएको हो। उहाँका केही प्रमुख जिम्मेवारीहरू यस प्रकार रहेका छन्:
+            </p>
+            <div class="milestone-grid">
+                <div class="milestone-item">
+                    <h4>सञ्चालक समितिको पूर्व अध्यक्ष</h4>
+                    <p>अस्पतालको नीति निर्माण र रणनीतिक विकासमा नेतृत्व।</p>
+                </div>
+                <div class="milestone-item">
+                    <h4>पूर्व उप-निर्देशक (२०१८-२०२०)</h4>
+                    <p>अस्पतालको क्लिनिकल सञ्चालन र प्रशासनिक सुधारमा सक्रिय भूमिका।</p>
+                </div>
+                <div class="milestone-item">
+                    <h4>वरिष्ठ कन्सल्टेन्ट सर्जन</h4>
+                    <p>सर्जिकल अंकोलोजी विभागमा जटिल क्यान्सर शल्यक्रियाहरूको नेतृत्व।</p>
+                </div>
+                <div class="milestone-item">
+                    <h4>सहायक प्राध्यापक (२०१२-२०१६)</h4>
+                    <p>कलेज अफ मेडिकल साइन्सेजमा नयाँ पुस्ताका डाक्टरहरूलाई अध्यापन।</p>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <h2 data-key="t2">International Training</h2>
-            <p data-key="p2">His surgical expertise is backed by fellowships at the world's leading cancer centers:</p>
-            <ul>
-                <li data-key="f1"><strong>USA:</strong> Saudavar Fellowship at Memorial Sloan Kettering Cancer Center (New York).</li>
-                <li data-key="f2"><strong>USA:</strong> Sentinel Node Biopsy training at H. Lee Moffitt Cancer Center (Florida).</li>
-                <li data-key="f3"><strong>UK:</strong> Colorectal Surgical Oncology Fellowship, Royal College of Surgeons of Edinburgh.</li>
+        <div class="bio-card">
+            <h2 class="section-title"><i class="fas fa-globe-americas"></i> अन्तर्राष्ट्रिय अनुभव र विशेषज्ञता</h2>
+            <p class="content-paragraph">
+                डा. निर्मल लामिछानेले विश्वका उत्कृष्ट क्यान्सर केन्द्रहरूबाट फेलोशिप र विशेष तालिमहरू प्राप्त गर्नुभएको छ। यसले गर्दा नेपालमै अन्तर्राष्ट्रिय स्तरको उपचार सम्भव भएको छ:
+            </p>
+            <ul style="list-style: disc; margin-left: 25px; margin-bottom: 25px; color: #444;">
+                <li><strong>अमेरिका (USA):</strong> सन् २००६ मा न्युयोर्कस्थित <strong>Memorial Sloan Kettering Cancer Center</strong> बाट 'सौदावर फेलोशिप' प्राप्त।</li>
+                <li><strong>अमेरिका (USA):</strong> फ्लोरिडास्थित <strong>H. Lee Moffitt Cancer Center</strong> बाट सेन्टिनल लिम्फ नोड बायोप्सी सम्बन्धी तालिम।</li>
+                <li><strong>बेलायत (UK):</strong> सन् २०१० मा <strong>Royal College of Surgeons of Edinburgh</strong> बाट कोलोरेक्टल सर्जिकल अंकोलोजीमा फेलोशिप।</li>
             </ul>
+            <p class="content-paragraph">
+                यी तालिमहरूले उहाँलाई **नियोब्ल्याडर निर्माण (Neobladder Reconstruction)** र जटिल पेल्भिक शल्यक्रियाहरूमा नेपालकै उत्कृष्ट सर्जनहरूमध्ये एकको रूपमा स्थापित गरेको छ। उहाँले अमेरिका र बेलायतमा सिकेको सीपलाई नेपाली माटोमा प्रयोग गर्दै सयौं बिरामीलाई नयाँ जीवन दिनुभएको छ।
+            </p>
         </div>
+
+        <div class="bio-card">
+            <h2 class="section-title"><i class="fas fa-stethoscope"></i> उपचार दर्शन र प्रतिबद्धता</h2>
+            <p class="content-paragraph">
+                डा. निर्मल लामिछानेको उपचार दर्शन केवल रोग निको पार्नुमा मात्र सीमित छैन। उहाँ भन्नुहुन्छ, "क्यान्सर उपचारमा शल्यक्रिया पछिको जीवनको गुणस्तर (Quality of Life) उत्तिकै महत्वपूर्ण हुन्छ।" यही सोचका कारण उहाँले नेपालमा पिसाब थैलीको क्यान्सर भएका बिरामीहरूका लागि कृत्रिम थैलीको सट्टा बिरामीको आफ्नै आन्द्राबाट नयाँ थैली बनाउने (Neobladder) जटिल शल्यक्रियालाई प्राथमिकता दिनुहुन्छ।
+            </p>
+            <p class="content-paragraph">
+                उहाँको नम्र स्वभाव, बिरामीप्रतिको संवेदनशीलता र स्पष्ट सल्लाहका कारण बिरामीहरू उहाँलाई भगवानको रूपमा मान्दछन्। उहाँ नेपाल मेडिकल काउन्सिल र अन्तर्राष्ट्रिय अंकोलोजी समाजहरूमा पनि सक्रिय हुनुहुन्छ, जसले गर्दा उहाँ क्यान्सर उपचारका नवीनतम खोजहरूसँग सधैं अपडेट रहनुहुन्छ।
+            </p>
+        </div>
+
     </main>
 
-    <script>
-        const txt = {
-            en: { t1:"Professional Milestones", p1:"Dr. Nirmal Lamichhane joined B.P. Koirala Memorial Cancer Hospital in 2002. Over two decades, he has held major leadership roles that shaped regional cancer care:", m1:"<strong>Former Chairman:</strong> Led the Board of Directors at BPKMCH, managing national oncology policies.", m2:"<strong>Former Deputy Director (2018–2020):</strong> Oversaw hospital clinical operations and administrative growth.", m3:"<strong>Academic:</strong> Former Assistant Professor of Surgery at the College of Medical Sciences, Bharatpur.", t2:"International Training", p2:"His surgical expertise is backed by fellowships at the world's leading cancer centers:", f1:"<strong>USA:</strong> Saudavar Fellowship at Memorial Sloan Kettering Cancer Center (New York).", f2:"<strong>USA:</strong> Sentinel Node Biopsy training at H. Lee Moffitt Cancer Center (Florida).", f3:"<strong>UK:</strong> Colorectal Surgical Oncology Fellowship, Royal College of Surgeons of Edinburgh." },
-            ne: { t1:"व्यावसायिक माइलस्टोनहरू", p1:"डा. निर्मल लामिछाने २००२ मा बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालमा आबद्ध हुनुभयो। दुई दशकमा उहाँले प्रमुख नेतृत्वदायी भूमिकाहरू सम्हाल्नुभएको छ:", m1:"<strong>पूर्व अध्यक्ष:</strong> BPKMCH को सञ्चालक समितिको नेतृत्व गर्दै राष्ट्रिय अंकोलोजी नीतिहरू व्यवस्थापन गर्नुभयो।", m2:"<strong>पूर्व उप-निर्देशक (२०१८-२०२०):</strong> अस्पतालको क्लिनिकल सञ्चालन र प्रशासनिक विकासको रेखदेख गर्नुभयो।", m3:"<strong>प्राज्ञिक:</strong> कलेज अफ मेडिकल साइन्सेज, भरतपुरमा शल्यक्रिया विषयको पूर्व सहायक प्राध्यापक।", t2:"अन्तर्राष्ट्रिय तालिम", p2:"उहाँको शल्यक्रिया विशेषज्ञता विश्वका प्रमुख क्यान्सर केन्द्रहरूको फेलोशिपद्वारा समर्थित छ:", f1:"<strong>अमेरिका:</strong> मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर (न्युयोर्क) मा सौदावर फेलोशिप।", f2:"<strong>अमेरिका:</strong> एच. ली मोफिट क्यान्सर सेन्टर (फ्लोरिडा) मा सेन्टिनल नोड बायोप्सी तालिम।", f3:"<strong>बेलायत:</strong> रोयल कलेज अफ सर्जन्स अफ एडिनबर्गद्वारा प्रायोजित कोलोरेक्टल सर्जिकल अंकोलोजी फेलोशिप।" }
-        };
-        // Initialization script to handle toggles (simplified)
-    </script>
+    <footer>
+        <p>&copy; २०२६ डा. निर्मल लामिछाने। सर्वाधिकार सुरक्षित।</p>
+        <p>भरतपुर, चितवन, नेपाल | वरिष्ठ कन्सल्टेन्ट सर्जन</p>
+    </footer>
+
 </body>
 </html>
