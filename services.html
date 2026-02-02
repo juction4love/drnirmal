@@ -1,42 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-    <meta charset="UTF-8"><title>Services | Dr. Nirmal Lamichhane</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सेवाहरू | डा. निर्मल लामिछाने - वरिष्ठ कन्सल्टेन्ट सर्जन</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    
     <style>
-        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; }
-        body { font-family: 'Lato', sans-serif; background: var(--light); color: #333; line-height: 1.7; margin: 0; }
-        header { background: #fff; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        :root {
+            --primary: #004085;      /* Deep Medical Blue */
+            --primary-dark: #002752; /* Navy */
+            --accent: #c0a16b;       /* Gold */
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Mukta', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
+        a { text-decoration: none; transition: 0.3s; }
+        
+        /* --- HEADER & NAV --- */
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        
+        .brand h1 { font-size: 1.4rem; margin: 0; line-height: 1.2; color: var(--primary); }
+        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { color: #555; font-weight: 600; font-size: 0.95rem; }
+        .nav-menu a:hover { color: var(--primary); }
+        .nav-menu a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(rgba(0, 64, 133, 0.9), rgba(0, 39, 82, 0.95));
+            color: var(--white); 
+            padding: 60px 20px; 
+            text-align: center;
+        }
+        .hero h2 { color: var(--white); font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* --- CONTENT SECTION --- */
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .srv-card { background: #fff; padding: 30px; border-radius: 8px; border-left: 6px solid var(--accent); margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1 { color: var(--primary); text-align: center; margin-bottom: 30px; font-family: 'Montserrat', sans-serif; }
-        h3 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        
+        .service-card { 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow); 
+            border-top: 6px solid var(--primary);
+            margin-bottom: 40px;
+        }
+        
+        .service-card h2 { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-size: 1.8rem; }
+        .service-card h2 i { color: var(--accent); }
+        
+        .detailed-content { text-align: justify; color: #444; }
+        .detailed-content p { margin-bottom: 20px; }
+        
+        .feature-list { list-style: none; margin: 20px 0; }
+        .feature-list li { margin-bottom: 12px; padding-left: 30px; position: relative; }
+        .feature-list li::before { 
+            content: "\f058"; 
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; 
+            position: absolute; 
+            left: 0; 
+            color: var(--accent); 
+        }
+
+        .cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn-white {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: 60px; }
+        footer p { font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h2 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
-            <h2 style="font-size:1.2rem; color:var(--primary); margin:0;">Dr. Nirmal Lamichhane</h2>
-            <nav><a href="index.html" style="margin-left:15px; text-decoration:none; color:#555;">Home</a><a href="services.html" style="margin-left:15px; text-decoration:none; color:var(--primary); font-weight:bold;">Services</a></nav>
+        <div class="nav-container">
+            <div class="brand">
+                <h1>डा. निर्मल लामिछाने</h1>
+                <span>वरिष्ठ कन्सल्टेन्ट सर्जन</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">गृहपृष्ठ</a>
+                <a href="about.html">बारेमा</a>
+                <a href="services.html" class="active">सेवाहरू</a>
+                <a href="appointment.html">अपोइन्टमेन्ट</a>
+                <a href="links.html">लिङ्कहरू</a>
+                <a href="contact.html">सम्पर्क</a>
+            </nav>
         </div>
     </header>
 
+    <section class="hero">
+        <h2>विशिष्ट चिकित्सा सेवाहरू</h2>
+        <p>क्यान्सर उपचारमा दुई दशकभन्दा बढीको अनुभव र विशेषज्ञता</p>
+    </section>
+
     <main class="container">
-        <h1>Clinical Expertise & Procedures</h1>
-        <div class="srv-card">
-            <h3><i class="fas fa-procedures"></i> Urological Oncology</h3>
-            <p>Specialized management of genito-urinary tract tumors including bladder, prostate, and kidney cancers. Expert in Radical Cystectomy and Prostatectomy.</p>
-            
+        
+        <div class="service-card">
+            <h2><i class="fas fa-procedures"></i> युरोलोजिकल अंकोलोजी (Urological Oncology)</h2>
+            <div class="detailed-content">
+                <p>डा. निर्मल लामिछाने नेपालका एक अग्रणी युरोलोजिकल क्यान्सर विशेषज्ञ हुनुहुन्छ। युरोलोजिकल अंकोलोजी अन्तर्गत विशेषगरी पुरुष र महिलाको मुत्रप्रणाली र पुरुषको प्रजनन अंगहरूमा हुने क्यान्सरको निदान र उपचार गरिन्छ।</p>
+                
+                
+
+                <p>हामीले प्रदान गर्ने मुख्य सेवाहरूमा मुत्रथैलीको क्यान्सर (Bladder Cancer), प्रोस्टेट क्यान्सर (Prostate Cancer), मृगौलाको क्यान्सर (Kidney Cancer), र लिङ्ग तथा अण्डकोषको क्यान्सरको अत्याधुनिक शल्यक्रियात्मक उपचार समावेश छन्। डा. लामिछानेले अन्तर्राष्ट्रिय मापदण्ड अनुसारको 'रेडिकल सर्जरी' मा दख्खल राख्नुहुन्छ, जसले क्यान्सरलाई शरीरबाट पूर्ण रूपमा हटाउन मद्दत गर्दछ।</p>
+                
+                <ul class="feature-list">
+                    <li><strong>रेडिकल सिस्टेक्टमी (Radical Cystectomy):</strong> मुत्रथैलीको क्यान्सर निको पार्न गरिने प्रमुख शल्यक्रिया।</li>
+                    <li><strong>रेडिकल प्रोस्टेक्टमी (Radical Prostatectomy):</strong> प्रोस्टेट क्यान्सरका बिरामीहरूका लागि क्यान्सरमुक्त जीवन प्रदान गर्ने विधि।</li>
+                    <li><strong>नेफ्रेक्टमी (Nephrectomy):</strong> मृगौलामा पलाएको ट्युमर हटाउने प्रक्रिया।</li>
+                </ul>
+            </div>
         </div>
-        <div class="srv-card">
-            <h3><i class="fas fa-microscope"></i> Neobladder Reconstruction</h3>
-            <p>Special interest in the <strong>Studer Pouch (Orthotopic Neobladder)</strong>. This complex intestinal reconstruction allows patients to maintain normal urination after bladder removal.</p>
+
+        <div class="service-card">
+            <h2><i class="fas fa-microscope"></i> नियोब्ल्याडर पुनर्निर्माण (Neobladder Reconstruction)</h2>
+            <div class="detailed-content">
+                <p>यो डा. निर्मल लामिछानेको विशेष अभिरुचि र विशेषज्ञताको क्षेत्र हो। जब मुत्रथैलीको क्यान्सरका कारण प्राकृतिक मुत्रथैली हटाउनुपर्ने हुन्छ, तब बिरामीको आफ्नै आन्द्राको प्रयोग गरेर नयाँ मुत्रथैली बनाइन्छ। यसलाई **अर्थोटोपिक नियोब्ल्याडर (Orthotopic Neobladder)** वा 'Studer Pouch' भनिन्छ।</p>
+                
+                <p>यो प्रक्रिया जटिल भए तापनि यसले बिरामीलाई शल्यक्रियापछि पनि सामान्य रूपमा पिसाब फेर्न सक्षम बनाउँछ। यसले बिरामीको जीवनको गुणस्तर (Quality of Life) लाई यथावत राख्न र बाहिरी थैली (Urostomy Bag) बोक्नुपर्ने झन्झटबाट मुक्ति दिन्छ। नेपालमा यो प्रविधि सफलतापूर्वक भित्र्याउने र धेरै बिरामीलाई सेवा दिने थोरै सर्जनहरूमध्ये डा. लामिछाने एक हुनुहुन्छ।</p>
+                
+                <p>नियोब्ल्याडर निर्माणका फाइदाहरू:</p>
+                <ul class="feature-list">
+                    <li>प्राकृतिक मुत्रमार्गबाटै पिसाब फेर्न सकिने।</li>
+                    <li>शरीरको बाहिरी बनावटमा कुनै परिवर्तन नआउने।</li>
+                    <li>आत्मविश्वास र सामाजिक जीवनमा सुधार हुने।</li>
+                </ul>
+            </div>
         </div>
-        <div class="srv-card">
-            <h3><i class="fas fa-user-md"></i> Complex Pelvic Surgery</h3>
-            <p>Expertise in colorectal oncology and major pelvic resections for advanced solid tumors, focusing on both curative outcomes and quality of life.</p>
+
+        <div class="service-card">
+            <h2><i class="fas fa-user-md"></i> जटिल पेल्भिक तथा कोलोरेक्टल शल्यक्रिया</h2>
+            <div class="detailed-content">
+                <p>डा. लामिछानेले बेलायत (UK) बाट कोलोरेक्टल सर्जरीमा विशेष तालिम प्राप्त गर्नुभएको छ। यस अन्तर्गत पेटको तल्लो भाग (Pelvis) मा हुने जटिल ट्युमरहरूको व्यवस्थापन गरिन्छ। विशेषगरी मलाशयको क्यान्सर (Rectal Cancer) र ठूलो आन्द्राको क्यान्सरका लागि उहाँले गर्ने शल्यक्रियाहरू अत्यन्तै सफल मानिन्छन्।</p>
+                
+                <p>हामीले गर्ने जटिल प्रक्रियाहरूमा मल्टि-अर्गान रिसेक्सन (Multi-organ Resection) पनि पर्दछ, जहाँ क्यान्सर वरिपरिका धेरै अंगहरूमा फैलिएको हुन्छ। यस्तो अवस्थामा अत्यन्त सावधानीपूर्वक क्यान्सर हटाएर अंगहरूको कार्यप्रणालीलाई सुचारु राख्ने प्रयास गरिन्छ।</p>
+                
+                <ul class="feature-list">
+                    <li><strong>एन्टेरियर रिसेक्सन (Anterior Resection):</strong> मलाशयको क्यान्सरका लागि गरिने उन्नत शल्यक्रिया।</li>
+                    <li><strong>पेल्भिक एक्जेन्टेरेसन (Pelvic Exenteration):</strong> धेरै अंगमा फैलिएको जटिल क्यान्सर हटाउने प्रक्रिया।</li>
+                    <li><strong>सेन्टिनल लिम्फ नोड बायोप्सी:</strong> क्यान्सर फैलिएको छ कि छैन भनेर सुरुवाती अवस्थामै पत्ता लगाउने प्रविधि।</li>
+                </ul>
+            </div>
         </div>
+
+        <div class="service-card">
+            <h2><i class="fas fa-heartbeat"></i> बिरामी केन्द्रित सेवा र परामर्श</h2>
+            <div class="detailed-content">
+                <p>क्यान्सरको उपचार केवल शल्यक्रिया मात्र होइन, यो एक लामो मानसिक र शारीरिक यात्रा हो। डा. निर्मल लामिछानेको टिमले बिरामीको अवस्थालाई बुझेर 'मल्टिडिसिप्लिनरी ट्युमर बोर्ड' (Multidisciplinary Tumor Board) मार्फत सामूहिक निर्णय लिने गर्दछ। यसमा सर्जन, मेडिकल अंकोलोजिस्ट, र रेडियोलोजिस्टहरू बसेर बिरामीको लागि सबैभन्दा उत्तम उपचार योजना तयार पार्दछन्।</p>
+                
+                <p>हामीले बिरामीलाई शल्यक्रिया अघिको परामर्श, शल्यक्रिया पछिको हेरचाह र लामो समयसम्मको 'फलो-अप' (Follow-up) सुनिश्चित गर्दछौं। हाम्रो लक्ष्य क्यान्सर हटाउनु मात्र नभई बिरामीलाई पुन: स्वस्थ र सक्रिय जीवनमा फर्काउनु हो।</p>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>के तपाईंलाई विशेषज्ञ परामर्शको आवश्यकता छ?</h3>
+            <p>आजै आफ्नो समय सुरक्षित गर्नुहोस् र उन्नत क्यान्सर उपचार सेवा प्राप्त गर्नुहोस्।</p>
+            <a href="appointment.html" class="btn-white">अपोइन्टमेन्ट बुक गर्नुहोस्</a>
+        </div>
+
     </main>
+
+    <footer>
+        <p>&copy; २०२६ डा. निर्मल लामिछाने। सर्वाधिकार सुरक्षित।</p>
+        <p>वरिष्ठ कन्सल्टेन्ट सर्जिकल अंकोलोजिस्ट | भरतपुर, चितवन, नेपाल</p>
+    </footer>
+
 </body>
 </html>
