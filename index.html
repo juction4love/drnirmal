@@ -4,34 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Nirmal Lamichhane | Senior Consultant Surgeon</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
     <style>
-        :root { --primary: #004085; --accent: #c0a16b; --light: #f8f9fa; --text: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; color: var(--text); background: var(--light); line-height: 1.6; }
-        body.lang-ne { font-family: 'Mukta', sans-serif; }
-        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav-box { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { color: #555; margin-left: 15px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
-        .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; margin-left: 15px; }
-        .lang-btn { background: #fff; border: none; padding: 5px 10px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+        :root { 
+            --primary: #004085; 
+            --primary-dark: #002752;
+            --accent: #c0a16b; 
+            --light: #f8f9fa; 
+            --white: #ffffff;
+            --text: #333; 
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Lato', sans-serif; 
+            color: var(--text); 
+            background: var(--light); 
+            line-height: 1.8; 
+        }
+        
+        body.lang-ne { font-family: 'Mukta', sans-serif; font-size: 1.1rem; }
+
+        /* --- NAVIGATION --- */
+        header { 
+            background: #fff; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        .nav-box { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 15px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .brand h1 { font-size: 1.4rem; color: var(--primary); font-family: 'Montserrat', sans-serif; }
+        .brand span { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 50px; overflow: hidden; margin-left: 20px; background: #eee; }
+        .lang-btn { border: none; padding: 6px 15px; cursor: pointer; font-weight: bold; font-size: 0.8rem; background: none; transition: 0.3s; }
         .lang-btn.active { background: var(--primary); color: #fff; }
-        .hero { background: linear-gradient(rgba(0,64,133,0.9), rgba(0,39,82,0.95)); color: #fff; padding: 60px 20px; text-align: center; }
-        .hero img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 15px; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .card { background: #fff; padding: 40px; border-radius: 8px; border-top: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        footer { background: #1a1a1a; color: #bbb; padding: 30px; text-align: center; }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(rgba(0,64,133,0.9), rgba(0,39,82,0.95)), url('hospital-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: #fff; 
+            padding: 100px 20px; 
+            text-align: center; 
+        }
+        .hero img { 
+            width: 180px; height: 180px; 
+            border-radius: 50%; 
+            border: 5px solid var(--accent); 
+            margin-bottom: 25px; 
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+        .hero h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto 30px; }
+        .btn-main { 
+            display: inline-block; 
+            background: var(--accent); 
+            color: var(--primary-dark); 
+            padding: 15px 35px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: #fff; transform: translateY(-3px); }
+
+        /* --- CONTENT WRAPPER --- */
+        .container { max-width: 1100px; margin: -50px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+        
+        .main-card { 
+            background: #fff; 
+            padding: 60px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            border-top: 8px solid var(--primary); 
+        }
+
+        .content-section { margin-bottom: 50px; }
+        .content-section h2 { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--primary); 
+            font-size: 2rem; 
+            margin-bottom: 25px; 
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+        }
+        
+        .content-text { text-align: justify; font-size: 1.1rem; color: #444; margin-bottom: 20px; }
+        .content-text strong { color: var(--primary-dark); }
+
+        .feature-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin: 40px 0;
+        }
+        .feature-item { 
+            background: #f0f4f8; 
+            padding: 30px; 
+            border-radius: 10px; 
+            border-bottom: 4px solid var(--accent); 
+        }
+        .feature-item i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+        .feature-item h3 { margin-bottom: 10px; color: var(--primary-dark); }
+
+        /* --- MOBILE VIEW --- */
+        @media (max-width: 850px) {
+            .nav-links { display: none; } /* Add a toggle menu if needed, but for now simple stack */
+            .main-card { padding: 30px 20px; }
+            .hero h2 { font-size: 1.8rem; }
+            .content-section h2 { font-size: 1.5rem; }
+        }
+
+        footer { background: #1a1a1a; color: #bbb; padding: 50px 20px; text-align: center; }
+        footer .f-logo { color: #fff; font-size: 1.5rem; margin-bottom: 10px; font-weight: bold; }
     </style>
 </head>
 <body class="lang-en">
+
     <header>
         <div class="nav-box">
-            <div>
-                <h1 style="font-size:1.2rem; color:var(--primary);" data-key="h_name">Dr. Nirmal Lamichhane</h1>
-                <small style="color:var(--accent); font-weight:700;" data-key="h_title">Senior Consultant Surgeon</small>
+            <div class="brand">
+                <h1 data-key="h_name">Dr. Nirmal Lamichhane</h1>
+                <span data-key="h_title">Senior Consultant Surgeon</span>
             </div>
             <div style="display:flex; align-items:center;">
                 <nav class="nav-links">
@@ -51,28 +168,96 @@
     </header>
 
     <section class="hero">
-        <img src="profile.png" alt="Dr. Nirmal">
-        <h2 data-key="hero_welcome">Welcome to the Official Portfolio</h2>
-        <p data-key="hero_sub">Dedicated to Advanced Urological & Cancer Surgery</p>
+        <img src="profile.png" alt="Dr. Nirmal Lamichhane">
+        <h2 data-key="hero_head">Excellence in Surgical Oncology</h2>
+        <p data-key="hero_p">Providing world-class Urological and Pelvic Cancer care with a commitment to surgical innovation and patient compassion.</p>
+        <a href="appointment.html" class="btn-main" data-key="hero_btn">Book a Consultation</a>
     </section>
 
     <main class="container">
-        <div class="card">
-            <p data-key="p1"><strong>Dr. Nirmal Lamichhane</strong> is a highly respected Senior Consultant Surgical Oncologist and Urologist based in Bharatpur, Nepal. With over 20 years of experience, he is a leader in the diagnosis and surgical management of complex cancers.</p>
-            <br>
-            <p data-key="p2">In his distinguished career, he has served as the <strong>Former Chairman of the Board of Directors</strong> at the B.P. Koirala Memorial Cancer Hospital (BPKMCH). During his leadership, he played a vital role in enhancing oncology services and strategic development for the nation's premier cancer center.</p>
-            <br>
-            <p data-key="p3">Specializing in Urological Oncology, Dr. Lamichhane is an expert in treating bladder, prostate, and kidney cancers. He is uniquely trained in advanced procedures such as the orthotopic neobladder (Studer Pouch) reconstruction, bringing international surgical standards to patients in Nepal.</p>
-        </div>
+        <article class="main-card">
+            
+            <section class="content-section">
+                <h2 data-key="sec1_t">Vision & Professional Legacy</h2>
+                <div class="content-text" data-key="sec1_p">
+                    <strong>Dr. Nirmal Lamichhane</strong> stands as a pillar of oncology in Nepal, blending decades of experience with global medical standards. His journey is defined by a deep-seated commitment to transforming cancer care in the country. As the <strong>Former Chairman</strong> of the B.P. Koirala Memorial Cancer Hospital (BPKMCH), he led the institution through critical phases of growth, ensuring that patients across Nepal had access to life-saving surgical treatments and modernized oncology protocols.
+                </div>
+            </section>
+
+            
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-microscope"></i>
+                    <h3 data-key="f1_t">Uro-Oncology</h3>
+                    <p data-key="f1_p">Specialized surgical management of kidney, prostate, and bladder tumors using advanced staging and radical techniques.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-procedures"></i>
+                    <h3 data-key="f2_t">Neobladder Reconstruction</h3>
+                    <p data-key="f2_p">One of the few surgeons in Nepal performing the Studer Pouch reconstruction to restore natural urination.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-globe"></i>
+                    <h3 data-key="f3_t">Global Impact</h3>
+                    <p data-key="f3_p">Fellowship trained at MSKCC (USA) and the Royal College of Surgeons (UK) to provide international standard care.</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2 data-key="sec2_t">Advanced Surgical Innovation</h2>
+                <div class="content-text" data-key="sec2_p">
+                    Dr. Lamichhane’s expertise in <strong>Urological Oncology</strong> has redefined treatment for bladder and prostate cancers in Bharatpur. He is particularly recognized for his mastery of the <strong>Orthotopic Neobladder (Studer Pouch)</strong>, a complex procedure where a new bladder is constructed from the patient’s own intestine. This ensures that patients, following a radical cystectomy, can lead a life with dignity and normal function.
+                    <br><br>
+                    Furthermore, his tenure at <strong>Shanghai Medical University</strong> and <strong>Fudan University</strong> provided him with a unique perspective on clinical oncology, which he later refined through prestigious fellowships at <strong>Memorial Sloan Kettering Cancer Center</strong> (USA) and <strong>H. Lee Moffitt Cancer Center</strong> (USA). Today, he continues to serve as a Senior Consultant Surgeon, mentoring the next generation of surgeons while maintaining an active clinical practice.
+                </div>
+            </section>
+
+            
+
+            <div style="text-align: center; margin-top: 40px;">
+                <h3 data-key="cta_h" style="color:var(--primary); margin-bottom: 20px;">Dedicated to Your Recovery</h3>
+                <p data-key="cta_p" style="margin-bottom: 30px;">For private appointments and second opinions, please connect with National City Hospital.</p>
+                <a href="contact.html" class="btn-main" data-key="cta_btn">Contact Details</a>
+            </div>
+
+        </article>
     </main>
 
-    <footer><p>&copy; 2026 Dr. Nirmal Lamichhane. Bharatpur, Chitwan, Nepal.</p></footer>
+    <footer>
+        <div class="f-logo">Dr. Nirmal Lamichhane</div>
+        <p data-key="f_addr">Bharatpur-10, Hospital Road, Chitwan, Nepal</p>
+        <p style="margin-top:20px; opacity:0.6;">&copy; 2026 Official Professional Portfolio. All Rights Reserved.</p>
+    </footer>
 
     <script>
         const translations = {
-            en: { h_name: "Dr. Nirmal Lamichhane", h_title: "Senior Consultant Surgeon", n_home: "Home", n_about: "About", n_services: "Services", n_appt: "Appointment", n_links: "Links", n_contact: "Contact", hero_welcome: "Welcome to the Official Portfolio", hero_sub: "Dedicated to Advanced Urological & Cancer Surgery", p1: "<strong>Dr. Nirmal Lamichhane</strong> is a highly respected Senior Consultant Surgical Oncologist and Urologist based in Bharatpur, Nepal. With over 20 years of experience, he is a leader in the diagnosis and surgical management of complex cancers.", p2: "In his distinguished career, he has served as the <strong>Former Chairman of the Board of Directors</strong> at the B.P. Koirala Memorial Cancer Hospital (BPKMCH). During his leadership, he played a vital role in enhancing oncology services and strategic development for the nation's premier cancer center.", p3: "Specializing in Urological Oncology, Dr. Lamichhane is an expert in treating bladder, prostate, and kidney cancers. He is uniquely trained in advanced procedures such as the orthotopic neobladder (Studer Pouch) reconstruction, bringing international surgical standards to patients in Nepal." },
-            ne: { h_name: "डा. निर्मल लामिछाने", h_title: "वरिष्ठ कन्सल्टेन्ट सर्जन", n_home: "गृहपृष्ठ", n_about: "बारेमा", n_services: "सेवाहरू", n_appt: "अपोइन्टमेन्ट", n_links: "लिङ्कहरू", n_contact: "सम्पर्क", hero_welcome: "आधिकारिक पोर्टफोलियोमा स्वागत छ", hero_sub: "उन्नत युरोलोजिकल र क्यान्सर शल्यक्रियामा समर्पित", p1: "<strong>डा. निर्मल लामिछाने</strong> भरतपुर, नेपालमा आधारित एक अत्यन्त सम्मानित वरिष्ठ कन्सल्टेन्ट सर्जिकल अंकोलोजिस्ट र युरोलोजिस्ट हुनुहुन्छ। २० वर्षभन्दा बढीको अनुभवका साथ, उहाँ जटिल क्यान्सरहरूको निदान र शल्यक्रिया व्यवस्थापनमा अग्रणी हुनुहुन्छ।", p2: "आफ्नो विशिष्ट करियरमा, उहाँले बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) को <strong>सञ्चालक समितिको पूर्व अध्यक्ष</strong>को रूपमा सेवा गर्नुभएको छ। उहाँको नेतृत्वमा, नेपालको प्रमुख क्यान्सर केन्द्रको विकास र सेवा विस्तारमा महत्वपूर्ण भूमिका खेल्नुभएको थियो।", p3: "युरोलोजिकल अंकोलोजीमा विशेषज्ञता हासिल गर्नुभएका डा. लामिछाने मुत्रथैली, प्रोस्टेट र मृगौलाको क्यान्सर उपचारमा पोख्त हुनुहुन्छ। उहाँ 'अर्थोटोपिक नियोब्ल्याडर' (Studer Pouch) पुनर्निर्माण जस्ता उन्नत प्रक्रियाहरूमा विशेष तालिम प्राप्त हुनुहुन्छ।" }
+            en: {
+                h_name: "Dr. Nirmal Lamichhane", h_title: "Senior Consultant Surgeon",
+                n_home: "Home", n_about: "About", n_services: "Services", n_appt: "Appointment", n_links: "Links", n_contact: "Contact",
+                hero_head: "Excellence in Surgical Oncology", hero_p: "Providing world-class Urological and Pelvic Cancer care with a commitment to surgical innovation and patient compassion.", hero_btn: "Book a Consultation",
+                sec1_t: "Vision & Professional Legacy", sec1_p: "<strong>Dr. Nirmal Lamichhane</strong> stands as a pillar of oncology in Nepal, blending decades of experience with global medical standards. His journey is defined by a deep-seated commitment to transforming cancer care in the country. As the <strong>Former Chairman</strong> of the B.P. Koirala Memorial Cancer Hospital (BPKMCH), he led the institution through critical phases of growth, ensuring that patients across Nepal had access to life-saving surgical treatments and modernized oncology protocols.",
+                f1_t: "Uro-Oncology", f1_p: "Specialized surgical management of kidney, prostate, and bladder tumors using advanced staging and radical techniques.",
+                f2_t: "Neobladder Reconstruction", f2_p: "One of the few surgeons in Nepal performing the Studer Pouch reconstruction to restore natural urination.",
+                f3_t: "Global Impact", f3_p: "Fellowship trained at MSKCC (USA) and the Royal College of Surgeons (UK) to provide international standard care.",
+                sec2_t: "Advanced Surgical Innovation", sec2_p: "Dr. Lamichhane’s expertise in <strong>Urological Oncology</strong> has redefined treatment for bladder and prostate cancers in Bharatpur. He is particularly recognized for his mastery of the <strong>Orthotopic Neobladder (Studer Pouch)</strong>, a complex procedure where a new bladder is constructed from the patient’s own intestine. This ensures that patients, following a radical cystectomy, can lead a life with dignity and normal function.<br><br>Furthermore, his tenure at <strong>Shanghai Medical University</strong> and <strong>Fudan University</strong> provided him with a unique perspective on clinical oncology, which he later refined through prestigious fellowships at <strong>Memorial Sloan Kettering Cancer Center</strong> (USA) and <strong>H. Lee Moffitt Cancer Center</strong> (USA). Today, he continues to serve as a Senior Consultant Surgeon, mentoring the next generation of surgeons while maintaining an active clinical practice.",
+                cta_h: "Dedicated to Your Recovery", cta_p: "For private appointments and second opinions, please connect with National City Hospital.", cta_btn: "Contact Details",
+                f_addr: "Bharatpur-10, Hospital Road, Chitwan, Nepal"
+            },
+            ne: {
+                h_name: "डा. निर्मल लामिछाने", h_title: "वरिष्ठ कन्सल्टेन्ट सर्जन",
+                n_home: "गृहपृष्ठ", n_about: "बारेमा", n_services: "सेवाहरू", n_appt: "अपोइन्टमेन्ट", n_links: "लिङ्कहरू", n_contact: "सम्पर्क",
+                hero_head: "सर्जिकल अंकोलोजीमा उत्कृष्टता", hero_p: "शल्यक्रियात्मक नवाचार र बिरामीप्रतिको संवेदनशीलताका साथ विश्व-स्तरीय युरोलोजिकल र पेल्भिक क्यान्सर उपचार सेवा।", hero_btn: "परामर्श लिनुहोस्",
+                sec1_t: "दृष्टिकोण र व्यावसायिक विरासत", sec1_p: "<strong>डा. निर्मल लामिछाने</strong> नेपालको अंकोलोजी क्षेत्रको एक बलियो खम्बा हुनुहुन्छ, जसले दशकौंको अनुभवलाई विश्वव्यापी चिकित्सा मापदण्डसँग जोड्नुभएको छ। उहाँको यात्रा देशमा क्यान्सर उपचारलाई रूपान्तरण गर्ने गहिरो प्रतिबद्धताद्वारा परिभाषित छ। बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH) को <strong>पूर्व अध्यक्ष</strong>को रूपमा, उहाँले संस्थालाई विकासको महत्वपूर्ण चरणहरूमा नेतृत्व गर्नुभयो, जसले गर्दा नेपालभरका बिरामीहरूले जीवन बचाउने शल्यक्रिया र आधुनिक अंकोलोजी सेवा प्राप्त गरे।",
+                f1_t: "युरो-अंकोलोजी", f1_p: "उन्नत स्टेजिङ र रेडिकल प्रविधिहरू प्रयोग गरेर मृगौला, प्रोस्टेट र मुत्रथैलीको ट्युमरहरूको विशेष शल्यक्रिया व्यवस्थापन।",
+                f2_t: "नियोब्ल्याडर पुनर्निर्माण", f2_p: "प्राकृतिक रूपमा पिसाब फेर्ने प्रक्रिया पुन: स्थापना गर्न 'Studer Pouch' पुनर्निर्माण गर्ने नेपालका थोरै सर्जनहरूमध्ये एक।",
+                f3_t: "विश्वव्यापी प्रभाव", f3_p: "अन्तर्राष्ट्रिय स्तरको सेवा प्रदान गर्न MSKCC (USA) र रोयल कलेज अफ सर्जन्स (UK) बाट फेलोशिप प्राप्त विशेषज्ञ।",
+                sec2_t: "उन्नत शल्यक्रियात्मक नवाचार", sec2_p: "डा. लामिछानेको <strong>युरोलोजिकल अंकोलोजी</strong>मा रहेको विशेषज्ञताले भरतपुरमा मुत्रथैली र प्रोस्टेट क्यान्सरको उपचारलाई नयाँ परिभाषा दिएको छ। उहाँ विशेष गरी <strong>अर्थोटोपिक नियोब्ल्याडर (Studer Pouch)</strong> मा आफ्नो दख्खलका लागि चिनिनुहुन्छ, जुन बिरामीको आफ्नै आन्द्राबाट नयाँ मुत्रथैली बनाइने एक जटिल प्रक्रिया हो। यसले रेडिकल सिस्टेक्टमी पछि बिरामीहरूलाई सम्मानजनक र सामान्य जीवन जिउन सुनिश्चित गर्दछ।<br><br>थप रूपमा, उहाँको <strong>साङ्घाई मेडिकल युनिभर्सिटी</strong> र <strong>फुदान विश्वविद्यालय</strong>को कार्यकालले उहाँलाई क्लिनिकल अंकोलोजीमा एक अद्वितीय दृष्टिकोण प्रदान गर्‍यो, जसलाई उहाँले पछि अमेरिकाको <strong>मेमोरियल स्लोन केटरिङ क्यान्सर सेन्टर</strong> र <strong>एच. ली मोफिट क्यान्सर सेन्टर</strong>बाट थप निखार्नुभयो। हाल उहाँ वरिष्ठ कन्सल्टेन्ट सर्जनको रूपमा सेवा गर्दै आगामी पुस्ताका सर्जनहरूलाई मार्गदर्शन गरिरहनुभएको छ।",
+                cta_h: "तपाईंको स्वास्थ्यलाभमा समर्पित", cta_p: "निजी परामर्श र विशेषज्ञ सल्लाहका लागि कृपया नेशनल सिटी हस्पिटलमा सम्पर्क गर्नुहोस्।", cta_btn: "सम्पर्क विवरण",
+                f_addr: "भरतपुर-१०, हस्पिटल रोड, चितवन, नेपाल"
+            }
         };
+
         function setLang(lang) {
             document.body.className = 'lang-' + lang;
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
