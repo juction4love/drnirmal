@@ -44,7 +44,7 @@ Logic: The .menu-btn triggers the toggleMenu() function, which toggles the .acti
 Clone the Repository:
 
 Bash
-git clone https://github.com/your-username/dr-nirmal-web.git
+git clone https://github.com/juction4love/dr-nirmal-web.git
 Local Development: Simply open index.html in any modern web browser.
 
 Deployment: The site is ready for deployment on GitHub Pages, Netlify, or any standard PHP/Static hosting provider.
