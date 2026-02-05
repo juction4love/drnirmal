@@ -2,10 +2,10 @@
 <html lang="ne">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>अपोइन्टमेन्ट | डा. निर्मल लामिछाने</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -14,86 +14,289 @@
             --primary-dark: #002752;
             --primary-light: #e7f1ff;
             --accent: #c0a16b; 
-            --bg-sweet: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            --bg-sweet: linear-gradient(135deg, #f6f9fc 0%, #eef2f3 100%);
             --white: #ffffff;
             --whatsapp: #25d366;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-hover: 0 15px 35px rgba(0,64,133,0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Mukta', sans-serif; background: var(--bg-sweet); min-height: 100vh; color: #333; display: flex; flexDirection: column; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            font-family: 'Mukta', sans-serif; 
+            background: var(--bg-sweet); 
+            min-height: 100vh; 
+            color: #333; 
+            display: flex; 
+            flex-direction: column; 
+            line-height: 1.6;
+        }
 
         /* --- NAVIGATION --- */
-        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; padding: 0 20px; }
-        .nav-box { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .brand h1 { font-size: 1.4rem; color: var(--primary); font-family: 'Montserrat', sans-serif; margin:0; font-weight: 700; }
-        .brand span { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; display: block; letter-spacing: 1px; }
+        header { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            padding: 0 15px; 
+        }
+        
+        .nav-box { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 12px 0; 
+        }
+        
+        .brand h1 { 
+            font-size: 1.3rem; 
+            color: var(--primary); 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            font-weight: 700; 
+        }
+        
+        .brand span { 
+            font-size: 0.7rem; 
+            color: var(--accent); 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            display: block; 
+            letter-spacing: 1px; 
+        }
 
         .nav-links { display: flex; align-items: center; gap: 20px; }
-        .nav-links a { text-decoration: none; color: #555; font-weight: 600; font-size: 0.95rem; transition: 0.3s; position: relative; }
+        .nav-links a { 
+            text-decoration: none; color: #555; font-weight: 600; font-size: 0.9rem; 
+            transition: 0.3s; position: relative; padding: 5px 0;
+        }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        .nav-links a.active::after { content:''; position:absolute; bottom:-5px; left:0; width:100%; height:2px; background:var(--accent); }
+        .nav-links a.active::after { 
+            content:''; position:absolute; bottom:0; left:0; width:100%; height:2px; background:var(--accent); 
+        }
         
-        .menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+        .menu-btn { display: none; font-size: 1.4rem; color: var(--primary); cursor: pointer; padding: 5px; }
 
-        /* --- MAIN CARD --- */
-        .container { max-width: 700px; margin: 40px auto; padding: 0 15px; flex: 1; }
-        .card { background: var(--white); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border-top: 6px solid var(--primary); }
+        /* --- CONTAINER & CARD --- */
+        .container { 
+            max-width: 650px; 
+            margin: 30px auto; 
+            padding: 0 15px; 
+            flex: 1; 
+            width: 100%;
+        }
+        
+        .card { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: var(--shadow-soft); 
+            border-top: 5px solid var(--primary); 
+            position: relative;
+            overflow: hidden;
+        }
 
-        h2 { font-family: 'Montserrat', sans-serif; color: var(--primary); text-align: center; margin-bottom: 20px; font-size: 1.6rem; font-weight: 700; }
+        h2 { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--primary); 
+            text-align: center; 
+            margin-bottom: 25px; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
 
-        /* --- OPTION BOXES (Select Inputs) --- */
-        .selection-group { margin-bottom: 20px; }
-        .selection-label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 1rem; color: #444; border-left: 4px solid var(--accent); padding-left: 10px; }
+        /* --- BEAUTIFUL OPTION BOXES (Selects) --- */
+        .selection-group { margin-bottom: 25px; position: relative; }
+        
+        .selection-label { 
+            display: block; 
+            margin-bottom: 10px; 
+            font-weight: 700; 
+            font-size: 1rem; 
+            color: #444; 
+            border-left: 4px solid var(--accent); 
+            padding-left: 12px; 
+        }
+        
+        /* Custom Mobile-Friendly Select */
+        .select-wrapper { position: relative; }
         
         select.option-box {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e1e1;
-            border-radius: 10px;
+            padding: 16px 20px;
+            border: 2px solid #eaeff5;
+            border-radius: 12px;
             font-size: 1rem;
+            font-weight: 500;
             font-family: 'Mukta', sans-serif;
-            background-color: #fff;
+            background-color: #fcfcfc;
             color: #333;
             cursor: pointer;
-            transition: 0.3s;
-            appearance: none; /* Removes default arrow */
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23004085%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat;
-            background-position: right 15px top 50%;
-            background-size: 12px auto;
+            transition: all 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
-        select.option-box:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 4px rgba(0,64,133,0.1); }
+        
+        /* Custom Arrow Icon */
+        .select-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            pointer-events: none;
+            font-size: 0.9rem;
+        }
+
+        select.option-box:focus { 
+            border-color: var(--primary); 
+            background-color: #fff;
+            outline: none; 
+            box-shadow: 0 0 0 4px rgba(0, 64, 133, 0.1); 
+        }
 
         /* --- NOTICES --- */
-        .notice-box { padding: 20px; border-radius: 12px; margin: 25px 0; display: none; animation: fadeIn 0.4s; }
-        #bpkmchNotice { background: #fff3cd; border: 1px solid #ffeeba; color: #856404; }
-        #clinicNotice { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .notice-box { 
+            padding: 20px; 
+            border-radius: 12px; 
+            margin: 25px 0; 
+            display: none; 
+            animation: slideDown 0.4s ease-out;
+            border-left-width: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        #bpkmchNotice { 
+            background: #fff8e1; 
+            border-color: #ffc107; 
+            color: #856404; 
+        }
+        
+        #clinicNotice { 
+            background: #e3f9e5; 
+            border-color: #28a745; 
+            color: #155724; 
+        }
+
+        .notice-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
 
         /* --- FORM --- */
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 6px; font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
-        input { width: 100%; padding: 14px; border: 1.5px solid #dfe3e8; border-radius: 10px; font-size: 1rem; font-family: 'Lato', sans-serif; }
+        .form-group { margin-bottom: 20px; }
         
-        .btn { 
-            width: 100%; padding: 16px; border: none; border-radius: 50px; 
-            font-weight: 800; font-size: 1.1rem; cursor: pointer; 
-            display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; margin-bottom: 10px;
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 700; 
+            color: var(--primary-dark); 
+            font-size: 0.95rem; 
         }
-        .btn-whatsapp { background: var(--whatsapp); color: white; }
-        .btn-print { background: var(--primary); color: white; }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        
+        input { 
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid #eaeff5; 
+            border-radius: 12px; 
+            font-size: 1rem; 
+            font-family: 'Lato', sans-serif; /* English text input */
+            transition: 0.3s;
+            background: #fcfcfc;
+        }
+        
+        input:focus { 
+            border-color: var(--primary); 
+            background: #fff;
+            outline: none; 
+            box-shadow: 0 0 0 4px rgba(0, 64, 133, 0.1); 
+        }
+
+        /* --- BUTTONS --- */
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+
+        .btn { 
+            width: 100%; 
+            padding: 16px; 
+            border: none; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            transition: 0.3s; 
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-whatsapp { 
+            background: linear-gradient(45deg, #25d366, #128c7e); 
+            color: white; 
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-print { 
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark)); 
+            color: white; 
+            box-shadow: 0 4px 15px rgba(0, 64, 133, 0.3);
+        }
+        
+        .btn:active { transform: scale(0.98); }
 
         /* Footer */
-        footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: auto; }
+        footer { 
+            background: #1a1a1a; 
+            color: #bbb; 
+            padding: 40px 20px; 
+            text-align: center; 
+            margin-top: auto; 
+            border-top: 4px solid var(--accent);
+        }
+        footer .f-logo { color: #fff; font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        
+        /* Animations */
+        @keyframes slideDown { 
+            from { opacity: 0; transform: translateY(-15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 850px) {
             .menu-btn { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-            .nav-links.active { display: flex; }
-            .nav-links a { width: 100%; padding: 12px 0; border-bottom: 1px solid #f0f0f0; margin: 0; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background: #fff; 
+                padding: 15px 20px; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+                gap: 0;
+            }
+            .nav-links.active { display: flex; animation: slideDown 0.3s; }
+            .nav-links a { 
+                width: 100%; 
+                padding: 15px 0; 
+                border-bottom: 1px solid #f0f0f0; 
+                font-size: 1rem;
+            }
+            
+            .container { margin: 20px auto; padding: 0 10px; }
+            .card { padding: 25px 20px; }
+            h2 { font-size: 1.4rem; }
+            
+            /* Better Touch Targets on Mobile */
+            select.option-box, input, .btn { padding: 16px; font-size: 1.05rem; }
         }
     </style>
 </head>
@@ -106,12 +309,12 @@
                 <span>Senior Consultant Surgeon</span>
             </div>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html">गृहपृष्ठ</a>
-                <a href="about.html">बारेमा</a>
-                <a href="services.html">सेवाहरू</a>
-                <a href="appointment.html" class="active">अपोइन्टमेन्ट</a>
-                <a href="links.html">लिङ्कहरू</a>
-                <a href="contact.html">सम्पर्क</a>
+                <a href="index.html">गृहपृष्ठ (Home)</a>
+                <a href="about.html">बारेमा (About)</a>
+                <a href="services.html">सेवाहरू (Services)</a>
+                <a href="appointment.html" class="active">अपोइन्टमेन्ट (Appt)</a>
+                <a href="links.html">लिङ्कहरू (Links)</a>
+                <a href="contact.html">सम्पर्क (Contact)</a>
             </nav>
             <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </div>
@@ -123,42 +326,57 @@
 
             <div class="selection-group">
                 <span class="selection-label">१. अस्पताल छान्नुहोस् (Choose Hospital)</span>
-                <select id="hospitalSelect" class="option-box" onchange="updateLogic()">
-                    <option value="">-- यहाँ छान्नुहोस् --</option>
-                    <option value="BPKMCH">बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल</option>
-                    <option value="Clinic">नेशनल सिटी हस्पिटल (Private Clinic)</option>
-                </select>
+                <div class="select-wrapper">
+                    <select id="hospitalSelect" class="option-box" onchange="updateLogic()">
+                        <option value="">-- यहाँ छान्नुहोस् --</option>
+                        <option value="BPKMCH">बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल</option>
+                        <option value="Clinic">नेशनल सिटी हस्पिटल (Private Clinic)</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
             </div>
 
             <div class="selection-group">
                 <span class="selection-label">२. जाँचको प्रकार (Appointment Type)</span>
-                <select id="typeSelect" class="option-box">
-                    <option value="New Appointment">नयाँ जाँच (New Appointment)</option>
-                    <option value="Follow-up">फलो-अप (Follow-up)</option>
-                    <option value="Operational Planning">शल्यक्रिया योजना (Operational Planning)</option>
-                </select>
+                <div class="select-wrapper">
+                    <select id="typeSelect" class="option-box">
+                        <option value="New Appointment">नयाँ जाँच (New Appointment)</option>
+                        <option value="Follow-up">फलो-अप (Follow-up)</option>
+                        <option value="Operational Planning">शल्यक्रिया योजना (Operational Planning)</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
             </div>
 
             <div class="selection-group">
                 <span class="selection-label">३. समय छान्नुहोस् (Select Time)</span>
-                <select id="timeSelect" class="option-box" onchange="updateLogic()">
-                    <option value="">-- यहाँ छान्नुहोस् --</option>
-                    <option value="Morning">बिहान (Morning: 7 AM - 9 AM)</option>
-                    <option value="Day">दिउँसो (Day: 10 AM - 4 PM)</option>
-                    <option value="Evening">बेलुका (Evening: 5 PM - 8 PM)</option>
-                </select>
+                <div class="select-wrapper">
+                    <select id="timeSelect" class="option-box" onchange="updateLogic()">
+                        <option value="">-- यहाँ छान्नुहोस् --</option>
+                        <option value="Morning">बिहान (Morning: 7 AM - 9 AM)</option>
+                        <option value="Day">दिउँसो (Day: 10 AM - 4 PM)</option>
+                        <option value="Evening">बेलुका (Evening: 5 PM - 8 PM)</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
             </div>
 
             <div id="bpkmchNotice" class="notice-box">
-                <h3 style="margin-bottom:10px;"><i class="fas fa-hospital"></i> बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH)</h3>
-                <p>दिउँसोको समयमा डाक्टर साब क्यान्सर अस्पतालमा हुनुहुन्छ। कृपया अस्पतालको <b>ओपिडी काउन्टर</b> मा गई टोकन लिनुहोला।</p>
-                <p style="font-size:0.9rem; margin-top:5px;"><i>* First Come First Serve (अनलाइन अपोइन्टमेन्ट आवश्यक छैन)</i></p>
+                <i class="fas fa-hospital-user notice-icon"></i>
+                <h3 style="margin-bottom:8px; font-size:1.1rem;">बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल</h3>
+                <p>दिउँसोको समयमा डाक्टर साब क्यान्सर अस्पतालमा हुनुहुन्छ।</p>
+                <div style="margin-top:10px; background:rgba(255,255,255,0.6); padding:10px; border-radius:8px;">
+                    ✅ कृपया अस्पतालको <b>ओपिडी काउन्टर</b> मा गई टोकन लिनुहोला।<br>
+                    ✅ First Come First Serve (अनलाइन अपोइन्टमेन्ट आवश्यक छैन)
+                </div>
             </div>
 
             <div id="clinicSection" style="display:none;">
                 <div id="clinicNotice" class="notice-box" style="display:block;">
-                    <h3 style="margin-bottom:10px;"><i class="fas fa-user-md"></i> नेशनल सिटी हस्पिटल (निजी क्लिनिक)</h3>
-                    <p>निजी क्लिनिकको लागि कृपया तलको फारम <b>English</b> मा भर्नुहोस्। अपोइन्टमेन्ट स्लिप (PDF) रिसेप्सनमा देखाउनु पर्नेछ।</p>
+                    <i class="fas fa-user-md notice-icon"></i>
+                    <h3 style="margin-bottom:8px; font-size:1.1rem;">नेशनल सिटी हस्पिटल (Private Clinic)</h3>
+                    <p>निजी क्लिनिकको लागि कृपया तलको फारम <b>English</b> मा भर्नुहोस्।</p>
+                    <p style="margin-top:5px; font-size:0.9rem;">(अपोइन्टमेन्ट स्लिप PDF रिसेप्सनमा देखाउनु पर्नेछ)</p>
                 </div>
 
                 <form id="appointmentForm">
@@ -179,12 +397,14 @@
                         <input type="date" id="p_date" required>
                     </div>
 
-                    <button type="submit" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Confirm & Send (WhatsApp)
-                    </button>
-                    <button type="button" onclick="printSlip()" class="btn btn-print">
-                        <i class="fas fa-file-pdf"></i> Save PDF / Print
-                    </button>
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Confirm & Send (WhatsApp)
+                        </button>
+                        <button type="button" onclick="printSlip()" class="btn btn-print">
+                            <i class="fas fa-file-pdf"></i> Save PDF / Print
+                        </button>
+                    </div>
                 </form>
             </div>
 
@@ -194,6 +414,7 @@
     <footer>
         <div class="f-logo">Dr. Nirmal Lamichhane</div>
         <p>Bharatpur-10, Hospital Road, Chitwan, Nepal</p>
+        <p style="margin-top:10px; font-size:0.8rem; opacity:0.7;">&copy; 2026 Official Portfolio</p>
     </footer>
 
     <script>
@@ -252,7 +473,7 @@
             win.document.write(`
                 <html><head><title>Appointment Slip</title><style>
                     body { font-family: sans-serif; text-align: center; padding: 40px; background: #f9f9f9; }
-                    .slip { border: 2px solid #004085; padding: 30px; display: inline-block; text-align: left; width: 450px; border-radius: 15px; background: #fff; }
+                    .slip { border: 2px solid #004085; padding: 30px; display: inline-block; text-align: left; width: 450px; border-radius: 15px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
                     h2 { color: #004085; text-align: center; border-bottom: 2px solid #c0a16b; padding-bottom: 15px; margin: 0 0 20px 0; }
                     .hospital { text-align: center; font-weight: bold; font-size: 16px; margin-bottom: 25px; color: #444; text-transform: uppercase; }
                     .row { margin: 12px 0; display: flex; justify-content: space-between; border-bottom: 1px dashed #ccc; padding-bottom: 5px; font-size: 16px; }
