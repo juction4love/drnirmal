@@ -5,88 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>अपोइन्टमेन्ट | डा. निर्मल लामिछाने</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root { 
             --primary: #004085; 
+            --primary-dark: #002752;
             --primary-light: #e7f1ff;
             --accent: #c0a16b; 
             --bg-sweet: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
             --white: #ffffff;
             --whatsapp: #25d366;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Mukta', sans-serif; 
-            background: var(--bg-sweet); 
-            min-height: 100vh;
-            color: #333; 
-            line-height: 1.6; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Mukta', sans-serif; background: var(--bg-sweet); min-height: 100vh; color: #333; line-height: 1.6; }
 
-        header { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.08); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
-        .brand h1 { font-size: 1.4rem; color: var(--primary); margin: 0; }
-        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+        /* --- NAVIGATION --- */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-box { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand h1 { font-size: 1.3rem; color: var(--primary); font-family: 'Montserrat', sans-serif; margin:0; }
+        .brand span { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; display: block; }
 
-        .container { max-width: 600px; margin: 30px auto; padding: 0 15px; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        .menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; margin-left: 15px; }
+
+        /* --- APPOINTMENT CARD --- */
+        .container { max-width: 650px; margin: 40px auto; padding: 0 20px; }
         .card { 
             background: var(--white); 
-            padding: 30px; 
+            padding: 35px; 
             border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
             border-top: 8px solid var(--primary); 
         }
 
-        h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; text-align: center; }
+        h2 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 25px; text-align: center; }
         
         /* Visit Type Buttons */
         .type-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .type-btn { 
-            padding: 12px; border: 2px solid #ddd; border-radius: 12px; 
-            background: #fff; cursor: pointer; font-weight: 600; font-size: 0.9rem;
-            transition: 0.3s; text-align: center;
+            padding: 12px; border: 2px solid #eee; border-radius: 12px; 
+            background: #fff; cursor: pointer; font-weight: 700; font-size: 0.95rem;
+            transition: 0.3s; text-align: center; color: #666;
         }
         .type-btn.active { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
         .type-btn i { display: block; margin-bottom: 5px; font-size: 1.2rem; }
 
         .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 6px; font-weight: 600; color: #444; }
+        label { display: block; margin-bottom: 6px; font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
         
         input, select { 
             width: 100%; padding: 14px; border: 1.5px solid #eee; border-radius: 12px; 
-            font-size: 1rem; background: #fdfdfd; transition: 0.3s;
+            font-size: 1rem; background: #fafafa; font-family: 'Lato', sans-serif;
         }
-        input:focus { border-color: var(--primary); outline: none; background: #fff; }
+        input:focus { border-color: var(--primary); outline: none; background: #fff; box-shadow: 0 0 8px rgba(0,64,133,0.05); }
 
-        .notice { padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.95rem; display: none; }
+        .notice { padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.95rem; display: none; animation: fadeIn 0.4s; }
         #bpkmchNotice { background: #fff9e6; color: #856404; border: 1px solid #ffeeba; }
         #clinicNotice { background: #eef7ff; color: #004085; border: 1px solid #cce5ff; }
 
         .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
         .btn { 
             width: 100%; padding: 16px; border: none; border-radius: 12px; 
-            font-weight: 700; font-size: 1.1rem; cursor: pointer; 
+            font-weight: 800; font-size: 1.05rem; cursor: pointer; 
             display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;
         }
-        .btn-whatsapp { background: var(--whatsapp); color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
-        .btn-print { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(0, 64, 133, 0.2); }
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        .btn-whatsapp { background: var(--whatsapp); color: white; }
+        .btn-print { background: var(--primary); color: white; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        @media (max-width: 480px) {
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 850px) {
+            .menu-btn { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; 
+                width: 100%; background: #fff; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 10px 0; margin-left: 0; font-size: 1.1rem; border-bottom: 1px solid #eee; width: 100%; padding-bottom: 5px; }
             .type-selector { grid-template-columns: 1fr; }
-            .card { padding: 20px; }
+            .container { margin-top: 20px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand">
-            <h1>डा. निर्मल लामिछाने</h1>
-            <span>वरिष्ठ कन्सल्टेन्ट सर्जन</span>
+        <div class="nav-box">
+            <div class="brand">
+                <h1>डा. निर्मल लामिछाने</h1>
+                <span>Senior Consultant Surgeon</span>
+            </div>
+            <div style="display:flex; align-items:center;">
+                <nav class="nav-links" id="navLinks">
+                    <a href="index.html">गृहपृष्ठ</a>
+                    <a href="about.html">बारेमा</a>
+                    <a href="services.html">सेवाहरू</a>
+                    <a href="appointment.html" class="active">अपोइन्टमेन्ट</a>
+                    <a href="contact.html">सम्पर्क</a>
+                </nav>
+                <div class="menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -94,7 +122,7 @@
         <div class="card">
             <h2>अनलाइन अपोइन्टमेन्ट</h2>
             
-            <label style="text-align: center; display: block; margin-bottom: 10px;">परामर्शको प्रकार छान्नुहोस्</label>
+            <label style="text-align: center; display: block; margin-bottom: 15px; font-weight: bold; color: #666;">जाँचको प्रकार छान्नुहोस् (Visit Type)</label>
             <div class="type-selector">
                 <div class="type-btn active" onclick="setType(this, 'New Appointment')">
                     <i class="fas fa-user-plus"></i> नयाँ जाँच (New)
@@ -102,26 +130,26 @@
                 <div class="type-btn" onclick="setType(this, 'Follow-up')">
                     <i class="fas fa-user-clock"></i> फलो-अप (Follow-up)
                 </div>
-                <div class="type-btn" style="grid-column: span 2;" onclick="setType(this, 'Surgery/Counseling')">
+                <div class="type-btn" style="grid-column: span 2;" onclick="setType(this, 'Surgery Plan')">
                     <i class="fas fa-notes-medical"></i> शल्यक्रिया परामर्श (Surgery Plan)
                 </div>
             </div>
 
             <div class="form-group">
-                <label>अस्पताल वा क्लिनिक छान्नुहोस्</label>
+                <label>अस्पताल वा क्लिनिक (Select Venue)</label>
                 <select id="locationSelect" onchange="updateVenue()">
-                    <option value="">-- छान्नुहोस् --</option>
+                    <option value="">-- स्थान छान्नुहोस् --</option>
                     <option value="clinic">नेशनल सिटी हस्पिटल (Private Clinic)</option>
                     <option value="bpkmch">क्यान्सर अस्पताल (BPKMCH)</option>
                 </select>
             </div>
 
             <div id="bpkmchNotice" class="notice">
-                <i class="fas fa-exclamation-triangle"></i> क्यान्सर अस्पतालको लागि अस्पतालकै दर्ता काउन्टरमा गई टोकन लिनुहोला।
+                <i class="fas fa-exclamation-triangle"></i> <b>जानकारी:</b> क्यान्सर अस्पतालको लागि अस्पतालकै दर्ता काउन्टरमा गई टोकन लिनुहोला। अनलाइन फारम भर्न आवश्यक छैन।
             </div>
 
             <div id="clinicNotice" class="notice">
-                <i class="fas fa-check-circle"></i> रिसेप्सनमा देखाउनको लागि तलको फारम अंग्रेजीमा भर्नुहोस्।
+                <i class="fas fa-check-circle"></i> <b>निर्देशन:</b> रिसेप्सनमा देखाउनको लागि तलको विवरण <b>English</b> मा भर्नुहोस्।
             </div>
 
             <form id="appointmentForm" style="display: none;">
@@ -129,7 +157,7 @@
                 
                 <div class="form-group">
                     <label>बिरामीको नाम (Full Name)</label>
-                    <input type="text" id="p_name" placeholder="Full Name in English" required>
+                    <input type="text" id="p_name" placeholder="Enter Full Name" required>
                 </div>
 
                 <div class="form-group">
@@ -166,6 +194,10 @@
     </div>
 
     <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
         function setType(btn, val) {
             document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -207,23 +239,23 @@
             const win = window.open('', '_blank');
             win.document.write(`
                 <html><head><style>
-                    body { font-family: sans-serif; text-align: center; padding: 40px; }
+                    body { font-family: 'Lato', sans-serif; text-align: center; padding: 40px; }
                     .ticket { border: 2px solid #004085; padding: 25px; display: inline-block; text-align: left; width: 380px; border-radius: 15px; background: #fff; }
-                    h2 { color: #004085; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
-                    .row { margin: 10px 0; display: flex; justify-content: space-between; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
-                    b { color: #555; }
-                    .note { background: #e7f1ff; padding: 10px; margin-top: 20px; font-weight: bold; font-size: 13px; text-align: center; color: #004085; border-radius: 8px; }
+                    h2 { color: #004085; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin: 0 0 15px 0; }
+                    .row { margin: 10px 0; display: flex; justify-content: space-between; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; font-size: 15px; }
+                    b { color: #004085; width: 120px; }
+                    .note { background: #e7f1ff; padding: 12px; margin-top: 20px; font-weight: bold; font-size: 13px; text-align: center; color: #004085; border-radius: 8px; border: 1px solid #cce5ff; }
                 </style></head><body>
                 <div class="ticket">
                     <h2>APPOINTMENT SLIP</h2>
-                    <p style="text-align:center; font-weight:bold; color:#c0a16b;">National City Hospital, Bharatpur</p>
-                    <div class="row"><b>Visit Type:</b> <span>${data.type}</span></div>
-                    <div class="row"><b>Patient Name:</b> <span>${data.name}</span></div>
+                    <p style="text-align:center; font-weight:bold; color:#c0a16b; margin-bottom:15px;">National City Hospital, Bharatpur</p>
+                    <div class="row"><b>Type:</b> <span>${data.type}</span></div>
+                    <div class="row"><b>Pt Name:</b> <span>${data.name}</span></div>
                     <div class="row"><b>Phone No:</b> <span>${data.phone}</span></div>
                     <div class="row"><b>Address:</b> <span>${data.address}</span></div>
                     <div class="row"><b>Date:</b> <span>${data.date}</span></div>
                     <div class="row"><b>Time:</b> <span>${data.time}</span></div>
-                    <div class="note">SHOW THIS AT CLINIC RECEPTION</div>
+                    <div class="note">SHOW THIS SLIP AT CLINIC RECEPTION</div>
                 </div>
                 <script>window.onload = function() { window.print(); window.close(); };<\/script>
                 </body></html>
