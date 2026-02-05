@@ -23,41 +23,68 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Mukta', sans-serif; background: var(--bg-sweet); min-height: 100vh; color: #333; line-height: 1.6; }
 
-        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; padding: 12px 20px; }
-        .nav-box { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .brand h1 { font-size: 1.3rem; color: var(--primary); font-family: 'Montserrat', sans-serif; margin:0; }
-        .brand span { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; display: block; }
-
-        .container { max-width: 650px; margin: 30px auto; padding: 0 15px; }
-        .card { background: var(--white); padding: 30px; border-radius: 20px; box-shadow: var(--shadow); border-top: 8px solid var(--primary); }
-
-        h2 { font-family: 'Montserrat', sans-serif; color: var(--primary); text-align: center; margin-bottom: 25px; font-size: 1.5rem; }
-
-        /* General Selectors */
-        .section-label { display: block; margin-bottom: 10px; font-weight: 700; color: #444; border-left: 4px solid var(--accent); padding-left: 10px; }
+        /* --- FULL NAVIGATION RESTORED --- */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; padding: 0 20px; }
+        .nav-box { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         
-        .grid-selector { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 25px; }
-        .option-btn { 
-            padding: 15px; border: 2px solid #eee; border-radius: 12px; 
-            background: #fff; cursor: pointer; font-weight: 600; font-size: 0.95rem;
-            transition: 0.3s; text-align: center; color: #555;
-        }
-        .option-btn.active { background: var(--primary-light); border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 10px rgba(0,64,133,0.1); }
+        .brand h1 { font-size: 1.4rem; color: var(--primary); font-family: 'Montserrat', sans-serif; margin:0; font-weight: 700; }
+        .brand span { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; display: block; letter-spacing: 1px; }
 
-        /* Form Controls */
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--primary-dark); }
-        input, select { 
-            width: 100%; padding: 14px; border: 1.5px solid #eee; border-radius: 12px; 
-            font-size: 1rem; background: #fafafa; font-family: 'Lato', sans-serif;
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { 
+            text-decoration: none; color: #555; font-weight: 600; font-size: 0.95rem; transition: 0.3s; position: relative; 
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::after { content:''; position:absolute; bottom:-5px; left:0; width:100%; height:2px; background:var(--accent); }
+        
+        /* Mobile Menu */
+        .menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+
+        /* --- MAIN CARD --- */
+        .container { max-width: 700px; margin: 40px auto; padding: 0 15px; }
+        .card { 
+            background: var(--white); 
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: var(--shadow); 
+            border-top: 8px solid var(--primary); 
+        }
+
+        h2 { font-family: 'Montserrat', sans-serif; color: var(--primary); text-align: center; margin-bottom: 30px; font-size: 1.6rem; font-weight: 700; }
+
+        /* Step Sections */
+        .step-label { 
+            display: block; font-weight: 700; font-size: 1rem; color: #444; margin-bottom: 12px; 
+            border-left: 5px solid var(--accent); padding-left: 10px; background: #f8f9fa; padding: 8px 10px; border-radius: 0 5px 5px 0;
+        }
+        
+        .grid-selector { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 25px; }
+        .option-btn { 
+            padding: 16px; border: 2px solid #e1e1e1; border-radius: 12px; 
+            background: #fff; cursor: pointer; font-weight: 600; font-size: 0.95rem;
+            transition: 0.3s; text-align: center; color: #555; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .option-btn:hover { border-color: #cbdcfc; transform: translateY(-2px); }
+        .option-btn.active { 
+            background: var(--primary-light); border-color: var(--primary); color: var(--primary); 
+            box-shadow: 0 5px 15px rgba(0,64,133,0.1); font-weight: 700;
         }
 
         /* Notices */
-        .notice { padding: 20px; border-radius: 15px; margin-bottom: 20px; display: none; animation: fadeIn 0.4s; line-height: 1.5; }
+        .notice { padding: 20px; border-radius: 12px; margin-bottom: 25px; display: none; animation: fadeIn 0.4s; line-height: 1.6; }
         #bpkmchNotice { background: #fff9e6; color: #856404; border: 1px solid #ffeeba; }
         #clinicNotice { background: #eef7ff; color: #004085; border: 1px solid #cce5ff; }
 
-        .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        /* Form */
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
+        input, select { 
+            width: 100%; padding: 14px; border: 1.5px solid #e1e1e1; border-radius: 10px; 
+            font-size: 1rem; background: #fafafa; font-family: 'Lato', sans-serif; transition: 0.3s;
+        }
+        input:focus { border-color: var(--primary); background: #fff; outline: none; }
+
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
         .btn { 
             width: 100%; padding: 16px; border: none; border-radius: 50px; 
             font-weight: 800; font-size: 1.1rem; cursor: pointer; 
@@ -65,10 +92,25 @@
         }
         .btn-whatsapp { background: var(--whatsapp); color: white; }
         .btn-print { background: var(--primary); color: white; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (min-width: 480px) { .grid-selector { grid-template-columns: 1fr 1fr; } .full-width { grid-column: span 2; } }
+        @media (min-width: 768px) {
+            .grid-selector { grid-template-columns: 1fr 1fr; }
+            .full-width { grid-column: span 2; }
+            .action-buttons { flex-direction: row; }
+        }
+
+        @media (max-width: 850px) {
+            .menu-btn { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; 
+                width: 100%; background: #fff; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); gap: 0;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { width: 100%; padding: 12px 0; border-bottom: 1px solid #f0f0f0; margin: 0; }
+        }
     </style>
 </head>
 <body>
@@ -79,7 +121,19 @@
                 <h1>डा. निर्मल लामिछाने</h1>
                 <span>Senior Consultant Surgeon</span>
             </div>
-            <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:bold;"><i class="fas fa-home"></i> गृहपृष्ठ</a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">गृहपृष्ठ (Home)</a>
+                <a href="about.html">बारेमा (About)</a>
+                <a href="services.html">सेवाहरू (Services)</a>
+                <a href="appointment.html" class="active">अपोइन्टमेन्ट (Appt)</a>
+                <a href="links.html">लिङ्कहरू (Links)</a>
+                <a href="contact.html">सम्पर्क (Contact)</a>
+            </nav>
+
+            <div class="menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -87,67 +141,90 @@
         <div class="card">
             <h2>अपोइन्टमेन्ट सेवा</h2>
             
-            <span class="section-label">१. अस्पताल छान्नुहोस् (Choose Hospital)</span>
+            <span class="step-label">१. अस्पताल छान्नुहोस् (Choose Hospital)</span>
             <div class="grid-selector">
-                <div class="option-btn" onclick="selectHospital(this, 'BPKMCH')">बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल</div>
-                <div class="option-btn" onclick="selectHospital(this, 'Clinic')">नेशनल सिटी हस्पिटल (Private Clinic)</div>
+                <div class="option-btn" onclick="selectHospital(this, 'BPKMCH')">
+                    <i class="fas fa-hospital"></i> बी.पी. कोइराला क्यान्सर अस्पताल
+                </div>
+                <div class="option-btn" onclick="selectHospital(this, 'Clinic')">
+                    <i class="fas fa-clinic-medical"></i> नेशनल सिटी हस्पिटल (Private)
+                </div>
             </div>
 
-            <span class="section-label">२. जाँचको प्रकार (Appointment Type)</span>
+            <span class="step-label">२. जाँचको प्रकार (Appointment Type)</span>
             <div class="grid-selector">
                 <div class="option-btn" onclick="selectType(this, 'New Appointment')">नयाँ जाँच (New)</div>
                 <div class="option-btn" onclick="selectType(this, 'Follow-up')">फलो-अप (Follow-up)</div>
                 <div class="option-btn full-width" onclick="selectType(this, 'Operational Planning')">शल्यक्रिया योजना (Operational Planning)</div>
             </div>
 
-            <span class="section-label">३. समय छान्नुहोस् (Select Time)</span>
+            <span class="step-label">३. समय छान्नुहोस् (Select Time)</span>
             <div class="grid-selector">
-                <div class="option-btn" onclick="selectTime(this, 'Morning', '7 AM - 9 AM')">बिहान (7 AM - 9 AM)</div>
-                <div class="option-btn" onclick="selectTime(this, 'Day', '10 AM - 4 PM')">दिउँसो (10 AM - 4 PM)</div>
-                <div class="option-btn full-width" onclick="selectTime(this, 'Evening', '5 PM - 8 PM')">बेलुका (5 PM - 8 PM)</div>
+                <div class="option-btn" onclick="selectTime(this, 'Morning', '7 AM - 9 AM')">
+                    <i class="fas fa-sun" style="color:orange"></i> बिहान (7 AM - 9 AM)
+                </div>
+                <div class="option-btn" onclick="selectTime(this, 'Day', '10 AM - 4 PM')">
+                    <i class="fas fa-clock" style="color:red"></i> दिउँसो (10 AM - 4 PM)
+                </div>
+                <div class="option-btn full-width" onclick="selectTime(this, 'Evening', '5 PM - 8 PM')">
+                    <i class="fas fa-moon" style="color:slateblue"></i> बेलुका (5 PM - 8 PM)
+                </div>
             </div>
 
             <div id="bpkmchNotice" class="notice">
-                <i class="fas fa-info-circle" style="font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
-                <b>बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH):</b><br>
-                दिउँसोको समयमा डाक्टर साब क्यान्सर अस्पतालमा हुनुहुन्छ। कृपया अस्पतालको <b>दर्ता काउन्टर</b>मा गई टोकन लिनुहोला। यहाँ 'पहिले आउनेलाई प्राथमिकता' (First Come First Serve) दिइनेछ। अनलाइन अपोइन्टमेन्ट आवश्यक छैन।
+                <div style="display:flex; align-items:flex-start; gap:15px;">
+                    <i class="fas fa-exclamation-circle" style="font-size: 2rem; color: #856404;"></i>
+                    <div>
+                        <strong style="font-size:1.1rem; display:block; margin-bottom:5px;">बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल (BPKMCH)</strong>
+                        दिउँसोको समयमा डाक्टर साब क्यान्सर अस्पतालमा हुनुहुन्छ। कृपया अस्पतालको <b>ओपिडी काउन्टर (OPD Counter)</b> मा गई टोकन लिनुहोला। <br>
+                        <span style="display:inline-block; margin-top:5px; background:#e2e3e5; padding:2px 8px; border-radius:4px; font-size:0.85rem;">First Come First Serve</span>
+                        <br><i>* यसको लागि अनलाइन अपोइन्टमेन्ट आवश्यक छैन।</i>
+                    </div>
+                </div>
             </div>
 
-            <div id="clinicNotice" class="notice">
-                <i class="fas fa-clinic-medical" style="font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
-                <b>नेशनल सिटी हस्पिटल:</b><br>
-                निजी क्लिनिकमा भेट्नको लागि कृपया तलको फारम अंग्रेजी (English) मा भर्नुहोस् र रिसेप्सनमा देखाउनुहोस्।
+            <div id="clinicSection" style="display: none;">
+                <div id="clinicNotice" class="notice" style="display:block;">
+                    <div style="display:flex; align-items:flex-start; gap:15px;">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; color: #004085;"></i>
+                        <div>
+                            <strong style="font-size:1.1rem; display:block; margin-bottom:5px;">नेशनल सिटी हस्पिटल (National City Hospital)</strong>
+                            निजी क्लिनिकमा भेट्नको लागि कृपया तलको फारम <b>English</b> मा भर्नुहोस्। अपोइन्टमेन्ट स्लिप (PDF) रिसेप्सनमा देखाउनु पर्नेछ।
+                        </div>
+                    </div>
+                </div>
+
+                <form id="appointmentForm">
+                    <input type="hidden" id="h_val"><input type="hidden" id="t_val"><input type="hidden" id="s_val">
+                    
+                    <div class="form-group">
+                        <label>बिरामीको नाम (Patient Name)</label>
+                        <input type="text" id="p_name" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ठेगाना (Address)</label>
+                        <input type="text" id="p_address" placeholder="City, District" required>
+                    </div>
+                    <div class="form-group">
+                        <label>फोन नम्बर (Phone)</label>
+                        <input type="tel" id="p_phone" placeholder="98XXXXXXXX" pattern="\d{10}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>मिति (Preferred Date)</label>
+                        <input type="date" id="p_date" required>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp पठाउनुहोस्
+                        </button>
+                        <button type="button" onclick="printSlip()" class="btn btn-print">
+                            <i class="fas fa-file-pdf"></i> PDF सेभ गर्नुहोस
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <form id="appointmentForm" style="display: none;">
-                <input type="hidden" id="h_val"><input type="hidden" id="t_val"><input type="hidden" id="s_val">
-                
-                <div class="form-group">
-                    <label>बिरामीको नाम (Patient Name)</label>
-                    <input type="text" id="p_name" placeholder="Enter Full Name" required>
-                </div>
-                <div class="form-group">
-                    <label>ठेगाना (Address)</label>
-                    <input type="text" id="p_address" placeholder="City, District" required>
-                </div>
-                <div class="form-group">
-                    <label>फोन नम्बर (Phone)</label>
-                    <input type="tel" id="p_phone" placeholder="98XXXXXXXX" pattern="\d{10}" required>
-                </div>
-                <div class="form-group">
-                    <label>मिति (Date)</label>
-                    <input type="date" id="p_date" required>
-                </div>
-
-                <div class="action-buttons">
-                    <button type="submit" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i> ह्वाट्सएप मार्फत पठाउनुहोस्
-                    </button>
-                    <button type="button" onclick="printSlip()" class="btn btn-print">
-                        <i class="fas fa-file-pdf"></i> स्लिप सेभ / प्रिन्ट गर्नुहोस
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -156,8 +233,14 @@
         let selectedType = '';
         let selectedTime = '';
 
+        function toggleMenu() { 
+            document.getElementById('navLinks').classList.toggle('active'); 
+        }
+
         function selectHospital(btn, val) {
-            document.querySelectorAll('.option-btn').forEach(b => { if(b.parentNode.previousElementSibling.innerText.includes('१')) b.classList.remove('active') });
+            document.querySelectorAll('.option-btn').forEach(b => { 
+                if(b.parentNode.previousElementSibling.innerText.includes('१')) b.classList.remove('active'); 
+            });
             btn.classList.add('active');
             selectedHospital = val;
             document.getElementById('h_val').value = val;
@@ -165,7 +248,9 @@
         }
 
         function selectType(btn, val) {
-            document.querySelectorAll('.option-btn').forEach(b => { if(b.parentNode.previousElementSibling.innerText.includes('२')) b.classList.remove('active') });
+            document.querySelectorAll('.option-btn').forEach(b => { 
+                if(b.parentNode.previousElementSibling.innerText.includes('२')) b.classList.remove('active'); 
+            });
             btn.classList.add('active');
             selectedType = val;
             document.getElementById('t_val').value = val;
@@ -173,7 +258,9 @@
         }
 
         function selectTime(btn, shift, timeRange) {
-            document.querySelectorAll('.option-btn').forEach(b => { if(b.parentNode.previousElementSibling.innerText.includes('३')) b.classList.remove('active') });
+            document.querySelectorAll('.option-btn').forEach(b => { 
+                if(b.parentNode.previousElementSibling.innerText.includes('३')) b.classList.remove('active'); 
+            });
             btn.classList.add('active');
             selectedTime = shift;
             document.getElementById('s_val').value = timeRange;
@@ -182,59 +269,63 @@
 
         function updateLogic() {
             const bpNotice = document.getElementById('bpkmchNotice');
-            const clNotice = document.getElementById('clinicNotice');
-            const form = document.getElementById('appointmentForm');
+            const clSection = document.getElementById('clinicSection');
 
-            // Logic: If Day Time is selected OR Hospital is BPKMCH
+            // MAIN LOGIC:
+            // If Time is 'Day' -> Always BPKMCH Notice
+            // OR If Hospital is explicitly BPKMCH -> Always BPKMCH Notice
             if (selectedTime === 'Day' || selectedHospital === 'BPKMCH') {
                 bpNotice.style.display = 'block';
-                clNotice.style.display = 'none';
-                form.style.display = 'none';
-            } else if ((selectedTime === 'Morning' || selectedTime === 'Evening') && selectedHospital === 'Clinic') {
+                clSection.style.display = 'none';
+            } 
+            // If Time is Morning/Evening -> Show Clinic Form
+            else if (selectedTime === 'Morning' || selectedTime === 'Evening') {
                 bpNotice.style.display = 'none';
-                clNotice.style.display = 'block';
-                form.style.display = 'block';
-            } else {
+                clSection.style.display = 'block';
+            } 
+            // Default state
+            else {
                 bpNotice.style.display = 'none';
-                clNotice.style.display = 'none';
-                form.style.display = 'none';
+                clSection.style.display = 'none';
             }
         }
 
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const msg = `*APPOINTMENT REQUEST*%0A------------------%0A*Hospital:* National City Hospital%0A*Type:* ${document.getElementById('t_val').value}%0A*Shift:* ${document.getElementById('s_val').value}%0A*Name:* ${document.getElementById('p_name').value}%0A*Phone:* ${document.getElementById('p_phone').value}%0A*Address:* ${document.getElementById('p_address').value}%0A*Date:* ${document.getElementById('p_date').value}`;
+            const msg = `*APPOINTMENT REQUEST*%0A------------------%0A*Venue:* National City Hospital%0A*Type:* ${document.getElementById('t_val').value}%0A*Shift:* ${document.getElementById('s_val').value}%0A*Name:* ${document.getElementById('p_name').value}%0A*Phone:* ${document.getElementById('p_phone').value}%0A*Address:* ${document.getElementById('p_address').value}%0A*Date:* ${document.getElementById('p_date').value}`;
             window.open(`https://wa.me/9779855053122?text=${msg}`, '_blank');
         });
 
         function printSlip() {
             const data = {
-                name: document.getElementById('p_name').value,
-                phone: document.getElementById('p_phone').value,
-                address: document.getElementById('p_address').value,
-                date: document.getElementById('p_date').value,
-                type: document.getElementById('t_val').value,
-                shift: document.getElementById('s_val').value
+                name: document.getElementById('p_name').value || "____________",
+                phone: document.getElementById('p_phone').value || "____________",
+                address: document.getElementById('p_address').value || "____________",
+                date: document.getElementById('p_date').value || "____________",
+                type: document.getElementById('t_val').value || "____________",
+                shift: document.getElementById('s_val').value || "____________"
             };
             const win = window.open('', '_blank');
             win.document.write(`
                 <html><head><style>
-                    body { font-family: sans-serif; text-align: center; padding: 40px; }
-                    .slip { border: 2px solid #004085; padding: 30px; display: inline-block; text-align: left; width: 400px; border-radius: 15px; }
-                    h2 { color: #004085; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-                    .row { margin: 10px 0; display: flex; justify-content: space-between; border-bottom: 1px solid #f9f9f9; }
-                    .note { background: #eef7ff; padding: 10px; margin-top: 20px; font-weight: bold; text-align: center; border-radius: 5px; }
+                    body { font-family: sans-serif; text-align: center; padding: 40px; background: #f9f9f9; }
+                    .slip { border: 2px solid #004085; padding: 30px; display: inline-block; text-align: left; width: 450px; border-radius: 15px; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+                    h2 { color: #004085; text-align: center; border-bottom: 2px solid #c0a16b; padding-bottom: 15px; margin: 0 0 20px 0; }
+                    .hospital { text-align: center; font-weight: bold; font-size: 16px; margin-bottom: 25px; color: #444; text-transform: uppercase; }
+                    .row { margin: 12px 0; display: flex; justify-content: space-between; border-bottom: 1px dashed #ccc; padding-bottom: 5px; font-size: 16px; }
+                    b { color: #004085; width: 140px; }
+                    .note { background: #eef7ff; padding: 15px; margin-top: 25px; font-weight: bold; text-align: center; border-radius: 8px; border: 1px solid #b3d7ff; color: #004085; font-size: 14px; }
                 </style></head><body>
                 <div class="slip">
                     <h2>APPOINTMENT SLIP</h2>
-                    <p style="text-align:center; font-weight:bold;">National City Hospital, Bharatpur</p>
-                    <div class="row"><b>Patient:</b> ${data.name}</div>
-                    <div class="row"><b>Phone:</b> ${data.phone}</div>
+                    <div class="hospital">National City Hospital, Bharatpur</div>
+                    <div class="row"><b>Patient Name:</b> ${data.name}</div>
+                    <div class="row"><b>Phone No:</b> ${data.phone}</div>
                     <div class="row"><b>Address:</b> ${data.address}</div>
-                    <div class="row"><b>Type:</b> ${data.type}</div>
-                    <div class="row"><b>Time:</b> ${data.shift}</div>
+                    <div class="row"><b>Visit Type:</b> ${data.type}</div>
+                    <div class="row"><b>Shift:</b> ${data.shift}</div>
                     <div class="row"><b>Date:</b> ${data.date}</div>
-                    <div class="note">SHOW THIS AT THE CLINIC RECEPTION</div>
+                    <div class="note">PLEASE SHOW THIS SLIP AT CLINIC RECEPTION</div>
                 </div>
                 <script>window.onload = function() { window.print(); window.close(); };<\/script>
                 </body></html>
