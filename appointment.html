@@ -11,55 +11,73 @@
     <style>
         :root { 
             --primary: #004085; 
+            --primary-light: #e7f1ff;
             --accent: #c0a16b; 
-            --light: #f4f7f9; 
+            --bg-sweet: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
             --white: #ffffff;
             --whatsapp: #25d366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Mukta', sans-serif; background-color: var(--light); color: #333; line-height: 1.6; }
+        body { 
+            font-family: 'Mukta', sans-serif; 
+            background: var(--bg-sweet); 
+            min-height: 100vh;
+            color: #333; 
+            line-height: 1.6; 
+        }
 
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        header { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.08); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
         .brand h1 { font-size: 1.4rem; color: var(--primary); margin: 0; }
-        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
 
-        .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
-        .card { background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 6px solid var(--primary); }
+        .container { max-width: 600px; margin: 30px auto; padding: 0 15px; }
+        .card { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border-top: 8px solid var(--primary); 
+        }
 
-        h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; text-align: center; }
+        h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; text-align: center; }
         
+        /* Visit Type Buttons */
+        .type-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .type-btn { 
+            padding: 12px; border: 2px solid #ddd; border-radius: 12px; 
+            background: #fff; cursor: pointer; font-weight: 600; font-size: 0.9rem;
+            transition: 0.3s; text-align: center;
+        }
+        .type-btn.active { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
+        .type-btn i { display: block; margin-bottom: 5px; font-size: 1.2rem; }
+
         .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 6px; font-weight: 600; color: #444; font-size: 1rem; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; color: #444; }
         
         input, select { 
-            width: 100%; padding: 14px; border: 1.5px solid #ddd; border-radius: 10px; 
-            font-size: 1rem; font-family: sans-serif; /* Form data remains English style */
+            width: 100%; padding: 14px; border: 1.5px solid #eee; border-radius: 12px; 
+            font-size: 1rem; background: #fdfdfd; transition: 0.3s;
         }
-        
-        select { font-family: 'Mukta', sans-serif; }
+        input:focus { border-color: var(--primary); outline: none; background: #fff; }
 
-        /* Dynamic Notices */
-        .notice { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.95rem; display: none; line-height: 1.4; }
-        #bpkmchNotice { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-        #clinicNotice { background: #e7f3ff; color: #004085; border: 1px solid #b3d7ff; }
+        .notice { padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.95rem; display: none; }
+        #bpkmchNotice { background: #fff9e6; color: #856404; border: 1px solid #ffeeba; }
+        #clinicNotice { background: #eef7ff; color: #004085; border: 1px solid #cce5ff; }
 
-        .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-        
+        .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
         .btn { 
             width: 100%; padding: 16px; border: none; border-radius: 12px; 
             font-weight: 700; font-size: 1.1rem; cursor: pointer; 
-            display: flex; align-items: center; justify-content: center; gap: 10px; 
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;
         }
-        
-        .btn-whatsapp { background: var(--whatsapp); color: white; }
-        .btn-print { background: var(--primary); color: white; }
-        .btn:active { transform: scale(0.96); }
+        .btn-whatsapp { background: var(--whatsapp); color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
+        .btn-print { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(0, 64, 133, 0.2); }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-        @media (min-width: 768px) {
-            .action-buttons { flex-direction: row; }
-            .brand h1 { font-size: 1.8rem; }
+        @media (max-width: 480px) {
+            .type-selector { grid-template-columns: 1fr; }
+            .card { padding: 20px; }
         }
     </style>
 </head>
@@ -76,25 +94,38 @@
         <div class="card">
             <h2>अनलाइन अपोइन्टमेन्ट</h2>
             
+            <label style="text-align: center; display: block; margin-bottom: 10px;">परामर्शको प्रकार छान्नुहोस्</label>
+            <div class="type-selector">
+                <div class="type-btn active" onclick="setType(this, 'New Appointment')">
+                    <i class="fas fa-user-plus"></i> नयाँ जाँच (New)
+                </div>
+                <div class="type-btn" onclick="setType(this, 'Follow-up')">
+                    <i class="fas fa-user-clock"></i> फलो-अप (Follow-up)
+                </div>
+                <div class="type-btn" style="grid-column: span 2;" onclick="setType(this, 'Surgery/Counseling')">
+                    <i class="fas fa-notes-medical"></i> शल्यक्रिया परामर्श (Surgery Plan)
+                </div>
+            </div>
+
             <div class="form-group">
                 <label>अस्पताल वा क्लिनिक छान्नुहोस्</label>
                 <select id="locationSelect" onchange="updateVenue()">
                     <option value="">-- छान्नुहोस् --</option>
-                    <option value="clinic">नेशनल सिटी हस्पिटल (निजी क्लिनिक)</option>
-                    <option value="bpkmch">बी.पी. कोइराला क्यान्सर अस्पताल (BPKMCH)</option>
+                    <option value="clinic">नेशनल सिटी हस्पिटल (Private Clinic)</option>
+                    <option value="bpkmch">क्यान्सर अस्पताल (BPKMCH)</option>
                 </select>
             </div>
 
             <div id="bpkmchNotice" class="notice">
-                <i class="fas fa-exclamation-circle"></i> <b>जानकारी:</b> क्यान्सर अस्पतालको लागि अस्पतालको दर्ता काउन्टरमा गएर सिधै ओपिडी (OPD) टोकन लिनुहोला। यसको लागि अनलाइन बुकिङ आवश्यक छैन।
+                <i class="fas fa-exclamation-triangle"></i> क्यान्सर अस्पतालको लागि अस्पतालकै दर्ता काउन्टरमा गई टोकन लिनुहोला।
             </div>
 
             <div id="clinicNotice" class="notice">
-                <i class="fas fa-info-circle"></i> <b>जरुरी नोट:</b> फारम भरिसकेपछि प्राप्त हुने <b>PDF Slip</b> सुरक्षित राख्नुहोस् र हस्पिटल पुगेपछि क्लिनिकको <b>रिसेप्सन (Reception)</b> मा देखाउनुहोला।
+                <i class="fas fa-check-circle"></i> रिसेप्सनमा देखाउनको लागि तलको फारम अंग्रेजीमा भर्नुहोस्।
             </div>
 
             <form id="appointmentForm" style="display: none;">
-                <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">* कृपया तलको विवरण अंग्रेजी (English) मा भर्नुहोला।</p>
+                <input type="hidden" id="visit_type" value="New Appointment">
                 
                 <div class="form-group">
                     <label>बिरामीको नाम (Full Name)</label>
@@ -107,7 +138,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>फोन नम्बर (Phone - 10 Digits)</label>
+                    <label>फोन नम्बर (Phone)</label>
                     <input type="tel" id="p_phone" placeholder="98XXXXXXXX" pattern="\d{10}" required>
                 </div>
 
@@ -135,19 +166,22 @@
     </div>
 
     <script>
+        function setType(btn, val) {
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('visit_type').value = val;
+        }
+
         function updateVenue() {
             const loc = document.getElementById('locationSelect').value;
-            const bNotice = document.getElementById('bpkmchNotice');
-            const cNotice = document.getElementById('clinicNotice');
-            const form = document.getElementById('appointmentForm');
-
-            bNotice.style.display = (loc === 'bpkmch') ? 'block' : 'none';
-            cNotice.style.display = (loc === 'clinic') ? 'block' : 'none';
-            form.style.display = (loc === 'clinic') ? 'block' : 'none';
+            document.getElementById('bpkmchNotice').style.display = (loc === 'bpkmch') ? 'block' : 'none';
+            document.getElementById('clinicNotice').style.display = (loc === 'clinic') ? 'block' : 'none';
+            document.getElementById('appointmentForm').style.display = (loc === 'clinic') ? 'block' : 'none';
         }
 
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const type = document.getElementById('visit_type').value;
             const name = document.getElementById('p_name').value;
             const phone = document.getElementById('p_phone').value;
             const address = document.getElementById('p_address').value;
@@ -155,14 +189,15 @@
             const time = document.getElementById('p_time').value;
 
             const wpNumber = "9779855053122";
-            const message = `*NEW APPOINTMENT*%0A*Pt Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Venue:* National City Hospital Clinic`;
+            const message = `*APPOINTMENT REQUEST*%0A*Type:* ${type}%0A*Pt Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Date:* ${date}%0A*Time:* ${time}`;
 
             window.open(`https://wa.me/${wpNumber}?text=${message}`, '_blank');
         });
 
         function printSlip() {
             const data = {
-                name: document.getElementById('p_name').value || "Not Provided",
+                type: document.getElementById('visit_type').value,
+                name: document.getElementById('p_name').value || "N/A",
                 phone: document.getElementById('p_phone').value || "N/A",
                 address: document.getElementById('p_address').value || "N/A",
                 date: document.getElementById('p_date').value || "N/A",
@@ -172,23 +207,23 @@
             const win = window.open('', '_blank');
             win.document.write(`
                 <html><head><style>
-                    body { font-family: sans-serif; text-align: center; padding: 30px; color: #1a1a1a; }
-                    .ticket { border: 2px solid #004085; padding: 25px; display: inline-block; text-align: left; width: 380px; border-radius: 10px; }
-                    h2 { margin: 0; color: #004085; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-                    .hospital { text-align: center; font-weight: bold; margin: 10px 0 20px 0; color: #c0a16b; }
-                    .row { margin: 12px 0; font-size: 15px; border-bottom: 1px dotted #ccc; padding-bottom: 4px; display: flex; justify-content: space-between; }
-                    .row b { color: #004085; width: 120px; display: inline-block; }
-                    .note { background: #f0f4f8; padding: 10px; margin-top: 20px; font-size: 12px; text-align: center; font-weight: bold; border: 1px solid #004085; }
+                    body { font-family: sans-serif; text-align: center; padding: 40px; }
+                    .ticket { border: 2px solid #004085; padding: 25px; display: inline-block; text-align: left; width: 380px; border-radius: 15px; background: #fff; }
+                    h2 { color: #004085; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+                    .row { margin: 10px 0; display: flex; justify-content: space-between; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
+                    b { color: #555; }
+                    .note { background: #e7f1ff; padding: 10px; margin-top: 20px; font-weight: bold; font-size: 13px; text-align: center; color: #004085; border-radius: 8px; }
                 </style></head><body>
                 <div class="ticket">
                     <h2>APPOINTMENT SLIP</h2>
-                    <div class="hospital">National City Hospital, Bharatpur</div>
+                    <p style="text-align:center; font-weight:bold; color:#c0a16b;">National City Hospital, Bharatpur</p>
+                    <div class="row"><b>Visit Type:</b> <span>${data.type}</span></div>
                     <div class="row"><b>Patient Name:</b> <span>${data.name}</span></div>
                     <div class="row"><b>Phone No:</b> <span>${data.phone}</span></div>
                     <div class="row"><b>Address:</b> <span>${data.address}</span></div>
-                    <div class="row"><b>Appt Date:</b> <span>${data.date}</span></div>
-                    <div class="row"><b>Scheduled Time:</b> <span>${data.time}</span></div>
-                    <div class="note">PLEASE SHOW THIS SLIP AT CLINIC RECEPTION</div>
+                    <div class="row"><b>Date:</b> <span>${data.date}</span></div>
+                    <div class="row"><b>Time:</b> <span>${data.time}</span></div>
+                    <div class="note">SHOW THIS AT CLINIC RECEPTION</div>
                 </div>
                 <script>window.onload = function() { window.print(); window.close(); };<\/script>
                 </body></html>
