@@ -1,190 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment | Dr. Nirmal Lamichhane</title>
+    <title>अपोइन्टमेन्ट | डा. निर्मल लामिछाने</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-
     <style>
         :root { 
             --primary: #004085; 
-            --primary-dark: #002752;
             --accent: #c0a16b; 
-            --light: #f8f9fa; 
-            --text: #333; 
+            --light: #f4f7f9; 
             --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+            --whatsapp: #25d366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Lato', sans-serif; 
-            background-color: var(--light); 
-            color: var(--text); 
-            line-height: 1.6; 
-        }
+        body { font-family: 'Mukta', sans-serif; background-color: var(--light); color: #333; line-height: 1.6; }
 
-        body.lang-ne { font-family: 'Mukta', sans-serif; }
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        .brand h1 { font-size: 1.4rem; color: var(--primary); margin: 0; }
+        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- HEADER & NAV --- */
-        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
-        .nav-box { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        
-        .brand h1 { font-size: 1.3rem; margin: 0; color: var(--primary); font-family: 'Montserrat', sans-serif; }
-        .brand span { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+        .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
+        .card { background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-top: 6px solid var(--primary); }
 
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { color: #555; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; text-align: center; }
         
-        .lang-switch { display: flex; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
-        .lang-btn { background: #fff; border: none; padding: 5px 12px; cursor: pointer; font-size: 0.8rem; font-weight: bold; }
-        .lang-btn.active { background: var(--primary); color: #fff; }
-
-        /* --- CONTAINER --- */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; color: #444; font-size: 1rem; }
         
-        .card { 
-            background: var(--white); 
-            padding: 40px; 
-            border-radius: 12px; 
-            border-top: 5px solid var(--primary); 
-            box-shadow: var(--shadow); 
-        }
-
-        h2 { font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 20px; }
-        
-        /* --- FORM STYLING --- */
-        .form-group { margin-bottom: 15px; text-align: left; }
-        label { display: block; margin-bottom: 5px; font-weight: 700; font-size: 0.9rem; }
-        input, select, textarea { 
-            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; 
-            font-family: inherit; font-size: 1rem; outline: none; 
-        }
-        input:focus, textarea:focus { border-color: var(--primary); }
-        
-        .btn-submit { 
-            background: var(--primary); color: #fff; border: none; padding: 15px 30px; 
-            border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; 
-            font-size: 1.1rem; margin-top: 10px; transition: 0.3s;
-        }
-        .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); }
-
-        /* --- CALL SECTION --- */
-        .btn-call { 
-            display: block; background: var(--accent); color: var(--primary-dark); 
-            padding: 15px; border-radius: 8px; text-decoration: none; 
-            font-weight: 800; margin: 20px 0; font-size: 1.2rem; text-align: center;
+        input, select { 
+            width: 100%; padding: 14px; border: 1.5px solid #ddd; border-radius: 10px; 
+            font-size: 1rem; font-family: sans-serif; /* Form data remains English style */
         }
         
-        .hospital-box { 
-            background: #f0f4f8; padding: 25px; border-radius: 8px; 
-            margin-top: 30px; text-align: left; border-left: 4px solid var(--accent);
-        }
+        select { font-family: 'Mukta', sans-serif; }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .card { padding: 20px; }
+        /* Dynamic Notices */
+        .notice { padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 0.95rem; display: none; line-height: 1.4; }
+        #bpkmchNotice { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        #clinicNotice { background: #e7f3ff; color: #004085; border: 1px solid #b3d7ff; }
+
+        .action-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        
+        .btn { 
+            width: 100%; padding: 16px; border: none; border-radius: 12px; 
+            font-weight: 700; font-size: 1.1rem; cursor: pointer; 
+            display: flex; align-items: center; justify-content: center; gap: 10px; 
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .btn-whatsapp { background: var(--whatsapp); color: white; }
+        .btn-print { background: var(--primary); color: white; }
+        .btn:active { transform: scale(0.96); }
+
+        @media (min-width: 768px) {
+            .action-buttons { flex-direction: row; }
+            .brand h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
-<body class="lang-en">
+<body>
 
     <header>
-        <div class="nav-box">
-            <div class="brand">
-                <h1 data-key="h_name">Dr. Nirmal Lamichhane</h1>
-                <span data-key="h_title">Senior Consultant Surgeon</span>
-            </div>
-            <div class="nav-links">
-                <a href="index.html" data-key="n_home">Home</a>
-                <a href="about.html" data-key="n_about">About</a>
-                <a href="services.html" data-key="n_services">Services</a>
-                <a href="appointment.html" class="active" data-key="n_appt">Appointment</a>
-                <a href="links.html" data-key="n_links">Links</a>
-                <a href="contact.html" data-key="n_contact">Contact</a>
-                <div class="lang-switch">
-                    <button class="lang-btn active" id="b-en" onclick="setLang('en')">EN</button>
-                    <button class="lang-btn" id="b-ne" onclick="setLang('ne')">ने</button>
-                </div>
-            </div>
+        <div class="brand">
+            <h1>डा. निर्मल लामिछाने</h1>
+            <span>वरिष्ठ कन्सल्टेन्ट सर्जन</span>
         </div>
     </header>
 
     <div class="container">
         <div class="card">
-            <h2 data-key="form_title">Schedule a Consultation</h2>
-            <p data-key="form_sub">For private consultations and surgical inquiries at National City Hospital, please call or fill out the form below.</p>
+            <h2>अनलाइन अपोइन्टमेन्ट</h2>
             
-            <a href="tel:056493511" class="btn-call"><i class="fas fa-phone-alt"></i> <span data-key="call_now">Call: 056-493511</span></a>
-            <p style="text-align: center; font-weight: bold;"><i class="far fa-clock"></i> <span data-key="hours">Open 24 Hours</span></p>
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
-
-            <form action="#">
-                <div class="form-group">
-                    <label data-key="f_name">Full Name</label>
-                    <input type="text" placeholder="Enter Patient Name" required>
-                </div>
-                <div class="form-group">
-                    <label data-key="f_phone">Phone Number</label>
-                    <input type="tel" placeholder="98XXXXXXXX" required>
-                </div>
-                <div class="form-group">
-                    <label data-key="f_type">Reason for Visit</label>
-                    <select>
-                        <option data-key="opt1">Urological Consultation</option>
-                        <option data-key="opt2">Cancer Surgery Inquiry</option>
-                        <option data-key="opt3">Second Opinion</option>
-                        <option data-key="opt4">Follow-up</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label data-key="f_msg">Message</label>
-                    <textarea rows="4" placeholder="Briefly describe the condition..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit" data-key="f_btn">Send Request</button>
-            </form>
-
-            <div class="hospital-box">
-                <h3 style="color:var(--primary); margin-top:0;" data-key="box_h">BPKMCH (Cancer Hospital)</h3>
-                <p data-key="box_p">Dr. Lamichhane also consults as a Senior Consultant Surgeon at the Department of Surgical Oncology. Please visit the BPKMCH hospital reception for OPD tokens.</p>
+            <div class="form-group">
+                <label>अस्पताल वा क्लिनिक छान्नुहोस्</label>
+                <select id="locationSelect" onchange="updateVenue()">
+                    <option value="">-- छान्नुहोस् --</option>
+                    <option value="clinic">नेशनल सिटी हस्पिटल (निजी क्लिनिक)</option>
+                    <option value="bpkmch">बी.पी. कोइराला क्यान्सर अस्पताल (BPKMCH)</option>
+                </select>
             </div>
+
+            <div id="bpkmchNotice" class="notice">
+                <i class="fas fa-exclamation-circle"></i> <b>जानकारी:</b> क्यान्सर अस्पतालको लागि अस्पतालको दर्ता काउन्टरमा गएर सिधै ओपिडी (OPD) टोकन लिनुहोला। यसको लागि अनलाइन बुकिङ आवश्यक छैन।
+            </div>
+
+            <div id="clinicNotice" class="notice">
+                <i class="fas fa-info-circle"></i> <b>जरुरी नोट:</b> फारम भरिसकेपछि प्राप्त हुने <b>PDF Slip</b> सुरक्षित राख्नुहोस् र हस्पिटल पुगेपछि क्लिनिकको <b>रिसेप्सन (Reception)</b> मा देखाउनुहोला।
+            </div>
+
+            <form id="appointmentForm" style="display: none;">
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">* कृपया तलको विवरण अंग्रेजी (English) मा भर्नुहोला।</p>
+                
+                <div class="form-group">
+                    <label>बिरामीको नाम (Full Name)</label>
+                    <input type="text" id="p_name" placeholder="Full Name in English" required>
+                </div>
+
+                <div class="form-group">
+                    <label>ठेगाना (Full Address)</label>
+                    <input type="text" id="p_address" placeholder="City, District" required>
+                </div>
+
+                <div class="form-group">
+                    <label>फोन नम्बर (Phone - 10 Digits)</label>
+                    <input type="tel" id="p_phone" placeholder="98XXXXXXXX" pattern="\d{10}" required>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <div class="form-group" style="flex:1">
+                        <label>मिति (Date)</label>
+                        <input type="date" id="p_date" required>
+                    </div>
+                    <div class="form-group" style="flex:1">
+                        <label>समय (Time)</label>
+                        <input type="time" id="p_time" required>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> ह्वाट्सएप पठाउनुहोस्
+                    </button>
+                    <button type="button" onclick="printSlip()" class="btn btn-print">
+                        <i class="fas fa-file-pdf"></i> PDF सेभ गर्नुहोस
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
-        const translations = {
-            en: {
-                h_name: "Dr. Nirmal Lamichhane", h_title: "Senior Consultant Surgeon", n_home: "Home", n_about: "About", n_services: "Services", n_appt: "Appointment", n_links: "Links", n_contact: "Contact",
-                form_title: "Schedule a Consultation", form_sub: "For private consultations and surgical inquiries at National City Hospital, please call or fill out the form below.",
-                call_now: "Call: 056-493511", hours: "Open 24 Hours", f_name: "Full Name", f_phone: "Phone Number", f_type: "Reason for Visit", f_msg: "Message", f_btn: "Send Request",
-                opt1: "Urological Consultation", opt2: "Cancer Surgery Inquiry", opt3: "Second Opinion", opt4: "Follow-up",
-                box_h: "BPKMCH (Cancer Hospital)", box_p: "Dr. Lamichhane also consults as a Senior Consultant Surgeon at the Department of Surgical Oncology. Please visit the BPKMCH hospital reception for OPD tokens."
-            },
-            ne: {
-                h_name: "डा. निर्मल लामिछाने", h_title: "वरिष्ठ कन्सल्टेन्ट सर्जन", n_home: "गृहपृष्ठ", n_about: "बारेमा", n_services: "सेवाहरू", n_appt: "अपोइन्टमेन्ट", n_links: "लिङ्कहरू", n_contact: "सम्पर्क",
-                form_title: "परामर्श समय लिनुहोस्", form_sub: "नेशनल सिटी हस्पिटलमा निजी परामर्श र शल्यक्रिया सोधपुछको लागि, कृपया फोन गर्नुहोस् वा तलको फारम भर्नुहोस्।",
-                call_now: "फोन: ०५६-४९३५११", hours: "२४सै घण्टा खुल्ला", f_name: "पूरा नाम", f_phone: "फोन नम्बर", f_type: "परामर्शको कारण", f_msg: "सन्देश", f_btn: "अनुरोध पठाउनुहोस्",
-                opt1: "युरोलोजिकल परामर्श", opt2: "क्यान्सर शल्यक्रिया सोधपुछ", opt3: "दोस्रो राय (Second Opinion)", opt4: "फलो-अप",
-                box_h: "BPKMCH (क्यान्सर अस्पताल)", box_p: "डा. लामिछाने बी.पी. कोइराला मेमोरियल क्यान्सर अस्पतालको सर्जिकल अंकोलोजी विभागमा वरिष्ठ कन्सल्टेन्ट सर्जनको रूपमा पनि कार्यरत हुनुहुन्छ। ओपीडी टिकटको लागि अस्पतालको दर्ता काउन्टरमा सम्पर्क गर्नुहोला।"
-            }
-        };
+        function updateVenue() {
+            const loc = document.getElementById('locationSelect').value;
+            const bNotice = document.getElementById('bpkmchNotice');
+            const cNotice = document.getElementById('clinicNotice');
+            const form = document.getElementById('appointmentForm');
 
-        function setLang(lang) {
-            document.body.className = 'lang-' + lang;
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('b-' + lang).classList.add('active');
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang][key]) el.innerHTML = translations[lang][key];
-            });
+            bNotice.style.display = (loc === 'bpkmch') ? 'block' : 'none';
+            cNotice.style.display = (loc === 'clinic') ? 'block' : 'none';
+            form.style.display = (loc === 'clinic') ? 'block' : 'none';
+        }
+
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('p_name').value;
+            const phone = document.getElementById('p_phone').value;
+            const address = document.getElementById('p_address').value;
+            const date = document.getElementById('p_date').value;
+            const time = document.getElementById('p_time').value;
+
+            const wpNumber = "9779855053122";
+            const message = `*NEW APPOINTMENT*%0A*Pt Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Venue:* National City Hospital Clinic`;
+
+            window.open(`https://wa.me/${wpNumber}?text=${message}`, '_blank');
+        });
+
+        function printSlip() {
+            const data = {
+                name: document.getElementById('p_name').value || "Not Provided",
+                phone: document.getElementById('p_phone').value || "N/A",
+                address: document.getElementById('p_address').value || "N/A",
+                date: document.getElementById('p_date').value || "N/A",
+                time: document.getElementById('p_time').value || "N/A"
+            };
+
+            const win = window.open('', '_blank');
+            win.document.write(`
+                <html><head><style>
+                    body { font-family: sans-serif; text-align: center; padding: 30px; color: #1a1a1a; }
+                    .ticket { border: 2px solid #004085; padding: 25px; display: inline-block; text-align: left; width: 380px; border-radius: 10px; }
+                    h2 { margin: 0; color: #004085; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+                    .hospital { text-align: center; font-weight: bold; margin: 10px 0 20px 0; color: #c0a16b; }
+                    .row { margin: 12px 0; font-size: 15px; border-bottom: 1px dotted #ccc; padding-bottom: 4px; display: flex; justify-content: space-between; }
+                    .row b { color: #004085; width: 120px; display: inline-block; }
+                    .note { background: #f0f4f8; padding: 10px; margin-top: 20px; font-size: 12px; text-align: center; font-weight: bold; border: 1px solid #004085; }
+                </style></head><body>
+                <div class="ticket">
+                    <h2>APPOINTMENT SLIP</h2>
+                    <div class="hospital">National City Hospital, Bharatpur</div>
+                    <div class="row"><b>Patient Name:</b> <span>${data.name}</span></div>
+                    <div class="row"><b>Phone No:</b> <span>${data.phone}</span></div>
+                    <div class="row"><b>Address:</b> <span>${data.address}</span></div>
+                    <div class="row"><b>Appt Date:</b> <span>${data.date}</span></div>
+                    <div class="row"><b>Scheduled Time:</b> <span>${data.time}</span></div>
+                    <div class="note">PLEASE SHOW THIS SLIP AT CLINIC RECEPTION</div>
+                </div>
+                <script>window.onload = function() { window.print(); window.close(); };<\/script>
+                </body></html>
+            `);
+            win.document.close();
         }
     </script>
 </body>
