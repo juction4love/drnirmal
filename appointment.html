@@ -11,13 +11,11 @@
     <style>
         :root { 
             --primary: #004085; 
-            --primary-dark: #002752;
             --primary-light: #e7f1ff;
             --accent: #c0a16b; 
             --bg-sweet: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
             --white: #ffffff;
             --whatsapp: #25d366;
-            --shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -32,17 +30,13 @@
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: #555; margin-left: 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-
         .menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; margin-left: 15px; }
 
-        /* --- APPOINTMENT CARD --- */
+        /* --- CARD --- */
         .container { max-width: 650px; margin: 40px auto; padding: 0 20px; }
         .card { 
-            background: var(--white); 
-            padding: 35px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
-            border-top: 8px solid var(--primary); 
+            background: var(--white); padding: 35px; border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-top: 8px solid var(--primary); 
         }
 
         h2 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 25px; text-align: center; }
@@ -58,13 +52,13 @@
         .type-btn i { display: block; margin-bottom: 5px; font-size: 1.2rem; }
 
         .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 6px; font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
+        label { display: block; margin-bottom: 6px; font-weight: 700; color: #002752; font-size: 0.95rem; }
         
         input, select { 
             width: 100%; padding: 14px; border: 1.5px solid #eee; border-radius: 12px; 
             font-size: 1rem; background: #fafafa; font-family: 'Lato', sans-serif;
         }
-        input:focus { border-color: var(--primary); outline: none; background: #fff; box-shadow: 0 0 8px rgba(0,64,133,0.05); }
+        select option { font-weight: normal; }
 
         .notice { padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.95rem; display: none; animation: fadeIn 0.4s; }
         #bpkmchNotice { background: #fff9e6; color: #856404; border: 1px solid #ffeeba; }
@@ -78,20 +72,14 @@
         }
         .btn-whatsapp { background: var(--whatsapp); color: white; }
         .btn-print { background: var(--primary); color: white; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
+        
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 850px) {
             .menu-btn { display: block; }
-            .nav-links { 
-                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; 
-                width: 100%; background: #fff; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-            }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
-            .nav-links a { margin: 10px 0; margin-left: 0; font-size: 1.1rem; border-bottom: 1px solid #eee; width: 100%; padding-bottom: 5px; }
-            .type-selector { grid-template-columns: 1fr; }
-            .container { margin-top: 20px; }
+            .nav-links a { margin: 10px 0; border-bottom: 1px solid #eee; width: 100%; padding-bottom: 5px; }
         }
     </style>
 </head>
@@ -122,42 +110,44 @@
         <div class="card">
             <h2>अनलाइन अपोइन्टमेन्ट</h2>
             
-            <label style="text-align: center; display: block; margin-bottom: 15px; font-weight: bold; color: #666;">जाँचको प्रकार छान्नुहोस् (Visit Type)</label>
+            <label style="text-align: center; display: block; margin-bottom: 15px; font-weight: bold; color: #666;">जाँचको प्रकार छान्नुहोस्</label>
             <div class="type-selector">
                 <div class="type-btn active" onclick="setType(this, 'New Appointment')">
-                    <i class="fas fa-user-plus"></i> नयाँ जाँच (New)
+                    <i class="fas fa-user-plus"></i> नयाँ जाँच
                 </div>
                 <div class="type-btn" onclick="setType(this, 'Follow-up')">
-                    <i class="fas fa-user-clock"></i> फलो-अप (Follow-up)
+                    <i class="fas fa-user-clock"></i> फलो-अप
                 </div>
                 <div class="type-btn" style="grid-column: span 2;" onclick="setType(this, 'Surgery Plan')">
-                    <i class="fas fa-notes-medical"></i> शल्यक्रिया परामर्श (Surgery Plan)
+                    <i class="fas fa-notes-medical"></i> शल्यक्रिया परामर्श
                 </div>
             </div>
 
             <div class="form-group">
-                <label>अस्पताल वा क्लिनिक (Select Venue)</label>
-                <select id="locationSelect" onchange="updateVenue()">
-                    <option value="">-- स्थान छान्नुहोस् --</option>
-                    <option value="clinic">नेशनल सिटी हस्पिटल (Private Clinic)</option>
-                    <option value="bpkmch">क्यान्सर अस्पताल (BPKMCH)</option>
+                <label>समय रोज्नुहोस् (Select Time)</label>
+                <select id="timeSelect" onchange="handleTimeSelection()">
+                    <option value="">-- छान्नुहोस् --</option>
+                    <option value="Morning">बिहान (Morning: 7:00 AM - 9:00 AM)</option>
+                    <option value="Day">दिउँसो (Day: 10:00 AM - 3:00 PM)</option>
+                    <option value="Evening">बेलुका (Evening: 4:00 PM - 7:00 PM)</option>
                 </select>
             </div>
 
             <div id="bpkmchNotice" class="notice">
-                <i class="fas fa-exclamation-triangle"></i> <b>जानकारी:</b> क्यान्सर अस्पतालको लागि अस्पतालकै दर्ता काउन्टरमा गई टोकन लिनुहोला। अनलाइन फारम भर्न आवश्यक छैन।
+                <i class="fas fa-hospital"></i> <b>जानकारी:</b> दिउँसोको समयमा डाक्टर साब <b>क्यान्सर अस्पताल (BPKMCH)</b> मा हुनुहुन्छ। कृपया अस्पतालकै काउन्टरमा गई ओपिडी (OPD) टोकन लिनुहोला।
             </div>
 
             <div id="clinicNotice" class="notice">
-                <i class="fas fa-check-circle"></i> <b>निर्देशन:</b> रिसेप्सनमा देखाउनको लागि तलको विवरण <b>English</b> मा भर्नुहोस्।
+                <i class="fas fa-user-md"></i> <b>नेशनल सिटी हस्पिटल:</b> तपाईले रोज्नुभएको समयको लागि कृपया तलको फारम <b>English</b> मा भर्नुहोस्।
             </div>
 
             <form id="appointmentForm" style="display: none;">
                 <input type="hidden" id="visit_type" value="New Appointment">
+                <input type="hidden" id="venue_name" value="">
                 
                 <div class="form-group">
                     <label>बिरामीको नाम (Full Name)</label>
-                    <input type="text" id="p_name" placeholder="Enter Full Name" required>
+                    <input type="text" id="p_name" placeholder="Full Name in English" required>
                 </div>
 
                 <div class="form-group">
@@ -170,15 +160,9 @@
                     <input type="tel" id="p_phone" placeholder="98XXXXXXXX" pattern="\d{10}" required>
                 </div>
 
-                <div style="display: flex; gap: 10px;">
-                    <div class="form-group" style="flex:1">
-                        <label>मिति (Date)</label>
-                        <input type="date" id="p_date" required>
-                    </div>
-                    <div class="form-group" style="flex:1">
-                        <label>समय (Time)</label>
-                        <input type="time" id="p_time" required>
-                    </div>
+                <div class="form-group">
+                    <label>मिति (Preferred Date)</label>
+                    <input type="date" id="p_date" required>
                 </div>
 
                 <div class="action-buttons">
@@ -194,34 +178,51 @@
     </div>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+        
         function setType(btn, val) {
             document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             document.getElementById('visit_type').value = val;
         }
 
-        function updateVenue() {
-            const loc = document.getElementById('locationSelect').value;
-            document.getElementById('bpkmchNotice').style.display = (loc === 'bpkmch') ? 'block' : 'none';
-            document.getElementById('clinicNotice').style.display = (loc === 'clinic') ? 'block' : 'none';
-            document.getElementById('appointmentForm').style.display = (loc === 'clinic') ? 'block' : 'none';
+        function handleTimeSelection() {
+            const time = document.getElementById('timeSelect').value;
+            const bNotice = document.getElementById('bpkmchNotice');
+            const cNotice = document.getElementById('clinicNotice');
+            const form = document.getElementById('appointmentForm');
+
+            if (time === 'Day') {
+                // Day Time -> Cancer Hospital logic
+                bNotice.style.display = 'block';
+                cNotice.style.display = 'none';
+                form.style.display = 'none';
+                document.getElementById('venue_name').value = "BPKMCH (Cancer Hospital)";
+            } else if (time === 'Morning' || time === 'Evening') {
+                // Morning/Evening -> Clinic logic
+                bNotice.style.display = 'none';
+                cNotice.style.display = 'block';
+                form.style.display = 'block';
+                document.getElementById('venue_name').value = "National City Hospital (Clinic)";
+            } else {
+                // Nothing selected
+                bNotice.style.display = 'none';
+                cNotice.style.display = 'none';
+                form.style.display = 'none';
+            }
         }
 
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const type = document.getElementById('visit_type').value;
+            const time = document.getElementById('timeSelect').value;
             const name = document.getElementById('p_name').value;
             const phone = document.getElementById('p_phone').value;
             const address = document.getElementById('p_address').value;
             const date = document.getElementById('p_date').value;
-            const time = document.getElementById('p_time').value;
 
             const wpNumber = "9779855053122";
-            const message = `*APPOINTMENT REQUEST*%0A*Type:* ${type}%0A*Pt Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Date:* ${date}%0A*Time:* ${time}`;
+            const message = `*APPOINTMENT REQUEST*%0A*Venue:* National City Hospital%0A*Shift:* ${time}%0A*Type:* ${type}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A*Date:* ${date}`;
 
             window.open(`https://wa.me/${wpNumber}?text=${message}`, '_blank');
         });
@@ -229,11 +230,11 @@
         function printSlip() {
             const data = {
                 type: document.getElementById('visit_type').value,
+                shift: document.getElementById('timeSelect').value,
                 name: document.getElementById('p_name').value || "N/A",
                 phone: document.getElementById('p_phone').value || "N/A",
                 address: document.getElementById('p_address').value || "N/A",
-                date: document.getElementById('p_date').value || "N/A",
-                time: document.getElementById('p_time').value || "N/A"
+                date: document.getElementById('p_date').value || "N/A"
             };
 
             const win = window.open('', '_blank');
@@ -249,12 +250,12 @@
                 <div class="ticket">
                     <h2>APPOINTMENT SLIP</h2>
                     <p style="text-align:center; font-weight:bold; color:#c0a16b; margin-bottom:15px;">National City Hospital, Bharatpur</p>
+                    <div class="row"><b>Shift:</b> <span>${data.shift}</span></div>
                     <div class="row"><b>Type:</b> <span>${data.type}</span></div>
-                    <div class="row"><b>Pt Name:</b> <span>${data.name}</span></div>
-                    <div class="row"><b>Phone No:</b> <span>${data.phone}</span></div>
+                    <div class="row"><b>Name:</b> <span>${data.name}</span></div>
+                    <div class="row"><b>Phone:</b> <span>${data.phone}</span></div>
                     <div class="row"><b>Address:</b> <span>${data.address}</span></div>
                     <div class="row"><b>Date:</b> <span>${data.date}</span></div>
-                    <div class="row"><b>Time:</b> <span>${data.time}</span></div>
                     <div class="note">SHOW THIS SLIP AT CLINIC RECEPTION</div>
                 </div>
                 <script>window.onload = function() { window.print(); window.close(); };<\/script>
