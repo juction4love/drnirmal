@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3898364439256735" crossorigin="anonymous"></script>
     
     <style>
         :root {
@@ -31,7 +31,7 @@
             font-size: 1.1rem;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
         a { text-decoration: none; transition: 0.3s; color: inherit; }
         
         /* --- HEADER & NAV --- */
@@ -65,11 +65,10 @@
             border-radius: 12px; 
             box-shadow: var(--shadow); 
             border-top: 6px solid var(--primary);
-            text-align: center;
             margin-bottom: 30px;
         }
         
-        .contact-item { margin-bottom: 40px; }
+        .contact-item { margin-bottom: 40px; text-align: center; }
         .icon-circle { 
             width: 70px; height: 70px; 
             background: var(--light-bg); 
@@ -83,6 +82,19 @@
         .contact-item p { color: #555; font-size: 1.15rem; }
         .phone-link { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
 
+        /* Inquiry Form Styling */
+        .inquiry-form { text-align: left; margin-top: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit;
+        }
+        .submit-btn {
+            background: var(--primary); color: white; border: none; padding: 12px 25px; 
+            border-radius: 6px; cursor: pointer; font-weight: 700; width: 100%; font-size: 1.1rem;
+        }
+        .submit-btn:hover { background: var(--primary-dark); }
+
         .reg-box { 
             background: #fdfaf4; 
             padding: 25px; 
@@ -90,17 +102,10 @@
             border: 1px solid #eee; 
             margin-top: 40px; 
         }
-        .reg-box h4 { color: var(--text-dark); margin-bottom: 10px; font-family: 'Mukta', sans-serif; font-weight: 700; }
-        .reg-box p { font-size: 1rem; color: #666; margin: 5px 0; }
-
-        .map-placeholder {
-            margin-top: 30px;
-            padding: 20px;
-            background: #eee;
-            border-radius: 12px;
-            color: #777;
-            font-size: 0.9rem;
-        }
+        
+        .faq-section { margin-top: 50px; }
+        .faq-item { background: var(--white); padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .faq-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
 
         /* --- FOOTER --- */
         footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: 60px; }
@@ -132,42 +137,65 @@
     </header>
 
     <section class="hero">
-        <h2>सम्पर्क विवरण</h2>
-        <p>हामीसँग परामर्श र उपचारका लागि तलका माध्यमबाट सम्पर्क गर्न सक्नुहुन्छ</p>
+        <h2>सम्पर्क र परामर्श</h2>
+        <p>स्वास्थ्य सम्बन्धी सल्लाह र उपचारका लागि हामीलाई सम्पर्क गर्नुहोस्</p>
     </section>
 
     <main class="container">
         
         <div class="contact-card">
-            
             <div class="contact-item">
                 <div class="icon-circle"><i class="fas fa-hospital"></i></div>
-                <h3>नेशनल सिटी हस्पिटल</h3>
+                <h3>मुख्य कार्यलय (National City Hospital)</h3>
                 <p>हस्पिटल रोड, भरतपुर-१०, चितवन, नेपाल</p>
                 <a href="tel:056493511" class="phone-link"><i class="fas fa-phone-alt"></i> ०५६-४९३५११</a>
-                <p style="margin-top: 5px; font-weight: 600; color: var(--accent);">समय: २४सै घण्टा खुल्ला</p>
+                <p style="margin-top: 5px; font-weight: 600; color: var(--accent);">समय: २४सै घण्टा सेवा उपलब्ध</p>
+            </div>
+
+            <div style="border-radius: 12px; overflow: hidden; margin: 30px 0; border: 1px solid #eee;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.0039744434235!2d84.4312!3d27.6749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb3698045621%3A0x67399220059f345!2sNational%20City%20Hospital!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
             <hr style="width: 50%; margin: 40px auto; border: 0; border-top: 1px solid #eee;">
 
-            <div class="contact-item">
-                <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-                <h3>बी.पी. कोइराला मेमोरियल क्यान्सर अस्पताल</h3>
-                <p>सर्जिकल अंकोलोजी विभाग (Department of Surgical Oncology)</p>
-                <p>पोष्ट बक्स नं: ३४, भरतपुर नगरपालिका, चितवन</p>
-                <p>भरतपुर, चितवन, नेपाल</p>
+            <div class="inquiry-form">
+                <h3 style="text-align: center; margin-bottom: 25px;"><i class="fas fa-paper-plane"></i> अनलाइन सोधपुछ</h3>
+                <form action="#">
+                    <div class="form-group">
+                        <label>पूरा नाम *</label>
+                        <input type="text" placeholder="तपाईंको नाम लेख्नुहोस्" required>
+                    </div>
+                    <div class="form-group">
+                        <label>फोन नम्बर *</label>
+                        <input type="tel" placeholder="तपाईंको मोबाइल नम्बर" required>
+                    </div>
+                    <div class="form-group">
+                        <label>सोधपुछ वा समस्याको विवरण</label>
+                        <textarea rows="4" placeholder="आफ्नो जिज्ञासा यहाँ लेख्नुहोस्..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">सन्देश पठाउनुहोस्</button>
+                </form>
             </div>
+        </div>
 
-            <div class="reg-box">
-                <h4><i class="fas fa-id-card"></i> मेडिकल काउन्सिल दर्ता विवरण</h4>
-                <p>नेपाल मेडिकल काउन्सिल (NMC): <strong>३२६१</strong></p>
-                <p>जनरल मेडिकल काउन्सिल, बेलायत (GMC UK): <strong>७०५९७५२</strong></p>
+        <div class="faq-section">
+            <h3 style="margin-bottom: 20px;">बारम्बार सोधिने प्रश्नहरू (FAQ)</h3>
+            <div class="faq-item">
+                <h4>१. डा. निर्मल लामिछानेलाई कहिले भेट्न सकिन्छ?</h4>
+                <p>डा. लामिछाने नेशनल सिटी हस्पिटलमा नियमित रूपमा उपलब्ध हुनुहुन्छ। विस्तृत समयका लागि माथि दिइएको नम्बरमा फोन गरी बुझ्न सकिन्छ।</p>
             </div>
-
-            <div class="map-placeholder">
-                <i class="fas fa-info-circle"></i> भरतपुर क्षेत्रका प्रमुख अस्पतालहरूमा डा. निर्मल लामिछाने उपलब्ध हुनुहुन्छ। थप जानकारीका लागि अस्पतालको रिसेप्सनमा सम्पर्क गर्नुहोला।
+            <div class="faq-item">
+                <h4>२. के अनलाइनबाट अपोइन्टमेन्ट लिन सकिन्छ?</h4>
+                <p>हो, तपाईंले हाम्रो 'अपोइन्टमेन्ट' पेजमा गएर वा सोधपुछ फारम भरेर आफ्नो पालो सुरक्षित गर्न सक्नुहुन्छ।</p>
             </div>
+        </div>
 
+        <div class="reg-box">
+            <h4><i class="fas fa-id-card"></i> आधिकारिक दर्ता नम्बरहरू</h4>
+            <p>नेपाल मेडिकल काउन्सिल (NMC): <strong>३२६१</strong></p>
+            <p>GMC UK: <strong>७०५९७५२</strong></p>
         </div>
 
     </main>
@@ -175,6 +203,10 @@
     <footer>
         <p>&copy; २०२६ डा. निर्मल लामिछाने। सर्वाधिकार सुरक्षित।</p>
         <p>भरतपुर, चितवन, नेपाल</p>
+        <div style="margin-top: 15px;">
+            <a href="privacy-policy.html" style="margin: 0 10px; font-size: 0.9rem;">Privacy Policy</a> | 
+            <a href="terms-of-use.html" style="margin: 0 10px; font-size: 0.9rem;">Terms of Use</a>
+        </div>
     </footer>
 
 </body>
