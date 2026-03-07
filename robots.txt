@@ -36,14 +36,18 @@ Disallow: /
 User-agent: Mediapartners-Google
 Allow: /
 
-# --- SECTION 3: General Access & Security ---
-# (Applies to Google Search, Bing, and all other standard bots)
+# --- SECTION 3: General Access & Search Engines ---
+# (Ensures Google and Bing can see your high-value pages)
 User-agent: *
 Allow: /
+Allow: /blog.html
+Allow: /links.html
 Disallow: /admin/
 Disallow: /login/
 Disallow: /private/
 Disallow: /tmp/
+Disallow: /config/
 
 # --- SECTION 4: Sitemap ---
+# (Directs bots to your updated sitemap for faster indexing)
 Sitemap: https://www.drnirmal.com.np/sitemap.xml
