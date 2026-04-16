@@ -1,0 +1,9 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stylized N / Medical Cross Icon -->
+  <rect x="10" y="20" width="60" height="60" rx="12" fill="#1e40af" />
+  <path d="M40 35V65M25 50H55" stroke="white" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Text Part -->
+  <text x="85" y="55" font-family="Inter, sans-serif" font-size="32" font-weight="700" fill="#0f172a">Dr. Nirmal</text>
+  <text x="85" y="80" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#64748b" letter-spacing="1">SURGICAL ONCOLOGY</text>
+</svg>

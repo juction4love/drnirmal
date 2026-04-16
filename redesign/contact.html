@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Dr. Nirmal Lamichhane</title>
+    <meta name="description" content="Dr. Nirmal - Surgical Oncology Specialist in Nepal">
+    <meta name="keywords" content="urology, cancer surgeon, neobladder reconstruction, Nepal doctor">
+    <meta property="og:title" content="Dr. Nirmal - Surgical Oncology">
+    <meta property="og:image" content="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="Dr. Nirmal Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" style="color: var(--primary);">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="section" style="padding-top: 140px; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h1>Get in Touch</h1>
+                <p>Professional surgical consultation across leading medical centers in Bharatpur.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="contact-form">
+                    <div class="appointment-form">
+                        <form id="contactForm" action="#" method="POST">
+                            <!-- Honeypot Field (Spam Protection) -->
+                            <div style="display:none;">
+                                <label>Do not fill this if you are human</label>
+                                <input type="text" name="honeypot" value="">
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" name="name" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" name="phone" placeholder="98XXXXXXXX" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" required>
+                                </div>
+                                <div class="form-group full">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email" placeholder="Enter your email" required>
+                                </div>
+                                <div class="form-group full">
+                                    <label>Select Hospital</label>
+                                    <select name="hospital" required>
+                                        <option value="">-- Choose Hospital --</option>
+                                        <option value="BPKMCH">BPKMCH (Cancer Hospital)</option>
+                                        <option value="National City">National City Hospital</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full">
+                                    <label>Message / Clinical Summary</label>
+                                    <textarea name="message" rows="4" placeholder="Briefly describe the condition" required minlength="10"></textarea>
+                                </div>
+                                <div class="form-group full">
+                                    <button type="submit" class="btn btn-primary" style="width: 100%;">Securely Submit Request</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3>Clinical Practice</h3>
+                        <p><strong>National City Hospital</strong></p>
+                        <p>हस्पिटल रोड, भरतपुर-१०, चितवन, नेपाल</p>
+                        <p style="margin-top: 10px; color: var(--primary);">Phone: 056-493511</p>
+                    </div>
+                    <div class="map-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.0039744434235!2d84.4312!3d27.6749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQwJzI5LjYiTiA4NMKwMjUnNTIuMyJF!5e0!3m2!1sen!2snp!4v1630000000000!5m2!1sen!2snp" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dr. Nirmal Lamichhane | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA Bar -->
+    <div class="mobile-cta-bar">
+        <a href="tel:056-493511" class="mobile-cta-btn cta-call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Call Now
+        </a>
+        <a href="contact.html" class="mobile-cta-btn cta-book">
+            Book Appointment
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
