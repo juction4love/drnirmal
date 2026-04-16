@@ -5,6 +5,8 @@ import 'appointment_booking_screen.dart' ;
 import 'my_health_records_screen.dart' ;
 import 'ai_chat_screen.dart'; // Import for navigation
 import 'anxiety_tracker_screen.dart';
+import 'experience_screen.dart';
+import '../../core/utils.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -29,7 +31,7 @@ class HomeScreen extends StatelessWidget {
 
           // About our Medical expertise
           const SectionTitle(title: AppConstants.sectionServices),
-          _buildServicesGrid(),
+          _buildServicesGrid(context),
           
           const SizedBox(height: 30),
         ],
@@ -140,27 +142,31 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildSupportBanner() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [Color(0xFF003D80), Color(0xFF0056B3)]),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Need Emergency Support?", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
-          Text(AppConstants.emergencyLine, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900)),
-          SizedBox(height: 8),
-          Text(AppConstants.followUpSupport, style: TextStyle(color: Colors.white70, fontSize: 12)),
-        ],
+    return InkWell(
+      onTap: () => AppUtils.launchURL("tel:056524501"), // Direct trigger for health emergency
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(colors: [Color(0xFF003D80), Color(0xFF0056B3)]),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Need Emergency Support?", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            SizedBox(height: 4),
+            Text(AppConstants.emergencyLine, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900)),
+            SizedBox(height: 8),
+            Text(AppConstants.followUpSupport, style: TextStyle(color: Colors.white70, fontSize: 12)),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildServicesGrid() {
+  Widget _buildServicesGrid(BuildContext context) {
     return Column(
       children: AppConstants.mainServices.map((s) => Card(
         margin: const EdgeInsets.only(bottom: 12),
@@ -170,7 +176,13 @@ class HomeScreen extends StatelessWidget {
           leading: const Icon(Icons.check_circle_outline, color: Color(0xFF003D80)),
           title: Text(s, style: const TextStyle(fontWeight: FontWeight.w600)),
           trailing: const Icon(Icons.arrow_forward_ios, size: 14),
-          onTap: () {},
+          onTap: () {
+            // Service click navigates to info screen [cite: 2026-03-30]
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold(
+              appBar: AppBar(title: Text(s)),
+              body: const ExperienceScreen(),
+            )));
+          },
         ),
       )).toList(),
     );

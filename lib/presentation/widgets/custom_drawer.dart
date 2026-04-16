@@ -3,6 +3,8 @@ import '../../core/constants.dart';
 import '../../core/utils.dart';
 import '../../core/services/auth_service.dart';
 import '../screens/doctor_dashboard_screen.dart';
+import '../screens/experience_screen.dart';
+import '../screens/my_health_records_screen.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -77,12 +79,25 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   child: Text("Patient Services", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 11)),
                 ),
                 _buildDrawerItem(Icons.calendar_month, AppConstants.actionBook, () => AppUtils.launchURL(AppConstants.appointmentLink)),
-                _buildDrawerItem(Icons.folder_shared_outlined, AppConstants.actionRecords, () {}),
-                _buildDrawerItem(Icons.receipt_long, AppConstants.actionPrescriptions, () {}),
+                _buildDrawerItem(Icons.folder_shared_outlined, AppConstants.actionRecords, () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHealthRecordsScreen(showOnlyPrescriptions: false)));
+                }),
+                _buildDrawerItem(Icons.receipt_long, AppConstants.actionPrescriptions, () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHealthRecordsScreen(showOnlyPrescriptions: true)));
+                }),
                 
                 const Divider(),
                 _buildDrawerItem(Icons.privacy_tip_outlined, "Privacy Policy", () => AppUtils.launchURL(AppConstants.privacyPolicy)),
-                _buildDrawerItem(Icons.info_outline, "About Digital Healthcare", () {}),
+                _buildDrawerItem(Icons.info_outline, "About Digital Healthcare", () {
+                  Navigator.pop(context);
+                  // Pushing a Scaffold wrapped ExperienceScreen for standalone navigation
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold(
+                    appBar: AppBar(title: const Text("About Care & Expertise")),
+                    body: const ExperienceScreen(),
+                  )));
+                }),
                 
                 const Divider(),
                 _buildDrawerItem(Icons.logout, "Logout System", _handleLogout, color: Colors.red),

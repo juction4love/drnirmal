@@ -43,6 +43,7 @@ flutter:
   # Ensure assets folder has logo.png
   assets:
     - assets/logo.png
+    - assets/adi-registration.properties
     # If you have a specific background for drawer, add it here
     # - assets/drawer_bg.png
 

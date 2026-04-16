@@ -48,5 +48,5 @@ class AppConstants {
 
   // --- App Info ---
   static const String appVersion = "1.0.0 (Dr-Patient Edition)";
-  static const String privacyPolicy = "https://www.drnirmal.com.np/privacy";
+  static const String privacyPolicy = "https://www.drnirmal.com.np/privacy-policy.html";
 }
