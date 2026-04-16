@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सम्पर्क विवरण | डा. निर्मल लामिछाने - वरिष्ठ कन्सल्टेन्ट सर्जन</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3898364439256735" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary: #004085;      /* Deep Medical Blue */
+            --primary-dark: #002752; /* Navy */
+            --accent: #c0a16b;       /* Gold */
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Mukta', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        
+        /* --- HEADER & NAV --- */
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        
+        .brand h1 { font-size: 1.4rem; margin: 0; line-height: 1.2; color: var(--primary); }
+        .brand span { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { color: #555; font-weight: 600; font-size: 0.95rem; }
+        .nav-menu a:hover { color: var(--primary); }
+        .nav-menu a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(rgba(0, 64, 133, 0.9), rgba(0, 39, 82, 0.95));
+            color: var(--white); 
+            padding: 60px 20px; 
+            text-align: center;
+        }
+        .hero h2 { color: var(--white); font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* --- CONTENT SECTION --- */
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        
+        .contact-card { 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow); 
+            border-top: 6px solid var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .contact-item { margin-bottom: 40px; text-align: center; }
+        .icon-circle { 
+            width: 70px; height: 70px; 
+            background: var(--light-bg); 
+            color: var(--accent); 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 50%; margin: 0 auto 20px; 
+            font-size: 2rem; 
+        }
+
+        .contact-item h3 { margin-bottom: 10px; font-size: 1.5rem; }
+        .contact-item p { color: #555; font-size: 1.15rem; }
+        .phone-link { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+
+        /* Inquiry Form Styling */
+        .inquiry-form { text-align: left; margin-top: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit;
+        }
+        .submit-btn {
+            background: var(--primary); color: white; border: none; padding: 12px 25px; 
+            border-radius: 6px; cursor: pointer; font-weight: 700; width: 100%; font-size: 1.1rem;
+        }
+        .submit-btn:hover { background: var(--primary-dark); }
+
+        .reg-box { 
+            background: #fdfaf4; 
+            padding: 25px; 
+            border-radius: 8px; 
+            border: 1px solid #eee; 
+            margin-top: 40px; 
+        }
+        
+        .faq-section { margin-top: 50px; }
+        .faq-item { background: var(--white); padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .faq-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
+
+        /* --- FOOTER --- */
+        footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; text-align: center; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h2 { font-size: 1.8rem; }
+            .contact-card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="brand">
+                <h1>डा. निर्मल लामिछाने</h1>
+                <span>वरिष्ठ कन्सल्टेन्ट सर्जन</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">गृहपृष्ठ</a>
+                <a href="about.html">बारेमा</a>
+                <a href="services.html">सेवाहरू</a>
+                <a href="appointment.html">अपोइन्टमेन्ट</a>
+                <a href="links.html">लिङ्कहरू</a>
+                <a href="contact.html" class="active">सम्पर्क</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>सम्पर्क र परामर्श</h2>
+        <p>स्वास्थ्य सम्बन्धी सल्लाह र उपचारका लागि हामीलाई सम्पर्क गर्नुहोस्</p>
+    </section>
+
+    <main class="container">
+        
+        <div class="contact-card">
+            <div class="contact-item">
+                <div class="icon-circle"><i class="fas fa-hospital"></i></div>
+                <h3>मुख्य कार्यलय (National City Hospital)</h3>
+                <p>हस्पिटल रोड, भरतपुर-१०, चितवन, नेपाल</p>
+                <a href="tel:056493511" class="phone-link"><i class="fas fa-phone-alt"></i> ०५६-४९३५११</a>
+                <p style="margin-top: 5px; font-weight: 600; color: var(--accent);">समय: २४सै घण्टा सेवा उपलब्ध</p>
+            </div>
+
+            <div style="border-radius: 12px; overflow: hidden; margin: 30px 0; border: 1px solid #eee;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.0039744434235!2d84.4312!3d27.6749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb3698045621%3A0x67399220059f345!2sNational%20City%20Hospital!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <hr style="width: 50%; margin: 40px auto; border: 0; border-top: 1px solid #eee;">
+
+            <div class="inquiry-form">
+                <h3 style="text-align: center; margin-bottom: 25px;"><i class="fas fa-paper-plane"></i> अनलाइन सोधपुछ</h3>
+                <form action="#">
+                    <div class="form-group">
+                        <label>पूरा नाम *</label>
+                        <input type="text" placeholder="तपाईंको नाम लेख्नुहोस्" required>
+                    </div>
+                    <div class="form-group">
+                        <label>फोन नम्बर *</label>
+                        <input type="tel" placeholder="तपाईंको मोबाइल नम्बर" required>
+                    </div>
+                    <div class="form-group">
+                        <label>सोधपुछ वा समस्याको विवरण</label>
+                        <textarea rows="4" placeholder="आफ्नो जिज्ञासा यहाँ लेख्नुहोस्..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">सन्देश पठाउनुहोस्</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3 style="margin-bottom: 20px;">बारम्बार सोधिने प्रश्नहरू (FAQ)</h3>
+            <div class="faq-item">
+                <h4>१. डा. निर्मल लामिछानेलाई कहिले भेट्न सकिन्छ?</h4>
+                <p>डा. लामिछाने नेशनल सिटी हस्पिटलमा नियमित रूपमा उपलब्ध हुनुहुन्छ। विस्तृत समयका लागि माथि दिइएको नम्बरमा फोन गरी बुझ्न सकिन्छ।</p>
+            </div>
+            <div class="faq-item">
+                <h4>२. के अनलाइनबाट अपोइन्टमेन्ट लिन सकिन्छ?</h4>
+                <p>हो, तपाईंले हाम्रो 'अपोइन्टमेन्ट' पेजमा गएर वा सोधपुछ फारम भरेर आफ्नो पालो सुरक्षित गर्न सक्नुहुन्छ।</p>
+            </div>
+        </div>
+
+        <div class="reg-box">
+            <h4><i class="fas fa-id-card"></i> आधिकारिक दर्ता नम्बरहरू</h4>
+            <p>नेपाल मेडिकल काउन्सिल (NMC): <strong>३२६१</strong></p>
+            <p>GMC UK: <strong>७०५९७५२</strong></p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; २०२६ डा. निर्मल लामिछाने। सर्वाधिकार सुरक्षित।</p>
+        <p>भरतपुर, चितवन, नेपाल</p>
+        <div style="margin-top: 15px;">
+            <a href="privacy-policy.html" style="margin: 0 10px; font-size: 0.9rem;">Privacy Policy</a> | 
+            <a href="terms-of-use.html" style="margin: 0 10px; font-size: 0.9rem;">Terms of Use</a>
+        </div>
+    </footer>
+
+</body>
+</html>
